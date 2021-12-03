@@ -3807,7 +3807,7 @@ class GsData {
       },
     },
     {
-      'name': '视作古华',
+      'name': '试做古华',
       'weapon_id': 23,
       'type': WeaponTypes.Claymore,
       'rarity': Rarity.Star4,
@@ -5839,6 +5839,500 @@ class GsData {
       },
       'specialEffectComent': '',
       'specialEffectDamageType': {},
+    },
+    {
+      'name': '万国诸海图谱',
+      'weapon_id': 77,
+      'type': WeaponTypes.Catalyst,
+      'rarity': Rarity.Star4,
+      'baseAttack': 565.0,
+      'subStat': Stats.Mastery,
+      'subStatValue': 110.0,
+      'specialEffect': {
+        Refine.Refine1: {
+          Stats.DmgBonus: 16.0,
+        },
+        Refine.Refine2: {
+          Stats.DmgBonus: 20.0,
+        },
+        Refine.Refine3: {
+          Stats.DmgBonus: 24.0,
+        },
+        Refine.Refine4: {
+          Stats.DmgBonus: 28.0,
+        },
+        Refine.Refine5: {
+          Stats.DmgBonus: 32.0,
+        },
+      },
+      'specialEffectComent': '触发元素反应后的10秒内叠1层，最多2层',
+      'specialEffectDamageType': {
+        Stats.DmgBonus: [
+          DamageType.Normal,
+          DamageType.Charged,
+          DamageType.Plunging,
+          DamageType.SkillE,
+          DamageType.SkillQ,
+        ],
+      },
+    },
+    {
+      'name': '试做金珀',
+      'weapon_id': 78,
+      'type': WeaponTypes.Catalyst,
+      'rarity': Rarity.Star4,
+      'baseAttack': 510.0,
+      'subStat': Stats.HpBonus,
+      'subStatValue': 41.3,
+      'specialEffect': {
+        Refine.Refine1: {},
+        Refine.Refine2: {},
+        Refine.Refine3: {},
+        Refine.Refine4: {},
+        Refine.Refine5: {},
+      },
+      'specialEffectComent': '',
+      'specialEffectDamageType': {},
+    },
+    {
+      'name': '宗室秘法录',
+      'weapon_id': 79,
+      'type': WeaponTypes.Catalyst,
+      'rarity': Rarity.Star4,
+      'baseAttack': 565.0,
+      'subStat': Stats.AttackBonus,
+      'subStatValue': 27.6,
+      'specialEffect': {
+        Refine.Refine1: {
+          Stats.CritRate: 40.0,
+        },
+        Refine.Refine2: {
+          Stats.CritRate: 50.0,
+        },
+        Refine.Refine3: {
+          Stats.CritRate: 60.0,
+        },
+        Refine.Refine4: {
+          Stats.CritRate: 70.0,
+        },
+        Refine.Refine5: {
+          Stats.CritRate: 80.0,
+        },
+      },
+      'specialEffectComent': '攻击造成伤害后叠一层，最多5层，造成暴击后移除',
+      'specialEffectDamageType': {
+        Stats.CritRate: [
+          DamageType.Normal,
+          DamageType.Charged,
+          DamageType.Plunging,
+          DamageType.SkillE,
+          DamageType.SkillQ,
+        ],
+      },
+    },
+    {
+      'name': '祭礼残章',
+      'weapon_id': 80,
+      'type': WeaponTypes.Catalyst,
+      'rarity': Rarity.Star4,
+      'baseAttack': 454.0,
+      'subStat': Stats.Mastery,
+      'subStatValue': 221.0,
+      'specialEffect': {
+        Refine.Refine1: {},
+        Refine.Refine2: {},
+        Refine.Refine3: {},
+        Refine.Refine4: {},
+        Refine.Refine5: {},
+      },
+      'specialEffectComent': '',
+      'specialEffectDamageType': {},
+    },
+    {
+      'name': '匣里日月',
+      'weapon_id': 81,
+      'type': WeaponTypes.Catalyst,
+      'rarity': Rarity.Star4,
+      'baseAttack': 510.0,
+      'subStat': Stats.CritRate,
+      'subStatValue': 27.6,
+      'specialEffect': {
+        Refine.Refine1: {
+          Stats.DmgBonus: 20.0,
+          Stats.PhyDmgBonus: 20.0,
+        },
+        Refine.Refine2: {
+          Stats.DmgBonus: 25.0,
+          Stats.PhyDmgBonus: 25.0,
+        },
+        Refine.Refine3: {
+          Stats.DmgBonus: 30.0,
+          Stats.PhyDmgBonus: 30.0,
+        },
+        Refine.Refine4: {
+          Stats.DmgBonus: 35.0,
+          Stats.PhyDmgBonus: 35.0,
+        },
+        Refine.Refine5: {
+          Stats.DmgBonus: 40.0,
+          Stats.PhyDmgBonus: 40.0,
+        },
+      },
+      'specialEffectComent': '普通攻击命中后，元素战技与元素爆发伤害提高，元素战技与元素爆发命中后，普通攻击伤害提高',
+      'specialEffectDamageType': {
+        Stats.DmgBonus: [
+          DamageType.Normal,
+          DamageType.SkillE,
+          DamageType.SkillQ,
+        ],
+        Stats.PhyDmgBonus: [
+          DamageType.Normal,
+          DamageType.SkillE,
+          DamageType.SkillQ,
+        ],
+      },
+    },
+    {
+      'name': '流浪乐章',
+      'weapon_id': 82,
+      'type': WeaponTypes.Catalyst,
+      'rarity': Rarity.Star4,
+      'baseAttack': 510.0,
+      'subStat': Stats.CritDmg,
+      'subStatValue': 55.1,
+      'specialEffect': {
+        Refine.Refine1: {},
+        Refine.Refine2: {},
+        Refine.Refine3: {},
+        Refine.Refine4: {},
+        Refine.Refine5: {},
+      },
+      'specialEffectComent': '',
+      'specialEffectDamageType': {},
+    },
+    {
+      'name': '暗巷的酒与诗',
+      'weapon_id': 83,
+      'type': WeaponTypes.Catalyst,
+      'rarity': Rarity.Star4,
+      'baseAttack': 565.0,
+      'subStat': Stats.Recharge,
+      'subStatValue': 30.6,
+      'specialEffect': {
+        Refine.Refine1: {
+          Stats.AttackBonus: 20.0,
+        },
+        Refine.Refine2: {
+          Stats.AttackBonus: 25.0,
+        },
+        Refine.Refine3: {
+          Stats.AttackBonus: 30.0,
+        },
+        Refine.Refine4: {
+          Stats.AttackBonus: 35.0,
+        },
+        Refine.Refine5: {
+          Stats.AttackBonus: 40.0,
+        },
+      },
+      'specialEffectComent': '冲刺后攻击力提升',
+      'specialEffectDamageType': {
+        Stats.AttackBonus: [
+          DamageType.Normal,
+          DamageType.Charged,
+          DamageType.Plunging,
+          DamageType.SkillE,
+          DamageType.SkillQ,
+        ],
+      },
+    },
+    {
+      'name': '昭心',
+      'weapon_id': 84,
+      'type': WeaponTypes.Catalyst,
+      'rarity': Rarity.Star4,
+      'baseAttack': 510.0,
+      'subStat': Stats.AttackBonus,
+      'subStatValue': 41.3,
+      'specialEffect': {
+        Refine.Refine1: {},
+        Refine.Refine2: {},
+        Refine.Refine3: {},
+        Refine.Refine4: {},
+        Refine.Refine5: {},
+      },
+      'specialEffectComent': '',
+      'specialEffectDamageType': {},
+    },
+    {
+      'name': '忍冬之果',
+      'weapon_id': 85,
+      'type': WeaponTypes.Catalyst,
+      'rarity': Rarity.Star4,
+      'baseAttack': 454.0,
+      'subStat': Stats.AttackBonus,
+      'subStatValue': 55.1,
+      'specialEffect': {
+        Refine.Refine1: {},
+        Refine.Refine2: {},
+        Refine.Refine3: {},
+        Refine.Refine4: {},
+        Refine.Refine5: {},
+      },
+      'specialEffectComent': '',
+      'specialEffectDamageType': {},
+    },
+    {
+      'name': '嘟嘟可故事集',
+      'weapon_id': 86,
+      'type': WeaponTypes.Catalyst,
+      'rarity': Rarity.Star4,
+      'baseAttack': 454.0,
+      'subStat': Stats.AttackBonus,
+      'subStatValue': 55.1,
+      'specialEffect': {
+        Refine.Refine1: {
+          Stats.AttackBonus: 8.0,
+          Stats.DmgBonus: 16.0,
+          Stats.PhyDmgBonus: 16.0,
+        },
+        Refine.Refine2: {
+          Stats.AttackBonus: 10.0,
+          Stats.DmgBonus: 20.0,
+          Stats.PhyDmgBonus: 20.0,
+        },
+        Refine.Refine3: {
+          Stats.AttackBonus: 12.0,
+          Stats.DmgBonus: 24.0,
+          Stats.PhyDmgBonus: 24.0,
+        },
+        Refine.Refine4: {
+          Stats.AttackBonus: 14.0,
+          Stats.DmgBonus: 28.0,
+          Stats.PhyDmgBonus: 28.0,
+        },
+        Refine.Refine5: {
+          Stats.AttackBonus: 16.0,
+          Stats.DmgBonus: 32.0,
+          Stats.PhyDmgBonus: 32.0,
+        },
+      },
+      'specialEffectComent': '普通攻击命中后重击伤害提升，重击命中后攻击力提升',
+      'specialEffectDamageType': {
+        Stats.AttackBonus: [
+          DamageType.Normal,
+          DamageType.Charged,
+          DamageType.Plunging,
+          DamageType.SkillE,
+          DamageType.SkillQ,
+        ],
+        Stats.DmgBonus: [
+          DamageType.Charged,
+        ],
+        Stats.PhyDmgBonus: [
+          DamageType.Charged,
+        ],
+      },
+    },
+    {
+      'name': '白辰之环',
+      'weapon_id': 87,
+      'type': WeaponTypes.Catalyst,
+      'rarity': Rarity.Star4,
+      'baseAttack': 565.0,
+      'subStat': Stats.Recharge,
+      'subStatValue': 30.6,
+      'specialEffect': {
+        Refine.Refine1: {
+          Stats.DmgBonus: 10.0,
+        },
+        Refine.Refine2: {
+          Stats.DmgBonus: 12.5,
+        },
+        Refine.Refine3: {
+          Stats.DmgBonus: 15.0,
+        },
+        Refine.Refine4: {
+          Stats.DmgBonus: 17.5,
+        },
+        Refine.Refine5: {
+          Stats.DmgBonus: 20.0,
+        },
+      },
+      'specialEffectComent': '触发雷元素相关反应后，增加相应类型元素伤害',
+      'specialEffectDamageType': {
+        Stats.DmgBonus: [
+          DamageType.Normal,
+          DamageType.Charged,
+          DamageType.Plunging,
+          DamageType.SkillE,
+          DamageType.SkillQ,
+        ],
+      },
+    },
+    {
+      'name': '四风原典',
+      'weapon_id': 88,
+      'type': WeaponTypes.Catalyst,
+      'rarity': Rarity.Star5,
+      'baseAttack': 608.0,
+      'subStat': Stats.CritRate,
+      'subStatValue': 33.1,
+      'specialEffect': {
+        Refine.Refine1: {
+          Stats.DmgBonus: 32.0,
+        },
+        Refine.Refine2: {
+          Stats.DmgBonus: 40.0,
+        },
+        Refine.Refine3: {
+          Stats.DmgBonus: 48.0,
+        },
+        Refine.Refine4: {
+          Stats.DmgBonus: 56.0,
+        },
+        Refine.Refine5: {
+          Stats.DmgBonus: 64.0,
+        },
+      },
+      'specialEffectComent': '在场上每4秒获得1层，最多4层',
+      'specialEffectDamageType': {
+        Stats.DmgBonus: [
+          DamageType.Normal,
+          DamageType.Charged,
+          DamageType.Plunging,
+          DamageType.SkillE,
+          DamageType.SkillQ,
+        ],
+      },
+    },
+    {
+      'name': '天空之卷',
+      'weapon_id': 89,
+      'type': WeaponTypes.Catalyst,
+      'rarity': Rarity.Star5,
+      'baseAttack': 674.0,
+      'subStat': Stats.AttackBonus,
+      'subStatValue': 33.1,
+      'specialEffect': {
+        Refine.Refine1: {
+          Stats.DmgBonus: 12.0,
+        },
+        Refine.Refine2: {
+          Stats.DmgBonus: 15.0,
+        },
+        Refine.Refine3: {
+          Stats.DmgBonus: 18.0,
+        },
+        Refine.Refine4: {
+          Stats.DmgBonus: 21.0,
+        },
+        Refine.Refine5: {
+          Stats.DmgBonus: 24.0,
+        },
+      },
+      'specialEffectComent': '元素伤害加成',
+      'specialEffectDamageType': {
+        Stats.DmgBonus: [
+          DamageType.Normal,
+          DamageType.Charged,
+          DamageType.Plunging,
+          DamageType.SkillE,
+          DamageType.SkillQ,
+        ],
+      },
+    },
+    {
+      'name': '尘世之锁',
+      'weapon_id': 90,
+      'type': WeaponTypes.Catalyst,
+      'rarity': Rarity.Star5,
+      'baseAttack': 608.0,
+      'subStat': Stats.AttackBonus,
+      'subStatValue': 49.6,
+      'specialEffect': {
+        Refine.Refine1: {
+          Stats.AttackBonus: 40.0,
+          Stats.ShieldStrength: 20.0,
+        },
+        Refine.Refine2: {
+          Stats.AttackBonus: 50.0,
+          Stats.ShieldStrength: 25.0,
+        },
+        Refine.Refine3: {
+          Stats.AttackBonus: 60.0,
+          Stats.ShieldStrength: 30.0,
+        },
+        Refine.Refine4: {
+          Stats.AttackBonus: 70.0,
+          Stats.ShieldStrength: 35.0,
+        },
+        Refine.Refine5: {
+          Stats.AttackBonus: 80.0,
+          Stats.ShieldStrength: 40.0,
+        },
+      },
+      'specialEffectComent': '攻击命中后叠1层，最多5层，每0.3秒触发一次，处于护盾庇护下时效果翻倍',
+      'specialEffectDamageType': {
+        Stats.AttackBonus: [
+          DamageType.Normal,
+          DamageType.Charged,
+          DamageType.Plunging,
+          DamageType.SkillE,
+          DamageType.SkillQ,
+        ],
+        Stats.ShieldStrength: [
+          DamageType.Normal,
+          DamageType.Charged,
+          DamageType.Plunging,
+          DamageType.SkillE,
+          DamageType.SkillQ,
+        ],
+      },
+    },
+    {
+      'name': '不灭月华',
+      'weapon_id': 91,
+      'type': WeaponTypes.Catalyst,
+      'rarity': Rarity.Star5,
+      'baseAttack': 608.0,
+      'subStat': Stats.HpBonus,
+      'subStatValue': 49.6,
+      'specialEffect': {
+        Refine.Refine1: {
+          Stats.HealingBonus: 10.0,
+          Stats.ExtraDamageByHp: 1.0,
+        },
+        Refine.Refine2: {
+          Stats.HealingBonus: 12.5,
+          Stats.ExtraDamageByHp: 1.5,
+        },
+        Refine.Refine3: {
+          Stats.HealingBonus: 15.0,
+          Stats.ExtraDamageByHp: 2.0,
+        },
+        Refine.Refine4: {
+          Stats.HealingBonus: 17.5,
+          Stats.ExtraDamageByHp: 2.5,
+        },
+        Refine.Refine5: {
+          Stats.HealingBonus: 20.0,
+          Stats.ExtraDamageByHp: 3.0,
+        },
+      },
+      'specialEffectComent': '治疗效果提升，普通攻击造成伤害增加，基于生命值上限',
+      'specialEffectDamageType': {
+        Stats.HealingBonus: [
+          DamageType.Normal,
+          DamageType.Charged,
+          DamageType.Plunging,
+          DamageType.SkillE,
+          DamageType.SkillQ,
+        ],
+        Stats.ExtraDamageByHp: [
+          DamageType.Normal,
+        ],
+      },
     },
   ];
   static const _STATS_NAME = {
