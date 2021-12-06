@@ -15,18 +15,23 @@ class MyCharacterEditPage extends StatefulWidget {
 }
 
 class _MyCharacterEditPage extends State<MyCharacterEditPage> {
-  final MyCharacter _character = MyCharacter();
+  Map<String, Object> _character = null;
+
+  final MyCharacter _myCharacter = MyCharacter();
 
   final TextEditingController _characterInputController =
       TextEditingController();
   final TextEditingController _levelInputController = TextEditingController();
+  final TextEditingController _nickNameInputController =
+      TextEditingController();
   final TextEditingController _artifactSandsInputController =
       TextEditingController();
   final TextEditingController _artifactGobletInputController =
       TextEditingController();
   final TextEditingController _artifactCircletInputController =
       TextEditingController();
-  final TextEditingController _baseAttackInputController =
+  final TextEditingController _weaponInputController = TextEditingController();
+  final TextEditingController _refineLevelInputController =
       TextEditingController();
   final TextEditingController _artifactHpInputController =
       TextEditingController();
@@ -42,6 +47,12 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
       TextEditingController();
   final TextEditingController _artifactRechargeInputController =
       TextEditingController();
+  final TextEditingController _skillALevelInputController =
+      TextEditingController();
+  final TextEditingController _skillELevelInputController =
+      TextEditingController();
+  final TextEditingController _skillQLevelInputController =
+      TextEditingController();
 
   bool _changed = false;
 
@@ -49,31 +60,7 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        if (!_changed) return true;
-        bool _didQuit = false;
-        await showDialog(
-          context: context,
-          builder: (BuildContext context) => AlertDialog(
-            content: Text('是否不保存直接退出'),
-            actions: <Widget>[
-              TextButton(
-                onPressed: () {
-                  _didQuit = false;
-                  Navigator.pop(context);
-                },
-                child: Text('取消'),
-              ),
-              TextButton(
-                onPressed: () {
-                  _didQuit = true;
-                  Navigator.pop(context);
-                },
-                child: Text('确定'),
-              ),
-            ],
-          ),
-        );
-        return _didQuit;
+        return _willPop();
       },
       child: Scaffold(
         appBar: AppBar(
@@ -81,8 +68,11 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
           elevation: 0,
           bottomOpacity: 0,
           leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
+            onPressed: () async {
+              bool _didQuit = await _willPop();
+              if (_didQuit) {
+                Navigator.pop(context);
+              }
             },
             icon: const Icon(Icons.arrow_back),
           ),
@@ -148,13 +138,18 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                   ),
                                   onTap: () {
                                     _showPicker(GsData.getCharacterNames(),
-                                        _character.characterIndex,
+                                        _myCharacter.characterIndex,
                                         (picker, selected) {
                                       _changed = true;
-                                      _character.characterIndex = selected[0];
+                                      _myCharacter.characterIndex = selected[0];
+                                      _character = GsData.getCharacterFromIndex(
+                                          selected[0]);
                                       _characterInputController.text = picker
                                           .getSelectedValues()[0]
                                           .toString();
+                                      _myCharacter.weaponId = -1;
+                                      _myCharacter.weaponIndex = -1;
+                                      _weaponInputController.text = '';
                                     });
                                   },
                                 ),
@@ -173,14 +168,34 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                   ),
                                   onTap: () {
                                     _showPicker(GsData.getLevels(),
-                                        _character.levelIndex,
+                                        _myCharacter.levelIndex,
                                         (picker, selected) {
                                       _changed = true;
-                                      _character.levelIndex = selected[0];
+                                      _myCharacter.levelIndex = selected[0];
                                       _levelInputController.text = picker
                                           .getSelectedValues()[0]
                                           .toString();
                                     });
+                                  },
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: <Widget>[
+                            Flexible(
+                              child: Padding(
+                                padding: _getInputMargin(),
+                                child: TextFormField(
+                                  controller: _nickNameInputController,
+                                  decoration: InputDecoration(
+                                    border: UnderlineInputBorder(),
+                                    label: Text("别名"),
+                                    contentPadding: _getTextFieldPadding(),
+                                  ),
+                                  onChanged: (text) {
+                                    _changed = true;
                                   },
                                 ),
                               ),
@@ -231,10 +246,10 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                     _showPicker(
                                         GsData
                                             .getArtifactSandsMainStatNameList(),
-                                        _character.artifactSandsIndex,
+                                        _myCharacter.artifactSandsIndex,
                                         (picker, selected) {
                                       _changed = true;
-                                      _character.artifactSandsIndex =
+                                      _myCharacter.artifactSandsIndex =
                                           selected[0];
                                       _artifactSandsInputController.text =
                                           picker
@@ -260,10 +275,10 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                     _showPicker(
                                         GsData
                                             .getArtifactGobleMainStatNameList(),
-                                        _character.artifactGobletIndex,
+                                        _myCharacter.artifactGobletIndex,
                                         (picker, selected) {
                                       _changed = true;
-                                      _character.artifactGobletIndex =
+                                      _myCharacter.artifactGobletIndex =
                                           selected[0];
                                       _artifactGobletInputController.text =
                                           picker
@@ -289,10 +304,10 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                     _showPicker(
                                         GsData
                                             .getArtifactCircletMainStatNameList(),
-                                        _character.artifactCircletIndex,
+                                        _myCharacter.artifactCircletIndex,
                                         (picker, selected) {
                                       _changed = true;
-                                      _character.artifactCircletIndex =
+                                      _myCharacter.artifactCircletIndex =
                                           selected[0];
                                       _artifactCircletInputController.text =
                                           picker
@@ -339,14 +354,58 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                 padding: _getInputMargin(),
                                 child: TextFormField(
                                   readOnly: true,
-                                  controller: _baseAttackInputController,
+                                  controller: _weaponInputController,
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
                                     label: Text("装备武器"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
-                                  onChanged: (text) {
-                                    _changed = true;
+                                  onTap: () {
+                                    _showPicker(
+                                        GsData.getWeaponNameListByType(
+                                            _character != null &&
+                                                    _character['weapon'] != null
+                                                ? _character['weapon']
+                                                : null),
+                                        _myCharacter.weaponIndex,
+                                        (picker, selected) {
+                                      _changed = true;
+                                      _myCharacter.weaponIndex = selected[0];
+                                      Map<String, Object> weapon =
+                                          GsData.getWeaponFromName(picker
+                                              .getSelectedValues()[0]
+                                              .toString());
+                                      _myCharacter.weaponId =
+                                          weapon['weapon_id'];
+                                      _weaponInputController.text = picker
+                                          .getSelectedValues()[0]
+                                          .toString();
+                                    });
+                                  },
+                                ),
+                              ),
+                            ),
+                            Flexible(
+                              child: Padding(
+                                padding: _getInputMargin(),
+                                child: TextFormField(
+                                  readOnly: true,
+                                  controller: _refineLevelInputController,
+                                  decoration: InputDecoration(
+                                    border: UnderlineInputBorder(),
+                                    label: Text("精炼等级"),
+                                    contentPadding: _getTextFieldPadding(),
+                                  ),
+                                  onTap: () {
+                                    _showPicker(GsData.getRefineNameList(),
+                                        _myCharacter.refineIndex,
+                                        (picker, selected) {
+                                      _changed = true;
+                                      _myCharacter.refineIndex = selected[0];
+                                      _refineLevelInputController.text = picker
+                                          .getSelectedValues()[0]
+                                          .toString();
+                                    });
                                   },
                                 ),
                               ),
@@ -553,6 +612,97 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                     ),
                   ),
                 ),
+                Padding(
+                  padding: _getCardMargin(),
+                  child: Card(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: <Widget>[
+                        Container(
+                          width: double.infinity,
+                          child: Padding(
+                            padding: _getCardTitleMargin(),
+                            child: Text(
+                              '技能等级',
+                              style: _getCardTitleStyle(),
+                            ),
+                          ),
+                        ),
+                        Divider(
+                          thickness: 1,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Flexible(
+                              child: Padding(
+                                padding: _getInputMargin(),
+                                child: TextFormField(
+                                  controller: _skillALevelInputController,
+                                  keyboardType: TextInputType.number,
+                                  inputFormatters: [
+                                    Utils.getNumberInputFormatter(),
+                                  ],
+                                  decoration: InputDecoration(
+                                    border: UnderlineInputBorder(),
+                                    label: Text("普通攻击"),
+                                    contentPadding: _getTextFieldPadding(),
+                                  ),
+                                  onChanged: (text) {
+                                    _changed = true;
+                                  },
+                                ),
+                              ),
+                            ),
+                            Flexible(
+                              child: Padding(
+                                padding: _getInputMargin(),
+                                child: TextFormField(
+                                  controller: _skillELevelInputController,
+                                  keyboardType: TextInputType.number,
+                                  inputFormatters: [
+                                    Utils.getNumberInputFormatter(),
+                                  ],
+                                  decoration: InputDecoration(
+                                    border: UnderlineInputBorder(),
+                                    label: Text("元素战技"),
+                                    contentPadding: _getTextFieldPadding(),
+                                  ),
+                                  onChanged: (text) {
+                                    _changed = true;
+                                  },
+                                ),
+                              ),
+                            ),
+                            Flexible(
+                              child: Padding(
+                                padding: _getInputMargin(),
+                                child: TextFormField(
+                                  controller: _skillQLevelInputController,
+                                  keyboardType: TextInputType.number,
+                                  inputFormatters: [
+                                    Utils.getNumberInputFormatter(),
+                                  ],
+                                  decoration: InputDecoration(
+                                    border: UnderlineInputBorder(),
+                                    label: Text("元素爆发"),
+                                    contentPadding: _getTextFieldPadding(),
+                                  ),
+                                  onChanged: (text) {
+                                    _changed = true;
+                                  },
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 16,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
                 SizedBox(
                   height: 30,
                 ),
@@ -581,6 +731,34 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
       diameterRatio: 2.0,
       squeeze: 1.0,
     ).showDialog(context);
+  }
+
+  Future<bool> _willPop() async {
+    if (!_changed) return Future.value(true);
+    bool _didQuit = false;
+    await showDialog(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        content: Text('是否不保存直接退出'),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () {
+              _didQuit = false;
+              Navigator.pop(context);
+            },
+            child: Text('取消'),
+          ),
+          TextButton(
+            onPressed: () {
+              _didQuit = true;
+              Navigator.pop(context);
+            },
+            child: Text('确定'),
+          ),
+        ],
+      ),
+    );
+    return Future.value(_didQuit);
   }
 
   EdgeInsetsGeometry _getCardMargin() {

@@ -117,6 +117,44 @@ class GsData {
     return _STATS_NAME_ABBREVATION[stat] ?? '';
   }
 
+  static List<String> getWeaponNameListByType(WeaponTypes type) {
+    if (type == null) return [];
+
+    List<Map<String, Object>> tempList = [];
+    for (var weapon in _WEAPONS) {
+      if (weapon['type'] == type) tempList.add(weapon);
+    }
+    tempList.sort((w1, w2) {
+      return w1['rarity'] != w2['rarity'] ? 
+        (w1['rarity'] as Rarity).index - (w2['rarity'] as Rarity).index : 
+        (w1['weapon_id'] as int) - (w2['weapon_id'] as int);
+    });
+    List<String> result = [];
+    for (var weapon in tempList) {
+      result.add(weapon['name']);
+    }
+    return result;
+  }
+
+  static Map<String, Object> getWeaponFromName(String name) {
+    for (var weapon in _WEAPONS) {
+      if (weapon['name'] == name) {
+        return weapon;
+      }
+    }
+    return null;
+  }
+
+  static List<String> getRefineNameList() {
+    List<String> result = [];
+    for (var refine in Refine.values) {
+      result.add(_REFINE_NAME[refine]);
+    }
+    return result;
+  }
+
+  
+
   static const _CHARACTERS_SHOW_ELEMENT_ORDER = [
     Elements.Anemo,
     Elements.Hydro,
@@ -5370,7 +5408,7 @@ class GsData {
       'specialEffectDamageType': {},
     },
     {
-      'name': '苍翠猎弓·',
+      'name': '苍翠猎弓',
       'weapon_id': 64,
       'type': WeaponTypes.Bow,
       'rarity': Rarity.Star4,
@@ -6369,8 +6407,8 @@ class GsData {
     Stats.HealingBonus: "治",
     Stats.AttackBonus: '攻',
     Stats.HpBonus: '生',
-    Stats.DefendBonus: '防）',
-    Stats.ShieldStrength: '强效',
+    Stats.DefendBonus: '防',
+    Stats.ShieldStrength: '护盾强效',
     Stats.ExtraDamage: '额外伤害',
     Stats.ExtraDamageByAttack: '额外伤害（由攻击力结算）',
     Stats.ExtraDamageByHp: '额外伤害（由生命值结算）',
@@ -6439,6 +6477,13 @@ class GsData {
     Stats.CritRate: 3.89,
     Stats.CritDmg: 7.77,
     Stats.Recharge: 6.48,
+  };
+  static const _REFINE_NAME = {
+    Refine.Refine1: '精炼1阶',
+    Refine.Refine2: '精炼2阶',
+    Refine.Refine3: '精炼3阶',
+    Refine.Refine4: '精炼4阶',
+    Refine.Refine5: '精炼5阶',
   };
 }
 

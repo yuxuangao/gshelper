@@ -7,7 +7,9 @@ class MyCharacter {
   int artifactSandsIndex = -1;
   int artifactGobletIndex = -1;
   int artifactCircletIndex = -1;
-  double baseAttack = 0;
+  int weaponIndex = -1;
+  int weaponId = -1;
+  int refineIndex = -1;
   double artifactHp = 0;
   double artifactAttack = 0;
   double artifactDefend = 0;

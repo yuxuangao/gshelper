@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:gshelper/object/artifact.dart';
+import 'package:gshelper/object/mycharacter.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path_provider/path_provider.dart';
@@ -178,5 +179,35 @@ class LocalData {
         whereArgs: [character['character_id']]);
     if (searchResult.length <= 0) return null;
     return searchResult[0];
+  }
+
+  Future<void> keepMyCharacter(MyCharacter character) async {
+    var values = {
+      tableColumnMyCharacterNickName: character.nickName,
+      tableColumnMyCharacterCharacterId: character.characterId,
+      tableColumnMyCharacterLevel: character.levelIndex,
+      tableColumnMyCharacterArtifactSands: character.artifactSandsIndex,
+      tableColumnMyCharacterArtifactGoblet: character.artifactGobletIndex,
+      tableColumnMyCharacterArtifactCirclet: character.artifactCircletIndex,
+      tableColumnMyCharacterWeaponId: character.weaponId,
+      tableColumnMyCharacterWeaponRefine: character.refineIndex,
+      tableColumnMyCharacterArtifactHp: character.artifactHp,
+      tableColumnMyCharacterArtifactAttack: character.artifactAttack,
+      tableColumnMyCharacterArtifactDefend: character.artifactDefend,
+      tableColumnMyCharacterArtifactMastery: character.artifactMastery,
+      tableColumnMyCharacterArtifactCritRate: character.artifactCritRate,
+      tableColumnMyCharacterArtifactCritDmg: character.artifactCritDmg,
+      tableColumnMyCharacterArtifactRecharge: character.artifactRecharge,
+      tableColumnMyCharacterSkillALevel: character.skillALevel,
+      tableColumnMyCharacterSkillELevel: character.skillELevel,
+      tableColumnMyCharacterSkillQLevel: character.skillQLevel,
+    };
+
+    Database db = await database;
+    if (character.myCharacterId < 0) {
+      //db.insert(table, values);
+    } else {
+      //db.update(tableNameMyCharacter, values, where: );
+    }
   }
 }
