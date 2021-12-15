@@ -2,10 +2,11 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_picker/flutter_picker.dart';
-import 'package:gshelper/object/mycharacter.dart';
+import 'package:loader_overlay/loader_overlay.dart';
 
 import '../common/const.dart';
 import '../common/utils.dart';
+import '../common/localdata.dart';
 import '../data/data.dart';
 import '../object/mycharacter.dart';
 
@@ -14,14 +15,39 @@ class MyCharacterEditPage extends StatefulWidget {
   _MyCharacterEditPage createState() => _MyCharacterEditPage();
 }
 
+enum _InputFlags {
+  character,
+  level,
+  constellation,
+  nickName,
+  artifactSands,
+  artifactGoblet,
+  artifactCirclet,
+  weapon,
+  refine,
+  artifactHp,
+  artifactAttack,
+  artifactDefend,
+  artifactMastery,
+  artifactCritRate,
+  artifactCritDmg,
+  artifactRecharge,
+  skillA,
+  skillE,
+  skillQ,
+}
+
 class _MyCharacterEditPage extends State<MyCharacterEditPage> {
   Map<String, Object> _character = null;
 
-  final MyCharacter _myCharacter = MyCharacter();
+  MyCharacter _myCharacter;
+  final LocalData _localData = LocalData.instance;
 
   final TextEditingController _characterInputController =
       TextEditingController();
   final TextEditingController _levelInputController = TextEditingController();
+  final TextEditingController _constellationInputController =
+      TextEditingController();
   final TextEditingController _nickNameInputController =
       TextEditingController();
   final TextEditingController _artifactSandsInputController =
@@ -55,6 +81,62 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
       TextEditingController();
 
   bool _changed = false;
+  bool _editMode = false;
+  bool _firstLoad = true;
+  List<_InputFlags> _inputErrorFlags = [];
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (!_firstLoad) return;
+    _myCharacter = ModalRoute.of(context).settings.arguments;
+    if (_myCharacter == null) {
+      _myCharacter = MyCharacter();
+    } else {
+      _editMode = true;
+      _character = GsData.getCharacterFromId(_myCharacter.characterId);
+      _characterInputController.text = _character['name'];
+      _myCharacter.weaponIndex =
+          GsData.getWeaponIndexFromId(_myCharacter.weaponId);
+      if (_myCharacter.weaponIndex >= 0) {
+        _weaponInputController.text =
+            GsData.getWeaponFromId(_myCharacter.weaponId)['name'];
+      }
+      _levelInputController.text =
+          GsData.getLevelNameFromIndex(_myCharacter.levelIndex);
+      _constellationInputController.text = GsData.getConstellationName(
+          Constellation.values[_myCharacter.consetllationIndex]);
+      _nickNameInputController.text = _myCharacter.nickName;
+      _artifactSandsInputController.text = GsData.getStatName(
+          GsData.getArtifactSandsMainStatFromIndex(
+              _myCharacter.artifactSandsIndex));
+      _artifactGobletInputController.text = GsData.getStatName(
+          GsData.getArtifactGlobleMainStatFromIndex(
+              _myCharacter.artifactGobletIndex));
+      _artifactCircletInputController.text = GsData.getStatName(
+          GsData.getArtifactCircletMainStatFromIndex(
+              _myCharacter.artifactCircletIndex));
+      _refineLevelInputController.text =
+          GsData.getRefineName(Refine.values[_myCharacter.refineIndex]);
+      _artifactHpInputController.text = _myCharacter.artifactHp.toString();
+      _artifactAttackInputController.text =
+          _myCharacter.artifactAttack.toString();
+      _artifactDefendInputController.text =
+          _myCharacter.artifactDefend.toString();
+      _artifactMasteryInputController.text =
+          _myCharacter.artifactMastery.toString();
+      _artifactCritRateInputController.text =
+          _myCharacter.artifactCritRate.toString();
+      _artifactCritDmgInputController.text =
+          _myCharacter.artifactCritDmg.toString();
+      _artifactRechargeInputController.text =
+          _myCharacter.artifactRecharge.toString();
+      _skillALevelInputController.text = _myCharacter.skillALevel.toString();
+      _skillELevelInputController.text = _myCharacter.skillELevel.toString();
+      _skillQLevelInputController.text = _myCharacter.skillQLevel.toString();
+    }
+    _firstLoad = false;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +146,9 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text(Const.TITLE_MY_CHARACTER_EDIT),
+          title: Text(_editMode
+              ? Const.TITLE_MY_CHARACTER_EDIT
+              : Const.TITLE_MY_CHARACTER_ADD),
           elevation: 0,
           bottomOpacity: 0,
           leading: IconButton(
@@ -78,7 +162,7 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
           ),
           actions: <Widget>[
             IconButton(
-              onPressed: () {},
+              onPressed: _save,
               icon: Text(
                 '保存',
                 style: TextStyle(
@@ -130,9 +214,23 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                 padding: _getInputMargin(),
                                 child: TextFormField(
                                   readOnly: true,
+                                  enabled: !_editMode,
                                   controller: _characterInputController,
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
+                                    enabledBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: _inputErrorFlags.contains(
+                                                    _InputFlags.character)
+                                                ? Colors.red
+                                                : Colors.black38)),
+                                    labelStyle: TextStyle(
+                                        color: _inputErrorFlags
+                                                .contains(_InputFlags.character)
+                                            ? Colors.red
+                                            : Colors.black54),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
                                     label: Text("角色"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -144,6 +242,8 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                       _myCharacter.characterIndex = selected[0];
                                       _character = GsData.getCharacterFromIndex(
                                           selected[0]);
+                                      _myCharacter.characterId =
+                                          _character['character_id'];
                                       _characterInputController.text = picker
                                           .getSelectedValues()[0]
                                           .toString();
@@ -163,6 +263,19 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                   controller: _levelInputController,
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
+                                    enabledBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: _inputErrorFlags
+                                                    .contains(_InputFlags.level)
+                                                ? Colors.red
+                                                : Colors.black38)),
+                                    labelStyle: TextStyle(
+                                        color: _inputErrorFlags
+                                                .contains(_InputFlags.level)
+                                            ? Colors.red
+                                            : Colors.black54),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
                                     label: Text("等级"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -180,6 +293,47 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                 ),
                               ),
                             ),
+                            Flexible(
+                              child: Padding(
+                                padding: _getInputMargin(),
+                                child: TextFormField(
+                                  readOnly: true,
+                                  controller: _constellationInputController,
+                                  decoration: InputDecoration(
+                                    border: UnderlineInputBorder(),
+                                    enabledBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: _inputErrorFlags.contains(
+                                                    _InputFlags.constellation)
+                                                ? Colors.red
+                                                : Colors.black38)),
+                                    labelStyle: TextStyle(
+                                        color: _inputErrorFlags.contains(
+                                                _InputFlags.constellation)
+                                            ? Colors.red
+                                            : Colors.black54),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
+                                    label: Text("命座"),
+                                    contentPadding: _getTextFieldPadding(),
+                                  ),
+                                  onTap: () {
+                                    _showPicker(
+                                        GsData.getConstellationNameList(),
+                                        _myCharacter.consetllationIndex,
+                                        (picker, selected) {
+                                      _changed = true;
+                                      _myCharacter.consetllationIndex =
+                                          selected[0];
+                                      _constellationInputController.text =
+                                          picker
+                                              .getSelectedValues()[0]
+                                              .toString();
+                                    });
+                                  },
+                                ),
+                              ),
+                            ),
                           ],
                         ),
                         Row(
@@ -191,7 +345,20 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                   controller: _nickNameInputController,
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
-                                    label: Text("别名"),
+                                    enabledBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: _inputErrorFlags.contains(
+                                                    _InputFlags.nickName)
+                                                ? Colors.red
+                                                : Colors.black38)),
+                                    labelStyle: TextStyle(
+                                        color: _inputErrorFlags
+                                                .contains(_InputFlags.nickName)
+                                            ? Colors.red
+                                            : Colors.black54),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
+                                    label: Text("备注"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
                                   onChanged: (text) {
@@ -239,6 +406,19 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                   controller: _artifactSandsInputController,
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
+                                    enabledBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: _inputErrorFlags.contains(
+                                                    _InputFlags.artifactSands)
+                                                ? Colors.red
+                                                : Colors.black38)),
+                                    labelStyle: TextStyle(
+                                        color: _inputErrorFlags.contains(
+                                                _InputFlags.artifactSands)
+                                            ? Colors.red
+                                            : Colors.black54),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
                                     label: Text("时之沙"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -268,6 +448,19 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                   controller: _artifactGobletInputController,
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
+                                    enabledBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: _inputErrorFlags.contains(
+                                                    _InputFlags.artifactGoblet)
+                                                ? Colors.red
+                                                : Colors.black38)),
+                                    labelStyle: TextStyle(
+                                        color: _inputErrorFlags.contains(
+                                                _InputFlags.artifactGoblet)
+                                            ? Colors.red
+                                            : Colors.black54),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
                                     label: Text("空之杯"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -297,6 +490,19 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                   controller: _artifactCircletInputController,
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
+                                    enabledBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: _inputErrorFlags.contains(
+                                                    _InputFlags.artifactCirclet)
+                                                ? Colors.red
+                                                : Colors.black38)),
+                                    labelStyle: TextStyle(
+                                        color: _inputErrorFlags.contains(
+                                                _InputFlags.artifactCirclet)
+                                            ? Colors.red
+                                            : Colors.black54),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
                                     label: Text("理之冠"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -357,6 +563,19 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                   controller: _weaponInputController,
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
+                                    enabledBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: _inputErrorFlags.contains(
+                                                    _InputFlags.weapon)
+                                                ? Colors.red
+                                                : Colors.black38)),
+                                    labelStyle: TextStyle(
+                                        color: _inputErrorFlags
+                                                .contains(_InputFlags.weapon)
+                                            ? Colors.red
+                                            : Colors.black54),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
                                     label: Text("装备武器"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -393,6 +612,19 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                   controller: _refineLevelInputController,
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
+                                    enabledBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: _inputErrorFlags.contains(
+                                                    _InputFlags.refine)
+                                                ? Colors.red
+                                                : Colors.black38)),
+                                    labelStyle: TextStyle(
+                                        color: _inputErrorFlags
+                                                .contains(_InputFlags.refine)
+                                            ? Colors.red
+                                            : Colors.black54),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
                                     label: Text("精炼等级"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -452,6 +684,19 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                   ],
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
+                                    enabledBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: _inputErrorFlags.contains(
+                                                    _InputFlags.artifactHp)
+                                                ? Colors.red
+                                                : Colors.black38)),
+                                    labelStyle: TextStyle(
+                                        color: _inputErrorFlags.contains(
+                                                _InputFlags.artifactHp)
+                                            ? Colors.red
+                                            : Colors.black54),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
                                     label: Text("生命值"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -472,6 +717,19 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                   ],
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
+                                    enabledBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: _inputErrorFlags.contains(
+                                                    _InputFlags.artifactAttack)
+                                                ? Colors.red
+                                                : Colors.black38)),
+                                    labelStyle: TextStyle(
+                                        color: _inputErrorFlags.contains(
+                                                _InputFlags.artifactAttack)
+                                            ? Colors.red
+                                            : Colors.black54),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
                                     label: Text("攻击力"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -492,6 +750,19 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                   ],
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
+                                    enabledBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: _inputErrorFlags.contains(
+                                                    _InputFlags.artifactDefend)
+                                                ? Colors.red
+                                                : Colors.black38)),
+                                    labelStyle: TextStyle(
+                                        color: _inputErrorFlags.contains(
+                                                _InputFlags.artifactDefend)
+                                            ? Colors.red
+                                            : Colors.black54),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
                                     label: Text("防御力"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -517,6 +788,19 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                   ],
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
+                                    enabledBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: _inputErrorFlags.contains(
+                                                    _InputFlags.artifactMastery)
+                                                ? Colors.red
+                                                : Colors.black38)),
+                                    labelStyle: TextStyle(
+                                        color: _inputErrorFlags.contains(
+                                                _InputFlags.artifactMastery)
+                                            ? Colors.red
+                                            : Colors.black54),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
                                     label: Text("元素精通"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -537,6 +821,20 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                   ],
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
+                                    enabledBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: _inputErrorFlags.contains(
+                                                    _InputFlags
+                                                        .artifactCritRate)
+                                                ? Colors.red
+                                                : Colors.black38)),
+                                    labelStyle: TextStyle(
+                                        color: _inputErrorFlags.contains(
+                                                _InputFlags.artifactCritRate)
+                                            ? Colors.red
+                                            : Colors.black54),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
                                     label: Text("暴击率%"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -557,6 +855,19 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                   ],
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
+                                    enabledBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: _inputErrorFlags.contains(
+                                                    _InputFlags.artifactCritDmg)
+                                                ? Colors.red
+                                                : Colors.black38)),
+                                    labelStyle: TextStyle(
+                                        color: _inputErrorFlags.contains(
+                                                _InputFlags.artifactCritDmg)
+                                            ? Colors.red
+                                            : Colors.black54),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
                                     label: Text("暴击伤害%"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -582,6 +893,20 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                   ],
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
+                                    enabledBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: _inputErrorFlags.contains(
+                                                    _InputFlags
+                                                        .artifactRecharge)
+                                                ? Colors.red
+                                                : Colors.black38)),
+                                    labelStyle: TextStyle(
+                                        color: _inputErrorFlags.contains(
+                                                _InputFlags.artifactRecharge)
+                                            ? Colors.red
+                                            : Colors.black54),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
                                     label: Text("元素充能%"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -645,6 +970,19 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                   ],
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
+                                    enabledBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: _inputErrorFlags.contains(
+                                                    _InputFlags.skillA)
+                                                ? Colors.red
+                                                : Colors.black38)),
+                                    labelStyle: TextStyle(
+                                        color: _inputErrorFlags
+                                                .contains(_InputFlags.skillA)
+                                            ? Colors.red
+                                            : Colors.black54),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
                                     label: Text("普通攻击"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -665,6 +1003,19 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                   ],
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
+                                    enabledBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: _inputErrorFlags.contains(
+                                                    _InputFlags.skillE)
+                                                ? Colors.red
+                                                : Colors.black38)),
+                                    labelStyle: TextStyle(
+                                        color: _inputErrorFlags
+                                                .contains(_InputFlags.skillE)
+                                            ? Colors.red
+                                            : Colors.black54),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
                                     label: Text("元素战技"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -685,6 +1036,19 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                   ],
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
+                                    enabledBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: _inputErrorFlags.contains(
+                                                    _InputFlags.skillQ)
+                                                ? Colors.red
+                                                : Colors.black38)),
+                                    labelStyle: TextStyle(
+                                        color: _inputErrorFlags
+                                                .contains(_InputFlags.skillQ)
+                                            ? Colors.red
+                                            : Colors.black54),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
                                     label: Text("元素爆发"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -759,6 +1123,110 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
       ),
     );
     return Future.value(_didQuit);
+  }
+
+  void _save() async {
+    _myCharacter.nickName = _nickNameInputController.text;
+    _myCharacter.artifactHp =
+        double.tryParse(_artifactHpInputController.text) ?? -1;
+    _myCharacter.artifactAttack =
+        double.tryParse(_artifactAttackInputController.text) ?? -1;
+    _myCharacter.artifactDefend =
+        double.tryParse(_artifactDefendInputController.text) ?? -1;
+    _myCharacter.artifactMastery =
+        double.tryParse(_artifactMasteryInputController.text) ?? -1;
+    _myCharacter.artifactCritRate =
+        double.tryParse(_artifactCritRateInputController.text) ?? -1;
+    _myCharacter.artifactCritDmg =
+        double.tryParse(_artifactCritDmgInputController.text) ?? -1;
+    _myCharacter.artifactRecharge =
+        double.tryParse(_artifactRechargeInputController.text) ?? -1;
+    _myCharacter.skillALevel =
+        int.tryParse(_skillALevelInputController.text) ?? -1;
+    _myCharacter.skillELevel =
+        int.tryParse(_skillELevelInputController.text) ?? -1;
+    _myCharacter.skillQLevel =
+        int.tryParse(_skillQLevelInputController.text) ?? -1;
+
+    List<_InputFlags> errorList = [];
+    if (_myCharacter.characterId < 0) {
+      errorList.add(_InputFlags.character);
+    }
+    if (_myCharacter.levelIndex < 0) {
+      errorList.add(_InputFlags.level);
+    }
+    if (_myCharacter.artifactSandsIndex < 0) {
+      errorList.add(_InputFlags.artifactSands);
+    }
+    if (_myCharacter.artifactGobletIndex < 0) {
+      errorList.add(_InputFlags.artifactGoblet);
+    }
+    if (_myCharacter.artifactCircletIndex < 0) {
+      errorList.add(_InputFlags.artifactCirclet);
+    }
+    if (_myCharacter.weaponId < 0) {
+      errorList.add(_InputFlags.weapon);
+    }
+    if (_myCharacter.refineIndex < 0) {
+      errorList.add(_InputFlags.refine);
+    }
+    if (_myCharacter.artifactHp < 0) {
+      errorList.add(_InputFlags.artifactHp);
+    }
+    if (_myCharacter.artifactAttack < 0) {
+      errorList.add(_InputFlags.artifactAttack);
+    }
+    if (_myCharacter.artifactDefend < 0) {
+      errorList.add(_InputFlags.artifactDefend);
+    }
+    if (_myCharacter.artifactMastery < 0) {
+      errorList.add(_InputFlags.artifactMastery);
+    }
+    if (_myCharacter.artifactCritRate < 0) {
+      errorList.add(_InputFlags.artifactCritRate);
+    }
+    if (_myCharacter.artifactCritDmg < 0) {
+      errorList.add(_InputFlags.artifactCritDmg);
+    }
+    if (_myCharacter.artifactRecharge < 0) {
+      errorList.add(_InputFlags.artifactRecharge);
+    }
+    if (_myCharacter.skillALevel < 0) {
+      errorList.add(_InputFlags.skillA);
+    }
+    if (_myCharacter.skillELevel < 0) {
+      errorList.add(_InputFlags.skillE);
+    }
+    if (_myCharacter.skillQLevel < 0) {
+      errorList.add(_InputFlags.skillQ);
+    }
+
+    setState(() {
+      _inputErrorFlags = errorList;
+    });
+
+    if (errorList.length > 0) {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) => AlertDialog(
+          content: Text('部分输入有误'),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text('确定'),
+            ),
+          ],
+        ),
+      );
+      return;
+    }
+
+    context.loaderOverlay.show();
+    await _localData.keepMyCharacter(_myCharacter);
+    context.loaderOverlay.hide();
+    Navigator.pop(context);
   }
 
   EdgeInsetsGeometry _getCardMargin() {

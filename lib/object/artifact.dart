@@ -1,6 +1,7 @@
 import '../data/data.dart';
 
 class ArtifactInput {
+  int characterId = -1;
   int characterIndex = -1;
   int levelIndex = -1;
   int artifactSandsIndex = -1;

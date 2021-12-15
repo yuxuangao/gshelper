@@ -110,6 +110,8 @@ class _ArtifactPage extends State<ArtifactPage> {
                                   controller: _characterInputController,
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
                                     label: Text("角色"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -130,6 +132,8 @@ class _ArtifactPage extends State<ArtifactPage> {
                                   controller: _levelInputController,
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
                                     label: Text("等级"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -185,6 +189,8 @@ class _ArtifactPage extends State<ArtifactPage> {
                                   controller: _artifactSandsInputController,
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
                                     label: Text("时之沙"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -213,6 +219,8 @@ class _ArtifactPage extends State<ArtifactPage> {
                                   controller: _artifactGobletInputController,
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
                                     label: Text("空之杯"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -241,6 +249,8 @@ class _ArtifactPage extends State<ArtifactPage> {
                                   controller: _artifactCircletInputController,
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
                                     label: Text("理之冠"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -303,6 +313,8 @@ class _ArtifactPage extends State<ArtifactPage> {
                                   ],
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
                                     label: Text("武器攻击力"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -351,6 +363,8 @@ class _ArtifactPage extends State<ArtifactPage> {
                                   ],
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
                                     label: Text("生命值"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -368,6 +382,8 @@ class _ArtifactPage extends State<ArtifactPage> {
                                   ],
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
                                     label: Text("攻击力"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -385,6 +401,8 @@ class _ArtifactPage extends State<ArtifactPage> {
                                   ],
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
                                     label: Text("防御力"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -407,6 +425,8 @@ class _ArtifactPage extends State<ArtifactPage> {
                                   ],
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
                                     label: Text("元素精通"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -424,6 +444,8 @@ class _ArtifactPage extends State<ArtifactPage> {
                                   ],
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
                                     label: Text("暴击率%"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -441,6 +463,8 @@ class _ArtifactPage extends State<ArtifactPage> {
                                   ],
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
                                     label: Text("暴击伤害%"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -463,6 +487,8 @@ class _ArtifactPage extends State<ArtifactPage> {
                                   ],
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
                                     label: Text("元素充能%"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),

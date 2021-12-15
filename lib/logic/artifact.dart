@@ -5,7 +5,12 @@ class ArtifactCalculator {
   static ArtifactResult cal(ArtifactInput input) {
     ArtifactResult result = ArtifactResult();
 
-    var character = GsData.getCharacterFromIndex(input.characterIndex);
+    var character;
+    if (input.characterId >= 0) {
+      character = GsData.getCharacterFromId(input.characterId);
+    } else {
+      character = GsData.getCharacterFromIndex(input.characterIndex);
+    }
     if (character == null) {
       result.errorMessage = "未选择角色";
       return result;

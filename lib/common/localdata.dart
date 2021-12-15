@@ -1,11 +1,11 @@
 import 'dart:io';
-import 'package:gshelper/object/artifact.dart';
-import 'package:gshelper/object/mycharacter.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path_provider/path_provider.dart';
 
 import '../data/data.dart';
+import '../object/mycharacter.dart';
+import '../object/artifact.dart';
 
 class LocalData {
   static final _databaseName = "gshelper.db";
@@ -31,6 +31,7 @@ class LocalData {
   static final tableColumnMyCharacterNickName = 'nick_name';
   static final tableColumnMyCharacterCharacterId = 'character_id';
   static final tableColumnMyCharacterLevel = 'level';
+  static final tableColumnMyCharacterConstellation = 'constellation';
   static final tableColumnMyCharacterArtifactSands = 'artifact_sands';
   static final tableColumnMyCharacterArtifactGoblet = 'artifact_goblet';
   static final tableColumnMyCharacterArtifactCirclet = 'artifact_circlet';
@@ -81,11 +82,14 @@ class LocalData {
         $tableColumnArtifactInputArtifactCritDmg REAL,
         $tableColumnArtifactInputArtifactRecharge REAL
       );
-      CREATE TABLE $tableNameMyCharacter (
+    ''');
+    await db.execute('''
+        CREATE TABLE $tableNameMyCharacter (
         $tableColumnMyCharacterMyCharacterId INTEGER PRIMARY KEY,
         $tableColumnMyCharacterNickName TEXT,
         $tableColumnMyCharacterCharacterId INTEGER,
         $tableColumnMyCharacterLevel INTEGER,
+        $tableColumnMyCharacterConstellation INTEGER,
         $tableColumnMyCharacterArtifactSands INTEGER,
         $tableColumnMyCharacterArtifactGoblet INTEGER,
         $tableColumnMyCharacterArtifactCirclet INTEGER,
@@ -102,33 +106,16 @@ class LocalData {
         $tableColumnMyCharacterSkillELevel INTEGER,
         $tableColumnMyCharacterSkillQLevel INTEGER
       );
-     ''');
+    ''');
   }
 
   Future<void> debug() async {
     /*Database db = await database;
     await db.execute('''
-      CREATE TABLE $tableNameMyCharacter (
-        $tableColumnMyCharacterMyCharacterId INTEGER PRIMARY KEY,
-        $tableColumnMyCharacterNickName TEXT,
-        $tableColumnMyCharacterCharacterId INTEGER,
-        $tableColumnMyCharacterLevel INTEGER,
-        $tableColumnMyCharacterArtifactSands INTEGER,
-        $tableColumnMyCharacterArtifactGoblet INTEGER,
-        $tableColumnMyCharacterArtifactCirclet INTEGER,
-        $tableColumnMyCharacterWeaponId INTEGER,
-        $tableColumnMyCharacterWeaponRefine INTEGER,
-        $tableColumnMyCharacterArtifactHp REAL,
-        $tableColumnMyCharacterArtifactAttack REAL,
-        $tableColumnMyCharacterArtifactDefend REAL,
-        $tableColumnMyCharacterArtifactMastery REAL,
-        $tableColumnMyCharacterArtifactCritRate REAL,
-        $tableColumnMyCharacterArtifactCritDmg REAL,
-        $tableColumnMyCharacterArtifactRecharge REAL,
-        $tableColumnMyCharacterSkillALevel INTEGER,
-        $tableColumnMyCharacterSkillELevel INTEGER,
-        $tableColumnMyCharacterSkillQLevel INTEGER
-      );
+      ALTER TABLE $tableNameMyCharacter ADD $tableColumnMyCharacterConstellation INTEGER;
+    ''');
+    await db.execute('''
+      UPDATE $tableNameMyCharacter SET $tableColumnMyCharacterConstellation = 0;
     ''');*/
   }
 
@@ -186,6 +173,7 @@ class LocalData {
       tableColumnMyCharacterNickName: character.nickName,
       tableColumnMyCharacterCharacterId: character.characterId,
       tableColumnMyCharacterLevel: character.levelIndex,
+      tableColumnMyCharacterConstellation: character.consetllationIndex,
       tableColumnMyCharacterArtifactSands: character.artifactSandsIndex,
       tableColumnMyCharacterArtifactGoblet: character.artifactGobletIndex,
       tableColumnMyCharacterArtifactCirclet: character.artifactCircletIndex,
@@ -205,9 +193,60 @@ class LocalData {
 
     Database db = await database;
     if (character.myCharacterId < 0) {
-      //db.insert(table, values);
+      int maxId = (await db.rawQuery(
+                  'SELECT MAX($tableColumnMyCharacterMyCharacterId) AS max_id FROM $tableNameMyCharacter'))[
+              0]['max_id'] ??
+          0;
+      values.addAll({
+        tableColumnMyCharacterMyCharacterId: maxId + 1,
+      });
+      await db.insert(tableNameMyCharacter, values);
     } else {
-      //db.update(tableNameMyCharacter, values, where: );
+      await db.update(tableNameMyCharacter, values,
+          where: '$tableColumnMyCharacterMyCharacterId = ?',
+          whereArgs: [character.myCharacterId]);
     }
+  }
+
+  Future<List<MyCharacter>> getMyCharacterList() async {
+    Database db = await database;
+    List<Map<String, Object>> searchResult =
+        await db.query(tableNameMyCharacter);
+
+    List<MyCharacter> result = [];
+    for (var line in searchResult) {
+      MyCharacter character = MyCharacter();
+      character.myCharacterId = line[tableColumnMyCharacterMyCharacterId];
+      character.characterId = line[tableColumnMyCharacterCharacterId];
+      character.levelIndex = line[tableColumnMyCharacterLevel];
+      character.consetllationIndex = line[tableColumnMyCharacterConstellation];
+      character.nickName = line[tableColumnMyCharacterNickName];
+      character.artifactSandsIndex = line[tableColumnMyCharacterArtifactSands];
+      character.artifactGobletIndex =
+          line[tableColumnMyCharacterArtifactGoblet];
+      character.artifactCircletIndex =
+          line[tableColumnMyCharacterArtifactCirclet];
+      character.weaponId = line[tableColumnMyCharacterWeaponId];
+      character.refineIndex = line[tableColumnMyCharacterWeaponRefine];
+      character.artifactHp = line[tableColumnMyCharacterArtifactHp];
+      character.artifactAttack = line[tableColumnMyCharacterArtifactAttack];
+      character.artifactDefend = line[tableColumnMyCharacterArtifactDefend];
+      character.artifactMastery = line[tableColumnMyCharacterArtifactMastery];
+      character.artifactCritRate = line[tableColumnMyCharacterArtifactCritRate];
+      character.artifactCritDmg = line[tableColumnMyCharacterArtifactCritDmg];
+      character.artifactRecharge = line[tableColumnMyCharacterArtifactRecharge];
+      character.skillALevel = line[tableColumnMyCharacterSkillALevel];
+      character.skillELevel = line[tableColumnMyCharacterSkillELevel];
+      character.skillQLevel = line[tableColumnMyCharacterSkillQLevel];
+      result.add(character);
+    }
+    return result;
+  }
+
+  Future<void> deleteMyCharacter(int myCharacterId) async {
+    Database db = await database;
+    db.delete(tableNameMyCharacter,
+        where: '$tableColumnMyCharacterMyCharacterId = ?',
+        whereArgs: [myCharacterId]);
   }
 }

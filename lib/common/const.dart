@@ -4,4 +4,5 @@ class Const {
   static const TITLE_DAMAGE = '伤害计算器';
   static const TITLE_MY_CHARACTER = '我的角色';
   static const TITLE_MY_CHARACTER_EDIT = '编辑角色';
+  static const TITLE_MY_CHARACTER_ADD = '添加角色';
 }

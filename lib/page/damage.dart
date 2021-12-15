@@ -134,6 +134,8 @@ class _DamagePage extends State<DamagePage> {
                                   ],
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
                                     label: Text("攻击力"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -151,6 +153,8 @@ class _DamagePage extends State<DamagePage> {
                                   ],
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
                                     label: Text("元素精通"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -168,6 +172,8 @@ class _DamagePage extends State<DamagePage> {
                                   ],
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
                                     label: Text("元素增伤%"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -189,6 +195,8 @@ class _DamagePage extends State<DamagePage> {
                                   ],
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
                                     label: Text("暴击率%"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -206,6 +214,8 @@ class _DamagePage extends State<DamagePage> {
                                   ],
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
                                     label: Text("暴击伤害%"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -253,6 +263,8 @@ class _DamagePage extends State<DamagePage> {
                             ],
                             decoration: InputDecoration(
                               border: UnderlineInputBorder(),
+                              floatingLabelBehavior:
+                                  FloatingLabelBehavior.always,
                               label: Text("技能倍率"),
                               contentPadding: _getTextFieldPadding(),
                             ),
@@ -297,6 +309,8 @@ class _DamagePage extends State<DamagePage> {
                                   ],
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
                                     label: Text("角色等级"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -314,6 +328,8 @@ class _DamagePage extends State<DamagePage> {
                                   ],
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
                                     label: Text("敌人等级"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -331,6 +347,8 @@ class _DamagePage extends State<DamagePage> {
                                   ],
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
                                     label: Text("减防%"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -378,6 +396,8 @@ class _DamagePage extends State<DamagePage> {
                                   ],
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
                                     label: Text("敌人抗性%"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -396,6 +416,8 @@ class _DamagePage extends State<DamagePage> {
                                   ],
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
                                     label: Text("减抗%"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -444,6 +466,8 @@ class _DamagePage extends State<DamagePage> {
                                   ],
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
                                     label: Text("额外增伤%"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -491,6 +515,8 @@ class _DamagePage extends State<DamagePage> {
                                   ],
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
                                     label: Text("反应倍率"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -508,6 +534,8 @@ class _DamagePage extends State<DamagePage> {
                                   ],
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
+                                    floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
                                     label: Text("额外增加%"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
