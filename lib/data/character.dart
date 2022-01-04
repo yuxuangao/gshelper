@@ -9,13 +9,7 @@ const CHARACTERS = [
     "rarity": Rarity.Star5,
     "valid_stat": [
       {Stats.Attack: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
-      {
-        Stats.Attack: 1.0,
-        Stats.Recharge: 1.0,
-        Stats.Mastery: 1.0,
-        Stats.CritDmg: 1.0,
-        Stats.CritRate: 1.0
-      },
+      {Stats.Attack: 1.0, Stats.Recharge: 1.0, Stats.Mastery: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
     ],
     "stat": {
       Levels.Lv80: {
@@ -73,12 +67,7 @@ const CHARACTERS = [
     "rarity": Rarity.Star5,
     "valid_stat": [
       {Stats.Attack: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
-      {
-        Stats.Attack: 1.0,
-        Stats.Recharge: 1.0,
-        Stats.CritDmg: 1.0,
-        Stats.CritRate: 1.0
-      },
+      {Stats.Attack: 1.0, Stats.Recharge: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
     ],
     "stat": {
       Levels.Lv80: {
@@ -193,13 +182,7 @@ const CHARACTERS = [
     "rarity": Rarity.Star5,
     "valid_stat": [
       {Stats.Attack: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
-      {
-        Stats.Attack: 1.0,
-        Stats.Recharge: 1.0,
-        Stats.Mastery: 1.0,
-        Stats.CritDmg: 1.0,
-        Stats.CritRate: 1.0
-      },
+      {Stats.Attack: 1.0, Stats.Recharge: 1.0, Stats.Mastery: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
     ],
     "stat": {
       Levels.Lv80: {
@@ -316,12 +299,7 @@ const CHARACTERS = [
     "valid_stat": [
       {Stats.Attack: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
       {Stats.Mastery: 1.0, Stats.Recharge: 1.0},
-      {
-        Stats.Attack: 1.0,
-        Stats.Mastery: 1.0,
-        Stats.CritDmg: 1.0,
-        Stats.CritRate: 1.0
-      },
+      {Stats.Attack: 1.0, Stats.Mastery: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
     ],
     "stat": {
       Levels.Lv80: {
@@ -379,12 +357,7 @@ const CHARACTERS = [
     "rarity": Rarity.Star4,
     "valid_stat": [
       {Stats.Attack: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
-      {
-        Stats.Attack: 1.0,
-        Stats.Mastery: 1.0,
-        Stats.CritDmg: 1.0,
-        Stats.CritRate: 1.0
-      },
+      {Stats.Attack: 1.0, Stats.Mastery: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
     ],
     "stat": {
       Levels.Lv80: {
@@ -442,12 +415,7 @@ const CHARACTERS = [
     "rarity": Rarity.Star5,
     "valid_stat": [
       {Stats.Attack: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
-      {
-        Stats.Attack: 1.0,
-        Stats.Mastery: 1.0,
-        Stats.CritDmg: 1.0,
-        Stats.CritRate: 1.0
-      },
+      {Stats.Attack: 1.0, Stats.Mastery: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
     ],
     "stat": {
       Levels.Lv80: {
@@ -505,12 +473,7 @@ const CHARACTERS = [
     "rarity": Rarity.Star5,
     "valid_stat": [
       {Stats.Attack: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
-      {
-        Stats.Attack: 1.0,
-        Stats.Recharge: 1.0,
-        Stats.CritDmg: 1.0,
-        Stats.CritRate: 1.0
-      },
+      {Stats.Attack: 1.0, Stats.Recharge: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
     ],
     "stat": {
       Levels.Lv80: {
@@ -568,12 +531,7 @@ const CHARACTERS = [
     "rarity": Rarity.Star4,
     "valid_stat": [
       {Stats.Attack: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
-      {
-        Stats.Attack: 1.0,
-        Stats.Recharge: 1.0,
-        Stats.CritDmg: 1.0,
-        Stats.CritRate: 1.0
-      },
+      {Stats.Attack: 1.0, Stats.Recharge: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
     ],
     "stat": {
       Levels.Lv80: {
@@ -747,12 +705,7 @@ const CHARACTERS = [
     "rarity": Rarity.Star5,
     "valid_stat": [
       {Stats.Attack: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
-      {
-        Stats.Attack: 1.0,
-        Stats.Mastery: 1.0,
-        Stats.CritDmg: 1.0,
-        Stats.CritRate: 1.0
-      },
+      {Stats.Attack: 1.0, Stats.Mastery: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
     ],
     "stat": {
       Levels.Lv80: {
@@ -810,12 +763,7 @@ const CHARACTERS = [
     "rarity": Rarity.Star5,
     "valid_stat": [
       {Stats.Attack: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
-      {
-        Stats.Attack: 1.0,
-        Stats.Mastery: 1.0,
-        Stats.CritDmg: 1.0,
-        Stats.CritRate: 1.0
-      },
+      {Stats.Attack: 1.0, Stats.Mastery: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
     ],
     "stat": {
       Levels.Lv80: {
@@ -873,19 +821,8 @@ const CHARACTERS = [
     "rarity": Rarity.Star5,
     "valid_stat": [
       {Stats.Hp: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
-      {
-        Stats.Hp: 1.0,
-        Stats.Mastery: 1.0,
-        Stats.CritDmg: 1.0,
-        Stats.CritRate: 1.0
-      },
-      {
-        Stats.Hp: 1.0,
-        Stats.Attack: 0.4,
-        Stats.Mastery: 1.0,
-        Stats.CritDmg: 1.0,
-        Stats.CritRate: 1.0
-      },
+      {Stats.Hp: 1.0, Stats.Mastery: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
+      {Stats.Hp: 1.0, Stats.Attack: 0.4, Stats.Mastery: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
     ],
     "stat": {
       Levels.Lv80: {
@@ -1001,19 +938,8 @@ const CHARACTERS = [
     "rarity": Rarity.Star4,
     "valid_stat": [
       {Stats.Attack: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
-      {
-        Stats.Attack: 1.0,
-        Stats.Mastery: 1.0,
-        Stats.CritDmg: 1.0,
-        Stats.CritRate: 1.0
-      },
-      {
-        Stats.Attack: 1.0,
-        Stats.Mastery: 1.0,
-        Stats.Recharge: 1.0,
-        Stats.CritDmg: 1.0,
-        Stats.CritRate: 1.0
-      },
+      {Stats.Attack: 1.0, Stats.Mastery: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
+      {Stats.Attack: 1.0, Stats.Mastery: 1.0, Stats.Recharge: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
     ],
     "stat": {
       Levels.Lv80: {
@@ -1071,12 +997,7 @@ const CHARACTERS = [
     "rarity": Rarity.Star4,
     "valid_stat": [
       {Stats.Attack: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
-      {
-        Stats.Attack: 1.0,
-        Stats.Mastery: 1.0,
-        Stats.CritDmg: 1.0,
-        Stats.CritRate: 1.0
-      },
+      {Stats.Attack: 1.0, Stats.Mastery: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
     ],
     "stat": {
       Levels.Lv80: {
@@ -1134,12 +1055,7 @@ const CHARACTERS = [
     "rarity": Rarity.Star4,
     "valid_stat": [
       {Stats.Attack: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
-      {
-        Stats.Attack: 1.0,
-        Stats.Defend: 1.0,
-        Stats.CritDmg: 1.0,
-        Stats.CritRate: 1.0
-      },
+      {Stats.Attack: 1.0, Stats.Defend: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
     ],
     "stat": {
       Levels.Lv80: {
@@ -1255,12 +1171,7 @@ const CHARACTERS = [
     "rarity": Rarity.Star5,
     "valid_stat": [
       {Stats.Attack: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
-      {
-        Stats.Attack: 1.0,
-        Stats.Mastery: 1.0,
-        Stats.CritDmg: 1.0,
-        Stats.CritRate: 1.0
-      },
+      {Stats.Attack: 1.0, Stats.Mastery: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
     ],
     "stat": {
       Levels.Lv80: {
@@ -1490,12 +1401,7 @@ const CHARACTERS = [
     "rarity": Rarity.Star5,
     "valid_stat": [
       {Stats.Attack: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
-      {
-        Stats.Attack: 1.0,
-        Stats.Recharge: 1.0,
-        Stats.CritDmg: 1.0,
-        Stats.CritRate: 1.0
-      },
+      {Stats.Attack: 1.0, Stats.Recharge: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
     ],
     "stat": {
       Levels.Lv80: {
@@ -1553,12 +1459,7 @@ const CHARACTERS = [
     "rarity": Rarity.Star4,
     "valid_stat": [
       {Stats.Attack: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
-      {
-        Stats.Attack: 1.0,
-        Stats.Mastery: 1.0,
-        Stats.CritDmg: 1.0,
-        Stats.CritRate: 1.0
-      },
+      {Stats.Attack: 1.0, Stats.Mastery: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
     ],
     "stat": {
       Levels.Lv80: {
@@ -1674,12 +1575,7 @@ const CHARACTERS = [
     "rarity": Rarity.Star4,
     "valid_stat": [
       {Stats.Attack: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
-      {
-        Stats.Attack: 1.0,
-        Stats.Mastery: 1.0,
-        Stats.CritDmg: 1.0,
-        Stats.CritRate: 1.0
-      },
+      {Stats.Attack: 1.0, Stats.Mastery: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
     ],
     "stat": {
       Levels.Lv80: {
@@ -1737,12 +1633,7 @@ const CHARACTERS = [
     "rarity": Rarity.Star4,
     "valid_stat": [
       {Stats.Attack: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
-      {
-        Stats.Attack: 1.0,
-        Stats.Mastery: 1.0,
-        Stats.CritDmg: 1.0,
-        Stats.CritRate: 1.0
-      },
+      {Stats.Attack: 1.0, Stats.Mastery: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
     ],
     "stat": {
       Levels.Lv80: {
@@ -1800,12 +1691,7 @@ const CHARACTERS = [
     "rarity": Rarity.Star5,
     "valid_stat": [
       {Stats.Attack: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
-      {
-        Stats.Attack: 1.0,
-        Stats.Mastery: 1.0,
-        Stats.CritDmg: 1.0,
-        Stats.CritRate: 1.0
-      },
+      {Stats.Attack: 1.0, Stats.Mastery: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
     ],
     "stat": {
       Levels.Lv80: {
@@ -1863,12 +1749,7 @@ const CHARACTERS = [
     "rarity": Rarity.Special,
     "valid_stat": [
       {Stats.Attack: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
-      {
-        Stats.Attack: 1.0,
-        Stats.Mastery: 1.0,
-        Stats.CritDmg: 1.0,
-        Stats.CritRate: 1.0
-      },
+      {Stats.Attack: 1.0, Stats.Mastery: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
     ],
     "stat": {
       Levels.Lv80: {
@@ -1983,12 +1864,7 @@ const CHARACTERS = [
     "rarity": Rarity.Star4,
     "valid_stat": [
       {Stats.Attack: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
-      {
-        Stats.Attack: 1.0,
-        Stats.Recharge: 1.0,
-        Stats.CritDmg: 1.0,
-        Stats.CritRate: 1.0
-      },
+      {Stats.Attack: 1.0, Stats.Recharge: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
     ],
     "stat": {
       Levels.Lv80: {
@@ -2046,12 +1922,7 @@ const CHARACTERS = [
     "rarity": Rarity.Star4,
     "valid_stat": [
       {Stats.Attack: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
-      {
-        Stats.Attack: 1.0,
-        Stats.Recharge: 1.0,
-        Stats.CritDmg: 1.0,
-        Stats.CritRate: 1.0
-      },
+      {Stats.Attack: 1.0, Stats.Recharge: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
     ],
     "stat": {
       Levels.Lv80: {
@@ -2223,12 +2094,7 @@ const CHARACTERS = [
     "rarity": Rarity.Star5,
     "valid_stat": [
       {Stats.Attack: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
-      {
-        Stats.Attack: 1.0,
-        Stats.Recharge: 1.0,
-        Stats.CritDmg: 1.0,
-        Stats.CritRate: 1.0
-      },
+      {Stats.Attack: 1.0, Stats.Recharge: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
     ],
     "stat": {
       Levels.Lv80: {
@@ -2285,12 +2151,7 @@ const CHARACTERS = [
     "weapon": WeaponTypes.Polearm,
     "rarity": Rarity.Star5,
     "valid_stat": [
-      {
-        Stats.Attack: 1.0,
-        Stats.Recharge: 1.0,
-        Stats.CritDmg: 1.0,
-        Stats.CritRate: 1.0
-      },
+      {Stats.Attack: 1.0, Stats.Recharge: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
     ],
     "stat": {
       Levels.Lv80: {
@@ -2348,12 +2209,7 @@ const CHARACTERS = [
     "rarity": Rarity.Star4,
     "valid_stat": [
       {Stats.Attack: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
-      {
-        Stats.Attack: 1.0,
-        Stats.Recharge: 1.0,
-        Stats.CritDmg: 1.0,
-        Stats.CritRate: 1.0
-      },
+      {Stats.Attack: 1.0, Stats.Recharge: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
     ],
     "stat": {
       Levels.Lv80: {
@@ -2411,19 +2267,8 @@ const CHARACTERS = [
     "rarity": Rarity.Star5,
     "valid_stat": [
       {Stats.Attack: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
-      {
-        Stats.Hp: 1.0,
-        Stats.Attack: 1.0,
-        Stats.CritDmg: 1.0,
-        Stats.CritRate: 1.0
-      },
-      {
-        Stats.Hp: 1.0,
-        Stats.Attack: 1.0,
-        Stats.Recharge: 1.0,
-        Stats.CritDmg: 1.0,
-        Stats.CritRate: 1.0
-      },
+      {Stats.Hp: 1.0, Stats.Attack: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
+      {Stats.Hp: 1.0, Stats.Attack: 1.0, Stats.Recharge: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
     ],
     "stat": {
       Levels.Lv80: {
@@ -2539,12 +2384,7 @@ const CHARACTERS = [
     "rarity": Rarity.Star5,
     "valid_stat": [
       {Stats.Attack: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
-      {
-        Stats.Attack: 1.0,
-        Stats.Recharge: 1.0,
-        Stats.CritDmg: 1.0,
-        Stats.CritRate: 1.0
-      },
+      {Stats.Attack: 1.0, Stats.Recharge: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
     ],
     "stat": {
       Levels.Lv80: {
@@ -2659,19 +2499,8 @@ const CHARACTERS = [
     "rarity": Rarity.Star4,
     "valid_stat": [
       {Stats.Attack: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
-      {
-        Stats.Attack: 1.0,
-        Stats.Defend: 1.0,
-        Stats.CritDmg: 1.0,
-        Stats.CritRate: 1.0
-      },
-      {
-        Stats.Attack: 1.0,
-        Stats.Defend: 1.0,
-        Stats.Recharge: 1.0,
-        Stats.CritDmg: 1.0,
-        Stats.CritRate: 1.0
-      },
+      {Stats.Attack: 1.0, Stats.Defend: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
+      {Stats.Attack: 1.0, Stats.Defend: 1.0, Stats.Recharge: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
     ],
     "stat": {
       Levels.Lv80: {
@@ -2729,19 +2558,8 @@ const CHARACTERS = [
     "rarity": Rarity.Star4,
     "valid_stat": [
       {Stats.Attack: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
-      {
-        Stats.Attack: 1.0,
-        Stats.Defend: 1.0,
-        Stats.CritDmg: 1.0,
-        Stats.CritRate: 1.0
-      },
-      {
-        Stats.Attack: 1.0,
-        Stats.Defend: 1.0,
-        Stats.Recharge: 1.0,
-        Stats.CritDmg: 1.0,
-        Stats.CritRate: 1.0
-      },
+      {Stats.Attack: 1.0, Stats.Defend: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
+      {Stats.Attack: 1.0, Stats.Defend: 1.0, Stats.Recharge: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
     ],
     "stat": {
       Levels.Lv80: {
@@ -2799,12 +2617,7 @@ const CHARACTERS = [
     "rarity": Rarity.Star5,
     "valid_stat": [
       {Stats.Attack: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
-      {
-        Stats.Attack: 1.0,
-        Stats.Defend: 1.0,
-        Stats.CritDmg: 1.0,
-        Stats.CritRate: 1.0
-      },
+      {Stats.Attack: 1.0, Stats.Defend: 1.0, Stats.CritDmg: 1.0, Stats.CritRate: 1.0},
     ],
     "stat": {
       Levels.Lv80: {

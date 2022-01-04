@@ -25,31 +25,19 @@ class _ArtifactPage extends State<ArtifactPage> {
   ArtifactInput _artifactInput = ArtifactInput();
   ArtifactResult _artifactResult = ArtifactResult();
 
-  final TextEditingController _characterInputController =
-      TextEditingController();
+  final TextEditingController _characterInputController = TextEditingController();
   final TextEditingController _levelInputController = TextEditingController();
-  final TextEditingController _artifactSandsInputController =
-      TextEditingController();
-  final TextEditingController _artifactGobletInputController =
-      TextEditingController();
-  final TextEditingController _artifactCircletInputController =
-      TextEditingController();
-  final TextEditingController _baseAttackInputController =
-      TextEditingController();
-  final TextEditingController _artifactHpInputController =
-      TextEditingController();
-  final TextEditingController _artifactAttackInputController =
-      TextEditingController();
-  final TextEditingController _artifactDefendInputController =
-      TextEditingController();
-  final TextEditingController _artifactMasteryInputController =
-      TextEditingController();
-  final TextEditingController _artifactCritRateInputController =
-      TextEditingController();
-  final TextEditingController _artifactCritDmgInputController =
-      TextEditingController();
-  final TextEditingController _artifactRechargeInputController =
-      TextEditingController();
+  final TextEditingController _artifactSandsInputController = TextEditingController();
+  final TextEditingController _artifactGobletInputController = TextEditingController();
+  final TextEditingController _artifactCircletInputController = TextEditingController();
+  final TextEditingController _baseAttackInputController = TextEditingController();
+  final TextEditingController _artifactHpInputController = TextEditingController();
+  final TextEditingController _artifactAttackInputController = TextEditingController();
+  final TextEditingController _artifactDefendInputController = TextEditingController();
+  final TextEditingController _artifactMasteryInputController = TextEditingController();
+  final TextEditingController _artifactCritRateInputController = TextEditingController();
+  final TextEditingController _artifactCritDmgInputController = TextEditingController();
+  final TextEditingController _artifactRechargeInputController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -110,16 +98,12 @@ class _ArtifactPage extends State<ArtifactPage> {
                                   controller: _characterInputController,
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
+                                    floatingLabelBehavior: FloatingLabelBehavior.always,
                                     label: Text("角色"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
                                   onTap: () {
-                                    _showPicker(
-                                        GsData.getCharacterNames(),
-                                        _artifactInput.characterIndex,
-                                        _changeCharacter);
+                                    _showPicker(GsData.getCharacterNames(), _artifactInput.characterIndex, _changeCharacter);
                                   },
                                 ),
                               ),
@@ -132,19 +116,14 @@ class _ArtifactPage extends State<ArtifactPage> {
                                   controller: _levelInputController,
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
+                                    floatingLabelBehavior: FloatingLabelBehavior.always,
                                     label: Text("等级"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
                                   onTap: () {
-                                    _showPicker(GsData.getLevels(),
-                                        _artifactInput.levelIndex,
-                                        (picker, selected) {
+                                    _showPicker(GsData.getLevels(), _artifactInput.levelIndex, (picker, selected) {
                                       _artifactInput.levelIndex = selected[0];
-                                      _levelInputController.text = picker
-                                          .getSelectedValues()[0]
-                                          .toString();
+                                      _levelInputController.text = picker.getSelectedValues()[0].toString();
                                     });
                                   },
                                 ),
@@ -189,23 +168,14 @@ class _ArtifactPage extends State<ArtifactPage> {
                                   controller: _artifactSandsInputController,
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
+                                    floatingLabelBehavior: FloatingLabelBehavior.always,
                                     label: Text("时之沙"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
                                   onTap: () {
-                                    _showPicker(
-                                        GsData
-                                            .getArtifactSandsMainStatNameList(),
-                                        _artifactInput.artifactSandsIndex,
-                                        (picker, selected) {
-                                      _artifactInput.artifactSandsIndex =
-                                          selected[0];
-                                      _artifactSandsInputController.text =
-                                          picker
-                                              .getSelectedValues()[0]
-                                              .toString();
+                                    _showPicker(GsData.getArtifactSandsMainStatNameList(), _artifactInput.artifactSandsIndex, (picker, selected) {
+                                      _artifactInput.artifactSandsIndex = selected[0];
+                                      _artifactSandsInputController.text = picker.getSelectedValues()[0].toString();
                                     });
                                   },
                                 ),
@@ -219,23 +189,14 @@ class _ArtifactPage extends State<ArtifactPage> {
                                   controller: _artifactGobletInputController,
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
+                                    floatingLabelBehavior: FloatingLabelBehavior.always,
                                     label: Text("空之杯"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
                                   onTap: () {
-                                    _showPicker(
-                                        GsData
-                                            .getArtifactGobleMainStatNameList(),
-                                        _artifactInput.artifactGobletIndex,
-                                        (picker, selected) {
-                                      _artifactInput.artifactGobletIndex =
-                                          selected[0];
-                                      _artifactGobletInputController.text =
-                                          picker
-                                              .getSelectedValues()[0]
-                                              .toString();
+                                    _showPicker(GsData.getArtifactGobletMainStatNameList(), _artifactInput.artifactGobletIndex, (picker, selected) {
+                                      _artifactInput.artifactGobletIndex = selected[0];
+                                      _artifactGobletInputController.text = picker.getSelectedValues()[0].toString();
                                     });
                                   },
                                 ),
@@ -249,23 +210,14 @@ class _ArtifactPage extends State<ArtifactPage> {
                                   controller: _artifactCircletInputController,
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
+                                    floatingLabelBehavior: FloatingLabelBehavior.always,
                                     label: Text("理之冠"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
                                   onTap: () {
-                                    _showPicker(
-                                        GsData
-                                            .getArtifactCircletMainStatNameList(),
-                                        _artifactInput.artifactCircletIndex,
-                                        (picker, selected) {
-                                      _artifactInput.artifactCircletIndex =
-                                          selected[0];
-                                      _artifactCircletInputController.text =
-                                          picker
-                                              .getSelectedValues()[0]
-                                              .toString();
+                                    _showPicker(GsData.getArtifactCircletMainStatNameList(), _artifactInput.artifactCircletIndex, (picker, selected) {
+                                      _artifactInput.artifactCircletIndex = selected[0];
+                                      _artifactCircletInputController.text = picker.getSelectedValues()[0].toString();
                                     });
                                   },
                                 ),
@@ -313,8 +265,7 @@ class _ArtifactPage extends State<ArtifactPage> {
                                   ],
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
+                                    floatingLabelBehavior: FloatingLabelBehavior.always,
                                     label: Text("武器攻击力"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -363,8 +314,7 @@ class _ArtifactPage extends State<ArtifactPage> {
                                   ],
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
+                                    floatingLabelBehavior: FloatingLabelBehavior.always,
                                     label: Text("生命值"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -382,8 +332,7 @@ class _ArtifactPage extends State<ArtifactPage> {
                                   ],
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
+                                    floatingLabelBehavior: FloatingLabelBehavior.always,
                                     label: Text("攻击力"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -401,8 +350,7 @@ class _ArtifactPage extends State<ArtifactPage> {
                                   ],
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
+                                    floatingLabelBehavior: FloatingLabelBehavior.always,
                                     label: Text("防御力"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -425,8 +373,7 @@ class _ArtifactPage extends State<ArtifactPage> {
                                   ],
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
+                                    floatingLabelBehavior: FloatingLabelBehavior.always,
                                     label: Text("元素精通"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -444,8 +391,7 @@ class _ArtifactPage extends State<ArtifactPage> {
                                   ],
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
+                                    floatingLabelBehavior: FloatingLabelBehavior.always,
                                     label: Text("暴击率%"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -463,8 +409,7 @@ class _ArtifactPage extends State<ArtifactPage> {
                                   ],
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
+                                    floatingLabelBehavior: FloatingLabelBehavior.always,
                                     label: Text("暴击伤害%"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -487,8 +432,7 @@ class _ArtifactPage extends State<ArtifactPage> {
                                   ],
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
+                                    floatingLabelBehavior: FloatingLabelBehavior.always,
                                     label: Text("元素充能%"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -598,8 +542,7 @@ class _ArtifactPage extends State<ArtifactPage> {
       double statResult = 0.0;
       List<String> validStatNameList = [];
       validStat.forEach((Stats stat, double ratio) {
-        validStatNameList.add(GsData.getStatNameAbbrevation(stat) +
-            (ratio == 1.0 ? '' : '($ratio倍)'));
+        validStatNameList.add(GsData.getStatNameAbbrevation(stat) + (ratio == 1.0 ? '' : '($ratio倍)'));
         statResult += _artifactResult.result[stat] * ratio;
       });
       validStatResultRows.add(Row(
@@ -663,22 +606,14 @@ class _ArtifactPage extends State<ArtifactPage> {
 
   void _calculate() {
     FocusScope.of(context).unfocus();
-    _artifactInput.baseAttack =
-        double.tryParse(_baseAttackInputController.text) ?? 0.0;
-    _artifactInput.artifactHp =
-        double.tryParse(_artifactHpInputController.text) ?? 0.0;
-    _artifactInput.artifactAttack =
-        double.tryParse(_artifactAttackInputController.text) ?? 0.0;
-    _artifactInput.artifactDefend =
-        double.tryParse(_artifactDefendInputController.text) ?? 0.0;
-    _artifactInput.artifactMastery =
-        double.tryParse(_artifactMasteryInputController.text) ?? 0.0;
-    _artifactInput.artifactCritRate =
-        double.tryParse(_artifactCritRateInputController.text) ?? 0.0;
-    _artifactInput.artifactCritDmg =
-        double.tryParse(_artifactCritDmgInputController.text) ?? 0.0;
-    _artifactInput.artifactRecharge =
-        double.tryParse(_artifactRechargeInputController.text) ?? 0.0;
+    _artifactInput.baseAttack = double.tryParse(_baseAttackInputController.text) ?? 0.0;
+    _artifactInput.artifactHp = double.tryParse(_artifactHpInputController.text) ?? 0.0;
+    _artifactInput.artifactAttack = double.tryParse(_artifactAttackInputController.text) ?? 0.0;
+    _artifactInput.artifactDefend = double.tryParse(_artifactDefendInputController.text) ?? 0.0;
+    _artifactInput.artifactMastery = double.tryParse(_artifactMasteryInputController.text) ?? 0.0;
+    _artifactInput.artifactCritRate = double.tryParse(_artifactCritRateInputController.text) ?? 0.0;
+    _artifactInput.artifactCritDmg = double.tryParse(_artifactCritDmgInputController.text) ?? 0.0;
+    _artifactInput.artifactRecharge = double.tryParse(_artifactRechargeInputController.text) ?? 0.0;
     setState(() {
       _artifactResult = ArtifactCalculator.cal(_artifactInput);
       if (_artifactResult.hasResult) {
@@ -687,12 +622,9 @@ class _ArtifactPage extends State<ArtifactPage> {
     });
   }
 
-  void _showPicker(
-      List<dynamic> data, int selectedIndex, PickerConfirmCallback onConfirm) {
+  void _showPicker(List<dynamic> data, int selectedIndex, PickerConfirmCallback onConfirm) {
     new Picker(
-      adapter: data is List<PickerItem>
-          ? PickerDataAdapter<dynamic>(data: data)
-          : PickerDataAdapter<dynamic>(pickerdata: data),
+      adapter: data is List<PickerItem> ? PickerDataAdapter<dynamic>(data: data) : PickerDataAdapter<dynamic>(pickerdata: data),
       selecteds: [max(selectedIndex, 0)],
       hideHeader: true,
       title: new Text("请选择"),
@@ -732,47 +664,28 @@ class _ArtifactPage extends State<ArtifactPage> {
     _characterInputController.text = picker.getSelectedValues()[0].toString();
     context.loaderOverlay.show();
 
-    Map<String, Object> keptInput =
-        await _localData.searchArtifactInput(selected[0]);
+    Map<String, Object> keptInput = await _localData.searchArtifactInput(selected[0]);
     if (keptInput == null) {
       context.loaderOverlay.hide();
       return;
     }
 
-    _artifactInput.levelIndex =
-        keptInput[LocalData.tableColumnArtifactInputLevel];
+    _artifactInput.levelIndex = keptInput[LocalData.tableColumnArtifactInputLevel];
     _levelInputController.text = GsData.getLevels()[_artifactInput.levelIndex];
-    _artifactInput.artifactSandsIndex =
-        keptInput[LocalData.tableColumnArtifactInputArtifactSands];
-    _artifactSandsInputController.text = GsData
-        .getArtifactSandsMainStatNameList()[_artifactInput.artifactSandsIndex];
-    _artifactInput.artifactGobletIndex =
-        keptInput[LocalData.tableColumnArtifactInputArtifactGoblet];
-    _artifactGobletInputController.text = GsData
-        .getArtifactGobleMainStatNameList()[_artifactInput.artifactGobletIndex];
-    _artifactInput.artifactCircletIndex =
-        keptInput[LocalData.tableColumnArtifactInputArtifactCirclet];
-    _artifactCircletInputController.text =
-        GsData.getArtifactCircletMainStatNameList()[
-            _artifactInput.artifactCircletIndex];
-    _baseAttackInputController.text =
-        keptInput[LocalData.tableColumnArtifactInputBaseAttack].toString();
-    _artifactHpInputController.text =
-        keptInput[LocalData.tableColumnArtifactInputArtifactHp].toString();
-    _artifactAttackInputController.text =
-        keptInput[LocalData.tableColumnArtifactInputArtifactAttack].toString();
-    _artifactDefendInputController.text =
-        keptInput[LocalData.tableColumnArtifactInputArtifactDefend].toString();
-    _artifactMasteryInputController.text =
-        keptInput[LocalData.tableColumnArtifactInputArtifactMastery].toString();
-    _artifactCritRateInputController.text =
-        keptInput[LocalData.tableColumnArtifactInputArtifactCritRate]
-            .toString();
-    _artifactCritDmgInputController.text =
-        keptInput[LocalData.tableColumnArtifactInputArtifactCritDmg].toString();
-    _artifactRechargeInputController.text =
-        keptInput[LocalData.tableColumnArtifactInputArtifactRecharge]
-            .toString();
+    _artifactInput.artifactSandsIndex = keptInput[LocalData.tableColumnArtifactInputArtifactSands];
+    _artifactSandsInputController.text = GsData.getArtifactSandsMainStatNameList()[_artifactInput.artifactSandsIndex];
+    _artifactInput.artifactGobletIndex = keptInput[LocalData.tableColumnArtifactInputArtifactGoblet];
+    _artifactGobletInputController.text = GsData.getArtifactGobletMainStatNameList()[_artifactInput.artifactGobletIndex];
+    _artifactInput.artifactCircletIndex = keptInput[LocalData.tableColumnArtifactInputArtifactCirclet];
+    _artifactCircletInputController.text = GsData.getArtifactCircletMainStatNameList()[_artifactInput.artifactCircletIndex];
+    _baseAttackInputController.text = keptInput[LocalData.tableColumnArtifactInputBaseAttack].toString();
+    _artifactHpInputController.text = keptInput[LocalData.tableColumnArtifactInputArtifactHp].toString();
+    _artifactAttackInputController.text = keptInput[LocalData.tableColumnArtifactInputArtifactAttack].toString();
+    _artifactDefendInputController.text = keptInput[LocalData.tableColumnArtifactInputArtifactDefend].toString();
+    _artifactMasteryInputController.text = keptInput[LocalData.tableColumnArtifactInputArtifactMastery].toString();
+    _artifactCritRateInputController.text = keptInput[LocalData.tableColumnArtifactInputArtifactCritRate].toString();
+    _artifactCritDmgInputController.text = keptInput[LocalData.tableColumnArtifactInputArtifactCritDmg].toString();
+    _artifactRechargeInputController.text = keptInput[LocalData.tableColumnArtifactInputArtifactRecharge].toString();
 
     context.loaderOverlay.hide();
   }

@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:gshelper/page/artifact.dart';
-import 'package:gshelper/page/damage.dart';
-import 'package:gshelper/page/mycharacter.dart';
-import 'package:gshelper/page/mycharacteredit.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 
 import 'page/home.dart';
+import 'page/artifact.dart';
+import 'page/damage.dart';
+import 'page/mycharacteredit.dart';
+import 'page/mycharacterdamage.dart';
 import 'common/const.dart';
 
 void main() {
-  SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Colors.transparent));
   runApp(MyApp());
 }
 
@@ -25,18 +24,18 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.teal,
           visualDensity: VisualDensity.adaptivePlatformDensity,
+          fontFamily: 'Main',
         ),
         initialRoute: "/",
         routes: <String, WidgetBuilder>{
           '/': (BuildContext context) => HomePage(),
           '/artifact': (BuildContext context) => ArtifactPage(),
           '/damage': (BuildContext context) => DamagePage(),
-          '/mycharacter': (BuildContext context) => MyCharacterPage(),
           '/mycharacteredit': (BuildContext context) => MyCharacterEditPage(),
+          '/mycharacterdamage': (BuildContext context) => MyCharacterDamage(),
         },
         builder: (BuildContext context, Widget widget) {
-          return ScrollConfiguration(
-              behavior: ScrollBehaviorModified(), child: widget);
+          return ScrollConfiguration(behavior: ScrollBehaviorModified(), child: widget);
         },
       ),
     );

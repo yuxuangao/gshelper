@@ -1,6 +1,5 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_picker/flutter_picker.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 
@@ -20,18 +19,13 @@ enum _InputFlags {
   level,
   constellation,
   nickName,
+  artifactFlower,
+  artifactPlume,
   artifactSands,
   artifactGoblet,
   artifactCirclet,
   weapon,
   refine,
-  artifactHp,
-  artifactAttack,
-  artifactDefend,
-  artifactMastery,
-  artifactCritRate,
-  artifactCritDmg,
-  artifactRecharge,
   skillA,
   skillE,
   skillQ,
@@ -43,42 +37,19 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
   MyCharacter _myCharacter;
   final LocalData _localData = LocalData.instance;
 
-  final TextEditingController _characterInputController =
-      TextEditingController();
+  final TextEditingController _characterInputController = TextEditingController();
   final TextEditingController _levelInputController = TextEditingController();
-  final TextEditingController _constellationInputController =
-      TextEditingController();
-  final TextEditingController _nickNameInputController =
-      TextEditingController();
-  final TextEditingController _artifactSandsInputController =
-      TextEditingController();
-  final TextEditingController _artifactGobletInputController =
-      TextEditingController();
-  final TextEditingController _artifactCircletInputController =
-      TextEditingController();
+  final TextEditingController _constellationInputController = TextEditingController();
+  final TextEditingController _nickNameInputController = TextEditingController();
   final TextEditingController _weaponInputController = TextEditingController();
-  final TextEditingController _refineLevelInputController =
-      TextEditingController();
-  final TextEditingController _artifactHpInputController =
-      TextEditingController();
-  final TextEditingController _artifactAttackInputController =
-      TextEditingController();
-  final TextEditingController _artifactDefendInputController =
-      TextEditingController();
-  final TextEditingController _artifactMasteryInputController =
-      TextEditingController();
-  final TextEditingController _artifactCritRateInputController =
-      TextEditingController();
-  final TextEditingController _artifactCritDmgInputController =
-      TextEditingController();
-  final TextEditingController _artifactRechargeInputController =
-      TextEditingController();
-  final TextEditingController _skillALevelInputController =
-      TextEditingController();
-  final TextEditingController _skillELevelInputController =
-      TextEditingController();
-  final TextEditingController _skillQLevelInputController =
-      TextEditingController();
+  final TextEditingController _refineLevelInputController = TextEditingController();
+  final TextEditingController _skillALevelInputController = TextEditingController();
+  final TextEditingController _skillELevelInputController = TextEditingController();
+  final TextEditingController _skillQLevelInputController = TextEditingController();
+  final List<TextEditingController> _artifactMainInputControllerList = List.generate(5, (index) => TextEditingController());
+  final List<TextEditingController> _artifactMainTypeInputControllerList = List.generate(5, (index) => TextEditingController());
+  final List<TextEditingController> _artifactSubStatInputControllerList = List.generate(20, (index) => TextEditingController());
+  final List<TextEditingController> _artifactSubValueInputControllerList = List.generate(20, (index) => TextEditingController());
 
   bool _changed = false;
   bool _editMode = false;
@@ -96,41 +67,30 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
       _editMode = true;
       _character = GsData.getCharacterFromId(_myCharacter.characterId);
       _characterInputController.text = _character['name'];
-      _myCharacter.weaponIndex =
-          GsData.getWeaponIndexFromId(_myCharacter.weaponId);
+      _myCharacter.weaponIndex = GsData.getWeaponIndexFromId(_myCharacter.weaponId);
       if (_myCharacter.weaponIndex >= 0) {
-        _weaponInputController.text =
-            GsData.getWeaponFromId(_myCharacter.weaponId)['name'];
+        _weaponInputController.text = GsData.getWeaponFromId(_myCharacter.weaponId)['name'];
       }
-      _levelInputController.text =
-          GsData.getLevelNameFromIndex(_myCharacter.levelIndex);
-      _constellationInputController.text = GsData.getConstellationName(
-          Constellation.values[_myCharacter.consetllationIndex]);
+      _levelInputController.text = GsData.getLevelNameFromIndex(_myCharacter.levelIndex);
+      _constellationInputController.text = GsData.getConstellationName(Constellation.values[_myCharacter.consetllationIndex]);
       _nickNameInputController.text = _myCharacter.nickName;
-      _artifactSandsInputController.text = GsData.getStatName(
-          GsData.getArtifactSandsMainStatFromIndex(
-              _myCharacter.artifactSandsIndex));
-      _artifactGobletInputController.text = GsData.getStatName(
-          GsData.getArtifactGlobleMainStatFromIndex(
-              _myCharacter.artifactGobletIndex));
-      _artifactCircletInputController.text = GsData.getStatName(
-          GsData.getArtifactCircletMainStatFromIndex(
-              _myCharacter.artifactCircletIndex));
-      _refineLevelInputController.text =
-          GsData.getRefineName(Refine.values[_myCharacter.refineIndex]);
-      _artifactHpInputController.text = _myCharacter.artifactHp.toString();
-      _artifactAttackInputController.text =
-          _myCharacter.artifactAttack.toString();
-      _artifactDefendInputController.text =
-          _myCharacter.artifactDefend.toString();
-      _artifactMasteryInputController.text =
-          _myCharacter.artifactMastery.toString();
-      _artifactCritRateInputController.text =
-          _myCharacter.artifactCritRate.toString();
-      _artifactCritDmgInputController.text =
-          _myCharacter.artifactCritDmg.toString();
-      _artifactRechargeInputController.text =
-          _myCharacter.artifactRecharge.toString();
+      _refineLevelInputController.text = GsData.getRefineName(Refine.values[_myCharacter.refineIndex]);
+      List<String> artifactNameList = GsData.getArtifactTypeNameList();
+      for (int i = 0; i < _myCharacter.artifactMainTypeIndexList.length; i++) {
+        _artifactMainTypeInputControllerList[i].text =
+            _myCharacter.artifactMainTypeIndexList[i] < 0 || _myCharacter.artifactMainTypeIndexList[i] >= artifactNameList.length
+                ? ''
+                : artifactNameList[_myCharacter.artifactMainTypeIndexList[i]];
+      }
+      _artifactMainInputControllerList[0].text = GsData.getStatName(GsData.getArtifactFlowerMainStatFromIndex(_myCharacter.artifactMainStatIndexList[0]));
+      _artifactMainInputControllerList[1].text = GsData.getStatName(GsData.getArtifactPlumeMainStatFromIndex(_myCharacter.artifactMainStatIndexList[1]));
+      _artifactMainInputControllerList[2].text = GsData.getStatName(GsData.getArtifactSandsMainStatFromIndex(_myCharacter.artifactMainStatIndexList[2]));
+      _artifactMainInputControllerList[3].text = GsData.getStatName(GsData.getArtifactGlobletMainStatFromIndex(_myCharacter.artifactMainStatIndexList[3]));
+      _artifactMainInputControllerList[4].text = GsData.getStatName(GsData.getArtifactCircletMainStatFromIndex(_myCharacter.artifactMainStatIndexList[4]));
+      for (int i = 0; i < _myCharacter.artifactSubStatIndexList.length; i++) {
+        _artifactSubStatInputControllerList[i].text = GsData.getStatName(GsData.getArtifactSubStatFromIndex(_myCharacter.artifactSubStatIndexList[i]));
+        _artifactSubValueInputControllerList[i].text = _myCharacter.artifactSubValueList[i].toString();
+      }
       _skillALevelInputController.text = _myCharacter.skillALevel.toString();
       _skillELevelInputController.text = _myCharacter.skillELevel.toString();
       _skillQLevelInputController.text = _myCharacter.skillQLevel.toString();
@@ -146,9 +106,7 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text(_editMode
-              ? Const.TITLE_MY_CHARACTER_EDIT
-              : Const.TITLE_MY_CHARACTER_ADD),
+          title: Text(_editMode ? Const.TITLE_MY_CHARACTER_EDIT : Const.TITLE_MY_CHARACTER_ADD),
           elevation: 0,
           bottomOpacity: 0,
           leading: IconButton(
@@ -219,34 +177,19 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
                                     enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                            color: _inputErrorFlags.contains(
-                                                    _InputFlags.character)
-                                                ? Colors.red
-                                                : Colors.black38)),
-                                    labelStyle: TextStyle(
-                                        color: _inputErrorFlags
-                                                .contains(_InputFlags.character)
-                                            ? Colors.red
-                                            : Colors.black54),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
+                                        borderSide: BorderSide(color: _inputErrorFlags.contains(_InputFlags.character) ? Colors.red : Colors.black38)),
+                                    labelStyle: TextStyle(color: _inputErrorFlags.contains(_InputFlags.character) ? Colors.red : Colors.black54),
+                                    floatingLabelBehavior: FloatingLabelBehavior.always,
                                     label: Text("角色"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
                                   onTap: () {
-                                    _showPicker(GsData.getCharacterNames(),
-                                        _myCharacter.characterIndex,
-                                        (picker, selected) {
+                                    _showPicker(GsData.getCharacterNames(), _myCharacter.characterIndex, (picker, selected) {
                                       _changed = true;
                                       _myCharacter.characterIndex = selected[0];
-                                      _character = GsData.getCharacterFromIndex(
-                                          selected[0]);
-                                      _myCharacter.characterId =
-                                          _character['character_id'];
-                                      _characterInputController.text = picker
-                                          .getSelectedValues()[0]
-                                          .toString();
+                                      _character = GsData.getCharacterFromIndex(selected[0]);
+                                      _myCharacter.characterId = _character['character_id'];
+                                      _characterInputController.text = picker.getSelectedValues()[0].toString();
                                       _myCharacter.weaponId = -1;
                                       _myCharacter.weaponIndex = -1;
                                       _weaponInputController.text = '';
@@ -264,30 +207,17 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
                                     enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                            color: _inputErrorFlags
-                                                    .contains(_InputFlags.level)
-                                                ? Colors.red
-                                                : Colors.black38)),
-                                    labelStyle: TextStyle(
-                                        color: _inputErrorFlags
-                                                .contains(_InputFlags.level)
-                                            ? Colors.red
-                                            : Colors.black54),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
+                                        borderSide: BorderSide(color: _inputErrorFlags.contains(_InputFlags.level) ? Colors.red : Colors.black38)),
+                                    labelStyle: TextStyle(color: _inputErrorFlags.contains(_InputFlags.level) ? Colors.red : Colors.black54),
+                                    floatingLabelBehavior: FloatingLabelBehavior.always,
                                     label: Text("等级"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
                                   onTap: () {
-                                    _showPicker(GsData.getLevels(),
-                                        _myCharacter.levelIndex,
-                                        (picker, selected) {
+                                    _showPicker(GsData.getLevels(), _myCharacter.levelIndex, (picker, selected) {
                                       _changed = true;
                                       _myCharacter.levelIndex = selected[0];
-                                      _levelInputController.text = picker
-                                          .getSelectedValues()[0]
-                                          .toString();
+                                      _levelInputController.text = picker.getSelectedValues()[0].toString();
                                     });
                                   },
                                 ),
@@ -302,33 +232,17 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
                                     enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                            color: _inputErrorFlags.contains(
-                                                    _InputFlags.constellation)
-                                                ? Colors.red
-                                                : Colors.black38)),
-                                    labelStyle: TextStyle(
-                                        color: _inputErrorFlags.contains(
-                                                _InputFlags.constellation)
-                                            ? Colors.red
-                                            : Colors.black54),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
+                                        borderSide: BorderSide(color: _inputErrorFlags.contains(_InputFlags.constellation) ? Colors.red : Colors.black38)),
+                                    labelStyle: TextStyle(color: _inputErrorFlags.contains(_InputFlags.constellation) ? Colors.red : Colors.black54),
+                                    floatingLabelBehavior: FloatingLabelBehavior.always,
                                     label: Text("命座"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
                                   onTap: () {
-                                    _showPicker(
-                                        GsData.getConstellationNameList(),
-                                        _myCharacter.consetllationIndex,
-                                        (picker, selected) {
+                                    _showPicker(GsData.getConstellationNameList(), _myCharacter.consetllationIndex, (picker, selected) {
                                       _changed = true;
-                                      _myCharacter.consetllationIndex =
-                                          selected[0];
-                                      _constellationInputController.text =
-                                          picker
-                                              .getSelectedValues()[0]
-                                              .toString();
+                                      _myCharacter.consetllationIndex = selected[0];
+                                      _constellationInputController.text = picker.getSelectedValues()[0].toString();
                                     });
                                   },
                                 ),
@@ -346,180 +260,14 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
                                     enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                            color: _inputErrorFlags.contains(
-                                                    _InputFlags.nickName)
-                                                ? Colors.red
-                                                : Colors.black38)),
-                                    labelStyle: TextStyle(
-                                        color: _inputErrorFlags
-                                                .contains(_InputFlags.nickName)
-                                            ? Colors.red
-                                            : Colors.black54),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
+                                        borderSide: BorderSide(color: _inputErrorFlags.contains(_InputFlags.nickName) ? Colors.red : Colors.black38)),
+                                    labelStyle: TextStyle(color: _inputErrorFlags.contains(_InputFlags.nickName) ? Colors.red : Colors.black54),
+                                    floatingLabelBehavior: FloatingLabelBehavior.always,
                                     label: Text("备注"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
                                   onChanged: (text) {
                                     _changed = true;
-                                  },
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 16,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: _getCardMargin(),
-                  child: Card(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: <Widget>[
-                        Container(
-                          width: double.infinity,
-                          child: Padding(
-                            padding: _getCardTitleMargin(),
-                            child: Text(
-                              '圣遗物主属性',
-                              style: _getCardTitleStyle(),
-                            ),
-                          ),
-                        ),
-                        Divider(
-                          thickness: 1,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Flexible(
-                              child: Padding(
-                                padding: _getInputMargin(),
-                                child: TextFormField(
-                                  readOnly: true,
-                                  controller: _artifactSandsInputController,
-                                  decoration: InputDecoration(
-                                    border: UnderlineInputBorder(),
-                                    enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                            color: _inputErrorFlags.contains(
-                                                    _InputFlags.artifactSands)
-                                                ? Colors.red
-                                                : Colors.black38)),
-                                    labelStyle: TextStyle(
-                                        color: _inputErrorFlags.contains(
-                                                _InputFlags.artifactSands)
-                                            ? Colors.red
-                                            : Colors.black54),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
-                                    label: Text("时之沙"),
-                                    contentPadding: _getTextFieldPadding(),
-                                  ),
-                                  onTap: () {
-                                    _showPicker(
-                                        GsData
-                                            .getArtifactSandsMainStatNameList(),
-                                        _myCharacter.artifactSandsIndex,
-                                        (picker, selected) {
-                                      _changed = true;
-                                      _myCharacter.artifactSandsIndex =
-                                          selected[0];
-                                      _artifactSandsInputController.text =
-                                          picker
-                                              .getSelectedValues()[0]
-                                              .toString();
-                                    });
-                                  },
-                                ),
-                              ),
-                            ),
-                            Flexible(
-                              child: Padding(
-                                padding: _getInputMargin(),
-                                child: TextFormField(
-                                  readOnly: true,
-                                  controller: _artifactGobletInputController,
-                                  decoration: InputDecoration(
-                                    border: UnderlineInputBorder(),
-                                    enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                            color: _inputErrorFlags.contains(
-                                                    _InputFlags.artifactGoblet)
-                                                ? Colors.red
-                                                : Colors.black38)),
-                                    labelStyle: TextStyle(
-                                        color: _inputErrorFlags.contains(
-                                                _InputFlags.artifactGoblet)
-                                            ? Colors.red
-                                            : Colors.black54),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
-                                    label: Text("空之杯"),
-                                    contentPadding: _getTextFieldPadding(),
-                                  ),
-                                  onTap: () {
-                                    _showPicker(
-                                        GsData
-                                            .getArtifactGobleMainStatNameList(),
-                                        _myCharacter.artifactGobletIndex,
-                                        (picker, selected) {
-                                      _changed = true;
-                                      _myCharacter.artifactGobletIndex =
-                                          selected[0];
-                                      _artifactGobletInputController.text =
-                                          picker
-                                              .getSelectedValues()[0]
-                                              .toString();
-                                    });
-                                  },
-                                ),
-                              ),
-                            ),
-                            Flexible(
-                              child: Padding(
-                                padding: _getInputMargin(),
-                                child: TextFormField(
-                                  readOnly: true,
-                                  controller: _artifactCircletInputController,
-                                  decoration: InputDecoration(
-                                    border: UnderlineInputBorder(),
-                                    enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                            color: _inputErrorFlags.contains(
-                                                    _InputFlags.artifactCirclet)
-                                                ? Colors.red
-                                                : Colors.black38)),
-                                    labelStyle: TextStyle(
-                                        color: _inputErrorFlags.contains(
-                                                _InputFlags.artifactCirclet)
-                                            ? Colors.red
-                                            : Colors.black54),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
-                                    label: Text("理之冠"),
-                                    contentPadding: _getTextFieldPadding(),
-                                  ),
-                                  onTap: () {
-                                    _showPicker(
-                                        GsData
-                                            .getArtifactCircletMainStatNameList(),
-                                        _myCharacter.artifactCircletIndex,
-                                        (picker, selected) {
-                                      _changed = true;
-                                      _myCharacter.artifactCircletIndex =
-                                          selected[0];
-                                      _artifactCircletInputController.text =
-                                          picker
-                                              .getSelectedValues()[0]
-                                              .toString();
-                                    });
                                   },
                                 ),
                               ),
@@ -564,41 +312,21 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
                                     enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                            color: _inputErrorFlags.contains(
-                                                    _InputFlags.weapon)
-                                                ? Colors.red
-                                                : Colors.black38)),
-                                    labelStyle: TextStyle(
-                                        color: _inputErrorFlags
-                                                .contains(_InputFlags.weapon)
-                                            ? Colors.red
-                                            : Colors.black54),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
+                                        borderSide: BorderSide(color: _inputErrorFlags.contains(_InputFlags.weapon) ? Colors.red : Colors.black38)),
+                                    labelStyle: TextStyle(color: _inputErrorFlags.contains(_InputFlags.weapon) ? Colors.red : Colors.black54),
+                                    floatingLabelBehavior: FloatingLabelBehavior.always,
                                     label: Text("装备武器"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
                                   onTap: () {
                                     _showPicker(
-                                        GsData.getWeaponNameListByType(
-                                            _character != null &&
-                                                    _character['weapon'] != null
-                                                ? _character['weapon']
-                                                : null),
-                                        _myCharacter.weaponIndex,
-                                        (picker, selected) {
+                                        GsData.getWeaponNameListByType(_character != null && _character['weapon'] != null ? _character['weapon'] : null),
+                                        _myCharacter.weaponIndex, (picker, selected) {
                                       _changed = true;
                                       _myCharacter.weaponIndex = selected[0];
-                                      Map<String, Object> weapon =
-                                          GsData.getWeaponFromName(picker
-                                              .getSelectedValues()[0]
-                                              .toString());
-                                      _myCharacter.weaponId =
-                                          weapon['weapon_id'];
-                                      _weaponInputController.text = picker
-                                          .getSelectedValues()[0]
-                                          .toString();
+                                      Map<String, Object> weapon = GsData.getWeaponFromName(picker.getSelectedValues()[0].toString());
+                                      _myCharacter.weaponId = weapon['weapon_id'];
+                                      _weaponInputController.text = picker.getSelectedValues()[0].toString();
                                     });
                                   },
                                 ),
@@ -613,30 +341,17 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
                                     enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                            color: _inputErrorFlags.contains(
-                                                    _InputFlags.refine)
-                                                ? Colors.red
-                                                : Colors.black38)),
-                                    labelStyle: TextStyle(
-                                        color: _inputErrorFlags
-                                                .contains(_InputFlags.refine)
-                                            ? Colors.red
-                                            : Colors.black54),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
+                                        borderSide: BorderSide(color: _inputErrorFlags.contains(_InputFlags.refine) ? Colors.red : Colors.black38)),
+                                    labelStyle: TextStyle(color: _inputErrorFlags.contains(_InputFlags.refine) ? Colors.red : Colors.black54),
+                                    floatingLabelBehavior: FloatingLabelBehavior.always,
                                     label: Text("精炼等级"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
                                   onTap: () {
-                                    _showPicker(GsData.getRefineNameList(),
-                                        _myCharacter.refineIndex,
-                                        (picker, selected) {
+                                    _showPicker(GsData.getRefineNameList(), _myCharacter.refineIndex, (picker, selected) {
                                       _changed = true;
                                       _myCharacter.refineIndex = selected[0];
-                                      _refineLevelInputController.text = picker
-                                          .getSelectedValues()[0]
-                                          .toString();
+                                      _refineLevelInputController.text = picker.getSelectedValues()[0].toString();
                                     });
                                   },
                                 ),
@@ -651,292 +366,11 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: _getCardMargin(),
-                  child: Card(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: <Widget>[
-                        Container(
-                          width: double.infinity,
-                          child: Padding(
-                            padding: _getCardTitleMargin(),
-                            child: Text(
-                              '圣遗物详细',
-                              style: _getCardTitleStyle(),
-                            ),
-                          ),
-                        ),
-                        Divider(
-                          thickness: 1,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Flexible(
-                              child: Padding(
-                                padding: _getInputMargin(),
-                                child: TextFormField(
-                                  controller: _artifactHpInputController,
-                                  keyboardType: TextInputType.number,
-                                  inputFormatters: [
-                                    Utils.getNumberInputFormatter(),
-                                  ],
-                                  decoration: InputDecoration(
-                                    border: UnderlineInputBorder(),
-                                    enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                            color: _inputErrorFlags.contains(
-                                                    _InputFlags.artifactHp)
-                                                ? Colors.red
-                                                : Colors.black38)),
-                                    labelStyle: TextStyle(
-                                        color: _inputErrorFlags.contains(
-                                                _InputFlags.artifactHp)
-                                            ? Colors.red
-                                            : Colors.black54),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
-                                    label: Text("生命值"),
-                                    contentPadding: _getTextFieldPadding(),
-                                  ),
-                                  onChanged: (text) {
-                                    _changed = true;
-                                  },
-                                ),
-                              ),
-                            ),
-                            Flexible(
-                              child: Padding(
-                                padding: _getInputMargin(),
-                                child: TextFormField(
-                                  controller: _artifactAttackInputController,
-                                  keyboardType: TextInputType.number,
-                                  inputFormatters: [
-                                    Utils.getNumberInputFormatter(),
-                                  ],
-                                  decoration: InputDecoration(
-                                    border: UnderlineInputBorder(),
-                                    enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                            color: _inputErrorFlags.contains(
-                                                    _InputFlags.artifactAttack)
-                                                ? Colors.red
-                                                : Colors.black38)),
-                                    labelStyle: TextStyle(
-                                        color: _inputErrorFlags.contains(
-                                                _InputFlags.artifactAttack)
-                                            ? Colors.red
-                                            : Colors.black54),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
-                                    label: Text("攻击力"),
-                                    contentPadding: _getTextFieldPadding(),
-                                  ),
-                                  onChanged: (text) {
-                                    _changed = true;
-                                  },
-                                ),
-                              ),
-                            ),
-                            Flexible(
-                              child: Padding(
-                                padding: _getInputMargin(),
-                                child: TextFormField(
-                                  controller: _artifactDefendInputController,
-                                  keyboardType: TextInputType.number,
-                                  inputFormatters: [
-                                    Utils.getNumberInputFormatter(),
-                                  ],
-                                  decoration: InputDecoration(
-                                    border: UnderlineInputBorder(),
-                                    enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                            color: _inputErrorFlags.contains(
-                                                    _InputFlags.artifactDefend)
-                                                ? Colors.red
-                                                : Colors.black38)),
-                                    labelStyle: TextStyle(
-                                        color: _inputErrorFlags.contains(
-                                                _InputFlags.artifactDefend)
-                                            ? Colors.red
-                                            : Colors.black54),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
-                                    label: Text("防御力"),
-                                    contentPadding: _getTextFieldPadding(),
-                                  ),
-                                  onChanged: (text) {
-                                    _changed = true;
-                                  },
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Flexible(
-                              child: Padding(
-                                padding: _getInputMargin(),
-                                child: TextFormField(
-                                  controller: _artifactMasteryInputController,
-                                  keyboardType: TextInputType.number,
-                                  inputFormatters: [
-                                    Utils.getNumberInputFormatter(),
-                                  ],
-                                  decoration: InputDecoration(
-                                    border: UnderlineInputBorder(),
-                                    enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                            color: _inputErrorFlags.contains(
-                                                    _InputFlags.artifactMastery)
-                                                ? Colors.red
-                                                : Colors.black38)),
-                                    labelStyle: TextStyle(
-                                        color: _inputErrorFlags.contains(
-                                                _InputFlags.artifactMastery)
-                                            ? Colors.red
-                                            : Colors.black54),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
-                                    label: Text("元素精通"),
-                                    contentPadding: _getTextFieldPadding(),
-                                  ),
-                                  onChanged: (text) {
-                                    _changed = true;
-                                  },
-                                ),
-                              ),
-                            ),
-                            Flexible(
-                              child: Padding(
-                                padding: _getInputMargin(),
-                                child: TextFormField(
-                                  controller: _artifactCritRateInputController,
-                                  keyboardType: TextInputType.number,
-                                  inputFormatters: [
-                                    Utils.getNumberInputFormatter(),
-                                  ],
-                                  decoration: InputDecoration(
-                                    border: UnderlineInputBorder(),
-                                    enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                            color: _inputErrorFlags.contains(
-                                                    _InputFlags
-                                                        .artifactCritRate)
-                                                ? Colors.red
-                                                : Colors.black38)),
-                                    labelStyle: TextStyle(
-                                        color: _inputErrorFlags.contains(
-                                                _InputFlags.artifactCritRate)
-                                            ? Colors.red
-                                            : Colors.black54),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
-                                    label: Text("暴击率%"),
-                                    contentPadding: _getTextFieldPadding(),
-                                  ),
-                                  onChanged: (text) {
-                                    _changed = true;
-                                  },
-                                ),
-                              ),
-                            ),
-                            Flexible(
-                              child: Padding(
-                                padding: _getInputMargin(),
-                                child: TextFormField(
-                                  controller: _artifactCritDmgInputController,
-                                  keyboardType: TextInputType.number,
-                                  inputFormatters: [
-                                    Utils.getNumberInputFormatter(),
-                                  ],
-                                  decoration: InputDecoration(
-                                    border: UnderlineInputBorder(),
-                                    enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                            color: _inputErrorFlags.contains(
-                                                    _InputFlags.artifactCritDmg)
-                                                ? Colors.red
-                                                : Colors.black38)),
-                                    labelStyle: TextStyle(
-                                        color: _inputErrorFlags.contains(
-                                                _InputFlags.artifactCritDmg)
-                                            ? Colors.red
-                                            : Colors.black54),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
-                                    label: Text("暴击伤害%"),
-                                    contentPadding: _getTextFieldPadding(),
-                                  ),
-                                  onChanged: (text) {
-                                    _changed = true;
-                                  },
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Flexible(
-                              child: Padding(
-                                padding: _getInputMargin(),
-                                child: TextFormField(
-                                  controller: _artifactRechargeInputController,
-                                  keyboardType: TextInputType.number,
-                                  inputFormatters: [
-                                    Utils.getNumberInputFormatter(),
-                                  ],
-                                  decoration: InputDecoration(
-                                    border: UnderlineInputBorder(),
-                                    enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                            color: _inputErrorFlags.contains(
-                                                    _InputFlags
-                                                        .artifactRecharge)
-                                                ? Colors.red
-                                                : Colors.black38)),
-                                    labelStyle: TextStyle(
-                                        color: _inputErrorFlags.contains(
-                                                _InputFlags.artifactRecharge)
-                                            ? Colors.red
-                                            : Colors.black54),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
-                                    label: Text("元素充能%"),
-                                    contentPadding: _getTextFieldPadding(),
-                                  ),
-                                  onChanged: (text) {
-                                    _changed = true;
-                                  },
-                                ),
-                              ),
-                            ),
-                            Flexible(
-                              child: Padding(
-                                padding: _getInputMargin(),
-                                child: Container(),
-                              ),
-                            ),
-                            Flexible(
-                              child: Padding(
-                                padding: _getInputMargin(),
-                                child: Container(),
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 16,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+                _generateArtifactInputCard('生之花', GsData.getArtifactFlowerMainStatNameList(), _InputFlags.artifactFlower, 0),
+                _generateArtifactInputCard('死之羽', GsData.getArtifactPlumeMainStatNameList(), _InputFlags.artifactPlume, 1),
+                _generateArtifactInputCard('时之沙', GsData.getArtifactSandsMainStatNameList(), _InputFlags.artifactSands, 2),
+                _generateArtifactInputCard('空之杯', GsData.getArtifactGobletMainStatNameList(), _InputFlags.artifactGoblet, 3),
+                _generateArtifactInputCard('理之冠', GsData.getArtifactCircletMainStatNameList(), _InputFlags.artifactCirclet, 4),
                 Padding(
                   padding: _getCardMargin(),
                   child: Card(
@@ -971,18 +405,9 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
                                     enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                            color: _inputErrorFlags.contains(
-                                                    _InputFlags.skillA)
-                                                ? Colors.red
-                                                : Colors.black38)),
-                                    labelStyle: TextStyle(
-                                        color: _inputErrorFlags
-                                                .contains(_InputFlags.skillA)
-                                            ? Colors.red
-                                            : Colors.black54),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
+                                        borderSide: BorderSide(color: _inputErrorFlags.contains(_InputFlags.skillA) ? Colors.red : Colors.black38)),
+                                    labelStyle: TextStyle(color: _inputErrorFlags.contains(_InputFlags.skillA) ? Colors.red : Colors.black54),
+                                    floatingLabelBehavior: FloatingLabelBehavior.always,
                                     label: Text("普通攻击"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -1004,18 +429,9 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
                                     enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                            color: _inputErrorFlags.contains(
-                                                    _InputFlags.skillE)
-                                                ? Colors.red
-                                                : Colors.black38)),
-                                    labelStyle: TextStyle(
-                                        color: _inputErrorFlags
-                                                .contains(_InputFlags.skillE)
-                                            ? Colors.red
-                                            : Colors.black54),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
+                                        borderSide: BorderSide(color: _inputErrorFlags.contains(_InputFlags.skillE) ? Colors.red : Colors.black38)),
+                                    labelStyle: TextStyle(color: _inputErrorFlags.contains(_InputFlags.skillE) ? Colors.red : Colors.black54),
+                                    floatingLabelBehavior: FloatingLabelBehavior.always,
                                     label: Text("元素战技"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -1037,18 +453,9 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                   decoration: InputDecoration(
                                     border: UnderlineInputBorder(),
                                     enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                            color: _inputErrorFlags.contains(
-                                                    _InputFlags.skillQ)
-                                                ? Colors.red
-                                                : Colors.black38)),
-                                    labelStyle: TextStyle(
-                                        color: _inputErrorFlags
-                                                .contains(_InputFlags.skillQ)
-                                            ? Colors.red
-                                            : Colors.black54),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
+                                        borderSide: BorderSide(color: _inputErrorFlags.contains(_InputFlags.skillQ) ? Colors.red : Colors.black38)),
+                                    labelStyle: TextStyle(color: _inputErrorFlags.contains(_InputFlags.skillQ) ? Colors.red : Colors.black54),
+                                    floatingLabelBehavior: FloatingLabelBehavior.always,
                                     label: Text("元素爆发"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -1078,12 +485,150 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
     );
   }
 
-  void _showPicker(
-      List<dynamic> data, int selectedIndex, PickerConfirmCallback onConfirm) {
+  Widget _generateArtifactSubInputRow(indexOffset, _InputFlags _inputFlag) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: List.generate(4, (index) {
+        index += indexOffset;
+        return index % 2 == 0
+            ? Flexible(
+                child: Padding(
+                  padding: _getInputMargin(),
+                  child: TextFormField(
+                    readOnly: true,
+                    controller: _artifactSubStatInputControllerList[(index / 2).floor()],
+                    decoration: InputDecoration(
+                      border: UnderlineInputBorder(),
+                      enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: _inputErrorFlags.contains(_inputFlag) ? Colors.red : Colors.black38)),
+                      labelStyle: TextStyle(color: _inputErrorFlags.contains(_inputFlag) ? Colors.red : Colors.black54),
+                      floatingLabelBehavior: FloatingLabelBehavior.always,
+                      label: Text("副词条" + ((index % 8 + 1) / 2).ceil().toString()),
+                      contentPadding: _getTextFieldPadding(),
+                    ),
+                    onTap: () {
+                      _showPicker(GsData.getArtifactSubStatNameList(), _myCharacter.artifactSubStatIndexList[(index / 2).floor()], (picker, selected) {
+                        _changed = true;
+                        _myCharacter.artifactSubStatIndexList[(index / 2).floor()] = selected[0];
+                        _artifactSubStatInputControllerList[(index / 2).floor()].text = picker.getSelectedValues()[0].toString();
+                      });
+                    },
+                  ),
+                ),
+              )
+            : Flexible(
+                child: Padding(
+                  padding: _getInputMargin(),
+                  child: TextFormField(
+                    controller: _artifactSubValueInputControllerList[(index / 2).floor()],
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      Utils.getNumberInputFormatter(),
+                    ],
+                    decoration: InputDecoration(
+                      border: UnderlineInputBorder(),
+                      enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: _inputErrorFlags.contains(_inputFlag) ? Colors.red : Colors.black38)),
+                      labelStyle: TextStyle(color: _inputErrorFlags.contains(_inputFlag) ? Colors.red : Colors.black54),
+                      floatingLabelBehavior: FloatingLabelBehavior.always,
+                      label: Text("副词条" + ((index % 8 + 1) / 2).ceil().toString()),
+                      contentPadding: _getTextFieldPadding(),
+                    ),
+                    onChanged: (text) {
+                      _changed = true;
+                    },
+                  ),
+                ),
+              );
+      }),
+    );
+  }
+
+  Widget _generateArtifactInputCard(String artifactName, List<String> mainStatList, _InputFlags inputFlag, int artifactIndex) {
+    return Padding(
+      padding: _getCardMargin(),
+      child: Card(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            Container(
+              width: double.infinity,
+              child: Padding(
+                padding: _getCardTitleMargin(),
+                child: Text(
+                  '圣遗物属性（' + artifactName + '）',
+                  style: _getCardTitleStyle(),
+                ),
+              ),
+            ),
+            Divider(
+              thickness: 1,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Flexible(
+                  child: Padding(
+                    padding: _getInputMargin(),
+                    child: TextFormField(
+                      readOnly: true,
+                      controller: _artifactMainTypeInputControllerList[artifactIndex],
+                      decoration: InputDecoration(
+                        border: UnderlineInputBorder(),
+                        enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: _inputErrorFlags.contains(inputFlag) ? Colors.red : Colors.black38)),
+                        labelStyle: TextStyle(color: _inputErrorFlags.contains(inputFlag) ? Colors.red : Colors.black54),
+                        floatingLabelBehavior: FloatingLabelBehavior.always,
+                        label: Text("套装"),
+                        contentPadding: _getTextFieldPadding(),
+                      ),
+                      onTap: () {
+                        _showPicker(GsData.getArtifactTypeNameList(), _myCharacter.artifactMainTypeIndexList[artifactIndex], (picker, selected) {
+                          _changed = true;
+                          _myCharacter.artifactMainTypeIndexList[artifactIndex] = selected[0];
+                          _artifactMainTypeInputControllerList[artifactIndex].text = picker.getSelectedValues()[0].toString();
+                        });
+                      },
+                    ),
+                  ),
+                ),
+                Flexible(
+                  child: Padding(
+                    padding: _getInputMargin(),
+                    child: TextFormField(
+                      readOnly: true,
+                      controller: _artifactMainInputControllerList[artifactIndex],
+                      decoration: InputDecoration(
+                        border: UnderlineInputBorder(),
+                        enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: _inputErrorFlags.contains(inputFlag) ? Colors.red : Colors.black38)),
+                        labelStyle: TextStyle(color: _inputErrorFlags.contains(inputFlag) ? Colors.red : Colors.black54),
+                        floatingLabelBehavior: FloatingLabelBehavior.always,
+                        label: Text("主属性"),
+                        contentPadding: _getTextFieldPadding(),
+                      ),
+                      onTap: () {
+                        _showPicker(mainStatList, _myCharacter.artifactMainStatIndexList[artifactIndex], (picker, selected) {
+                          _changed = true;
+                          _myCharacter.artifactMainStatIndexList[artifactIndex] = selected[0];
+                          _artifactMainInputControllerList[artifactIndex].text = picker.getSelectedValues()[0].toString();
+                        });
+                      },
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            _generateArtifactSubInputRow(artifactIndex * 8, inputFlag),
+            _generateArtifactSubInputRow(4 + artifactIndex * 8, inputFlag),
+            SizedBox(
+              height: 16,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void _showPicker(List<dynamic> data, int selectedIndex, PickerConfirmCallback onConfirm) {
     new Picker(
-      adapter: data is List<PickerItem>
-          ? PickerDataAdapter<dynamic>(data: data)
-          : PickerDataAdapter<dynamic>(pickerdata: data),
+      adapter: data is List<PickerItem> ? PickerDataAdapter<dynamic>(data: data) : PickerDataAdapter<dynamic>(pickerdata: data),
       selecteds: [max(selectedIndex, 0)],
       hideHeader: true,
       title: new Text("请选择"),
@@ -1127,26 +672,22 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
 
   void _save() async {
     _myCharacter.nickName = _nickNameInputController.text;
-    _myCharacter.artifactHp =
-        double.tryParse(_artifactHpInputController.text) ?? -1;
-    _myCharacter.artifactAttack =
-        double.tryParse(_artifactAttackInputController.text) ?? -1;
-    _myCharacter.artifactDefend =
-        double.tryParse(_artifactDefendInputController.text) ?? -1;
-    _myCharacter.artifactMastery =
-        double.tryParse(_artifactMasteryInputController.text) ?? -1;
-    _myCharacter.artifactCritRate =
-        double.tryParse(_artifactCritRateInputController.text) ?? -1;
-    _myCharacter.artifactCritDmg =
-        double.tryParse(_artifactCritDmgInputController.text) ?? -1;
-    _myCharacter.artifactRecharge =
-        double.tryParse(_artifactRechargeInputController.text) ?? -1;
-    _myCharacter.skillALevel =
-        int.tryParse(_skillALevelInputController.text) ?? -1;
-    _myCharacter.skillELevel =
-        int.tryParse(_skillELevelInputController.text) ?? -1;
-    _myCharacter.skillQLevel =
-        int.tryParse(_skillQLevelInputController.text) ?? -1;
+    _myCharacter.skillALevel = int.tryParse(_skillALevelInputController.text) ?? -1;
+    _myCharacter.skillELevel = int.tryParse(_skillELevelInputController.text) ?? -1;
+    _myCharacter.skillQLevel = int.tryParse(_skillQLevelInputController.text) ?? -1;
+    for (int i = 0; i < _artifactSubValueInputControllerList.length; i++) {
+      _myCharacter.artifactSubValueList[i] = double.tryParse(_artifactSubValueInputControllerList[i].text) ?? -1;
+    }
+    _myCharacter.artifactFlowerId = GsData.getArtifactIdFromIndex(_myCharacter.artifactMainTypeIndexList[0]);
+    _myCharacter.artifactFlowerIndex = _myCharacter.artifactMainStatIndexList[0];
+    _myCharacter.artifactPlumeId = GsData.getArtifactIdFromIndex(_myCharacter.artifactMainTypeIndexList[1]);
+    _myCharacter.artifactPlumeIndex = _myCharacter.artifactMainStatIndexList[1];
+    _myCharacter.artifactSandsId = GsData.getArtifactIdFromIndex(_myCharacter.artifactMainTypeIndexList[2]);
+    _myCharacter.artifactSandsIndex = _myCharacter.artifactMainStatIndexList[2];
+    _myCharacter.artifactGobletId = GsData.getArtifactIdFromIndex(_myCharacter.artifactMainTypeIndexList[3]);
+    _myCharacter.artifactGlobletIndex = _myCharacter.artifactMainStatIndexList[3];
+    _myCharacter.artifactCircletId = GsData.getArtifactIdFromIndex(_myCharacter.artifactMainTypeIndexList[4]);
+    _myCharacter.artifactCircletIndex = _myCharacter.artifactMainStatIndexList[4];
 
     List<_InputFlags> errorList = [];
     if (_myCharacter.characterId < 0) {
@@ -1155,41 +696,38 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
     if (_myCharacter.levelIndex < 0) {
       errorList.add(_InputFlags.level);
     }
-    if (_myCharacter.artifactSandsIndex < 0) {
-      errorList.add(_InputFlags.artifactSands);
-    }
-    if (_myCharacter.artifactGobletIndex < 0) {
-      errorList.add(_InputFlags.artifactGoblet);
-    }
-    if (_myCharacter.artifactCircletIndex < 0) {
-      errorList.add(_InputFlags.artifactCirclet);
-    }
     if (_myCharacter.weaponId < 0) {
       errorList.add(_InputFlags.weapon);
     }
     if (_myCharacter.refineIndex < 0) {
       errorList.add(_InputFlags.refine);
     }
-    if (_myCharacter.artifactHp < 0) {
-      errorList.add(_InputFlags.artifactHp);
+    if (_myCharacter.artifactFlowerId < 0 || _myCharacter.artifactFlowerIndex < 0) {
+      errorList.add(_InputFlags.artifactFlower);
     }
-    if (_myCharacter.artifactAttack < 0) {
-      errorList.add(_InputFlags.artifactAttack);
+    if (_myCharacter.artifactPlumeId < 0 || _myCharacter.artifactPlumeIndex < 0) {
+      errorList.add(_InputFlags.artifactPlume);
     }
-    if (_myCharacter.artifactDefend < 0) {
-      errorList.add(_InputFlags.artifactDefend);
+    if (_myCharacter.artifactSandsId < 0 || _myCharacter.artifactSandsIndex < 0) {
+      errorList.add(_InputFlags.artifactSands);
     }
-    if (_myCharacter.artifactMastery < 0) {
-      errorList.add(_InputFlags.artifactMastery);
+    if (_myCharacter.artifactGobletId < 0 || _myCharacter.artifactGlobletIndex < 0) {
+      errorList.add(_InputFlags.artifactGoblet);
     }
-    if (_myCharacter.artifactCritRate < 0) {
-      errorList.add(_InputFlags.artifactCritRate);
+    if (_myCharacter.artifactCircletId < 0 || _myCharacter.artifactCircletIndex < 0) {
+      errorList.add(_InputFlags.artifactCirclet);
     }
-    if (_myCharacter.artifactCritDmg < 0) {
-      errorList.add(_InputFlags.artifactCritDmg);
-    }
-    if (_myCharacter.artifactRecharge < 0) {
-      errorList.add(_InputFlags.artifactRecharge);
+    for (int i = 0; i < _myCharacter.artifactSubStatIndexList.length; i++) {
+      if (_myCharacter.artifactSubStatIndexList[i] >= 0 && _myCharacter.artifactSubValueList[i] >= 0) continue;
+      if (i < 4)
+        errorList.add(_InputFlags.artifactFlower);
+      else if (i < 8)
+        errorList.add(_InputFlags.artifactPlume);
+      else if (i < 12)
+        errorList.add(_InputFlags.artifactSands);
+      else if (i < 16)
+        errorList.add(_InputFlags.artifactGoblet);
+      else if (i < 20) errorList.add(_InputFlags.artifactCirclet);
     }
     if (_myCharacter.skillALevel < 0) {
       errorList.add(_InputFlags.skillA);

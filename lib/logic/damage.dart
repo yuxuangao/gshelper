@@ -98,7 +98,7 @@ class DamageCalculator {
               input.elementEnhance / 100);
     }
 
-    result.damageWithoutCrit = r * dr * rr * at * db * sp;
+    result.damageWithoutCrit = (r * at + input.extraDamage) * dr * rr * db * sp;
     result.damageWithCrit = result.damageWithoutCrit * cr;
     result.damageAverage =
         result.damageWithCrit * min(max(input.critRate, 0), 100) / 100 +

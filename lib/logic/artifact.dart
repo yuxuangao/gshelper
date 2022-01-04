@@ -20,27 +20,24 @@ class ArtifactCalculator {
       result.errorMessage = "未选择等级";
       return result;
     }
-    Stats sandsMainStat =
-        GsData.getArtifactSandsMainStatFromIndex(input.artifactSandsIndex);
+    Stats sandsMainStat = GsData.getArtifactSandsMainStatFromIndex(input.artifactSandsIndex);
     if (sandsMainStat == null) {
       result.errorMessage = "未选择时之砂主属性";
       return result;
     }
-    Stats globleMainStat =
-        GsData.getArtifactGlobleMainStatFromIndex(input.artifactGobletIndex);
+    Stats globleMainStat = GsData.getArtifactGlobletMainStatFromIndex(input.artifactGobletIndex);
     if (globleMainStat == null) {
       result.errorMessage = "未选择空之杯主属性";
       return result;
     }
-    Stats circletMainStat =
-        GsData.getArtifactCircletMainStatFromIndex(input.artifactCircletIndex);
+    Stats circletMainStat = GsData.getArtifactCircletMainStatFromIndex(input.artifactCircletIndex);
     if (circletMainStat == null) {
       result.errorMessage = "未选择理之冠主属性";
       return result;
     }
     Map<Stats, double> artifactBaseStat = GsData.getArtifactBaseStat();
     Map<Stats, double> artifactMainStat = GsData.getArtifactMainStat();
-    Map<Stats, double> artifactSubStat = GsData.getArtifactSubStat();
+    Map<Stats, double> artifactSubStatWordValue = GsData.getArtifactSubStatWordValue();
 
     result.characterName = character['name'];
     result.validStats = character['valid_stat'];
@@ -57,43 +54,30 @@ class ArtifactCalculator {
       Stats.Recharge: 0.0,
     };
 
-    result.result[Stats.Hp] = ((input.artifactHp - artifactBaseStat[Stats.Hp]) /
-                characterBaseStat[Stats.Hp] *
-                100 -
+    result.result[Stats.Hp] = ((input.artifactHp - artifactBaseStat[Stats.Hp]) / characterBaseStat[Stats.Hp] * 100 -
             characterBaseStat[Stats.HpBonus] -
-            _getArtifactMainStat(sandsMainStat, globleMainStat, circletMainStat,
-                Stats.Hp, artifactMainStat)) /
-        artifactSubStat[Stats.Hp];
-    result.result[Stats.Attack] =
-        ((input.artifactAttack - artifactBaseStat[Stats.Attack]) /
-                    (characterBaseStat[Stats.Attack] + input.baseAttack) *
-                    100 -
-                characterBaseStat[Stats.AttackBonus] -
-                _getArtifactMainStat(sandsMainStat, globleMainStat,
-                    circletMainStat, Stats.Attack, artifactMainStat)) /
-            artifactSubStat[Stats.Attack];
-    result.result[Stats.Defend] =
-        (input.artifactDefend / characterBaseStat[Stats.Defend] * 100 -
-                characterBaseStat[Stats.DefendBonus] -
-                _getArtifactMainStat(sandsMainStat, globleMainStat,
-                    circletMainStat, Stats.Defend, artifactMainStat)) /
-            artifactSubStat[Stats.Defend];
-    result.result[Stats.Mastery] = (input.artifactMastery -
-            _getArtifactMainStat(sandsMainStat, globleMainStat, circletMainStat,
-                Stats.Mastery, artifactMainStat)) /
-        artifactSubStat[Stats.Mastery];
-    result.result[Stats.CritRate] = (input.artifactCritRate -
-            _getArtifactMainStat(sandsMainStat, globleMainStat, circletMainStat,
-                Stats.CritRate, artifactMainStat)) /
-        artifactSubStat[Stats.CritRate];
-    result.result[Stats.CritDmg] = (input.artifactCritDmg -
-            _getArtifactMainStat(sandsMainStat, globleMainStat, circletMainStat,
-                Stats.CritDmg, artifactMainStat)) /
-        artifactSubStat[Stats.CritDmg];
-    result.result[Stats.Recharge] = (input.artifactRecharge -
-            _getArtifactMainStat(sandsMainStat, globleMainStat, circletMainStat,
-                Stats.Recharge, artifactMainStat)) /
-        artifactSubStat[Stats.Recharge];
+            _getArtifactMainStat(sandsMainStat, globleMainStat, circletMainStat, Stats.HpBonus, artifactMainStat)) /
+        artifactSubStatWordValue[Stats.Hp];
+    result.result[Stats.Attack] = ((input.artifactAttack - artifactBaseStat[Stats.Attack]) / (characterBaseStat[Stats.Attack] + input.baseAttack) * 100 -
+            characterBaseStat[Stats.AttackBonus] -
+            _getArtifactMainStat(sandsMainStat, globleMainStat, circletMainStat, Stats.AttackBonus, artifactMainStat)) /
+        artifactSubStatWordValue[Stats.Attack];
+    result.result[Stats.Defend] = (input.artifactDefend / characterBaseStat[Stats.Defend] * 100 -
+            characterBaseStat[Stats.DefendBonus] -
+            _getArtifactMainStat(sandsMainStat, globleMainStat, circletMainStat, Stats.DefendBonus, artifactMainStat)) /
+        artifactSubStatWordValue[Stats.Defend];
+    result.result[Stats.Mastery] =
+        (input.artifactMastery - _getArtifactMainStat(sandsMainStat, globleMainStat, circletMainStat, Stats.Mastery, artifactMainStat)) /
+            artifactSubStatWordValue[Stats.Mastery];
+    result.result[Stats.CritRate] =
+        (input.artifactCritRate - _getArtifactMainStat(sandsMainStat, globleMainStat, circletMainStat, Stats.CritRate, artifactMainStat)) /
+            artifactSubStatWordValue[Stats.CritRate];
+    result.result[Stats.CritDmg] =
+        (input.artifactCritDmg - _getArtifactMainStat(sandsMainStat, globleMainStat, circletMainStat, Stats.CritDmg, artifactMainStat)) /
+            artifactSubStatWordValue[Stats.CritDmg];
+    result.result[Stats.Recharge] =
+        (input.artifactRecharge - _getArtifactMainStat(sandsMainStat, globleMainStat, circletMainStat, Stats.Recharge, artifactMainStat)) /
+            artifactSubStatWordValue[Stats.Recharge];
 
     result.result.forEach((Stats stat, double value) {
       if (value < 0) {
@@ -107,8 +91,7 @@ class ArtifactCalculator {
     return result;
   }
 
-  static double _getArtifactMainStat(Stats sandsMainStat, Stats globleMainStat,
-      Stats circletMainStat, Stats need, Map<Stats, double> artifactMainStat) {
+  static double _getArtifactMainStat(Stats sandsMainStat, Stats globleMainStat, Stats circletMainStat, Stats need, Map<Stats, double> artifactMainStat) {
     double result = 0.0;
     if (sandsMainStat == need) result += artifactMainStat[need];
     if (globleMainStat == need) result += artifactMainStat[need];

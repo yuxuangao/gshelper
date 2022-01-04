@@ -1,0 +1,108 @@
+import 'data.dart';
+
+const ENEMIES = [
+  {
+    'name': '丘丘人',
+    'resistance': {
+      Elements.Physical: 10.0,
+      Elements.Pyro: 0.0,
+      Elements.Dendro: 10.0,
+      Elements.Hydro: 10.0,
+      Elements.Electro: 10.0,
+      Elements.Anemo: 10.0,
+      Elements.Cryo: 10.0,
+      Elements.Geo: 0.0,
+    },
+  },
+  {
+    'name': '丘丘霜铠王',
+    'resistance': {
+      Elements.Physical: 50.0,
+      Elements.Pyro: 0.0,
+      Elements.Dendro: 10.0,
+      Elements.Hydro: 10.0,
+      Elements.Electro: 10.0,
+      Elements.Anemo: 10.0,
+      Elements.Cryo: 70.0,
+      Elements.Geo: 0.0,
+    },
+  },
+  {
+    'name': '丘丘岩盔王',
+    'resistance': {
+      Elements.Physical: 50.0,
+      Elements.Pyro: 0.0,
+      Elements.Dendro: 10.0,
+      Elements.Hydro: 10.0,
+      Elements.Electro: 70.0,
+      Elements.Anemo: 10.0,
+      Elements.Cryo: 10.0,
+      Elements.Geo: 0.0,
+    },
+  },
+  {
+    'name': '丘丘雷兜王',
+    'resistance': {
+      Elements.Physical: 50.0,
+      Elements.Pyro: 0.0,
+      Elements.Dendro: 10.0,
+      Elements.Hydro: 10.0,
+      Elements.Electro: 10.0,
+      Elements.Anemo: 10.0,
+      Elements.Cryo: 10.0,
+      Elements.Geo: 0.0,
+    },
+  },
+  {
+    'name': '黄金王兽',
+    'resistance': {
+      Elements.Physical: 25.0,
+      Elements.Pyro: 0.0,
+      Elements.Dendro: 25.0,
+      Elements.Hydro: 25.0,
+      Elements.Electro: 25.0,
+      Elements.Anemo: 25.0,
+      Elements.Cryo: 25.0,
+      Elements.Geo: 0.0,
+    },
+  },
+  {
+    'name': '遗迹守卫',
+    'resistance': {
+      Elements.Physical: 70.0,
+      Elements.Pyro: 0.0,
+      Elements.Dendro: 10.0,
+      Elements.Hydro: 10.0,
+      Elements.Electro: 10.0,
+      Elements.Anemo: 10.0,
+      Elements.Cryo: 10.0,
+      Elements.Geo: 0.0,
+    },
+  },
+  {
+    'name': '魔偶剑鬼',
+    'resistance': {
+      Elements.Physical: 10.0,
+      Elements.Pyro: 0.0,
+      Elements.Dendro: 10.0,
+      Elements.Hydro: 10.0,
+      Elements.Electro: 10.0,
+      Elements.Anemo: 10.0,
+      Elements.Cryo: 10.0,
+      Elements.Geo: 0.0,
+    },
+  },
+  {
+    'name': '古岩龙蜥',
+    'resistance': {
+      Elements.Physical: 30.0,
+      Elements.Pyro: 0.0,
+      Elements.Dendro: 10.0,
+      Elements.Hydro: 10.0,
+      Elements.Electro: 10.0,
+      Elements.Anemo: 10.0,
+      Elements.Cryo: 10.0,
+      Elements.Geo: 0.0,
+    },
+  },
+];
