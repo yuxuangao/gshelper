@@ -466,15 +466,15 @@ class GsData {
   ];
   static const _LEVELS = [
     {
-      'name': '80',
+      'name': '80级',
       'level': Levels.Lv80,
     },
     {
-      'name': '80突破',
+      'name': '80级突破',
       'level': Levels.Lv80p,
     },
     {
-      'name': '90',
+      'name': '90级',
       'level': Levels.Lv90,
     },
   ];

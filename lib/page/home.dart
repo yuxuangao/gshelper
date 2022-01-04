@@ -100,7 +100,8 @@ class _HomePage extends State<HomePage> {
               ),
             ),
             Column(
-              children: List.generate(_characterList.length, (index) => _CharacterCard(_characterList[index], _refresh)),
+              children: List.generate(_characterList.length,
+                  (index) => _CharacterCard(_characterList[index], _refresh)),
             ),
             SizedBox(
               height: 80,
@@ -137,7 +138,8 @@ class _CharacterCardState extends State<_CharacterCard> {
     _weapon = GsData.getWeaponFromId(_myCharacter.weaponId);
     MyCharacterCalculator.adjustMyCharacter(_myCharacter, _character, _weapon);
     _artifactSetList = MyCharacterCalculator.getArtifactSet(_myCharacter);
-    _myCharacterResult = MyCharacterCalculator.cal(_myCharacter, _character, _weapon);
+    _myCharacterResult =
+        MyCharacterCalculator.cal(_myCharacter, _character, _weapon);
     _needLoadData = false;
   }
 
@@ -150,7 +152,10 @@ class _CharacterCardState extends State<_CharacterCard> {
   @override
   Widget build(BuildContext context) {
     if (_needLoadData) _loadData();
-    if (_myCharacter == null || _character == null || _weapon == null || _myCharacterResult == null) {
+    if (_myCharacter == null ||
+        _character == null ||
+        _weapon == null ||
+        _myCharacterResult == null) {
       return Container(
         height: 0,
       );
@@ -162,86 +167,145 @@ class _CharacterCardState extends State<_CharacterCard> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            IntrinsicHeight(
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(8, 8, 0, 8),
-                    child: Image.asset(
-                      'assets/images/c_' + _myCharacter.characterId.toString() + '.png',
-                      height: 60,
-                      scale: 3,
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.fromLTRB(8, 8, 0, 8),
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, "/mycharacterdetail",
+                          arguments: _myCharacter);
+                    }, // Image tapped
+                    splashColor: Colors.white10, // Splash color over image
+                    child: Ink.image(
+                      fit: BoxFit.fitHeight,
+                      width: 150,
+                      height: 180,
+                      image: AssetImage('assets/images/c_' +
+                          _myCharacter.characterId.toString() +
+                          '.png'),
                     ),
                   ),
-                  SizedBox(
-                    width: 160,
-                    child: Padding(
-                      padding: EdgeInsets.fromLTRB(24, 12, 12, 0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            _character['name'],
-                            style: TextStyle(
-                              fontSize: 19,
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
-                          Row(
-                            children: <Widget>[
-                              Padding(
-                                padding: EdgeInsets.fromLTRB(0, 6, 0, 0),
-                                child: Text(
-                                  GsData.getConstellationName(Constellation.values[_myCharacter.consetllationIndex]),
-                                  style: TextStyle(color: Colors.black54),
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.fromLTRB(8, 6, 0, 0),
-                                child: Text(
-                                  '等级: ' + GsData.getLevelNameFromIndex(_myCharacter.levelIndex),
-                                  style: TextStyle(color: Colors.black54),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      _character['name'],
+                      style: TextStyle(
+                        fontSize: 19,
+                        fontWeight: FontWeight.w700,
                       ),
                     ),
-                  ),
-                  VerticalDivider(
-                    thickness: 1,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(0, 8, 8, 8),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                    Row(
                       children: <Widget>[
-                        Text(
-                          '备注',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w700,
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(0, 6, 0, 0),
+                          child: Text(
+                            GsData.getConstellationName(Constellation
+                                .values[_myCharacter.consetllationIndex]),
+                            style: _getCharacterPropertyTextStyle(),
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.fromLTRB(6, 2, 0, 0),
-                          child: Text(_myCharacter.nickName),
+                          padding: EdgeInsets.fromLTRB(8, 6, 0, 0),
+                          child: Text(
+                            GsData.getLevelNameFromIndex(
+                                _myCharacter.levelIndex),
+                            style: _getCharacterPropertyTextStyle(),
+                          ),
                         ),
                       ],
                     ),
-                  ),
-                ],
-              ),
+                    Row(
+                      children: <Widget>[
+                        Text(
+                          '天赋',
+                          style: _getCharacterPropertyTextStyle(),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          _myCharacter.skillALevel.toString(),
+                          style: _getCharacterPropertyTextStyle(),
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          _myCharacter.skillELevel.toString(),
+                          style: _getCharacterPropertyTextStyle(),
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          _myCharacter.skillQLevel.toString(),
+                          style: _getCharacterPropertyTextStyle(),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      '备注',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(6, 2, 0, 0),
+                      child: Text(_myCharacter.nickName),
+                    ),
+                  ],
+                ),
+              ],
             ),
             Divider(
               thickness: 1,
-              height: 1,
             ),
-            SizedBox(
-              height: 8,
+            Row(
+              children: <Widget>[
+                SizedBox(
+                  width: 10,
+                ),
+                Column(
+                  children: <Widget>[
+                    Image.asset(
+                      'assets/images/w_' +
+                          _myCharacter.weaponId.toString() +
+                          '.png',
+                      scale: 2,
+                      width: 120,
+                    ),
+                    Text(
+                      _weapon['name'],
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                    Text(
+                      GsData.getRefineName(
+                          Refine.values[_myCharacter.refineIndex]),
+                      style: TextStyle(
+                        color: Colors.black87,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
-            Padding(
+            /*Padding(
               padding: EdgeInsets.symmetric(horizontal: 8),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -262,12 +326,25 @@ class _CharacterCardState extends State<_CharacterCard> {
                             padding: EdgeInsets.fromLTRB(12, 4, 0, 0),
                             child: Column(
                               children: <Widget>[
-                                _getCharacterStatRow(Stats.Hp, sprintf('%.0f', [_myCharacterResult.hp])),
-                                _getCharacterStatRow(Stats.Attack, sprintf('%.0f', [_myCharacterResult.attack])),
-                                _getCharacterStatRow(Stats.Defend, sprintf('%.0f', [_myCharacterResult.defend])),
+                                _getCharacterStatRow(Stats.Hp,
+                                    sprintf('%.0f', [_myCharacterResult.hp])),
+                                _getCharacterStatRow(
+                                    Stats.Attack,
+                                    sprintf(
+                                        '%.0f', [_myCharacterResult.attack])),
+                                _getCharacterStatRow(
+                                    Stats.Defend,
+                                    sprintf(
+                                        '%.0f', [_myCharacterResult.defend])),
                                 Divider(),
-                                _getCharacterStatRow(Stats.Mastery, sprintf('%.0f', [_myCharacterResult.mastery])),
-                                _getCharacterStatRow(Stats.Recharge, sprintf('%.1f%%', [_myCharacterResult.recharge + 100])),
+                                _getCharacterStatRow(
+                                    Stats.Mastery,
+                                    sprintf(
+                                        '%.0f', [_myCharacterResult.mastery])),
+                                _getCharacterStatRow(
+                                    Stats.Recharge,
+                                    sprintf('%.1f%%',
+                                        [_myCharacterResult.recharge + 100])),
                               ],
                             ),
                           ),
@@ -280,11 +357,23 @@ class _CharacterCardState extends State<_CharacterCard> {
                             padding: EdgeInsets.fromLTRB(12, 4, 0, 0),
                             child: Column(
                               children: <Widget>[
-                                _getCharacterStatRow(Stats.CritRate, sprintf('%.1f%%', [_myCharacterResult.critRate])),
-                                _getCharacterStatRow(Stats.CritDmg, sprintf('%.1f%%', [_myCharacterResult.critDmg])),
+                                _getCharacterStatRow(
+                                    Stats.CritRate,
+                                    sprintf('%.1f%%',
+                                        [_myCharacterResult.critRate])),
+                                _getCharacterStatRow(
+                                    Stats.CritDmg,
+                                    sprintf('%.1f%%',
+                                        [_myCharacterResult.critDmg])),
                                 Divider(),
-                                _getCharacterStatRow(Stats.DmgBonus, sprintf('%.1f%%', [_myCharacterResult.dmgBonus])),
-                                _getCharacterStatRow(Stats.PhyDmgBonus, sprintf('%.1f%%', [_myCharacterResult.phyDmgBonus])),
+                                _getCharacterStatRow(
+                                    Stats.DmgBonus,
+                                    sprintf('%.1f%%',
+                                        [_myCharacterResult.dmgBonus])),
+                                _getCharacterStatRow(
+                                    Stats.PhyDmgBonus,
+                                    sprintf('%.1f%%',
+                                        [_myCharacterResult.phyDmgBonus])),
                               ],
                             ),
                           ),
@@ -318,7 +407,8 @@ class _CharacterCardState extends State<_CharacterCard> {
                           padding: EdgeInsets.fromLTRB(12, 4, 0, 0),
                           child: Column(
                             children: <Widget>[
-                              _getCharacterSkillRow('普通攻击', _myCharacter.skillALevel),
+                              _getCharacterSkillRow(
+                                  '普通攻击', _myCharacter.skillALevel),
                             ],
                           ),
                         ),
@@ -328,7 +418,8 @@ class _CharacterCardState extends State<_CharacterCard> {
                           padding: EdgeInsets.fromLTRB(12, 4, 0, 0),
                           child: Column(
                             children: <Widget>[
-                              _getCharacterSkillRow('元素战技', _myCharacter.skillELevel),
+                              _getCharacterSkillRow(
+                                  '元素战技', _myCharacter.skillELevel),
                             ],
                           ),
                         ),
@@ -338,7 +429,8 @@ class _CharacterCardState extends State<_CharacterCard> {
                           padding: EdgeInsets.fromLTRB(12, 4, 0, 0),
                           child: Column(
                             children: <Widget>[
-                              _getCharacterSkillRow('元素爆发', _myCharacter.skillQLevel),
+                              _getCharacterSkillRow(
+                                  '元素爆发', _myCharacter.skillQLevel),
                             ],
                           ),
                         ),
@@ -353,14 +445,16 @@ class _CharacterCardState extends State<_CharacterCard> {
             ),
             Divider(
               thickness: 1,
-            ),
+            ),*/
             Row(
               children: <Widget>[
                 SizedBox(
                   width: 8,
                 ),
                 Image.asset(
-                  'assets/images/w_' + _myCharacter.weaponId.toString() + '.png',
+                  'assets/images/w_' +
+                      _myCharacter.weaponId.toString() +
+                      '.png',
                   scale: 3,
                   width: 60,
                 ),
@@ -384,7 +478,8 @@ class _CharacterCardState extends State<_CharacterCard> {
                             width: 8,
                           ),
                           Text(
-                            GsData.getRefineName(Refine.values[_myCharacter.refineIndex]),
+                            GsData.getRefineName(
+                                Refine.values[_myCharacter.refineIndex]),
                             style: TextStyle(
                               color: Colors.black87,
                             ),
@@ -395,7 +490,8 @@ class _CharacterCardState extends State<_CharacterCard> {
                         height: 6,
                       ),
                       Text(
-                        (_weapon['specialEffectComent'] as Map<Refine, String>)[Refine.values[_myCharacter.refineIndex]],
+                        (_weapon['specialEffectComent'] as Map<Refine, String>)[
+                            Refine.values[_myCharacter.refineIndex]],
                         style: TextStyle(
                           fontSize: 13,
                           color: Colors.black54,
@@ -421,9 +517,13 @@ class _CharacterCardState extends State<_CharacterCard> {
                           ),
                         ),
                         Column(
-                          children: List.generate(_artifactSetList.length, (index) {
-                            Map<String, Object> artifact = GsData.getArtifactFromId(_artifactSetList[index].keys.elementAt(0));
-                            ArtifactSetType setType = _artifactSetList[index].values.elementAt(0);
+                          children:
+                              List.generate(_artifactSetList.length, (index) {
+                            Map<String, Object> artifact =
+                                GsData.getArtifactFromId(
+                                    _artifactSetList[index].keys.elementAt(0));
+                            ArtifactSetType setType =
+                                _artifactSetList[index].values.elementAt(0);
                             return Padding(
                               padding: EdgeInsets.symmetric(vertical: 6),
                               child: Row(
@@ -456,7 +556,10 @@ class _CharacterCardState extends State<_CharacterCard> {
                                   ),
                                   Expanded(
                                     child: Text(
-                                      (artifact['setEffect'] as Map<ArtifactSetType, Map<String, Object>>)[setType]['description'],
+                                      (artifact['setEffect'] as Map<
+                                              ArtifactSetType,
+                                              Map<String, Object>>)[setType]
+                                          ['description'],
                                       style: TextStyle(
                                         fontSize: 13,
                                         color: Colors.black54,
@@ -497,14 +600,17 @@ class _CharacterCardState extends State<_CharacterCard> {
                   label: '伤害模拟',
                   icon: Icons.calculate,
                   onPressed: () {
-                    Navigator.pushNamed(context, '/mycharacterdamage', arguments: _myCharacter);
+                    Navigator.pushNamed(context, '/mycharacterdamage',
+                        arguments: _myCharacter);
                   },
                 ),
                 TextIconButton(
                   label: '编辑',
                   icon: Icons.drive_file_rename_outline,
                   onPressed: () {
-                    Navigator.pushNamed(context, "/mycharacteredit", arguments: _myCharacter).then((value) async {
+                    Navigator.pushNamed(context, "/mycharacteredit",
+                            arguments: _myCharacter)
+                        .then((value) async {
                       await widget.refresh();
                       _needLoadData = true;
                     });
@@ -612,9 +718,11 @@ class _CharacterCardState extends State<_CharacterCard> {
   List<Widget> _generateResultArea() {
     List<Widget> subColumns1 = [];
     List<Widget> subColumns2 = [];
-    int columnNumberFirstRow = (_myCharacterResult.artifactResult.result.length / 2).ceil();
+    int columnNumberFirstRow =
+        (_myCharacterResult.artifactResult.result.length / 2).ceil();
     int index = 0;
-    _myCharacterResult.artifactResult.result.forEach((Stats stat, double value) {
+    _myCharacterResult.artifactResult.result
+        .forEach((Stats stat, double value) {
       if (index++ < columnNumberFirstRow) {
         subColumns1.add(Column(
           children: <Widget>[
@@ -651,7 +759,8 @@ class _CharacterCardState extends State<_CharacterCard> {
       double statResult = 0.0;
       List<String> validStatNameList = [];
       validStat.forEach((Stats stat, double ratio) {
-        validStatNameList.add(GsData.getStatNameAbbrevation(stat) + (ratio == 1.0 ? '' : '($ratio倍)'));
+        validStatNameList.add(GsData.getStatNameAbbrevation(stat) +
+            (ratio == 1.0 ? '' : '($ratio倍)'));
         statResult += _myCharacterResult.artifactResult.result[stat] * ratio;
       });
       validStatResultRows.add(Column(
@@ -720,5 +829,9 @@ class _CharacterCardState extends State<_CharacterCard> {
       fontSize: 15,
       fontWeight: FontWeight.w700,
     );
+  }
+
+  TextStyle _getCharacterPropertyTextStyle() {
+    return TextStyle(color: Colors.black54);
   }
 }

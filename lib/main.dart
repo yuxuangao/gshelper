@@ -7,6 +7,7 @@ import 'page/artifact.dart';
 import 'page/damage.dart';
 import 'page/mycharacteredit.dart';
 import 'page/mycharacterdamage.dart';
+import 'page/mycharacterdetail.dart';
 import 'common/const.dart';
 
 void main() {
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: Const.TITLE,
         theme: ThemeData(
-          primarySwatch: Colors.teal,
+          primarySwatch: Colors.cyan,
           visualDensity: VisualDensity.adaptivePlatformDensity,
           fontFamily: 'Main',
         ),
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
           '/damage': (BuildContext context) => DamagePage(),
           '/mycharacteredit': (BuildContext context) => MyCharacterEditPage(),
           '/mycharacterdamage': (BuildContext context) => MyCharacterDamage(),
+          '/mycharacterdetail': (BuildContext context) => MyCharacterDetailPage(),
         },
         builder: (BuildContext context, Widget widget) {
           return ScrollConfiguration(behavior: ScrollBehaviorModified(), child: widget);
