@@ -85,7 +85,7 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
       _artifactMainInputControllerList[0].text = GsData.getStatName(GsData.getArtifactFlowerMainStatFromIndex(_myCharacter.artifactMainStatIndexList[0]));
       _artifactMainInputControllerList[1].text = GsData.getStatName(GsData.getArtifactPlumeMainStatFromIndex(_myCharacter.artifactMainStatIndexList[1]));
       _artifactMainInputControllerList[2].text = GsData.getStatName(GsData.getArtifactSandsMainStatFromIndex(_myCharacter.artifactMainStatIndexList[2]));
-      _artifactMainInputControllerList[3].text = GsData.getStatName(GsData.getArtifactGlobletMainStatFromIndex(_myCharacter.artifactMainStatIndexList[3]));
+      _artifactMainInputControllerList[3].text = GsData.getStatName(GsData.getArtifactGobletMainStatFromIndex(_myCharacter.artifactMainStatIndexList[3]));
       _artifactMainInputControllerList[4].text = GsData.getStatName(GsData.getArtifactCircletMainStatFromIndex(_myCharacter.artifactMainStatIndexList[4]));
       for (int i = 0; i < _myCharacter.artifactSubStatIndexList.length; i++) {
         _artifactSubStatInputControllerList[i].text = GsData.getStatName(GsData.getArtifactSubStatFromIndex(_myCharacter.artifactSubStatIndexList[i]));
@@ -685,7 +685,7 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
     _myCharacter.artifactSandsId = GsData.getArtifactIdFromIndex(_myCharacter.artifactMainTypeIndexList[2]);
     _myCharacter.artifactSandsIndex = _myCharacter.artifactMainStatIndexList[2];
     _myCharacter.artifactGobletId = GsData.getArtifactIdFromIndex(_myCharacter.artifactMainTypeIndexList[3]);
-    _myCharacter.artifactGlobletIndex = _myCharacter.artifactMainStatIndexList[3];
+    _myCharacter.artifactGobletIndex = _myCharacter.artifactMainStatIndexList[3];
     _myCharacter.artifactCircletId = GsData.getArtifactIdFromIndex(_myCharacter.artifactMainTypeIndexList[4]);
     _myCharacter.artifactCircletIndex = _myCharacter.artifactMainStatIndexList[4];
 
@@ -711,7 +711,7 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
     if (_myCharacter.artifactSandsId < 0 || _myCharacter.artifactSandsIndex < 0) {
       errorList.add(_InputFlags.artifactSands);
     }
-    if (_myCharacter.artifactGobletId < 0 || _myCharacter.artifactGlobletIndex < 0) {
+    if (_myCharacter.artifactGobletId < 0 || _myCharacter.artifactGobletIndex < 0) {
       errorList.add(_InputFlags.artifactGoblet);
     }
     if (_myCharacter.artifactCircletId < 0 || _myCharacter.artifactCircletIndex < 0) {

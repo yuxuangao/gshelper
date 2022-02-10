@@ -25,7 +25,7 @@ class ArtifactCalculator {
       result.errorMessage = "未选择时之砂主属性";
       return result;
     }
-    Stats globleMainStat = GsData.getArtifactGlobletMainStatFromIndex(input.artifactGobletIndex);
+    Stats globleMainStat = GsData.getArtifactGobletMainStatFromIndex(input.artifactGobletIndex);
     if (globleMainStat == null) {
       result.errorMessage = "未选择空之杯主属性";
       return result;

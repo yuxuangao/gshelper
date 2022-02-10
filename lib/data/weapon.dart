@@ -35,11 +35,7 @@ const WEAPONS = [
     },
     'specialEffectDamageType': {
       Stats.AttackBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [],
@@ -108,18 +104,10 @@ const WEAPONS = [
     },
     'specialEffectDamageType': {
       Stats.DmgBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
       Stats.PhyDmgBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [],
@@ -163,18 +151,10 @@ const WEAPONS = [
     },
     'specialEffectDamageType': {
       Stats.DmgBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
       Stats.PhyDmgBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [],
@@ -218,18 +198,10 @@ const WEAPONS = [
     },
     'specialEffectDamageType': {
       Stats.AttackBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
       Stats.DefendBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [],
@@ -268,11 +240,7 @@ const WEAPONS = [
     },
     'specialEffectDamageType': {
       Stats.CritRate: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [],
@@ -341,18 +309,10 @@ const WEAPONS = [
     },
     'specialEffectDamageType': {
       Stats.DmgBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
       Stats.PhyDmgBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [],
@@ -388,16 +348,11 @@ const WEAPONS = [
       },
     },
     'specialEffectComent': {
-      Refine.Refine1:
-          '普通攻击与重击的造成的伤害提升20%；此外，普通攻击与重击暴击时，回复等同于攻击力60%的生命值。该效果每5秒至多发动一次。',
-      Refine.Refine2:
-          '普通攻击与重击的造成的伤害提升25%；此外，普通攻击与重击暴击时，回复等同于攻击力70%的生命值。该效果每5秒至多发动一次。',
-      Refine.Refine3:
-          '普通攻击与重击的造成的伤害提升30%；此外，普通攻击与重击暴击时，回复等同于攻击力80%的生命值。该效果每5秒至多发动一次。',
-      Refine.Refine4:
-          '普通攻击与重击的造成的伤害提升35%；此外，普通攻击与重击暴击时，回复等同于攻击力90%的生命值。该效果每5秒至多发动一次。',
-      Refine.Refine5:
-          '普通攻击与重击的造成的伤害提升40%；此外，普通攻击与重击暴击时，回复等同于攻击力100%的生命值。该效果每5秒至多发动一次。',
+      Refine.Refine1: '普通攻击与重击的造成的伤害提升20%；此外，普通攻击与重击暴击时，回复等同于攻击力60%的生命值。该效果每5秒至多发动一次。',
+      Refine.Refine2: '普通攻击与重击的造成的伤害提升25%；此外，普通攻击与重击暴击时，回复等同于攻击力70%的生命值。该效果每5秒至多发动一次。',
+      Refine.Refine3: '普通攻击与重击的造成的伤害提升30%；此外，普通攻击与重击暴击时，回复等同于攻击力80%的生命值。该效果每5秒至多发动一次。',
+      Refine.Refine4: '普通攻击与重击的造成的伤害提升35%；此外，普通攻击与重击暴击时，回复等同于攻击力90%的生命值。该效果每5秒至多发动一次。',
+      Refine.Refine5: '普通攻击与重击的造成的伤害提升40%；此外，普通攻击与重击暴击时，回复等同于攻击力100%的生命值。该效果每5秒至多发动一次。',
     },
     'specialEffectDamageType': {
       Stats.DmgBonus: [
@@ -427,16 +382,11 @@ const WEAPONS = [
       Refine.Refine5: {},
     },
     'specialEffectComent': {
-      Refine.Refine1:
-          '普通攻击或重击命中时，会获得一个和音。积攒了5个和音后，释放音律的力量，对周围的敌人造成100%攻击力的伤害。和音最多存在30秒，每0.5秒至多获得1个和音。',
-      Refine.Refine2:
-          '普通攻击或重击命中时，会获得一个和音。积攒了5个和音后，释放音律的力量，对周围的敌人造成125%攻击力的伤害。和音最多存在30秒，每0.5秒至多获得1个和音。',
-      Refine.Refine3:
-          '普通攻击或重击命中时，会获得一个和音。积攒了5个和音后，释放音律的力量，对周围的敌人造成150%攻击力的伤害。和音最多存在30秒，每0.5秒至多获得1个和音。',
-      Refine.Refine4:
-          '普通攻击或重击命中时，会获得一个和音。积攒了5个和音后，释放音律的力量，对周围的敌人造成175%攻击力的伤害。和音最多存在30秒，每0.5秒至多获得1个和音。',
-      Refine.Refine5:
-          '普通攻击或重击命中时，会获得一个和音。积攒了5个和音后，释放音律的力量，对周围的敌人造成200%攻击力的伤害。和音最多存在30秒，每0.5秒至多获得1个和音。',
+      Refine.Refine1: '普通攻击或重击命中时，会获得一个和音。积攒了5个和音后，释放音律的力量，对周围的敌人造成100%攻击力的伤害。和音最多存在30秒，每0.5秒至多获得1个和音。',
+      Refine.Refine2: '普通攻击或重击命中时，会获得一个和音。积攒了5个和音后，释放音律的力量，对周围的敌人造成125%攻击力的伤害。和音最多存在30秒，每0.5秒至多获得1个和音。',
+      Refine.Refine3: '普通攻击或重击命中时，会获得一个和音。积攒了5个和音后，释放音律的力量，对周围的敌人造成150%攻击力的伤害。和音最多存在30秒，每0.5秒至多获得1个和音。',
+      Refine.Refine4: '普通攻击或重击命中时，会获得一个和音。积攒了5个和音后，释放音律的力量，对周围的敌人造成175%攻击力的伤害。和音最多存在30秒，每0.5秒至多获得1个和音。',
+      Refine.Refine5: '普通攻击或重击命中时，会获得一个和音。积攒了5个和音后，释放音律的力量，对周围的敌人造成200%攻击力的伤害。和音最多存在30秒，每0.5秒至多获得1个和音。',
     },
     'specialEffectDamageType': [],
     'specialEffectAlways': [],
@@ -457,8 +407,7 @@ const WEAPONS = [
       Refine.Refine5: {},
     },
     'specialEffectComent': {
-      Refine.Refine1:
-          '仅在以下平台生效：\n"PlayStation Network"\n普通攻击与重击命中敌人后有50%概率在小范围内造成200%攻击力的伤害。该效果每10秒只能触发一次；此外，旅行者装备降临之剑时，攻击力提升66点。',
+      Refine.Refine1: '仅在以下平台生效：\n"PlayStation Network"\n普通攻击与重击命中敌人后有50%概率在小范围内造成200%攻击力的伤害。该效果每10秒只能触发一次；此外，旅行者装备降临之剑时，攻击力提升66点。',
       Refine.Refine2: '',
       Refine.Refine3: '',
       Refine.Refine4: '',
@@ -538,16 +487,11 @@ const WEAPONS = [
       Refine.Refine5: {},
     },
     'specialEffectComent': {
-      Refine.Refine1:
-          '施放元素战技后，获得1个胤种，该效果每5秒至多触发一次。胤种持续30秒，至多同时存在3个。施放元素爆发后，会清除持有的所有胤种，并在2秒之后，基于消耗的胤种数量，每个为该角色恢复6点元素能量。',
-      Refine.Refine2:
-          '施放元素战技后，获得1个胤种，该效果每5秒至多触发一次。胤种持续30秒，至多同时存在3个。施放元素爆发后，会清除持有的所有胤种，并在2秒之后，基于消耗的胤种数量，每个为该角色恢复7.5点元素能量。',
-      Refine.Refine3:
-          '施放元素战技后，获得1个胤种，该效果每5秒至多触发一次。胤种持续30秒，至多同时存在3个。施放元素爆发后，会清除持有的所有胤种，并在2秒之后，基于消耗的胤种数量，每个为该角色恢复9点元素能量。',
-      Refine.Refine4:
-          '施放元素战技后，获得1个胤种，该效果每5秒至多触发一次。胤种持续30秒，至多同时存在3个。施放元素爆发后，会清除持有的所有胤种，并在2秒之后，基于消耗的胤种数量，每个为该角色恢复10.5点元素能量。',
-      Refine.Refine5:
-          '施放元素战技后，获得1个胤种，该效果每5秒至多触发一次。胤种持续30秒，至多同时存在3个。施放元素爆发后，会清除持有的所有胤种，并在2秒之后，基于消耗的胤种数量，每个为该角色恢复12点元素能量。',
+      Refine.Refine1: '施放元素战技后，获得1个胤种，该效果每5秒至多触发一次。胤种持续30秒，至多同时存在3个。施放元素爆发后，会清除持有的所有胤种，并在2秒之后，基于消耗的胤种数量，每个为该角色恢复6点元素能量。',
+      Refine.Refine2: '施放元素战技后，获得1个胤种，该效果每5秒至多触发一次。胤种持续30秒，至多同时存在3个。施放元素爆发后，会清除持有的所有胤种，并在2秒之后，基于消耗的胤种数量，每个为该角色恢复7.5点元素能量。',
+      Refine.Refine3: '施放元素战技后，获得1个胤种，该效果每5秒至多触发一次。胤种持续30秒，至多同时存在3个。施放元素爆发后，会清除持有的所有胤种，并在2秒之后，基于消耗的胤种数量，每个为该角色恢复9点元素能量。',
+      Refine.Refine4: '施放元素战技后，获得1个胤种，该效果每5秒至多触发一次。胤种持续30秒，至多同时存在3个。施放元素爆发后，会清除持有的所有胤种，并在2秒之后，基于消耗的胤种数量，每个为该角色恢复10.5点元素能量。',
+      Refine.Refine5: '施放元素战技后，获得1个胤种，该效果每5秒至多触发一次。胤种持续30秒，至多同时存在3个。施放元素爆发后，会清除持有的所有胤种，并在2秒之后，基于消耗的胤种数量，每个为该角色恢复12点元素能量。',
     },
     'specialEffectDamageType': [],
     'specialEffectAlways': [],
@@ -578,24 +522,15 @@ const WEAPONS = [
       },
     },
     'specialEffectComent': {
-      Refine.Refine1:
-          '攻击力提高20%；受到伤害时触发：高扬抗争旗号的西风鹰之魂苏醒，恢复等同于攻击力的100%的生命值，并对周围的敌人造成200%攻击力的伤害。该效果每15秒只能触发一次。',
-      Refine.Refine2:
-          '攻击力提高25%；受到伤害时触发：高扬抗争旗号的西风鹰之魂苏醒，恢复等同于攻击力的115%的生命值，并对周围的敌人造成230%攻击力的伤害。该效果每15秒只能触发一次。',
-      Refine.Refine3:
-          '攻击力提高30%；受到伤害时触发：高扬抗争旗号的西风鹰之魂苏醒，恢复等同于攻击力的130%的生命值，并对周围的敌人造成260%攻击力的伤害。该效果每15秒只能触发一次。',
-      Refine.Refine4:
-          '攻击力提高35%；受到伤害时触发：高扬抗争旗号的西风鹰之魂苏醒，恢复等同于攻击力的145%的生命值，并对周围的敌人造成290%攻击力的伤害。该效果每15秒只能触发一次。',
-      Refine.Refine5:
-          '攻击力提高40%；受到伤害时触发：高扬抗争旗号的西风鹰之魂苏醒，恢复等同于攻击力的160%的生命值，并对周围的敌人造成320%攻击力的伤害。该效果每15秒只能触发一次。',
+      Refine.Refine1: '攻击力提高20%；受到伤害时触发：高扬抗争旗号的西风鹰之魂苏醒，恢复等同于攻击力的100%的生命值，并对周围的敌人造成200%攻击力的伤害。该效果每15秒只能触发一次。',
+      Refine.Refine2: '攻击力提高25%；受到伤害时触发：高扬抗争旗号的西风鹰之魂苏醒，恢复等同于攻击力的115%的生命值，并对周围的敌人造成230%攻击力的伤害。该效果每15秒只能触发一次。',
+      Refine.Refine3: '攻击力提高30%；受到伤害时触发：高扬抗争旗号的西风鹰之魂苏醒，恢复等同于攻击力的130%的生命值，并对周围的敌人造成260%攻击力的伤害。该效果每15秒只能触发一次。',
+      Refine.Refine4: '攻击力提高35%；受到伤害时触发：高扬抗争旗号的西风鹰之魂苏醒，恢复等同于攻击力的145%的生命值，并对周围的敌人造成290%攻击力的伤害。该效果每15秒只能触发一次。',
+      Refine.Refine5: '攻击力提高40%；受到伤害时触发：高扬抗争旗号的西风鹰之魂苏醒，恢复等同于攻击力的160%的生命值，并对周围的敌人造成320%攻击力的伤害。该效果每15秒只能触发一次。',
     },
     'specialEffectDamageType': {
       Stats.AttackBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [
@@ -633,24 +568,15 @@ const WEAPONS = [
       },
     },
     'specialEffectComent': {
-      Refine.Refine1:
-          '暴击率提升4%；施放元素爆发时，获得破空之势：移动速度提升10%，攻击速度提升10%，普通攻击与重击命中时，额外造成20%攻击力的伤害，持续12秒。',
-      Refine.Refine2:
-          '暴击率提升5%；施放元素爆发时，获得破空之势：移动速度提升10%，攻击速度提升10%，普通攻击与重击命中时，额外造成25%攻击力的伤害，持续12秒。',
-      Refine.Refine3:
-          '暴击率提升6%；施放元素爆发时，获得破空之势：移动速度提升10%，攻击速度提升10%，普通攻击与重击命中时，额外造成30%攻击力的伤害，持续12秒。',
-      Refine.Refine4:
-          '暴击率提升7%；施放元素爆发时，获得破空之势：移动速度提升10%，攻击速度提升10%，普通攻击与重击命中时，额外造成35%攻击力的伤害，持续12秒。',
-      Refine.Refine5:
-          '暴击率提升8%；施放元素爆发时，获得破空之势：移动速度提升10%，攻击速度提升10%，普通攻击与重击命中时，额外造成40%攻击力的伤害，持续12秒。',
+      Refine.Refine1: '暴击率提升4%；施放元素爆发时，获得破空之势：移动速度提升10%，攻击速度提升10%，普通攻击与重击命中时，额外造成20%攻击力的伤害，持续12秒。',
+      Refine.Refine2: '暴击率提升5%；施放元素爆发时，获得破空之势：移动速度提升10%，攻击速度提升10%，普通攻击与重击命中时，额外造成25%攻击力的伤害，持续12秒。',
+      Refine.Refine3: '暴击率提升6%；施放元素爆发时，获得破空之势：移动速度提升10%，攻击速度提升10%，普通攻击与重击命中时，额外造成30%攻击力的伤害，持续12秒。',
+      Refine.Refine4: '暴击率提升7%；施放元素爆发时，获得破空之势：移动速度提升10%，攻击速度提升10%，普通攻击与重击命中时，额外造成35%攻击力的伤害，持续12秒。',
+      Refine.Refine5: '暴击率提升8%；施放元素爆发时，获得破空之势：移动速度提升10%，攻击速度提升10%，普通攻击与重击命中时，额外造成40%攻击力的伤害，持续12秒。',
     },
     'specialEffectDamageType': {
       Stats.CritRate: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
       Stats.ExtraDamageByAttack: [
         DamageType.Normal,
@@ -692,31 +618,18 @@ const WEAPONS = [
       },
     },
     'specialEffectComent': {
-      Refine.Refine1:
-          '护盾强效提升20%。攻击命中后的8秒内，攻击力提升4%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
-      Refine.Refine2:
-          '护盾强效提升25%。攻击命中后的8秒内，攻击力提升5%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
-      Refine.Refine3:
-          '护盾强效提升30%。攻击命中后的8秒内，攻击力提升6%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
-      Refine.Refine4:
-          '护盾强效提升35%。攻击命中后的8秒内，攻击力提升7%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
-      Refine.Refine5:
-          '护盾强效提升40%。攻击命中后的8秒内，攻击力提升8%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
+      Refine.Refine1: '护盾强效提升20%。攻击命中后的8秒内，攻击力提升4%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
+      Refine.Refine2: '护盾强效提升25%。攻击命中后的8秒内，攻击力提升5%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
+      Refine.Refine3: '护盾强效提升30%。攻击命中后的8秒内，攻击力提升6%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
+      Refine.Refine4: '护盾强效提升35%。攻击命中后的8秒内，攻击力提升7%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
+      Refine.Refine5: '护盾强效提升40%。攻击命中后的8秒内，攻击力提升8%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
     },
     'specialEffectDamageType': {
       Stats.AttackBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
       Stats.ShieldStrength: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [
@@ -762,18 +675,10 @@ const WEAPONS = [
     },
     'specialEffectDamageType': {
       Stats.HpBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
       Stats.AttackBonusByHp: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [
@@ -840,11 +745,7 @@ const WEAPONS = [
         DamageType.Plunging,
       ],
       Stats.AttackBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [],
@@ -888,11 +789,7 @@ const WEAPONS = [
     },
     'specialEffectDamageType': {
       Stats.DmgBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [],
@@ -931,11 +828,7 @@ const WEAPONS = [
     },
     'specialEffectDamageType': {
       Stats.AttackBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [],
@@ -1004,18 +897,10 @@ const WEAPONS = [
     },
     'specialEffectDamageType': {
       Stats.AttackBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
       Stats.CritRate: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [],
@@ -1084,18 +969,10 @@ const WEAPONS = [
     },
     'specialEffectDamageType': {
       Stats.DmgBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
       Stats.PhyDmgBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [],
@@ -1134,11 +1011,7 @@ const WEAPONS = [
     },
     'specialEffectDamageType': {
       Stats.CritRate: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [],
@@ -1174,31 +1047,18 @@ const WEAPONS = [
       },
     },
     'specialEffectComent': {
-      Refine.Refine1:
-          '角色在场上时，每4秒提升6%造成的伤害，3%受到的伤害。该效果最多叠加5层，不随角色退场重置，受到伤害后会减少1层效果。',
-      Refine.Refine2:
-          '角色在场上时，每4秒提升7%造成的伤害，2.7%受到的伤害。该效果最多叠加5层，不随角色退场重置，受到伤害后会减少1层效果。',
-      Refine.Refine3:
-          '角色在场上时，每4秒提升8%造成的伤害，2.4%受到的伤害。该效果最多叠加5层，不随角色退场重置，受到伤害后会减少1层效果。',
-      Refine.Refine4:
-          '角色在场上时，每4秒提升9%造成的伤害，2.2%受到的伤害。该效果最多叠加5层，不随角色退场重置，受到伤害后会减少1层效果。',
-      Refine.Refine5:
-          '角色在场上时，每4秒提升10%造成的伤害，2%受到的伤害。该效果最多叠加5层，不随角色退场重置，受到伤害后会减少1层效果。',
+      Refine.Refine1: '角色在场上时，每4秒提升6%造成的伤害，3%受到的伤害。该效果最多叠加5层，不随角色退场重置，受到伤害后会减少1层效果。',
+      Refine.Refine2: '角色在场上时，每4秒提升7%造成的伤害，2.7%受到的伤害。该效果最多叠加5层，不随角色退场重置，受到伤害后会减少1层效果。',
+      Refine.Refine3: '角色在场上时，每4秒提升8%造成的伤害，2.4%受到的伤害。该效果最多叠加5层，不随角色退场重置，受到伤害后会减少1层效果。',
+      Refine.Refine4: '角色在场上时，每4秒提升9%造成的伤害，2.2%受到的伤害。该效果最多叠加5层，不随角色退场重置，受到伤害后会减少1层效果。',
+      Refine.Refine5: '角色在场上时，每4秒提升10%造成的伤害，2%受到的伤害。该效果最多叠加5层，不随角色退场重置，受到伤害后会减少1层效果。',
     },
     'specialEffectDamageType': {
       Stats.DmgBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
       Stats.PhyDmgBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [],
@@ -1234,31 +1094,18 @@ const WEAPONS = [
       },
     },
     'specialEffectComent': {
-      Refine.Refine1:
-          '受到伤害时，生成一个伤害吸收量等同于生命值上限20%的护盾，持续10秒或直到护盾失效,每45秒只能触发一次。角色处于护盾庇护下时，造成的伤害提升12%。',
-      Refine.Refine2:
-          '受到伤害时，生成一个伤害吸收量等同于生命值上限23%的护盾，持续10秒或直到护盾失效,每45秒只能触发一次。角色处于护盾庇护下时，造成的伤害提升15%。',
-      Refine.Refine3:
-          '受到伤害时，生成一个伤害吸收量等同于生命值上限26%的护盾，持续10秒或直到护盾失效,每45秒只能触发一次。角色处于护盾庇护下时，造成的伤害提升18%。',
-      Refine.Refine4:
-          '受到伤害时，生成一个伤害吸收量等同于生命值上限29%的护盾，持续10秒或直到护盾失效,每45秒只能触发一次。角色处于护盾庇护下时，造成的伤害提升21%。',
-      Refine.Refine5:
-          '受到伤害时，生成一个伤害吸收量等同于生命值上限32%的护盾，持续10秒或直到护盾失效,每45秒只能触发一次。角色处于护盾庇护下时，造成的伤害提升24%。',
+      Refine.Refine1: '受到伤害时，生成一个伤害吸收量等同于生命值上限20%的护盾，持续10秒或直到护盾失效,每45秒只能触发一次。角色处于护盾庇护下时，造成的伤害提升12%。',
+      Refine.Refine2: '受到伤害时，生成一个伤害吸收量等同于生命值上限23%的护盾，持续10秒或直到护盾失效,每45秒只能触发一次。角色处于护盾庇护下时，造成的伤害提升15%。',
+      Refine.Refine3: '受到伤害时，生成一个伤害吸收量等同于生命值上限26%的护盾，持续10秒或直到护盾失效,每45秒只能触发一次。角色处于护盾庇护下时，造成的伤害提升18%。',
+      Refine.Refine4: '受到伤害时，生成一个伤害吸收量等同于生命值上限29%的护盾，持续10秒或直到护盾失效,每45秒只能触发一次。角色处于护盾庇护下时，造成的伤害提升21%。',
+      Refine.Refine5: '受到伤害时，生成一个伤害吸收量等同于生命值上限32%的护盾，持续10秒或直到护盾失效,每45秒只能触发一次。角色处于护盾庇护下时，造成的伤害提升24%。',
     },
     'specialEffectDamageType': {
       Stats.DmgBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
       Stats.PhyDmgBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [],
@@ -1302,18 +1149,10 @@ const WEAPONS = [
     },
     'specialEffectDamageType': {
       Stats.AttackBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
       Stats.DefendBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [],
@@ -1359,16 +1198,11 @@ const WEAPONS = [
       Refine.Refine5: {},
     },
     'specialEffectComent': {
-      Refine.Refine1:
-          '普通攻击与重击命中敌人时，有60%概率在敌人上方生成恒冰晶核并坠落，造成80%攻击力的范围伤害。若敌人处于冰元素影响下，则造成200%攻击力的伤害。该效果每10秒至多触发一次。',
-      Refine.Refine2:
-          '普通攻击与重击命中敌人时，有70%概率在敌人上方生成恒冰晶核并坠落，造成95%攻击力的范围伤害。若敌人处于冰元素影响下，则造成240%攻击力的伤害。该效果每10秒至多触发一次。',
-      Refine.Refine3:
-          '普通攻击与重击命中敌人时，有80%概率在敌人上方生成恒冰晶核并坠落，造成110%攻击力的范围伤害。若敌人处于冰元素影响下，则造成280%攻击力的伤害。该效果每10秒至多触发一次。',
-      Refine.Refine4:
-          '普通攻击与重击命中敌人时，有90%概率在敌人上方生成恒冰晶核并坠落，造成125%攻击力的范围伤害。若敌人处于冰元素影响下，则造成320%攻击力的伤害。该效果每10秒至多触发一次。',
-      Refine.Refine5:
-          '普通攻击与重击命中敌人时，有100%概率在敌人上方生成恒冰晶核并坠落，造成140%攻击力的范围伤害。若敌人处于冰元素影响下，则造成360%攻击力的伤害。该效果每10秒至多触发一次。',
+      Refine.Refine1: '普通攻击与重击命中敌人时，有60%概率在敌人上方生成恒冰晶核并坠落，造成80%攻击力的范围伤害。若敌人处于冰元素影响下，则造成200%攻击力的伤害。该效果每10秒至多触发一次。',
+      Refine.Refine2: '普通攻击与重击命中敌人时，有70%概率在敌人上方生成恒冰晶核并坠落，造成95%攻击力的范围伤害。若敌人处于冰元素影响下，则造成240%攻击力的伤害。该效果每10秒至多触发一次。',
+      Refine.Refine3: '普通攻击与重击命中敌人时，有80%概率在敌人上方生成恒冰晶核并坠落，造成110%攻击力的范围伤害。若敌人处于冰元素影响下，则造成280%攻击力的伤害。该效果每10秒至多触发一次。',
+      Refine.Refine4: '普通攻击与重击命中敌人时，有90%概率在敌人上方生成恒冰晶核并坠落，造成125%攻击力的范围伤害。若敌人处于冰元素影响下，则造成320%攻击力的伤害。该效果每10秒至多触发一次。',
+      Refine.Refine5: '普通攻击与重击命中敌人时，有100%概率在敌人上方生成恒冰晶核并坠落，造成140%攻击力的范围伤害。若敌人处于冰元素影响下，则造成360%攻击力的伤害。该效果每10秒至多触发一次。',
     },
     'specialEffectDamageType': {},
     'specialEffectAlways': [],
@@ -1404,16 +1238,11 @@ const WEAPONS = [
       },
     },
     'specialEffectComent': {
-      Refine.Refine1:
-          '元素战技造成的伤害提升6%。元素战技命中后，角色流失3点元素能量，并在此后的6秒内，每2秒恢复3点元素能量。该效果每10秒至多触发一次，角色处于队伍后台也能触发。',
-      Refine.Refine2:
-          '元素战技造成的伤害提升7.5%。元素战技命中后，角色流失3点元素能量，并在此后的6秒内，每2秒恢复3.5点元素能量。该效果每10秒至多触发一次，角色处于队伍后台也能触发。',
-      Refine.Refine3:
-          '元素战技造成的伤害提升9%。元素战技命中后，角色流失3点元素能量，并在此后的6秒内，每2秒恢复4点元素能量。该效果每10秒至多触发一次，角色处于队伍后台也能触发。',
-      Refine.Refine4:
-          '元素战技造成的伤害提升10.5%。元素战技命中后，角色流失3点元素能量，并在此后的6秒内，每2秒恢复4.5点元素能量。该效果每10秒至多触发一次，角色处于队伍后台也能触发。',
-      Refine.Refine5:
-          '元素战技造成的伤害提升12%。元素战技命中后，角色流失3点元素能量，并在此后的6秒内，每2秒恢复5点元素能量。该效果每10秒至多触发一次，角色处于队伍后台也能触发。',
+      Refine.Refine1: '元素战技造成的伤害提升6%。元素战技命中后，角色流失3点元素能量，并在此后的6秒内，每2秒恢复3点元素能量。该效果每10秒至多触发一次，角色处于队伍后台也能触发。',
+      Refine.Refine2: '元素战技造成的伤害提升7.5%。元素战技命中后，角色流失3点元素能量，并在此后的6秒内，每2秒恢复3.5点元素能量。该效果每10秒至多触发一次，角色处于队伍后台也能触发。',
+      Refine.Refine3: '元素战技造成的伤害提升9%。元素战技命中后，角色流失3点元素能量，并在此后的6秒内，每2秒恢复4点元素能量。该效果每10秒至多触发一次，角色处于队伍后台也能触发。',
+      Refine.Refine4: '元素战技造成的伤害提升10.5%。元素战技命中后，角色流失3点元素能量，并在此后的6秒内，每2秒恢复4.5点元素能量。该效果每10秒至多触发一次，角色处于队伍后台也能触发。',
+      Refine.Refine5: '元素战技造成的伤害提升12%。元素战技命中后，角色流失3点元素能量，并在此后的6秒内，每2秒恢复5点元素能量。该效果每10秒至多触发一次，角色处于队伍后台也能触发。',
     },
     'specialEffectDamageType': {
       Stats.DmgBonus: [
@@ -1456,23 +1285,20 @@ const WEAPONS = [
       },
     },
     'specialEffectComent': {
-      Refine.Refine1:
-          '元素爆发造成的伤害提升12%。元素爆发命中敌人时，有100%概率召唤大鲔冲击，造成100%攻击力的范围伤害。该效果每15秒至多触发一次。',
-      Refine.Refine2:
-          '元素爆发造成的伤害提升15%。元素爆发命中敌人时，有100%概率召唤大鲔冲击，造成125%攻击力的范围伤害。该效果每15秒至多触发一次。',
-      Refine.Refine3:
-          '元素爆发造成的伤害提升18%。元素爆发命中敌人时，有100%概率召唤大鲔冲击，造成150%攻击力的范围伤害。该效果每15秒至多触发一次。',
-      Refine.Refine4:
-          '元素爆发造成的伤害提升21%。元素爆发命中敌人时，有100%概率召唤大鲔冲击，造成175%攻击力的范围伤害。该效果每15秒至多触发一次。',
-      Refine.Refine5:
-          '元素爆发造成的伤害提升24%。元素爆发命中敌人时，有100%概率召唤大鲔冲击，造成200%攻击力的范围伤害。该效果每15秒至多触发一次。',
+      Refine.Refine1: '元素爆发造成的伤害提升12%。元素爆发命中敌人时，有100%概率召唤大鲔冲击，造成100%攻击力的范围伤害。该效果每15秒至多触发一次。',
+      Refine.Refine2: '元素爆发造成的伤害提升15%。元素爆发命中敌人时，有100%概率召唤大鲔冲击，造成125%攻击力的范围伤害。该效果每15秒至多触发一次。',
+      Refine.Refine3: '元素爆发造成的伤害提升18%。元素爆发命中敌人时，有100%概率召唤大鲔冲击，造成150%攻击力的范围伤害。该效果每15秒至多触发一次。',
+      Refine.Refine4: '元素爆发造成的伤害提升21%。元素爆发命中敌人时，有100%概率召唤大鲔冲击，造成175%攻击力的范围伤害。该效果每15秒至多触发一次。',
+      Refine.Refine5: '元素爆发造成的伤害提升24%。元素爆发命中敌人时，有100%概率召唤大鲔冲击，造成200%攻击力的范围伤害。该效果每15秒至多触发一次。',
     },
     'specialEffectDamageType': {
       Stats.DmgBonus: [
         DamageType.SkillQ,
+        DamageType.SkillQSpecial,
       ],
       Stats.PhyDmgBonus: [
         DamageType.SkillQ,
+        DamageType.SkillQSpecial,
       ],
     },
     'specialEffectAlways': [],
@@ -1508,23 +1334,20 @@ const WEAPONS = [
       },
     },
     'specialEffectComent': {
-      Refine.Refine1:
-          '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.12%，通过这种方式，元素爆发造成的伤害至多提高40%。',
-      Refine.Refine2:
-          '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.15%，通过这种方式，元素爆发造成的伤害至多提高50%。',
-      Refine.Refine3:
-          '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.18%，通过这种方式，元素爆发造成的伤害至多提高60%。',
-      Refine.Refine4:
-          '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.21%，通过这种方式，元素爆发造成的伤害至多提高70%。',
-      Refine.Refine5:
-          '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.24%，通过这种方式，元素爆发造成的伤害至多提高80%。',
+      Refine.Refine1: '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.12%，通过这种方式，元素爆发造成的伤害至多提高40%。',
+      Refine.Refine2: '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.15%，通过这种方式，元素爆发造成的伤害至多提高50%。',
+      Refine.Refine3: '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.18%，通过这种方式，元素爆发造成的伤害至多提高60%。',
+      Refine.Refine4: '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.21%，通过这种方式，元素爆发造成的伤害至多提高70%。',
+      Refine.Refine5: '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.24%，通过这种方式，元素爆发造成的伤害至多提高80%。',
     },
     'specialEffectDamageType': {
       Stats.DmgBonus: [
         DamageType.SkillQ,
+        DamageType.SkillQSpecial,
       ],
       Stats.PhyDmgBonus: [
         DamageType.SkillQ,
+        DamageType.SkillQSpecial,
       ],
     },
     'specialEffectAlways': [],
@@ -1560,31 +1383,18 @@ const WEAPONS = [
       },
     },
     'specialEffectComent': {
-      Refine.Refine1:
-          '造成的伤害提高8%；施放元素爆发后：普通攻击和重击命中时会发出真空刃，对路径上的敌人造成80%攻击力的伤害，持续20秒或直至发出8次真空刃。',
-      Refine.Refine2:
-          '造成的伤害提高10%；施放元素爆发后：普通攻击和重击命中时会发出真空刃，对路径上的敌人造成100%攻击力的伤害，持续20秒或直至发出8次真空刃。',
-      Refine.Refine3:
-          '造成的伤害提高12%；施放元素爆发后：普通攻击和重击命中时会发出真空刃，对路径上的敌人造成120%攻击力的伤害，持续20秒或直至发出8次真空刃。',
-      Refine.Refine4:
-          '造成的伤害提高14%；施放元素爆发后：普通攻击和重击命中时会发出真空刃，对路径上的敌人造成140%攻击力的伤害，持续20秒或直至发出8次真空刃。',
-      Refine.Refine5:
-          '造成的伤害提高16%；施放元素爆发后：普通攻击和重击命中时会发出真空刃，对路径上的敌人造成160%攻击力的伤害，持续20秒或直至发出8次真空刃。',
+      Refine.Refine1: '造成的伤害提高8%；施放元素爆发后：普通攻击和重击命中时会发出真空刃，对路径上的敌人造成80%攻击力的伤害，持续20秒或直至发出8次真空刃。',
+      Refine.Refine2: '造成的伤害提高10%；施放元素爆发后：普通攻击和重击命中时会发出真空刃，对路径上的敌人造成100%攻击力的伤害，持续20秒或直至发出8次真空刃。',
+      Refine.Refine3: '造成的伤害提高12%；施放元素爆发后：普通攻击和重击命中时会发出真空刃，对路径上的敌人造成120%攻击力的伤害，持续20秒或直至发出8次真空刃。',
+      Refine.Refine4: '造成的伤害提高14%；施放元素爆发后：普通攻击和重击命中时会发出真空刃，对路径上的敌人造成140%攻击力的伤害，持续20秒或直至发出8次真空刃。',
+      Refine.Refine5: '造成的伤害提高16%；施放元素爆发后：普通攻击和重击命中时会发出真空刃，对路径上的敌人造成160%攻击力的伤害，持续20秒或直至发出8次真空刃。',
     },
     'specialEffectDamageType': {
       Stats.DmgBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
       Stats.PhyDmgBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [
@@ -1618,24 +1428,15 @@ const WEAPONS = [
       },
     },
     'specialEffectComent': {
-      Refine.Refine1:
-          '攻击力提高20%；攻击命中生命值低于30%的敌人时，队伍中所有成员的攻击力提高40%，持续12秒。该效果30秒只能触发一次。',
-      Refine.Refine2:
-          '攻击力提高25%；攻击命中生命值低于30%的敌人时，队伍中所有成员的攻击力提高50%，持续12秒。该效果30秒只能触发一次。',
-      Refine.Refine3:
-          '攻击力提高30%；攻击命中生命值低于30%的敌人时，队伍中所有成员的攻击力提高60%，持续12秒。该效果30秒只能触发一次。',
-      Refine.Refine4:
-          '攻击力提高35%；攻击命中生命值低于30%的敌人时，队伍中所有成员的攻击力提高70%，持续12秒。该效果30秒只能触发一次。',
-      Refine.Refine5:
-          '攻击力提高40%；攻击命中生命值低于30%的敌人时，队伍中所有成员的攻击力提高80%，持续12秒。该效果30秒只能触发一次。',
+      Refine.Refine1: '攻击力提高20%；攻击命中生命值低于30%的敌人时，队伍中所有成员的攻击力提高40%，持续12秒。该效果30秒只能触发一次。',
+      Refine.Refine2: '攻击力提高25%；攻击命中生命值低于30%的敌人时，队伍中所有成员的攻击力提高50%，持续12秒。该效果30秒只能触发一次。',
+      Refine.Refine3: '攻击力提高30%；攻击命中生命值低于30%的敌人时，队伍中所有成员的攻击力提高60%，持续12秒。该效果30秒只能触发一次。',
+      Refine.Refine4: '攻击力提高35%；攻击命中生命值低于30%的敌人时，队伍中所有成员的攻击力提高70%，持续12秒。该效果30秒只能触发一次。',
+      Refine.Refine5: '攻击力提高40%；攻击命中生命值低于30%的敌人时，队伍中所有成员的攻击力提高80%，持续12秒。该效果30秒只能触发一次。',
     },
     'specialEffectDamageType': {
       Stats.AttackBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [],
@@ -1671,31 +1472,18 @@ const WEAPONS = [
       },
     },
     'specialEffectComent': {
-      Refine.Refine1:
-          '护盾强效提升20%。攻击命中后的8秒内，攻击力提升4%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
-      Refine.Refine2:
-          '护盾强效提升25%。攻击命中后的8秒内，攻击力提升5%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
-      Refine.Refine3:
-          '护盾强效提升30%。攻击命中后的8秒内，攻击力提升6%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
-      Refine.Refine4:
-          '护盾强效提升35%。攻击命中后的8秒内，攻击力提升7%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
-      Refine.Refine5:
-          '护盾强效提升40%。攻击命中后的8秒内，攻击力提升8%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
+      Refine.Refine1: '护盾强效提升20%。攻击命中后的8秒内，攻击力提升4%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
+      Refine.Refine2: '护盾强效提升25%。攻击命中后的8秒内，攻击力提升5%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
+      Refine.Refine3: '护盾强效提升30%。攻击命中后的8秒内，攻击力提升6%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
+      Refine.Refine4: '护盾强效提升35%。攻击命中后的8秒内，攻击力提升7%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
+      Refine.Refine5: '护盾强效提升40%。攻击命中后的8秒内，攻击力提升8%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
     },
     'specialEffectDamageType': {
       Stats.AttackBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
       Stats.ShieldStrength: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [
@@ -1741,11 +1529,7 @@ const WEAPONS = [
     },
     'specialEffectDamageType': {
       Stats.AttackBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [],
@@ -1784,11 +1568,7 @@ const WEAPONS = [
     },
     'specialEffectDamageType': {
       Stats.AttackBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [],
@@ -1867,11 +1647,7 @@ const WEAPONS = [
     },
     'specialEffectDamageType': {
       Stats.AttackBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [
@@ -1917,18 +1693,10 @@ const WEAPONS = [
     },
     'specialEffectDamageType': {
       Stats.DmgBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
       Stats.PhyDmgBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [],
@@ -1972,18 +1740,10 @@ const WEAPONS = [
     },
     'specialEffectDamageType': {
       Stats.AttackBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
       Stats.CritRate: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [],
@@ -2096,11 +1856,7 @@ const WEAPONS = [
     },
     'specialEffectDamageType': {
       Stats.CritRate: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [],
@@ -2121,16 +1877,11 @@ const WEAPONS = [
       Refine.Refine5: {},
     },
     'specialEffectComent': {
-      Refine.Refine1:
-          '普通攻击与重击命中敌人时，有60%概率在敌人上方生成恒冰晶核并坠落，造成80%攻击力的范围伤害。若敌人处于冰元素影响下，则造成200%攻击力的伤害。该效果每10秒至多触发一次。',
-      Refine.Refine2:
-          '普通攻击与重击命中敌人时，有70%概率在敌人上方生成恒冰晶核并坠落，造成95%攻击力的范围伤害。若敌人处于冰元素影响下，则造成240%攻击力的伤害。该效果每10秒至多触发一次。',
-      Refine.Refine3:
-          '普通攻击与重击命中敌人时，有80%概率在敌人上方生成恒冰晶核并坠落，造成110%攻击力的范围伤害。若敌人处于冰元素影响下，则造成280%攻击力的伤害。该效果每10秒至多触发一次。',
-      Refine.Refine4:
-          '普通攻击与重击命中敌人时，有90%概率在敌人上方生成恒冰晶核并坠落，造成125%攻击力的范围伤害。若敌人处于冰元素影响下，则造成320%攻击力的伤害。该效果每10秒至多触发一次。',
-      Refine.Refine5:
-          '普通攻击与重击命中敌人时，有100%概率在敌人上方生成恒冰晶核并坠落，造成140%攻击力的范围伤害。若敌人处于冰元素影响下，则造成360%攻击力的伤害。该效果每10秒至多触发一次。',
+      Refine.Refine1: '普通攻击与重击命中敌人时，有60%概率在敌人上方生成恒冰晶核并坠落，造成80%攻击力的范围伤害。若敌人处于冰元素影响下，则造成200%攻击力的伤害。该效果每10秒至多触发一次。',
+      Refine.Refine2: '普通攻击与重击命中敌人时，有70%概率在敌人上方生成恒冰晶核并坠落，造成95%攻击力的范围伤害。若敌人处于冰元素影响下，则造成240%攻击力的伤害。该效果每10秒至多触发一次。',
+      Refine.Refine3: '普通攻击与重击命中敌人时，有80%概率在敌人上方生成恒冰晶核并坠落，造成110%攻击力的范围伤害。若敌人处于冰元素影响下，则造成280%攻击力的伤害。该效果每10秒至多触发一次。',
+      Refine.Refine4: '普通攻击与重击命中敌人时，有90%概率在敌人上方生成恒冰晶核并坠落，造成125%攻击力的范围伤害。若敌人处于冰元素影响下，则造成320%攻击力的伤害。该效果每10秒至多触发一次。',
+      Refine.Refine5: '普通攻击与重击命中敌人时，有100%概率在敌人上方生成恒冰晶核并坠落，造成140%攻击力的范围伤害。若敌人处于冰元素影响下，则造成360%攻击力的伤害。该效果每10秒至多触发一次。',
     },
     'specialEffectDamageType': {},
     'specialEffectAlways': [],
@@ -2166,16 +1917,11 @@ const WEAPONS = [
       },
     },
     'specialEffectComent': {
-      Refine.Refine1:
-          '元素战技造成的伤害提升6%。元素战技命中后，角色流失3点元素能量，并在此后的6秒内，每2秒恢复3点元素能量。该效果每10秒至多触发一次，角色处于队伍后台也能触发。',
-      Refine.Refine2:
-          '元素战技造成的伤害提升7.5%。元素战技命中后，角色流失3点元素能量，并在此后的6秒内，每2秒恢复3.5点元素能量。该效果每10秒至多触发一次，角色处于队伍后台也能触发。',
-      Refine.Refine3:
-          '元素战技造成的伤害提升9%。元素战技命中后，角色流失3点元素能量，并在此后的6秒内，每2秒恢复4点元素能量。该效果每10秒至多触发一次，角色处于队伍后台也能触发。',
-      Refine.Refine4:
-          '元素战技造成的伤害提升10.5%。元素战技命中后，角色流失3点元素能量，并在此后的6秒内，每2秒恢复4.5点元素能量。该效果每10秒至多触发一次，角色处于队伍后台也能触发。',
-      Refine.Refine5:
-          '元素战技造成的伤害提升12%。元素战技命中后，角色流失3点元素能量，并在此后的6秒内，每2秒恢复5点元素能量。该效果每10秒至多触发一次，角色处于队伍后台也能触发。',
+      Refine.Refine1: '元素战技造成的伤害提升6%。元素战技命中后，角色流失3点元素能量，并在此后的6秒内，每2秒恢复3点元素能量。该效果每10秒至多触发一次，角色处于队伍后台也能触发。',
+      Refine.Refine2: '元素战技造成的伤害提升7.5%。元素战技命中后，角色流失3点元素能量，并在此后的6秒内，每2秒恢复3.5点元素能量。该效果每10秒至多触发一次，角色处于队伍后台也能触发。',
+      Refine.Refine3: '元素战技造成的伤害提升9%。元素战技命中后，角色流失3点元素能量，并在此后的6秒内，每2秒恢复4点元素能量。该效果每10秒至多触发一次，角色处于队伍后台也能触发。',
+      Refine.Refine4: '元素战技造成的伤害提升10.5%。元素战技命中后，角色流失3点元素能量，并在此后的6秒内，每2秒恢复4.5点元素能量。该效果每10秒至多触发一次，角色处于队伍后台也能触发。',
+      Refine.Refine5: '元素战技造成的伤害提升12%。元素战技命中后，角色流失3点元素能量，并在此后的6秒内，每2秒恢复5点元素能量。该效果每10秒至多触发一次，角色处于队伍后台也能触发。',
     },
     'specialEffectDamageType': {
       Stats.DmgBonus: [
@@ -2232,12 +1978,15 @@ const WEAPONS = [
     'specialEffectDamageType': {
       Stats.DmgBonus: [
         DamageType.SkillQ,
+        DamageType.SkillQSpecial,
       ],
       Stats.PhyDmgBonus: [
         DamageType.SkillQ,
+        DamageType.SkillQSpecial,
       ],
       Stats.CritRate: [
         DamageType.SkillQ,
+        DamageType.SkillQSpecial,
       ],
     },
     'specialEffectAlways': [],
@@ -2273,23 +2022,20 @@ const WEAPONS = [
       },
     },
     'specialEffectComent': {
-      Refine.Refine1:
-          '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.12%，通过这种方式，元素爆发造成的伤害至多提高40%。',
-      Refine.Refine2:
-          '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.15%，通过这种方式，元素爆发造成的伤害至多提高50%。',
-      Refine.Refine3:
-          '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.18%，通过这种方式，元素爆发造成的伤害至多提高60%。',
-      Refine.Refine4:
-          '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.21%，通过这种方式，元素爆发造成的伤害至多提高70%。',
-      Refine.Refine5:
-          '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.24%，通过这种方式，元素爆发造成的伤害至多提高80%。',
+      Refine.Refine1: '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.12%，通过这种方式，元素爆发造成的伤害至多提高40%。',
+      Refine.Refine2: '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.15%，通过这种方式，元素爆发造成的伤害至多提高50%。',
+      Refine.Refine3: '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.18%，通过这种方式，元素爆发造成的伤害至多提高60%。',
+      Refine.Refine4: '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.21%，通过这种方式，元素爆发造成的伤害至多提高70%。',
+      Refine.Refine5: '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.24%，通过这种方式，元素爆发造成的伤害至多提高80%。',
     },
     'specialEffectDamageType': {
       Stats.DmgBonus: [
         DamageType.SkillQ,
+        DamageType.SkillQSpecial,
       ],
       Stats.PhyDmgBonus: [
         DamageType.SkillQ,
+        DamageType.SkillQSpecial,
       ],
     },
     'specialEffectAlways': [],
@@ -2325,31 +2071,18 @@ const WEAPONS = [
       },
     },
     'specialEffectComent': {
-      Refine.Refine1:
-          '护盾强效提升20%。攻击命中后的8秒内，攻击力提升4%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
-      Refine.Refine2:
-          '护盾强效提升25%。攻击命中后的8秒内，攻击力提升5%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
-      Refine.Refine3:
-          '护盾强效提升30%。攻击命中后的8秒内，攻击力提升6%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
-      Refine.Refine4:
-          '护盾强效提升35%。攻击命中后的8秒内，攻击力提升7%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
-      Refine.Refine5:
-          '护盾强效提升40%。攻击命中后的8秒内，攻击力提升8%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
+      Refine.Refine1: '护盾强效提升20%。攻击命中后的8秒内，攻击力提升4%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
+      Refine.Refine2: '护盾强效提升25%。攻击命中后的8秒内，攻击力提升5%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
+      Refine.Refine3: '护盾强效提升30%。攻击命中后的8秒内，攻击力提升6%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
+      Refine.Refine4: '护盾强效提升35%。攻击命中后的8秒内，攻击力提升7%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
+      Refine.Refine5: '护盾强效提升40%。攻击命中后的8秒内，攻击力提升8%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
     },
     'specialEffectDamageType': {
       Stats.AttackBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
       Stats.ShieldStrength: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [
@@ -2392,38 +2125,21 @@ const WEAPONS = [
       },
     },
     'specialEffectComent': {
-      Refine.Refine1:
-          '命中敌人时自身攻击力提高3.2%，持续6秒，最高可以叠加7层。该效果每0.3秒最多触发一次。满层状态时伤害提升12%。',
-      Refine.Refine2:
-          '命中敌人时自身攻击力提高3.9%，持续6秒，最高可以叠加7层。该效果每0.3秒最多触发一次。满层状态时伤害提升15%。',
-      Refine.Refine3:
-          '命中敌人时自身攻击力提高4.6%，持续6秒，最高可以叠加7层。该效果每0.3秒最多触发一次。满层状态时伤害提升18%。',
-      Refine.Refine4:
-          '命中敌人时自身攻击力提高5.3%，持续6秒，最高可以叠加7层。该效果每0.3秒最多触发一次。满层状态时伤害提升21%。',
-      Refine.Refine5:
-          '命中敌人时自身攻击力提高6%，持续6秒，最高可以叠加7层。该效果每0.3秒最多触发一次。满层状态时伤害提升24%。',
+      Refine.Refine1: '命中敌人时自身攻击力提高3.2%，持续6秒，最高可以叠加7层。该效果每0.3秒最多触发一次。满层状态时伤害提升12%。',
+      Refine.Refine2: '命中敌人时自身攻击力提高3.9%，持续6秒，最高可以叠加7层。该效果每0.3秒最多触发一次。满层状态时伤害提升15%。',
+      Refine.Refine3: '命中敌人时自身攻击力提高4.6%，持续6秒，最高可以叠加7层。该效果每0.3秒最多触发一次。满层状态时伤害提升18%。',
+      Refine.Refine4: '命中敌人时自身攻击力提高5.3%，持续6秒，最高可以叠加7层。该效果每0.3秒最多触发一次。满层状态时伤害提升21%。',
+      Refine.Refine5: '命中敌人时自身攻击力提高6%，持续6秒，最高可以叠加7层。该效果每0.3秒最多触发一次。满层状态时伤害提升24%。',
     },
     'specialEffectDamageType': {
       Stats.AttackBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
       Stats.DmgBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
       Stats.PhyDmgBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [],
@@ -2454,24 +2170,15 @@ const WEAPONS = [
       },
     },
     'specialEffectComent': {
-      Refine.Refine1:
-          '暴击率提升8%，普通攻击速度提升12%。此外，普通攻击与重击命中敌人时，有50%概率触发真空刃，在小范围内造成额外40%攻击力的伤害。该效果每2秒至多触发一次。',
-      Refine.Refine2:
-          '暴击率提升10%，普通攻击速度提升12%。此外，普通攻击与重击命中敌人时，有50%概率触发真空刃，在小范围内造成额外55%攻击力的伤害。该效果每2秒至多触发一次。',
-      Refine.Refine3:
-          '暴击率提升12%，普通攻击速度提升12%。此外，普通攻击与重击命中敌人时，有50%概率触发真空刃，在小范围内造成额外70%攻击力的伤害。该效果每2秒至多触发一次。',
-      Refine.Refine4:
-          '暴击率提升14%，普通攻击速度提升12%。此外，普通攻击与重击命中敌人时，有50%概率触发真空刃，在小范围内造成额外85%攻击力的伤害。该效果每2秒至多触发一次。',
-      Refine.Refine5:
-          '暴击率提升16%，普通攻击速度提升12%。此外，普通攻击与重击命中敌人时，有50%概率触发真空刃，在小范围内造成额外100%攻击力的伤害。该效果每2秒至多触发一次。',
+      Refine.Refine1: '暴击率提升8%，普通攻击速度提升12%。此外，普通攻击与重击命中敌人时，有50%概率触发真空刃，在小范围内造成额外40%攻击力的伤害。该效果每2秒至多触发一次。',
+      Refine.Refine2: '暴击率提升10%，普通攻击速度提升12%。此外，普通攻击与重击命中敌人时，有50%概率触发真空刃，在小范围内造成额外55%攻击力的伤害。该效果每2秒至多触发一次。',
+      Refine.Refine3: '暴击率提升12%，普通攻击速度提升12%。此外，普通攻击与重击命中敌人时，有50%概率触发真空刃，在小范围内造成额外70%攻击力的伤害。该效果每2秒至多触发一次。',
+      Refine.Refine4: '暴击率提升14%，普通攻击速度提升12%。此外，普通攻击与重击命中敌人时，有50%概率触发真空刃，在小范围内造成额外85%攻击力的伤害。该效果每2秒至多触发一次。',
+      Refine.Refine5: '暴击率提升16%，普通攻击速度提升12%。此外，普通攻击与重击命中敌人时，有50%概率触发真空刃，在小范围内造成额外100%攻击力的伤害。该效果每2秒至多触发一次。',
     },
     'specialEffectDamageType': {
       Stats.CritRate: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [
@@ -2509,31 +2216,18 @@ const WEAPONS = [
       },
     },
     'specialEffectComent': {
-      Refine.Refine1:
-          '生命值提升20%。此外，基于装备该武器的角色生命值上限的0.8%，获得攻击力加成。当装备该武器的角色生命值低于50%时，进一步获得1%基于生命值上限的攻击力提升。',
-      Refine.Refine2:
-          '生命值提升25%。此外，基于装备该武器的角色生命值上限的1%，获得攻击力加成。当装备该武器的角色生命值低于50%时，进一步获得1.2%基于生命值上限的攻击力提升。',
-      Refine.Refine3:
-          '生命值提升30%。此外，基于装备该武器的角色生命值上限的1.2%，获得攻击力加成。当装备该武器的角色生命值低于50%时，进一步获得1.4%基于生命值上限的攻击力提升。',
-      Refine.Refine4:
-          '生命值提升35%。此外，基于装备该武器的角色生命值上限的1.4%，获得攻击力加成。当装备该武器的角色生命值低于50%时，进一步获得1.6%基于生命值上限的攻击力提升。',
-      Refine.Refine5:
-          '生命值提升40%。此外，基于装备该武器的角色生命值上限的1.6%，获得攻击力加成。当装备该武器的角色生命值低于50%时，进一步获得1.8%基于生命值上限的攻击力提升。',
+      Refine.Refine1: '生命值提升20%。此外，基于装备该武器的角色生命值上限的0.8%，获得攻击力加成。当装备该武器的角色生命值低于50%时，进一步获得1%基于生命值上限的攻击力提升。',
+      Refine.Refine2: '生命值提升25%。此外，基于装备该武器的角色生命值上限的1%，获得攻击力加成。当装备该武器的角色生命值低于50%时，进一步获得1.2%基于生命值上限的攻击力提升。',
+      Refine.Refine3: '生命值提升30%。此外，基于装备该武器的角色生命值上限的1.2%，获得攻击力加成。当装备该武器的角色生命值低于50%时，进一步获得1.4%基于生命值上限的攻击力提升。',
+      Refine.Refine4: '生命值提升35%。此外，基于装备该武器的角色生命值上限的1.4%，获得攻击力加成。当装备该武器的角色生命值低于50%时，进一步获得1.6%基于生命值上限的攻击力提升。',
+      Refine.Refine5: '生命值提升40%。此外，基于装备该武器的角色生命值上限的1.6%，获得攻击力加成。当装备该武器的角色生命值低于50%时，进一步获得1.8%基于生命值上限的攻击力提升。',
     },
     'specialEffectDamageType': {
       Stats.HpBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
       Stats.AttackBonusByHp: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [
@@ -2550,52 +2244,39 @@ const WEAPONS = [
     'subStatValue': 55.1,
     'specialEffect': {
       Refine.Refine1: {
-        Stats.AttackBonusByRecharge: 28.0,
+        Stats.AttackBonusByRechargeOver100: 28.0,
         Stats.Recharge: 30.0,
       },
       Refine.Refine2: {
-        Stats.AttackBonusByRecharge: 35.0,
+        Stats.AttackBonusByRechargeOver100: 35.0,
         Stats.Recharge: 35.0,
       },
       Refine.Refine3: {
-        Stats.AttackBonusByRecharge: 42.0,
+        Stats.AttackBonusByRechargeOver100: 42.0,
         Stats.Recharge: 40.0,
       },
       Refine.Refine4: {
-        Stats.AttackBonusByRecharge: 49.0,
+        Stats.AttackBonusByRechargeOver100: 49.0,
         Stats.Recharge: 45.0,
       },
       Refine.Refine5: {
-        Stats.AttackBonusByRecharge: 56.0,
+        Stats.AttackBonusByRechargeOver100: 56.0,
         Stats.Recharge: 50.0,
       },
     },
     'specialEffectComent': {
-      Refine.Refine1:
-          '攻击力获得提升，提升程度相当于元素充能效率超出100%部分的28%，至多通过这种方式提升80%。施放元素爆发后的12秒内，元素充能效率提升30%。',
-      Refine.Refine2:
-          '攻击力获得提升，提升程度相当于元素充能效率超出100%部分的35%，至多通过这种方式提升90%。施放元素爆发后的12秒内，元素充能效率提升35%。',
-      Refine.Refine3:
-          '攻击力获得提升，提升程度相当于元素充能效率超出100%部分的42%，至多通过这种方式提升100%。施放元素爆发后的12秒内，元素充能效率提升40%。',
-      Refine.Refine4:
-          '攻击力获得提升，提升程度相当于元素充能效率超出100%部分的49%，至多通过这种方式提升110%。施放元素爆发后的12秒内，元素充能效率提升45%。',
-      Refine.Refine5:
-          '攻击力获得提升，提升程度相当于元素充能效率超出100%部分的56%，至多通过这种方式提升120%。施放元素爆发后的12秒内，元素充能效率提升50%。',
+      Refine.Refine1: '攻击力获得提升，提升程度相当于元素充能效率超出100%部分的28%，至多通过这种方式提升80%。施放元素爆发后的12秒内，元素充能效率提升30%。',
+      Refine.Refine2: '攻击力获得提升，提升程度相当于元素充能效率超出100%部分的35%，至多通过这种方式提升90%。施放元素爆发后的12秒内，元素充能效率提升35%。',
+      Refine.Refine3: '攻击力获得提升，提升程度相当于元素充能效率超出100%部分的42%，至多通过这种方式提升100%。施放元素爆发后的12秒内，元素充能效率提升40%。',
+      Refine.Refine4: '攻击力获得提升，提升程度相当于元素充能效率超出100%部分的49%，至多通过这种方式提升110%。施放元素爆发后的12秒内，元素充能效率提升45%。',
+      Refine.Refine5: '攻击力获得提升，提升程度相当于元素充能效率超出100%部分的56%，至多通过这种方式提升120%。施放元素爆发后的12秒内，元素充能效率提升50%。',
     },
     'specialEffectDamageType': {
-      Stats.AttackBonusByRecharge: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+      Stats.AttackBonusByRechargeOver100: [
+        DamageType.All,
       ],
       Stats.Recharge: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [],
@@ -2641,10 +2322,12 @@ const WEAPONS = [
       Stats.DmgBonus: [
         DamageType.SkillE,
         DamageType.SkillQ,
+        DamageType.SkillQSpecial,
       ],
       Stats.PhyDmgBonus: [
         DamageType.SkillE,
         DamageType.SkillQ,
+        DamageType.SkillQSpecial,
       ],
     },
     'specialEffectAlways': [],
@@ -2680,31 +2363,18 @@ const WEAPONS = [
       },
     },
     'specialEffectComent': {
-      Refine.Refine1:
-          '装备该武器的角色处于队伍后台时，每1秒角色造成的伤害提升2%，最多通过这种方式获得20%的伤害提升；在场上超过4秒后，上述伤害提升效果每1秒会流失4%，直到降低至0%。',
-      Refine.Refine2:
-          '装备该武器的角色处于队伍后台时，每1秒角色造成的伤害提升2.5%，最多通过这种方式获得25%的伤害提升；在场上超过4秒后，上述伤害提升效果每1秒会流失5%，直到降低至0%。',
-      Refine.Refine3:
-          '装备该武器的角色处于队伍后台时，每1秒角色造成的伤害提升3%，最多通过这种方式获得30%的伤害提升；在场上超过4秒后，上述伤害提升效果每1秒会流失6%，直到降低至0%。',
-      Refine.Refine4:
-          '装备该武器的角色处于队伍后台时，每1秒角色造成的伤害提升3.5%，最多通过这种方式获得35%的伤害提升；在场上超过4秒后，上述伤害提升效果每1秒会流失7%，直到降低至0%。',
-      Refine.Refine5:
-          '装备该武器的角色处于队伍后台时，每1秒角色造成的伤害提升4%，最多通过这种方式获得40%的伤害提升；在场上超过4秒后，上述伤害提升效果每1秒会流失8%，直到降低至0%。',
+      Refine.Refine1: '装备该武器的角色处于队伍后台时，每1秒角色造成的伤害提升2%，最多通过这种方式获得20%的伤害提升；在场上超过4秒后，上述伤害提升效果每1秒会流失4%，直到降低至0%。',
+      Refine.Refine2: '装备该武器的角色处于队伍后台时，每1秒角色造成的伤害提升2.5%，最多通过这种方式获得25%的伤害提升；在场上超过4秒后，上述伤害提升效果每1秒会流失5%，直到降低至0%。',
+      Refine.Refine3: '装备该武器的角色处于队伍后台时，每1秒角色造成的伤害提升3%，最多通过这种方式获得30%的伤害提升；在场上超过4秒后，上述伤害提升效果每1秒会流失6%，直到降低至0%。',
+      Refine.Refine4: '装备该武器的角色处于队伍后台时，每1秒角色造成的伤害提升3.5%，最多通过这种方式获得35%的伤害提升；在场上超过4秒后，上述伤害提升效果每1秒会流失7%，直到降低至0%。',
+      Refine.Refine5: '装备该武器的角色处于队伍后台时，每1秒角色造成的伤害提升4%，最多通过这种方式获得40%的伤害提升；在场上超过4秒后，上述伤害提升效果每1秒会流失8%，直到降低至0%。',
     },
     'specialEffectDamageType': {
       Stats.DmgBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
       Stats.PhyDmgBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [],
@@ -2743,11 +2413,7 @@ const WEAPONS = [
     },
     'specialEffectDamageType': {
       Stats.AttackBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [],
@@ -2778,24 +2444,15 @@ const WEAPONS = [
       },
     },
     'specialEffectComent': {
-      Refine.Refine1:
-          '普通攻击与重击命中时，提升4%攻击力与1.2%普通攻击速度。该效果持续6秒，最多可以叠加4层，每0.3秒只能触发一次。',
-      Refine.Refine2:
-          '普通攻击与重击命中时，提升5%攻击力与1.5%普通攻击速度。该效果持续6秒，最多可以叠加4层，每0.3秒只能触发一次。',
-      Refine.Refine3:
-          '普通攻击与重击命中时，提升6%攻击力与1.8%普通攻击速度。该效果持续6秒，最多可以叠加4层，每0.3秒只能触发一次。',
-      Refine.Refine4:
-          '普通攻击与重击命中时，提升7%攻击力与2.1%普通攻击速度。该效果持续6秒，最多可以叠加4层，每0.3秒只能触发一次。',
-      Refine.Refine5:
-          '普通攻击与重击命中时，提升8%攻击力与2.4%普通攻击速度。该效果持续6秒，最多可以叠加4层，每0.3秒只能触发一次。',
+      Refine.Refine1: '普通攻击与重击命中时，提升4%攻击力与1.2%普通攻击速度。该效果持续6秒，最多可以叠加4层，每0.3秒只能触发一次。',
+      Refine.Refine2: '普通攻击与重击命中时，提升5%攻击力与1.5%普通攻击速度。该效果持续6秒，最多可以叠加4层，每0.3秒只能触发一次。',
+      Refine.Refine3: '普通攻击与重击命中时，提升6%攻击力与1.8%普通攻击速度。该效果持续6秒，最多可以叠加4层，每0.3秒只能触发一次。',
+      Refine.Refine4: '普通攻击与重击命中时，提升7%攻击力与2.1%普通攻击速度。该效果持续6秒，最多可以叠加4层，每0.3秒只能触发一次。',
+      Refine.Refine5: '普通攻击与重击命中时，提升8%攻击力与2.4%普通攻击速度。该效果持续6秒，最多可以叠加4层，每0.3秒只能触发一次。',
     },
     'specialEffectDamageType': {
       Stats.AttackBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [],
@@ -2859,11 +2516,7 @@ const WEAPONS = [
     },
     'specialEffectDamageType': {
       Stats.AttackBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [],
@@ -2902,11 +2555,7 @@ const WEAPONS = [
     },
     'specialEffectDamageType': {
       Stats.CritRate: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [],
@@ -2999,16 +2648,11 @@ const WEAPONS = [
       Refine.Refine5: {},
     },
     'specialEffectComent': {
-      Refine.Refine1:
-          '普通攻击与重击命中时，有50%几率生成一个风之眼，持续吸引周围敌人，并对其中的敌人每0.5秒造成40%攻击的伤害。该效果持续4秒，每14秒至多触发一次。',
-      Refine.Refine2:
-          '普通攻击与重击命中时，有50%几率生成一个风之眼，持续吸引周围敌人，并对其中的敌人每0.5秒造成50%攻击的伤害。该效果持续4秒，每13秒至多触发一次。',
-      Refine.Refine3:
-          '普通攻击与重击命中时，有50%几率生成一个风之眼，持续吸引周围敌人，并对其中的敌人每0.5秒造成60%攻击的伤害。该效果持续4秒，每12秒至多触发一次。',
-      Refine.Refine4:
-          '普通攻击与重击命中时，有50%几率生成一个风之眼，持续吸引周围敌人，并对其中的敌人每0.5秒造成70%攻击的伤害。该效果持续4秒，每11秒至多触发一次。',
-      Refine.Refine5:
-          '普通攻击与重击命中时，有50%几率生成一个风之眼，持续吸引周围敌人，并对其中的敌人每0.5秒造成80%攻击的伤害。该效果持续4秒，每10秒至多触发一次。',
+      Refine.Refine1: '普通攻击与重击命中时，有50%几率生成一个风之眼，持续吸引周围敌人，并对其中的敌人每0.5秒造成40%攻击的伤害。该效果持续4秒，每14秒至多触发一次。',
+      Refine.Refine2: '普通攻击与重击命中时，有50%几率生成一个风之眼，持续吸引周围敌人，并对其中的敌人每0.5秒造成50%攻击的伤害。该效果持续4秒，每13秒至多触发一次。',
+      Refine.Refine3: '普通攻击与重击命中时，有50%几率生成一个风之眼，持续吸引周围敌人，并对其中的敌人每0.5秒造成60%攻击的伤害。该效果持续4秒，每12秒至多触发一次。',
+      Refine.Refine4: '普通攻击与重击命中时，有50%几率生成一个风之眼，持续吸引周围敌人，并对其中的敌人每0.5秒造成70%攻击的伤害。该效果持续4秒，每11秒至多触发一次。',
+      Refine.Refine5: '普通攻击与重击命中时，有50%几率生成一个风之眼，持续吸引周围敌人，并对其中的敌人每0.5秒造成80%攻击的伤害。该效果持续4秒，每10秒至多触发一次。',
     },
     'specialEffectDamageType': {},
     'specialEffectAlways': [],
@@ -3047,11 +2691,7 @@ const WEAPONS = [
     },
     'specialEffectDamageType': {
       Stats.AttackBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [],
@@ -3087,16 +2727,11 @@ const WEAPONS = [
       },
     },
     'specialEffectComent': {
-      Refine.Refine1:
-          '普通攻击命中敌人后的5秒内，元素战技造成的伤害提升20%；元素战技命中敌人后的5秒内，普通攻击造成的伤害提升20%。',
-      Refine.Refine2:
-          '普通攻击命中敌人后的5秒内，元素战技造成的伤害提升25%；元素战技命中敌人后的5秒内，普通攻击造成的伤害提升25%。',
-      Refine.Refine3:
-          '普通攻击命中敌人后的5秒内，元素战技造成的伤害提升30%；元素战技命中敌人后的5秒内，普通攻击造成的伤害提升30%。',
-      Refine.Refine4:
-          '普通攻击命中敌人后的5秒内，元素战技造成的伤害提升35%；元素战技命中敌人后的5秒内，普通攻击造成的伤害提升35%。',
-      Refine.Refine5:
-          '普通攻击命中敌人后的5秒内，元素战技造成的伤害提升40%；元素战技命中敌人后的5秒内，普通攻击造成的伤害提升40%。',
+      Refine.Refine1: '普通攻击命中敌人后的5秒内，元素战技造成的伤害提升20%；元素战技命中敌人后的5秒内，普通攻击造成的伤害提升20%。',
+      Refine.Refine2: '普通攻击命中敌人后的5秒内，元素战技造成的伤害提升25%；元素战技命中敌人后的5秒内，普通攻击造成的伤害提升25%。',
+      Refine.Refine3: '普通攻击命中敌人后的5秒内，元素战技造成的伤害提升30%；元素战技命中敌人后的5秒内，普通攻击造成的伤害提升30%。',
+      Refine.Refine4: '普通攻击命中敌人后的5秒内，元素战技造成的伤害提升35%；元素战技命中敌人后的5秒内，普通攻击造成的伤害提升35%。',
+      Refine.Refine5: '普通攻击命中敌人后的5秒内，元素战技造成的伤害提升40%；元素战技命中敌人后的5秒内，普通攻击造成的伤害提升40%。',
     },
     'specialEffectDamageType': {
       Stats.DmgBonus: [
@@ -3141,16 +2776,11 @@ const WEAPONS = [
       },
     },
     'specialEffectComent': {
-      Refine.Refine1:
-          '普通攻击造成的伤害提升16%，重击造成的伤害提升12%。当装备该武器的角色元素能量等于100%时，这个效果提升100%。',
-      Refine.Refine2:
-          '普通攻击造成的伤害提升20%，重击造成的伤害提升15%。当装备该武器的角色元素能量等于100%时，这个效果提升100%。',
-      Refine.Refine3:
-          '普通攻击造成的伤害提升24%，重击造成的伤害提升18%。当装备该武器的角色元素能量等于100%时，这个效果提升100%。',
-      Refine.Refine4:
-          '普通攻击造成的伤害提升28%，重击造成的伤害提升21%。当装备该武器的角色元素能量等于100%时，这个效果提升100%。',
-      Refine.Refine5:
-          '普通攻击造成的伤害提升32%，重击造成的伤害提升24%。当装备该武器的角色元素能量等于100%时，这个效果提升100%。',
+      Refine.Refine1: '普通攻击造成的伤害提升16%，重击造成的伤害提升12%。当装备该武器的角色元素能量等于100%时，这个效果提升100%。',
+      Refine.Refine2: '普通攻击造成的伤害提升20%，重击造成的伤害提升15%。当装备该武器的角色元素能量等于100%时，这个效果提升100%。',
+      Refine.Refine3: '普通攻击造成的伤害提升24%，重击造成的伤害提升18%。当装备该武器的角色元素能量等于100%时，这个效果提升100%。',
+      Refine.Refine4: '普通攻击造成的伤害提升28%，重击造成的伤害提升21%。当装备该武器的角色元素能量等于100%时，这个效果提升100%。',
+      Refine.Refine5: '普通攻击造成的伤害提升32%，重击造成的伤害提升24%。当装备该武器的角色元素能量等于100%时，这个效果提升100%。',
     },
     'specialEffectDamageType': {
       Stats.DmgBonus: [
@@ -3180,8 +2810,7 @@ const WEAPONS = [
       Refine.Refine5: {},
     },
     'specialEffectComent': {
-      Refine.Refine1:
-          '仅在以下平台生效：\n"PlayStation Network"\n对敌人造成冰元素伤害后，普通攻击与重击造成的伤害提高10%，该效果持续6秒，至多叠加2次；此外，埃洛伊装备掠食者时，攻击力提升66点。',
+      Refine.Refine1: '仅在以下平台生效：\n"PlayStation Network"\n对敌人造成冰元素伤害后，普通攻击与重击造成的伤害提高10%，该效果持续6秒，至多叠加2次；此外，埃洛伊装备掠食者时，攻击力提升66点。',
       Refine.Refine2: '',
       Refine.Refine3: '',
       Refine.Refine4: '',
@@ -3221,23 +2850,20 @@ const WEAPONS = [
       },
     },
     'specialEffectComent': {
-      Refine.Refine1:
-          '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.12%，通过这种方式，元素爆发造成的伤害至多提高40%。',
-      Refine.Refine2:
-          '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.15%，通过这种方式，元素爆发造成的伤害至多提高50%。',
-      Refine.Refine3:
-          '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.18%，通过这种方式，元素爆发造成的伤害至多提高60%。',
-      Refine.Refine4:
-          '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.21%，通过这种方式，元素爆发造成的伤害至多提高70%。',
-      Refine.Refine5:
-          '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.24%，通过这种方式，元素爆发造成的伤害至多提高80%。',
+      Refine.Refine1: '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.12%，通过这种方式，元素爆发造成的伤害至多提高40%。',
+      Refine.Refine2: '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.15%，通过这种方式，元素爆发造成的伤害至多提高50%。',
+      Refine.Refine3: '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.18%，通过这种方式，元素爆发造成的伤害至多提高60%。',
+      Refine.Refine4: '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.21%，通过这种方式，元素爆发造成的伤害至多提高70%。',
+      Refine.Refine5: '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.24%，通过这种方式，元素爆发造成的伤害至多提高80%。',
     },
     'specialEffectDamageType': {
       Stats.DmgBonus: [
         DamageType.SkillQ,
+        DamageType.SkillQSpecial,
       ],
       Stats.PhyDmgBonus: [
         DamageType.SkillQ,
+        DamageType.SkillQSpecial,
       ],
     },
     'specialEffectAlways': [],
@@ -3276,11 +2902,7 @@ const WEAPONS = [
     },
     'specialEffectDamageType': {
       Stats.CritDmg: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [
@@ -3376,11 +2998,7 @@ const WEAPONS = [
     },
     'specialEffectDamageType': {
       Stats.CritDmg: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [],
@@ -3434,11 +3052,7 @@ const WEAPONS = [
     },
     'specialEffectDamageType': {
       Stats.AttackBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
       Stats.DmgBonus: [
         DamageType.Normal,
@@ -3500,19 +3114,17 @@ const WEAPONS = [
     },
     'specialEffectDamageType': {
       Stats.AttackBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
       Stats.DmgBonus: [
         DamageType.SkillE,
         DamageType.SkillQ,
+        DamageType.SkillQSpecial,
       ],
       Stats.PhyDmgBonus: [
         DamageType.SkillE,
         DamageType.SkillQ,
+        DamageType.SkillQSpecial,
       ],
     },
     'specialEffectAlways': [],
@@ -3551,11 +3163,7 @@ const WEAPONS = [
     },
     'specialEffectDamageType': {
       Stats.AttackBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [],
@@ -3619,11 +3227,7 @@ const WEAPONS = [
     },
     'specialEffectDamageType': {
       Stats.DmgBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [],
@@ -3687,11 +3291,7 @@ const WEAPONS = [
     },
     'specialEffectDamageType': {
       Stats.CritRate: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [],
@@ -3752,27 +3352,24 @@ const WEAPONS = [
       },
     },
     'specialEffectComent': {
-      Refine.Refine1:
-          '普通攻击命中后的6秒内，元素战技与元素爆发的伤害提高20%；元素战技与元素爆发命中后的6秒内，普通攻击的伤害提高20%。',
-      Refine.Refine2:
-          '普通攻击命中后的6秒内，元素战技与元素爆发的伤害提高25%；元素战技与元素爆发命中后的6秒内，普通攻击的伤害提高25%。',
-      Refine.Refine3:
-          '普通攻击命中后的6秒内，元素战技与元素爆发的伤害提高30%；元素战技与元素爆发命中后的6秒内，普通攻击的伤害提高30%。',
-      Refine.Refine4:
-          '普通攻击命中后的6秒内，元素战技与元素爆发的伤害提高35%；元素战技与元素爆发命中后的6秒内，普通攻击的伤害提高35%。',
-      Refine.Refine5:
-          '普通攻击命中后的6秒内，元素战技与元素爆发的伤害提高40%；元素战技与元素爆发命中后的6秒内，普通攻击的伤害提高40%。',
+      Refine.Refine1: '普通攻击命中后的6秒内，元素战技与元素爆发的伤害提高20%；元素战技与元素爆发命中后的6秒内，普通攻击的伤害提高20%。',
+      Refine.Refine2: '普通攻击命中后的6秒内，元素战技与元素爆发的伤害提高25%；元素战技与元素爆发命中后的6秒内，普通攻击的伤害提高25%。',
+      Refine.Refine3: '普通攻击命中后的6秒内，元素战技与元素爆发的伤害提高30%；元素战技与元素爆发命中后的6秒内，普通攻击的伤害提高30%。',
+      Refine.Refine4: '普通攻击命中后的6秒内，元素战技与元素爆发的伤害提高35%；元素战技与元素爆发命中后的6秒内，普通攻击的伤害提高35%。',
+      Refine.Refine5: '普通攻击命中后的6秒内，元素战技与元素爆发的伤害提高40%；元素战技与元素爆发命中后的6秒内，普通攻击的伤害提高40%。',
     },
     'specialEffectDamageType': {
       Stats.DmgBonus: [
         DamageType.Normal,
         DamageType.SkillE,
         DamageType.SkillQ,
+        DamageType.SkillQSpecial,
       ],
       Stats.PhyDmgBonus: [
         DamageType.Normal,
         DamageType.SkillE,
         DamageType.SkillQ,
+        DamageType.SkillQSpecial,
       ],
     },
     'specialEffectAlways': [],
@@ -3813,38 +3410,21 @@ const WEAPONS = [
       },
     },
     'specialEffectComent': {
-      Refine.Refine1:
-          '角色登场时，随机获得一个主题曲，持续10秒。每30秒只能触发一次。宣叙调：攻击力提升60%；咏叹调：全元素伤害提升48%;间奏曲：元素精通提升240。',
-      Refine.Refine2:
-          '角色登场时，随机获得一个主题曲，持续10秒。每30秒只能触发一次。宣叙调：攻击力提升75%；咏叹调：全元素伤害提升60%;间奏曲：元素精通提升300。',
-      Refine.Refine3:
-          '角色登场时，随机获得一个主题曲，持续10秒。每30秒只能触发一次。宣叙调：攻击力提升90%；咏叹调：全元素伤害提升72%;间奏曲：元素精通提升360。',
-      Refine.Refine4:
-          '角色登场时，随机获得一个主题曲，持续10秒。每30秒只能触发一次。宣叙调：攻击力提升105%；咏叹调：全元素伤害提升84%;间奏曲：元素精通提升420。',
-      Refine.Refine5:
-          '角色登场时，随机获得一个主题曲，持续10秒。每30秒只能触发一次。宣叙调：攻击力提升120%；咏叹调：全元素伤害提升96%;间奏曲：元素精通提升480。',
+      Refine.Refine1: '角色登场时，随机获得一个主题曲，持续10秒。每30秒只能触发一次。宣叙调：攻击力提升60%；咏叹调：全元素伤害提升48%;间奏曲：元素精通提升240。',
+      Refine.Refine2: '角色登场时，随机获得一个主题曲，持续10秒。每30秒只能触发一次。宣叙调：攻击力提升75%；咏叹调：全元素伤害提升60%;间奏曲：元素精通提升300。',
+      Refine.Refine3: '角色登场时，随机获得一个主题曲，持续10秒。每30秒只能触发一次。宣叙调：攻击力提升90%；咏叹调：全元素伤害提升72%;间奏曲：元素精通提升360。',
+      Refine.Refine4: '角色登场时，随机获得一个主题曲，持续10秒。每30秒只能触发一次。宣叙调：攻击力提升105%；咏叹调：全元素伤害提升84%;间奏曲：元素精通提升420。',
+      Refine.Refine5: '角色登场时，随机获得一个主题曲，持续10秒。每30秒只能触发一次。宣叙调：攻击力提升120%；咏叹调：全元素伤害提升96%;间奏曲：元素精通提升480。',
     },
     'specialEffectDamageType': {
       Stats.Attack: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
       Stats.DmgBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
       Stats.Mastery: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [],
@@ -3875,24 +3455,15 @@ const WEAPONS = [
       },
     },
     'specialEffectComent': {
-      Refine.Refine1:
-          '普通攻击命中敌人后，冲刺或替代冲刺的能力消耗的体力降低14%，持续5秒。此外，使用冲刺或替代冲刺的能力后，攻击力提升20%，持续5秒。',
-      Refine.Refine2:
-          '普通攻击命中敌人后，冲刺或替代冲刺的能力消耗的体力降低16%，持续5秒。此外，使用冲刺或替代冲刺的能力后，攻击力提升25%，持续5秒。',
-      Refine.Refine3:
-          '普通攻击命中敌人后，冲刺或替代冲刺的能力消耗的体力降低18%，持续5秒。此外，使用冲刺或替代冲刺的能力后，攻击力提升30%，持续5秒。',
-      Refine.Refine4:
-          '普通攻击命中敌人后，冲刺或替代冲刺的能力消耗的体力降低20%，持续5秒。此外，使用冲刺或替代冲刺的能力后，攻击力提升35%，持续5秒。',
-      Refine.Refine5:
-          '普通攻击命中敌人后，冲刺或替代冲刺的能力消耗的体力降低22%，持续5秒。此外，使用冲刺或替代冲刺的能力后，攻击力提升40%，持续5秒。',
+      Refine.Refine1: '普通攻击命中敌人后，冲刺或替代冲刺的能力消耗的体力降低14%，持续5秒。此外，使用冲刺或替代冲刺的能力后，攻击力提升20%，持续5秒。',
+      Refine.Refine2: '普通攻击命中敌人后，冲刺或替代冲刺的能力消耗的体力降低16%，持续5秒。此外，使用冲刺或替代冲刺的能力后，攻击力提升25%，持续5秒。',
+      Refine.Refine3: '普通攻击命中敌人后，冲刺或替代冲刺的能力消耗的体力降低18%，持续5秒。此外，使用冲刺或替代冲刺的能力后，攻击力提升30%，持续5秒。',
+      Refine.Refine4: '普通攻击命中敌人后，冲刺或替代冲刺的能力消耗的体力降低20%，持续5秒。此外，使用冲刺或替代冲刺的能力后，攻击力提升35%，持续5秒。',
+      Refine.Refine5: '普通攻击命中敌人后，冲刺或替代冲刺的能力消耗的体力降低22%，持续5秒。此外，使用冲刺或替代冲刺的能力后，攻击力提升40%，持续5秒。',
     },
     'specialEffectDamageType': {
       Stats.AttackBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [],
@@ -3913,16 +3484,11 @@ const WEAPONS = [
       Refine.Refine5: {},
     },
     'specialEffectComent': {
-      Refine.Refine1:
-          '普通攻击与重击命中时，有50%几率发射一枚昭心法球，造成240%攻击力伤害，至多在敌人之间弹射四次。该效果每12秒至多触发一次。',
-      Refine.Refine2:
-          '普通攻击与重击命中时，有50%几率发射一枚昭心法球，造成270%攻击力伤害，至多在敌人之间弹射四次。该效果每11秒至多触发一次。',
-      Refine.Refine3:
-          '普通攻击与重击命中时，有50%几率发射一枚昭心法球，造成300%攻击力伤害，至多在敌人之间弹射四次。该效果每10秒至多触发一次。',
-      Refine.Refine4:
-          '普通攻击与重击命中时，有50%几率发射一枚昭心法球，造成330%攻击力伤害，至多在敌人之间弹射四次。该效果每9秒至多触发一次。',
-      Refine.Refine5:
-          '普通攻击与重击命中时，有50%几率发射一枚昭心法球，造成360%攻击力伤害，至多在敌人之间弹射四次。该效果每8秒至多触发一次。',
+      Refine.Refine1: '普通攻击与重击命中时，有50%几率发射一枚昭心法球，造成240%攻击力伤害，至多在敌人之间弹射四次。该效果每12秒至多触发一次。',
+      Refine.Refine2: '普通攻击与重击命中时，有50%几率发射一枚昭心法球，造成270%攻击力伤害，至多在敌人之间弹射四次。该效果每11秒至多触发一次。',
+      Refine.Refine3: '普通攻击与重击命中时，有50%几率发射一枚昭心法球，造成300%攻击力伤害，至多在敌人之间弹射四次。该效果每10秒至多触发一次。',
+      Refine.Refine4: '普通攻击与重击命中时，有50%几率发射一枚昭心法球，造成330%攻击力伤害，至多在敌人之间弹射四次。该效果每9秒至多触发一次。',
+      Refine.Refine5: '普通攻击与重击命中时，有50%几率发射一枚昭心法球，造成360%攻击力伤害，至多在敌人之间弹射四次。该效果每8秒至多触发一次。',
     },
     'specialEffectDamageType': {},
     'specialEffectAlways': [],
@@ -3943,16 +3509,11 @@ const WEAPONS = [
       Refine.Refine5: {},
     },
     'specialEffectComent': {
-      Refine.Refine1:
-          '普通攻击与重击命中敌人时，有60%概率在敌人上方生成恒冰晶核并坠落，造成80%攻击力的范围伤害。若敌人处于冰元素影响下，则造成200%攻击力的伤害。该效果每10秒至多触发一次。',
-      Refine.Refine2:
-          '普通攻击与重击命中敌人时，有70%概率在敌人上方生成恒冰晶核并坠落，造成95%攻击力的范围伤害。若敌人处于冰元素影响下，则造成240%攻击力的伤害。该效果每10秒至多触发一次。',
-      Refine.Refine3:
-          '普通攻击与重击命中敌人时，有80%概率在敌人上方生成恒冰晶核并坠落，造成110%攻击力的范围伤害。若敌人处于冰元素影响下，则造成280%攻击力的伤害。该效果每10秒至多触发一次。',
-      Refine.Refine4:
-          '普通攻击与重击命中敌人时，有90%概率在敌人上方生成恒冰晶核并坠落，造成125%攻击力的范围伤害。若敌人处于冰元素影响下，则造成320%攻击力的伤害。该效果每10秒至多触发一次。',
-      Refine.Refine5:
-          '普通攻击与重击命中敌人时，有100%概率在敌人上方生成恒冰晶核并坠落，造成140%攻击力的范围伤害。若敌人处于冰元素影响下，则造成360%攻击力的伤害。该效果每10秒至多触发一次。',
+      Refine.Refine1: '普通攻击与重击命中敌人时，有60%概率在敌人上方生成恒冰晶核并坠落，造成80%攻击力的范围伤害。若敌人处于冰元素影响下，则造成200%攻击力的伤害。该效果每10秒至多触发一次。',
+      Refine.Refine2: '普通攻击与重击命中敌人时，有70%概率在敌人上方生成恒冰晶核并坠落，造成95%攻击力的范围伤害。若敌人处于冰元素影响下，则造成240%攻击力的伤害。该效果每10秒至多触发一次。',
+      Refine.Refine3: '普通攻击与重击命中敌人时，有80%概率在敌人上方生成恒冰晶核并坠落，造成110%攻击力的范围伤害。若敌人处于冰元素影响下，则造成280%攻击力的伤害。该效果每10秒至多触发一次。',
+      Refine.Refine4: '普通攻击与重击命中敌人时，有90%概率在敌人上方生成恒冰晶核并坠落，造成125%攻击力的范围伤害。若敌人处于冰元素影响下，则造成320%攻击力的伤害。该效果每10秒至多触发一次。',
+      Refine.Refine5: '普通攻击与重击命中敌人时，有100%概率在敌人上方生成恒冰晶核并坠落，造成140%攻击力的范围伤害。若敌人处于冰元素影响下，则造成360%攻击力的伤害。该效果每10秒至多触发一次。',
     },
     'specialEffectDamageType': {},
     'specialEffectAlways': [],
@@ -4001,11 +3562,7 @@ const WEAPONS = [
     },
     'specialEffectDamageType': {
       Stats.AttackBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
       Stats.DmgBonus: [
         DamageType.Charged,
@@ -4042,24 +3599,15 @@ const WEAPONS = [
       },
     },
     'specialEffectComent': {
-      Refine.Refine1:
-          '装备该武器的角色触发雷元素相关反应后，队伍中附近的与该元素反应相关的元素类型的角色，获得10%对应元素的元素伤害加成，持续6秒。通过这种方式，角色获得的元素伤害加成无法叠加。',
-      Refine.Refine2:
-          '装备该武器的角色触发雷元素相关反应后，队伍中附近的与该元素反应相关的元素类型的角色，获得12.5%对应元素的元素伤害加成，持续6秒。通过这种方式，角色获得的元素伤害加成无法叠加。',
-      Refine.Refine3:
-          '装备该武器的角色触发雷元素相关反应后，队伍中附近的与该元素反应相关的元素类型的角色，获得15%对应元素的元素伤害加成，持续6秒。通过这种方式，角色获得的元素伤害加成无法叠加。',
-      Refine.Refine4:
-          '装备该武器的角色触发雷元素相关反应后，队伍中附近的与该元素反应相关的元素类型的角色，获得17.5%对应元素的元素伤害加成，持续6秒。通过这种方式，角色获得的元素伤害加成无法叠加。',
-      Refine.Refine5:
-          '装备该武器的角色触发雷元素相关反应后，队伍中附近的与该元素反应相关的元素类型的角色，获得20%对应元素的元素伤害加成，持续6秒。通过这种方式，角色获得的元素伤害加成无法叠加。',
+      Refine.Refine1: '装备该武器的角色触发雷元素相关反应后，队伍中附近的与该元素反应相关的元素类型的角色，获得10%对应元素的元素伤害加成，持续6秒。通过这种方式，角色获得的元素伤害加成无法叠加。',
+      Refine.Refine2: '装备该武器的角色触发雷元素相关反应后，队伍中附近的与该元素反应相关的元素类型的角色，获得12.5%对应元素的元素伤害加成，持续6秒。通过这种方式，角色获得的元素伤害加成无法叠加。',
+      Refine.Refine3: '装备该武器的角色触发雷元素相关反应后，队伍中附近的与该元素反应相关的元素类型的角色，获得15%对应元素的元素伤害加成，持续6秒。通过这种方式，角色获得的元素伤害加成无法叠加。',
+      Refine.Refine4: '装备该武器的角色触发雷元素相关反应后，队伍中附近的与该元素反应相关的元素类型的角色，获得17.5%对应元素的元素伤害加成，持续6秒。通过这种方式，角色获得的元素伤害加成无法叠加。',
+      Refine.Refine5: '装备该武器的角色触发雷元素相关反应后，队伍中附近的与该元素反应相关的元素类型的角色，获得20%对应元素的元素伤害加成，持续6秒。通过这种方式，角色获得的元素伤害加成无法叠加。',
     },
     'specialEffectDamageType': {
       Stats.DmgBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [],
@@ -4098,11 +3646,7 @@ const WEAPONS = [
     },
     'specialEffectDamageType': {
       Stats.DmgBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [],
@@ -4133,24 +3677,15 @@ const WEAPONS = [
       },
     },
     'specialEffectComent': {
-      Refine.Refine1:
-          '元素伤害加成提升12%；普通攻击命中时，有50%的概率获得高天流云的青睐，在15秒内主动攻击附近的敌人，造成等同于160%攻击力的伤害。该效果每30秒只能触发一次。',
-      Refine.Refine2:
-          '元素伤害加成提升15%；普通攻击命中时，有50%的概率获得高天流云的青睐，在15秒内主动攻击附近的敌人，造成等同于200%攻击力的伤害。该效果每30秒只能触发一次。',
-      Refine.Refine3:
-          '元素伤害加成提升18%；普通攻击命中时，有50%的概率获得高天流云的青睐，在15秒内主动攻击附近的敌人，造成等同于240%攻击力的伤害。该效果每30秒只能触发一次。',
-      Refine.Refine4:
-          '元素伤害加成提升21%；普通攻击命中时，有50%的概率获得高天流云的青睐，在15秒内主动攻击附近的敌人，造成等同于280%攻击力的伤害。该效果每30秒只能触发一次。',
-      Refine.Refine5:
-          '元素伤害加成提升24%；普通攻击命中时，有50%的概率获得高天流云的青睐，在15秒内主动攻击附近的敌人，造成等同于320%攻击力的伤害。该效果每30秒只能触发一次。',
+      Refine.Refine1: '元素伤害加成提升12%；普通攻击命中时，有50%的概率获得高天流云的青睐，在15秒内主动攻击附近的敌人，造成等同于160%攻击力的伤害。该效果每30秒只能触发一次。',
+      Refine.Refine2: '元素伤害加成提升15%；普通攻击命中时，有50%的概率获得高天流云的青睐，在15秒内主动攻击附近的敌人，造成等同于200%攻击力的伤害。该效果每30秒只能触发一次。',
+      Refine.Refine3: '元素伤害加成提升18%；普通攻击命中时，有50%的概率获得高天流云的青睐，在15秒内主动攻击附近的敌人，造成等同于240%攻击力的伤害。该效果每30秒只能触发一次。',
+      Refine.Refine4: '元素伤害加成提升21%；普通攻击命中时，有50%的概率获得高天流云的青睐，在15秒内主动攻击附近的敌人，造成等同于280%攻击力的伤害。该效果每30秒只能触发一次。',
+      Refine.Refine5: '元素伤害加成提升24%；普通攻击命中时，有50%的概率获得高天流云的青睐，在15秒内主动攻击附近的敌人，造成等同于320%攻击力的伤害。该效果每30秒只能触发一次。',
     },
     'specialEffectDamageType': {
       Stats.DmgBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [
@@ -4188,31 +3723,18 @@ const WEAPONS = [
       },
     },
     'specialEffectComent': {
-      Refine.Refine1:
-          '护盾强效提升20%。攻击命中后的8秒内，攻击力提升4%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
-      Refine.Refine2:
-          '护盾强效提升25%。攻击命中后的8秒内，攻击力提升5%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
-      Refine.Refine3:
-          '护盾强效提升30%。攻击命中后的8秒内，攻击力提升6%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
-      Refine.Refine4:
-          '护盾强效提升35%。攻击命中后的8秒内，攻击力提升7%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
-      Refine.Refine5:
-          '护盾强效提升40%。攻击命中后的8秒内，攻击力提升8%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
+      Refine.Refine1: '护盾强效提升20%。攻击命中后的8秒内，攻击力提升4%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
+      Refine.Refine2: '护盾强效提升25%。攻击命中后的8秒内，攻击力提升5%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
+      Refine.Refine3: '护盾强效提升30%。攻击命中后的8秒内，攻击力提升6%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
+      Refine.Refine4: '护盾强效提升35%。攻击命中后的8秒内，攻击力提升7%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
+      Refine.Refine5: '护盾强效提升40%。攻击命中后的8秒内，攻击力提升8%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
     },
     'specialEffectDamageType': {
       Stats.AttackBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
       Stats.ShieldStrength: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
     },
     'specialEffectAlways': [
@@ -4250,24 +3772,15 @@ const WEAPONS = [
       },
     },
     'specialEffectComent': {
-      Refine.Refine1:
-          '治疗加成提升10%；普通攻击造成的伤害增加，增加值为装备该武器的角色生命值上限的1%。在施放元素爆发后的12秒内，普通攻击命中敌人时恢复0.6点元素能量，每0.1秒至多通过这种方式恢复一次元素能量。',
-      Refine.Refine2:
-          '治疗加成提升12.5%；普通攻击造成的伤害增加，增加值为装备该武器的角色生命值上限的1.5%。在施放元素爆发后的12秒内，普通攻击命中敌人时恢复0.6点元素能量，每0.1秒至多通过这种方式恢复一次元素能量。',
-      Refine.Refine3:
-          '治疗加成提升15%；普通攻击造成的伤害增加，增加值为装备该武器的角色生命值上限的2%。在施放元素爆发后的12秒内，普通攻击命中敌人时恢复0.6点元素能量，每0.1秒至多通过这种方式恢复一次元素能量。',
-      Refine.Refine4:
-          '治疗加成提升17.5%；普通攻击造成的伤害增加，增加值为装备该武器的角色生命值上限的2.5%。在施放元素爆发后的12秒内，普通攻击命中敌人时恢复0.6点元素能量，每0.1秒至多通过这种方式恢复一次元素能量。',
-      Refine.Refine5:
-          '治疗加成提升20%；普通攻击造成的伤害增加，增加值为装备该武器的角色生命值上限的3%。在施放元素爆发后的12秒内，普通攻击命中敌人时恢复0.6点元素能量，每0.1秒至多通过这种方式恢复一次元素能量。',
+      Refine.Refine1: '治疗加成提升10%；普通攻击造成的伤害增加，增加值为装备该武器的角色生命值上限的1%。在施放元素爆发后的12秒内，普通攻击命中敌人时恢复0.6点元素能量，每0.1秒至多通过这种方式恢复一次元素能量。',
+      Refine.Refine2: '治疗加成提升12.5%；普通攻击造成的伤害增加，增加值为装备该武器的角色生命值上限的1.5%。在施放元素爆发后的12秒内，普通攻击命中敌人时恢复0.6点元素能量，每0.1秒至多通过这种方式恢复一次元素能量。',
+      Refine.Refine3: '治疗加成提升15%；普通攻击造成的伤害增加，增加值为装备该武器的角色生命值上限的2%。在施放元素爆发后的12秒内，普通攻击命中敌人时恢复0.6点元素能量，每0.1秒至多通过这种方式恢复一次元素能量。',
+      Refine.Refine4: '治疗加成提升17.5%；普通攻击造成的伤害增加，增加值为装备该武器的角色生命值上限的2.5%。在施放元素爆发后的12秒内，普通攻击命中敌人时恢复0.6点元素能量，每0.1秒至多通过这种方式恢复一次元素能量。',
+      Refine.Refine5: '治疗加成提升20%；普通攻击造成的伤害增加，增加值为装备该武器的角色生命值上限的3%。在施放元素爆发后的12秒内，普通攻击命中敌人时恢复0.6点元素能量，每0.1秒至多通过这种方式恢复一次元素能量。',
     },
     'specialEffectDamageType': {
       Stats.HealingBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
       Stats.ExtraDamageByHp: [
         DamageType.Normal,
@@ -4303,16 +3816,11 @@ const WEAPONS = [
       },
     },
     'specialEffectComent': {
-      Refine.Refine1:
-          '元素战技造成的伤害值提高，提高数值相当于防御力的40%。该效果每1.5秒最多触发一次，并将在元素战技造成伤害后的0.1秒后清除效果。',
-      Refine.Refine2:
-          '元素战技造成的伤害值提高，提高数值相当于防御力的50%。该效果每1.5秒最多触发一次，并将在元素战技造成伤害后的0.1秒后清除效果。',
-      Refine.Refine3:
-          '元素战技造成的伤害值提高，提高数值相当于防御力的60%。该效果每1.5秒最多触发一次，并将在元素战技造成伤害后的0.1秒后清除效果。',
-      Refine.Refine4:
-          '元素战技造成的伤害值提高，提高数值相当于防御力的70%。该效果每1.5秒最多触发一次，并将在元素战技造成伤害后的0.1秒后清除效果。',
-      Refine.Refine5:
-          '元素战技造成的伤害值提高，提高数值相当于防御力的80%。该效果每1.5秒最多触发一次，并将在元素战技造成伤害后的0.1秒后清除效果。',
+      Refine.Refine1: '元素战技造成的伤害值提高，提高数值相当于防御力的40%。该效果每1.5秒最多触发一次，并将在元素战技造成伤害后的0.1秒后清除效果。',
+      Refine.Refine2: '元素战技造成的伤害值提高，提高数值相当于防御力的50%。该效果每1.5秒最多触发一次，并将在元素战技造成伤害后的0.1秒后清除效果。',
+      Refine.Refine3: '元素战技造成的伤害值提高，提高数值相当于防御力的60%。该效果每1.5秒最多触发一次，并将在元素战技造成伤害后的0.1秒后清除效果。',
+      Refine.Refine4: '元素战技造成的伤害值提高，提高数值相当于防御力的70%。该效果每1.5秒最多触发一次，并将在元素战技造成伤害后的0.1秒后清除效果。',
+      Refine.Refine5: '元素战技造成的伤害值提高，提高数值相当于防御力的80%。该效果每1.5秒最多触发一次，并将在元素战技造成伤害后的0.1秒后清除效果。',
     },
     'specialEffectDamageType': {
       Stats.ExtraDmageByDefend: [
@@ -4360,11 +3868,7 @@ const WEAPONS = [
     },
     'specialEffectDamageType': {
       Stats.DefendBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-        DamageType.SkillE,
-        DamageType.SkillQ,
+        DamageType.All,
       ],
       Stats.ExtraDmageByDefend: [
         DamageType.Normal,
@@ -4373,6 +3877,55 @@ const WEAPONS = [
     },
     'specialEffectAlways': [
       Stats.DefendBonus,
+    ],
+  },
+  {
+    'name': '息灾',
+    'weapon_id': 94,
+    'type': WeaponTypes.Polearm,
+    'rarity': Rarity.Star5,
+    'baseAttack': 741.0,
+    'subStat': Stats.AttackBonus,
+    'subStatValue': 16.5,
+    'specialEffect': {
+      Refine.Refine1: {
+        Stats.DmgBonus: 12.0,
+        Stats.AttackBonus: 19.2,
+      },
+      Refine.Refine2: {
+        Stats.DmgBonus: 15.0,
+        Stats.AttackBonus: 24.0,
+      },
+      Refine.Refine3: {
+        Stats.DmgBonus: 18.0,
+        Stats.AttackBonus: 28.8,
+      },
+      Refine.Refine4: {
+        Stats.DmgBonus: 21.0,
+        Stats.AttackBonus: 33.6,
+      },
+      Refine.Refine5: {
+        Stats.DmgBonus: 24.0,
+        Stats.AttackBonus: 38.4,
+      },
+    },
+    'specialEffectComent': {
+      Refine.Refine1: '获得12%所有元素伤害加成；施放元素战技后，获得持续20秒的「圆顿」，攻击力每1秒提升3.2%，该攻击力提升效果至多叠加6次。当装备此武器的角色处于队伍后台时，「圆顿」的攻击力提升效果翻倍。',
+      Refine.Refine2: '获得15%所有元素伤害加成；施放元素战技后，获得持续20秒的「圆顿」，攻击力每1秒提升4%，该攻击力提升效果至多叠加6次。当装备此武器的角色处于队伍后台时，「圆顿」的攻击力提升效果翻倍。',
+      Refine.Refine3: '获得18%所有元素伤害加成；施放元素战技后，获得持续20秒的「圆顿」，攻击力每1秒提升4.8%，该攻击力提升效果至多叠加6次。当装备此武器的角色处于队伍后台时，「圆顿」的攻击力提升效果翻倍。',
+      Refine.Refine4: '获得21%所有元素伤害加成；施放元素战技后，获得持续20秒的「圆顿」，攻击力每1秒提升5.6%，该攻击力提升效果至多叠加6次。当装备此武器的角色处于队伍后台时，「圆顿」的攻击力提升效果翻倍。',
+      Refine.Refine5: '获得24%所有元素伤害加成；施放元素战技后，获得持续20秒的「圆顿」，攻击力每1秒提升6.4%，该攻击力提升效果至多叠加6次。当装备此武器的角色处于队伍后台时，「圆顿」的攻击力提升效果翻倍。',
+    },
+    'specialEffectDamageType': {
+      Stats.DmgBonus: [
+        DamageType.All,
+      ],
+      Stats.AttackBonus: [
+        DamageType.All,
+      ],
+    },
+    'specialEffectAlways': [
+      Stats.DmgBonus,
     ],
   },
 ];

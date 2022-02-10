@@ -1,13 +1,13 @@
 import 'dart:io';
-import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
-import 'package:path_provider/path_provider.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 import '../data/data.dart';
 import '../object/mycharacter.dart';
 import '../object/artifact.dart';
 
 class LocalData {
+  static final _databaseFolder = "/storage/emulated/0/gshelper";
   static final _databaseName = "gshelper.db";
   static final _databaseVersion = 1;
 
@@ -54,6 +54,10 @@ class LocalData {
   static final tableColumnMyCharacterArtifactSubStatStatValue = 'stat_value';
   static final tableColumnMyCharacterArtifactSubStatOrder = 'order_no';
 
+  static final tableNameCode = 'code';
+  static final tableColumnCodeCodeId = 'code_id';
+  static final tableColumnCodeContent = 'code_content';
+
   LocalData._privateConstructor();
   static final LocalData instance = LocalData._privateConstructor();
 
@@ -65,9 +69,30 @@ class LocalData {
   }
 
   _initDatabase() async {
-    Directory documentsDirectory = await getApplicationDocumentsDirectory();
-    String path = join(documentsDirectory.path, _databaseName);
-    return await openDatabase(path, version: _databaseVersion, onCreate: _onCreate);
+    /*Directory documentsDirectory = await getApplicationDocumentsDirectory();
+    String path = join(documentsDirectory.path, _databaseName);*/
+    var statusStorage = await Permission.storage.status;
+    var statusManageStorage = await Permission.manageExternalStorage.status;
+    var statusMedia = await Permission.accessMediaLocation.status;
+    if (statusStorage.isDenied) {
+      statusStorage = await Permission.storage.request();
+    }
+    if (statusManageStorage.isDenied) {
+      statusManageStorage = await Permission.manageExternalStorage.request();
+    }
+    if (statusMedia.isDenied) {
+      statusMedia = await Permission.accessMediaLocation.request();
+    }
+
+    if (statusStorage.isGranted && statusManageStorage.isGranted && statusMedia.isGranted) {
+      Directory dir = Directory(_databaseFolder);
+      if (!await dir.exists()) {
+        await dir.create(recursive: true);
+      }
+      return await openDatabase(_databaseFolder + '/' + _databaseName, version: _databaseVersion, onCreate: _onCreate);
+    } else {
+      return null;
+    }
   }
 
   Future _onCreate(Database db, int version) async {
@@ -121,23 +146,20 @@ class LocalData {
         PRIMARY KEY ($tableColumnMyCharacterArtifactSubStatMyCharacterId, $tableColumnMyCharacterArtifactSubStatOrder)
       );
     ''');
+    await db.execute('''
+        CREATE TABLE $tableNameCode (
+        $tableColumnCodeCodeId INTEGER PRIMARY KEY,
+        $tableColumnCodeContent TEXT
+      );
+    ''');
   }
 
   Future<void> debug() async {
     /*Database db = await database;
     await db.execute('''
-      DELETE FROM $tableNameMyCharacter;
-    ''');
-    await db.execute('''
-      DROP TABLE $tableNameMyCharacterArtifactSubStat;
-    ''');
-    await db.execute('''
-        CREATE TABLE $tableNameMyCharacterArtifactSubStat (
-        $tableColumnMyCharacterArtifactSubStatMyCharacterId INTEGER,
-        $tableColumnMyCharacterArtifactSubStatStatIndex INTEGER,
-        $tableColumnMyCharacterArtifactSubStatStatValue REAL,
-        $tableColumnMyCharacterArtifactSubStatOrder INTEGER,
-        PRIMARY KEY ($tableColumnMyCharacterArtifactSubStatMyCharacterId, $tableColumnMyCharacterArtifactSubStatOrder)
+        CREATE TABLE $tableNameCode (
+        $tableColumnCodeCodeId INTEGER PRIMARY KEY,
+        $tableColumnCodeContent TEXT
       );
     ''');*/
   }
@@ -161,6 +183,8 @@ class LocalData {
     };
 
     Database db = await database;
+    if (db == null) return;
+
     List<Map> searchResult = await db.query(tableNameArtifactInput, where: '$tableColumnArtifactInputCharacterId = ?', whereArgs: [character['character_id']]);
     if (searchResult.length > 0) {
       await db.update(tableNameArtifactInput, values, where: '$tableColumnArtifactInputCharacterId = ?', whereArgs: [character['character_id']]);
@@ -177,6 +201,8 @@ class LocalData {
     if (character == null) return null;
 
     Database db = await database;
+    if (db == null) return null;
+
     List<Map<String, Object>> searchResult =
         await db.query(tableNameArtifactInput, where: '$tableColumnArtifactInputCharacterId = ?', whereArgs: [character['character_id']]);
     if (searchResult.length <= 0) return null;
@@ -199,7 +225,7 @@ class LocalData {
       tableColumnMyCharacterArtifactFlower: character.artifactFlowerIndex,
       tableColumnMyCharacterArtifactPlume: character.artifactPlumeIndex,
       tableColumnMyCharacterArtifactSands: character.artifactSandsIndex,
-      tableColumnMyCharacterArtifactGoblet: character.artifactGlobletIndex,
+      tableColumnMyCharacterArtifactGoblet: character.artifactGobletIndex,
       tableColumnMyCharacterArtifactCirclet: character.artifactCircletIndex,
       tableColumnMyCharacterSkillALevel: character.skillALevel,
       tableColumnMyCharacterSkillELevel: character.skillELevel,
@@ -207,6 +233,8 @@ class LocalData {
     };
 
     Database db = await database;
+    if (db == null) return;
+
     int myCharacterId;
     if (character.myCharacterId < 0) {
       myCharacterId =
@@ -234,6 +262,8 @@ class LocalData {
 
   Future<List<MyCharacter>> getMyCharacterList() async {
     Database db = await database;
+    if (db == null) return [];
+
     List<Map<String, Object>> searchResult = await db.query(tableNameMyCharacter);
 
     List<MyCharacter> result = [];
@@ -249,7 +279,7 @@ class LocalData {
       character.artifactFlowerIndex = line[tableColumnMyCharacterArtifactFlower];
       character.artifactPlumeIndex = line[tableColumnMyCharacterArtifactPlume];
       character.artifactSandsIndex = line[tableColumnMyCharacterArtifactSands];
-      character.artifactGlobletIndex = line[tableColumnMyCharacterArtifactGoblet];
+      character.artifactGobletIndex = line[tableColumnMyCharacterArtifactGoblet];
       character.artifactCircletIndex = line[tableColumnMyCharacterArtifactCirclet];
       character.artifactFlowerId = line[tableColumnMyCharacterArtifactFlowerType];
       character.artifactPlumeId = line[tableColumnMyCharacterArtifactPlumeType];
@@ -269,6 +299,52 @@ class LocalData {
         character.artifactSubValueList[i] = subStatLine[tableColumnMyCharacterArtifactSubStatStatValue];
       }
 
+      character.artifactList.add(Artifact(
+        myCharacterId: character.myCharacterId,
+        characterId: character.characterId,
+        artifactId: character.artifactFlowerId,
+        position: ArtifactPosition.Flower,
+        mainStat: GsData.getArtifactFlowerMainStatFromIndex(character.artifactFlowerIndex),
+        subStatList: List.generate(4, (index) => GsData.getArtifactSubStatFromIndex(character.artifactSubStatIndexList[index])),
+        subValueList: List.generate(4, (index) => character.artifactSubValueList[index]),
+      ));
+      character.artifactList.add(Artifact(
+        myCharacterId: character.myCharacterId,
+        characterId: character.characterId,
+        artifactId: character.artifactPlumeId,
+        position: ArtifactPosition.Plume,
+        mainStat: GsData.getArtifactPlumeMainStatFromIndex(character.artifactPlumeIndex),
+        subStatList: List.generate(4, (index) => GsData.getArtifactSubStatFromIndex(character.artifactSubStatIndexList[index + 4])),
+        subValueList: List.generate(4, (index) => character.artifactSubValueList[index + 4]),
+      ));
+      character.artifactList.add(Artifact(
+        myCharacterId: character.myCharacterId,
+        characterId: character.characterId,
+        artifactId: character.artifactSandsId,
+        position: ArtifactPosition.Sands,
+        mainStat: GsData.getArtifactSandsMainStatFromIndex(character.artifactSandsIndex),
+        subStatList: List.generate(4, (index) => GsData.getArtifactSubStatFromIndex(character.artifactSubStatIndexList[index + 8])),
+        subValueList: List.generate(4, (index) => character.artifactSubValueList[index + 8]),
+      ));
+      character.artifactList.add(Artifact(
+        myCharacterId: character.myCharacterId,
+        characterId: character.characterId,
+        artifactId: character.artifactGobletId,
+        position: ArtifactPosition.Goblet,
+        mainStat: GsData.getArtifactGobletMainStatFromIndex(character.artifactGobletIndex),
+        subStatList: List.generate(4, (index) => GsData.getArtifactSubStatFromIndex(character.artifactSubStatIndexList[index + 8])),
+        subValueList: List.generate(4, (index) => character.artifactSubValueList[index + 8]),
+      ));
+      character.artifactList.add(Artifact(
+        myCharacterId: character.myCharacterId,
+        characterId: character.characterId,
+        artifactId: character.artifactCircletId,
+        position: ArtifactPosition.Circlet,
+        mainStat: GsData.getArtifactCircletMainStatFromIndex(character.artifactCircletIndex),
+        subStatList: List.generate(4, (index) => GsData.getArtifactSubStatFromIndex(character.artifactSubStatIndexList[index + 8])),
+        subValueList: List.generate(4, (index) => character.artifactSubValueList[index + 8]),
+      ));
+
       result.add(character);
     }
     return result;
@@ -276,6 +352,40 @@ class LocalData {
 
   Future<void> deleteMyCharacter(int myCharacterId) async {
     Database db = await database;
+    if (db == null) return;
+
     db.delete(tableNameMyCharacter, where: '$tableColumnMyCharacterMyCharacterId = ?', whereArgs: [myCharacterId]);
+  }
+
+  Future<Map<int, String>> getCodeList() async {
+    Database db = await database;
+    if (db == null) return {};
+
+    List<Map<String, Object>> searchResult = await db.query(tableNameCode);
+    Map<int, String> result = {};
+    for (Map<String, Object> line in searchResult) {
+      result.addAll({line[tableColumnCodeCodeId]: line[tableColumnCodeContent]});
+    }
+
+    return result;
+  }
+
+  Future<void> keepCode(int codeId, String code) async {
+    Database db = await database;
+    if (db == null) return;
+
+    if (codeId < 0) {
+      codeId = (((await db.rawQuery('SELECT MAX($tableColumnCodeCodeId) AS max_id FROM $tableNameCode'))[0]['max_id'] ?? 0) as int) + 1;
+      await db.insert(tableNameCode, {tableColumnCodeCodeId: codeId, tableColumnCodeContent: code});
+    } else {
+      await db.update(tableNameCode, {tableColumnCodeContent: code}, where: '$tableColumnCodeCodeId = ?', whereArgs: [codeId]);
+    }
+  }
+
+  Future<void> deleteCode(int codeId) async {
+    Database db = await database;
+    if (db == null) return;
+
+    db.delete(tableNameCode, where: '$tableColumnCodeCodeId = ?', whereArgs: [codeId]);
   }
 }

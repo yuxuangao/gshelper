@@ -7,6 +7,7 @@ class MyCharacterDamageInput {
   Map<String, Object> character;
   Map<String, Object> weapon;
   Map<SkillType, Object> skill;
+  Map<Constellation, Object> constellation;
   MyCharacterResult myCharacterResult;
   List<Map<String, Object>> buffList = [];
   List<bool> buffActiveList = [];

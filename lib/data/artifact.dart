@@ -3,6 +3,13 @@ import 'data.dart';
 const ARTIFACT = [
   {
     'name': '染血的骑士道',
+    'piece_name': {
+      ArtifactPosition.Flower: '染血的铁之心',
+      ArtifactPosition.Plume: '染血的黑之羽',
+      ArtifactPosition.Sands: '骑士染血之时',
+      ArtifactPosition.Goblet: '染血骑士之杯',
+      ArtifactPosition.Circlet: '染血的铁假面',
+    },
     'artifact_id': 1,
     'rarity': Rarity.Star5,
     'setEffect': {
@@ -13,11 +20,7 @@ const ARTIFACT = [
         },
         'damageType': {
           Stats.PhyDmgBonus: [
-            DamageType.Normal,
-            DamageType.Charged,
-            DamageType.Plunging,
-            DamageType.SkillE,
-            DamageType.SkillQ,
+            DamageType.All,
           ],
         },
         'effectAlways': [
@@ -41,6 +44,13 @@ const ARTIFACT = [
   },
   {
     'name': '角斗士的终幕礼',
+    'piece_name': {
+      ArtifactPosition.Flower: '角斗士的留恋',
+      ArtifactPosition.Plume: '角斗士的归宿',
+      ArtifactPosition.Sands: '角斗士的希冀',
+      ArtifactPosition.Goblet: '角斗士的酣醉',
+      ArtifactPosition.Circlet: '角斗士的凯旋',
+    },
     'artifact_id': 2,
     'rarity': Rarity.Star5,
     'setEffect': {
@@ -51,11 +61,7 @@ const ARTIFACT = [
         },
         'damageType': {
           Stats.AttackBonus: [
-            DamageType.Normal,
-            DamageType.Charged,
-            DamageType.Plunging,
-            DamageType.SkillE,
-            DamageType.SkillQ,
+            DamageType.All,
           ],
         },
         'effectAlways': [
@@ -79,6 +85,13 @@ const ARTIFACT = [
   },
   {
     'name': '流浪大地的乐团',
+    'piece_name': {
+      ArtifactPosition.Flower: '乐团的晨光',
+      ArtifactPosition.Plume: '琴师的箭羽',
+      ArtifactPosition.Sands: '终幕的时计',
+      ArtifactPosition.Goblet: '吟游者之壶',
+      ArtifactPosition.Circlet: '指挥的礼帽',
+    },
     'artifact_id': 3,
     'rarity': Rarity.Star5,
     'setEffect': {
@@ -89,11 +102,7 @@ const ARTIFACT = [
         },
         'damageType': {
           Stats.Mastery: [
-            DamageType.Normal,
-            DamageType.Charged,
-            DamageType.Plunging,
-            DamageType.SkillE,
-            DamageType.SkillQ,
+            DamageType.All,
           ],
         },
         'effectAlways': [
@@ -117,6 +126,13 @@ const ARTIFACT = [
   },
   {
     'name': '苍白之火',
+    'piece_name': {
+      ArtifactPosition.Flower: '无垢之花',
+      ArtifactPosition.Plume: '贤医之羽',
+      ArtifactPosition.Sands: '停摆之刻',
+      ArtifactPosition.Goblet: '超越之盏',
+      ArtifactPosition.Circlet: '嗤笑之面',
+    },
     'artifact_id': 4,
     'rarity': Rarity.Star5,
     'setEffect': {
@@ -127,11 +143,7 @@ const ARTIFACT = [
         },
         'damageType': {
           Stats.PhyDmgBonus: [
-            DamageType.Normal,
-            DamageType.Charged,
-            DamageType.Plunging,
-            DamageType.SkillE,
-            DamageType.SkillQ,
+            DamageType.All,
           ],
         },
         'effectAlways': [
@@ -146,18 +158,10 @@ const ARTIFACT = [
         },
         'damageType': {
           Stats.AttackBonus: [
-            DamageType.Normal,
-            DamageType.Charged,
-            DamageType.Plunging,
-            DamageType.SkillE,
-            DamageType.SkillQ,
+            DamageType.All,
           ],
           Stats.PhyDmgBonus: [
-            DamageType.Normal,
-            DamageType.Charged,
-            DamageType.Plunging,
-            DamageType.SkillE,
-            DamageType.SkillQ,
+            DamageType.All,
           ],
         },
         'effectAlways': [],
@@ -166,6 +170,13 @@ const ARTIFACT = [
   },
   {
     'name': '如雷的盛怒',
+    'piece_name': {
+      ArtifactPosition.Flower: '雷鸟的怜悯',
+      ArtifactPosition.Plume: '雷灾的孑遗',
+      ArtifactPosition.Sands: '雷霆的时计',
+      ArtifactPosition.Goblet: '降雷的凶兆',
+      ArtifactPosition.Circlet: '唤雷的头冠',
+    },
     'artifact_id': 5,
     'rarity': Rarity.Star5,
     'setEffect': {
@@ -176,11 +187,7 @@ const ARTIFACT = [
         },
         'damageType': {
           Stats.DmgBonus: [
-            DamageType.Normal,
-            DamageType.Charged,
-            DamageType.Plunging,
-            DamageType.SkillE,
-            DamageType.SkillQ,
+            DamageType.All,
           ],
         },
         'effectAlways': [
@@ -197,6 +204,13 @@ const ARTIFACT = [
   },
   {
     'name': '翠绿之影',
+    'piece_name': {
+      ArtifactPosition.Flower: '野花记忆的绿野',
+      ArtifactPosition.Plume: '猎人青翠的箭羽',
+      ArtifactPosition.Sands: '翠绿猎人的笃定',
+      ArtifactPosition.Goblet: '翠绿猎人的容器',
+      ArtifactPosition.Circlet: '翠绿的猎人之冠',
+    },
     'artifact_id': 6,
     'rarity': Rarity.Star5,
     'setEffect': {
@@ -207,11 +221,7 @@ const ARTIFACT = [
         },
         'damageType': {
           Stats.DmgBonus: [
-            DamageType.Normal,
-            DamageType.Charged,
-            DamageType.Plunging,
-            DamageType.SkillE,
-            DamageType.SkillQ,
+            DamageType.All,
           ],
         },
         'effectAlways': [
@@ -221,15 +231,11 @@ const ARTIFACT = [
       ArtifactSetType.Set4: {
         'description': '扩散反应造成的伤害提升60%。根据扩散的元素类型，降低受到影响的敌人40%的对应元素抗性，持续10秒。',
         'effect': {
-          Stats.ResistanceDecrease: 40.0,
+          Stats.ResistanceDecreaseElement: 40.0,
         },
         'damageType': {
-          Stats.ResistanceDecrease: [
-            DamageType.Normal,
-            DamageType.Charged,
-            DamageType.Plunging,
-            DamageType.SkillE,
-            DamageType.SkillQ,
+          Stats.ResistanceDecreaseElement: [
+            DamageType.All,
           ],
         },
         'effectAlways': [],
@@ -238,6 +244,13 @@ const ARTIFACT = [
   },
   {
     'name': '悠古的磐岩',
+    'piece_name': {
+      ArtifactPosition.Flower: '磐陀裂生之花',
+      ArtifactPosition.Plume: '嵯峨群峰之翼',
+      ArtifactPosition.Sands: '星罗圭璧之晷',
+      ArtifactPosition.Goblet: '巉岩琢塑之樽',
+      ArtifactPosition.Circlet: '不动玄石之相',
+    },
     'artifact_id': 7,
     'rarity': Rarity.Star5,
     'setEffect': {
@@ -248,11 +261,7 @@ const ARTIFACT = [
         },
         'damageType': {
           Stats.DmgBonus: [
-            DamageType.Normal,
-            DamageType.Charged,
-            DamageType.Plunging,
-            DamageType.SkillE,
-            DamageType.SkillQ,
+            DamageType.All,
           ],
         },
         'effectAlways': [
@@ -266,11 +275,7 @@ const ARTIFACT = [
         },
         'damageType': {
           Stats.DmgBonus: [
-            DamageType.Normal,
-            DamageType.Charged,
-            DamageType.Plunging,
-            DamageType.SkillE,
-            DamageType.SkillQ,
+            DamageType.All,
           ],
         },
         'effectAlways': [],
@@ -279,6 +284,13 @@ const ARTIFACT = [
   },
   {
     'name': '炽烈的炎之魔女',
+    'piece_name': {
+      ArtifactPosition.Flower: '魔女的炎之花',
+      ArtifactPosition.Plume: '魔女常燃之羽',
+      ArtifactPosition.Sands: '魔女破灭之时',
+      ArtifactPosition.Goblet: '魔女的心之火',
+      ArtifactPosition.Circlet: '焦灼的魔女帽',
+    },
     'artifact_id': 8,
     'rarity': Rarity.Star5,
     'setEffect': {
@@ -289,11 +301,7 @@ const ARTIFACT = [
         },
         'damageType': {
           Stats.DmgBonus: [
-            DamageType.Normal,
-            DamageType.Charged,
-            DamageType.Plunging,
-            DamageType.SkillE,
-            DamageType.SkillQ,
+            DamageType.All,
           ],
         },
         'effectAlways': [
@@ -309,25 +317,13 @@ const ARTIFACT = [
         },
         'damageType': {
           Stats.VaporizeBonus: [
-            DamageType.Normal,
-            DamageType.Charged,
-            DamageType.Plunging,
-            DamageType.SkillE,
-            DamageType.SkillQ,
+            DamageType.All,
           ],
           Stats.MeltBonus: [
-            DamageType.Normal,
-            DamageType.Charged,
-            DamageType.Plunging,
-            DamageType.SkillE,
-            DamageType.SkillQ,
+            DamageType.All,
           ],
           Stats.DmgBonus: [
-            DamageType.Normal,
-            DamageType.Charged,
-            DamageType.Plunging,
-            DamageType.SkillE,
-            DamageType.SkillQ,
+            DamageType.All,
           ],
         },
         'effectAlways': [],
@@ -336,6 +332,13 @@ const ARTIFACT = [
   },
   {
     'name': '昔日宗室之仪',
+    'piece_name': {
+      ArtifactPosition.Flower: '宗室之花',
+      ArtifactPosition.Plume: '宗室之翎',
+      ArtifactPosition.Sands: '宗室时计',
+      ArtifactPosition.Goblet: '宗室银瓮',
+      ArtifactPosition.Circlet: '宗室面具',
+    },
     'artifact_id': 9,
     'rarity': Rarity.Star5,
     'setEffect': {
@@ -348,9 +351,11 @@ const ARTIFACT = [
         'damageType': {
           Stats.DmgBonus: [
             DamageType.SkillQ,
+            DamageType.SkillQSpecial,
           ],
           Stats.PhyDmgBonus: [
             DamageType.SkillQ,
+            DamageType.SkillQSpecial,
           ],
         },
         'effectAlways': [],
@@ -362,11 +367,7 @@ const ARTIFACT = [
         },
         'damageType': {
           Stats.AttackBonus: [
-            DamageType.Normal,
-            DamageType.Charged,
-            DamageType.Plunging,
-            DamageType.SkillE,
-            DamageType.SkillQ,
+            DamageType.All,
           ],
         },
         'effectAlways': [],
@@ -375,6 +376,13 @@ const ARTIFACT = [
   },
   {
     'name': '冰风迷途的勇士',
+    'piece_name': {
+      ArtifactPosition.Flower: '历经风雪的思念',
+      ArtifactPosition.Plume: '摧冰而行的执望',
+      ArtifactPosition.Sands: '冰雪故园的终期',
+      ArtifactPosition.Goblet: '遍结寒霜的傲骨',
+      ArtifactPosition.Circlet: '破冰踏雪的回音',
+    },
     'artifact_id': 10,
     'rarity': Rarity.Star5,
     'setEffect': {
@@ -385,11 +393,7 @@ const ARTIFACT = [
         },
         'damageType': {
           Stats.DmgBonus: [
-            DamageType.Normal,
-            DamageType.Charged,
-            DamageType.Plunging,
-            DamageType.SkillE,
-            DamageType.SkillQ,
+            DamageType.All,
           ],
         },
         'effectAlways': [
@@ -403,11 +407,7 @@ const ARTIFACT = [
         },
         'damageType': {
           Stats.CritRate: [
-            DamageType.Normal,
-            DamageType.Charged,
-            DamageType.Plunging,
-            DamageType.SkillE,
-            DamageType.SkillQ,
+            DamageType.All,
           ],
         },
         'effectAlways': [],
@@ -416,6 +416,13 @@ const ARTIFACT = [
   },
   {
     'name': '沉沦之心',
+    'piece_name': {
+      ArtifactPosition.Flower: '饰金胸花',
+      ArtifactPosition.Plume: '追忆之风',
+      ArtifactPosition.Sands: '坚铜罗盘',
+      ArtifactPosition.Goblet: '沉波之盏',
+      ArtifactPosition.Circlet: '酒渍船帽',
+    },
     'artifact_id': 11,
     'rarity': Rarity.Star5,
     'setEffect': {
@@ -426,11 +433,7 @@ const ARTIFACT = [
         },
         'damageType': {
           Stats.DmgBonus: [
-            DamageType.Normal,
-            DamageType.Charged,
-            DamageType.Plunging,
-            DamageType.SkillE,
-            DamageType.SkillQ,
+            DamageType.All,
           ],
         },
         'effectAlways': [
@@ -459,6 +462,13 @@ const ARTIFACT = [
   },
   {
     'name': '追忆之注连',
+    'piece_name': {
+      ArtifactPosition.Flower: '羁缠之花',
+      ArtifactPosition.Plume: '思忆之矢',
+      ArtifactPosition.Sands: '朝露之时',
+      ArtifactPosition.Goblet: '祈望之心',
+      ArtifactPosition.Circlet: '无常之面',
+    },
     'artifact_id': 12,
     'rarity': Rarity.Star5,
     'setEffect': {
@@ -469,11 +479,7 @@ const ARTIFACT = [
         },
         'damageType': {
           Stats.AttackBonus: [
-            DamageType.Normal,
-            DamageType.Charged,
-            DamageType.Plunging,
-            DamageType.SkillE,
-            DamageType.SkillQ,
+            DamageType.All,
           ],
         },
         'effectAlways': [
@@ -504,6 +510,13 @@ const ARTIFACT = [
   },
   {
     'name': '逆飞的流星',
+    'piece_name': {
+      ArtifactPosition.Flower: '夏祭之花',
+      ArtifactPosition.Plume: '夏祭终末',
+      ArtifactPosition.Sands: '夏祭之刻',
+      ArtifactPosition.Goblet: '夏祭水玉',
+      ArtifactPosition.Circlet: '夏祭之面',
+    },
     'artifact_id': 13,
     'rarity': Rarity.Star5,
     'setEffect': {
@@ -514,11 +527,7 @@ const ARTIFACT = [
         },
         'damageType': {
           Stats.ShieldStrength: [
-            DamageType.Normal,
-            DamageType.Charged,
-            DamageType.Plunging,
-            DamageType.SkillE,
-            DamageType.SkillQ,
+            DamageType.All,
           ],
         },
         'effectAlways': [
@@ -547,6 +556,13 @@ const ARTIFACT = [
   },
   {
     'name': '平息鸣雷的尊者',
+    'piece_name': {
+      ArtifactPosition.Flower: '平雷之心',
+      ArtifactPosition.Plume: '平雷之羽',
+      ArtifactPosition.Sands: '平雷之刻',
+      ArtifactPosition.Goblet: '平雷之器',
+      ArtifactPosition.Circlet: '平雷之冠',
+    },
     'artifact_id': 14,
     'rarity': Rarity.Star5,
     'setEffect': {
@@ -557,11 +573,7 @@ const ARTIFACT = [
         },
         'damageType': {
           Stats.Resistance: [
-            DamageType.Normal,
-            DamageType.Charged,
-            DamageType.Plunging,
-            DamageType.SkillE,
-            DamageType.SkillQ,
+            DamageType.All,
           ],
         },
         'effectAlways': [],
@@ -574,18 +586,10 @@ const ARTIFACT = [
         },
         'damageType': {
           Stats.DmgBonus: [
-            DamageType.Normal,
-            DamageType.Charged,
-            DamageType.Plunging,
-            DamageType.SkillE,
-            DamageType.SkillQ,
+            DamageType.All,
           ],
           Stats.PhyDmgBonus: [
-            DamageType.Normal,
-            DamageType.Charged,
-            DamageType.Plunging,
-            DamageType.SkillE,
-            DamageType.SkillQ,
+            DamageType.All,
           ],
         },
         'effectAlways': [],
@@ -594,6 +598,13 @@ const ARTIFACT = [
   },
   {
     'name': '渡过烈火的贤人',
+    'piece_name': {
+      ArtifactPosition.Flower: '渡火者的决绝',
+      ArtifactPosition.Plume: '渡火者的解脱',
+      ArtifactPosition.Sands: '渡火者的煎熬',
+      ArtifactPosition.Goblet: '渡火者的醒悟',
+      ArtifactPosition.Circlet: '渡火者的智慧',
+    },
     'artifact_id': 15,
     'rarity': Rarity.Star5,
     'setEffect': {
@@ -604,11 +615,7 @@ const ARTIFACT = [
         },
         'damageType': {
           Stats.Resistance: [
-            DamageType.Normal,
-            DamageType.Charged,
-            DamageType.Plunging,
-            DamageType.SkillE,
-            DamageType.SkillQ,
+            DamageType.All,
           ],
         },
         'effectAlways': [],
@@ -621,18 +628,10 @@ const ARTIFACT = [
         },
         'damageType': {
           Stats.DmgBonus: [
-            DamageType.Normal,
-            DamageType.Charged,
-            DamageType.Plunging,
-            DamageType.SkillE,
-            DamageType.SkillQ,
+            DamageType.All,
           ],
           Stats.PhyDmgBonus: [
-            DamageType.Normal,
-            DamageType.Charged,
-            DamageType.Plunging,
-            DamageType.SkillE,
-            DamageType.SkillQ,
+            DamageType.All,
           ],
         },
         'effectAlways': [],
@@ -641,6 +640,13 @@ const ARTIFACT = [
   },
   {
     'name': '被怜爱的少女',
+    'piece_name': {
+      ArtifactPosition.Flower: '远方的少女之心',
+      ArtifactPosition.Plume: '少女飘摇的思念',
+      ArtifactPosition.Sands: '少女苦短的良辰',
+      ArtifactPosition.Goblet: '少女片刻的闲暇',
+      ArtifactPosition.Circlet: '少女易逝的芳颜',
+    },
     'artifact_id': 16,
     'rarity': Rarity.Star5,
     'setEffect': {
@@ -651,11 +657,7 @@ const ARTIFACT = [
         },
         'damageType': {
           Stats.HealingBonus: [
-            DamageType.Normal,
-            DamageType.Charged,
-            DamageType.Plunging,
-            DamageType.SkillE,
-            DamageType.SkillQ,
+            DamageType.All,
           ],
         },
         'effectAlways': [],
@@ -670,6 +672,13 @@ const ARTIFACT = [
   },
   {
     'name': '千岩牢固',
+    'piece_name': {
+      ArtifactPosition.Flower: '勋绩之花',
+      ArtifactPosition.Plume: '昭武翎羽',
+      ArtifactPosition.Sands: '金铜时晷',
+      ArtifactPosition.Goblet: '盟誓金爵',
+      ArtifactPosition.Circlet: '将帅兜鍪',
+    },
     'artifact_id': 17,
     'rarity': Rarity.Star5,
     'setEffect': {
@@ -680,11 +689,7 @@ const ARTIFACT = [
         },
         'damageType': {
           Stats.HpBonus: [
-            DamageType.Normal,
-            DamageType.Charged,
-            DamageType.Plunging,
-            DamageType.SkillE,
-            DamageType.SkillQ,
+            DamageType.All,
           ],
         },
         'effectAlways': [
@@ -699,18 +704,51 @@ const ARTIFACT = [
         },
         'damageType': {
           Stats.AttackBonus: [
-            DamageType.Normal,
-            DamageType.Charged,
-            DamageType.Plunging,
-            DamageType.SkillE,
-            DamageType.SkillQ,
+            DamageType.All,
           ],
           Stats.ShieldStrength: [
-            DamageType.Normal,
-            DamageType.Charged,
-            DamageType.Plunging,
-            DamageType.SkillE,
+            DamageType.All,
+          ],
+        },
+        'effectAlways': [],
+      },
+    },
+  },
+  {
+    'name': '绝缘之旗印',
+    'piece_name': {
+      ArtifactPosition.Flower: '明威之镡',
+      ArtifactPosition.Plume: '切落之羽',
+      ArtifactPosition.Sands: '雷云之笼',
+      ArtifactPosition.Goblet: '绯花之壶',
+      ArtifactPosition.Circlet: '华饰之兜',
+    },
+    'artifact_id': 18,
+    'rarity': Rarity.Star5,
+    'setEffect': {
+      ArtifactSetType.Set2: {
+        'description': '元素充能效率提高20%。',
+        'effect': {
+          Stats.Recharge: 20.0,
+        },
+        'damageType': {
+          Stats.Recharge: [
+            DamageType.All,
+          ],
+        },
+        'effectAlways': [
+          Stats.Recharge,
+        ],
+      },
+      ArtifactSetType.Set4: {
+        'description': '基于元素充能效率的25%，提高元素爆发造成的伤害。至多通过这种方式获得75%提升。',
+        'effect': {
+          Stats.DmgBonusByRecharge: 25.0,
+        },
+        'damageType': {
+          Stats.DmgBonusByRecharge: [
             DamageType.SkillQ,
+            DamageType.SkillQSpecial,
           ],
         },
         'effectAlways': [],
@@ -719,7 +757,14 @@ const ARTIFACT = [
   },
   {
     'name': '华馆梦醒形骸记',
-    'artifact_id': 18,
+    'piece_name': {
+      ArtifactPosition.Flower: '荣花之期',
+      ArtifactPosition.Plume: '华馆之羽',
+      ArtifactPosition.Sands: '众生之谣',
+      ArtifactPosition.Goblet: '梦醒之瓢',
+      ArtifactPosition.Circlet: '形骸之笠',
+    },
+    'artifact_id': 19,
     'rarity': Rarity.Star5,
     'setEffect': {
       ArtifactSetType.Set2: {
@@ -729,11 +774,7 @@ const ARTIFACT = [
         },
         'damageType': {
           Stats.DefendBonus: [
-            DamageType.Normal,
-            DamageType.Charged,
-            DamageType.Plunging,
-            DamageType.SkillE,
-            DamageType.SkillQ,
+            DamageType.All,
           ],
         },
         'effectAlways': [
@@ -748,18 +789,10 @@ const ARTIFACT = [
         },
         'damageType': {
           Stats.DefendBonus: [
-            DamageType.Normal,
-            DamageType.Charged,
-            DamageType.Plunging,
-            DamageType.SkillE,
-            DamageType.SkillQ,
+            DamageType.All,
           ],
           Stats.DmgBonus: [
-            DamageType.Normal,
-            DamageType.Charged,
-            DamageType.Plunging,
-            DamageType.SkillE,
-            DamageType.SkillQ,
+            DamageType.All,
           ],
         },
         'effectAlways': [],
@@ -768,21 +801,24 @@ const ARTIFACT = [
   },
   {
     'name': '海染砗磲',
-    'artifact_id': 19,
+    'piece_name': {
+      ArtifactPosition.Flower: '海染之花',
+      ArtifactPosition.Plume: '渊宫之羽',
+      ArtifactPosition.Sands: '离别之贝',
+      ArtifactPosition.Goblet: '真珠之笼',
+      ArtifactPosition.Circlet: '海祇之冠',
+    },
+    'artifact_id': 20,
     'rarity': Rarity.Star5,
     'setEffect': {
       ArtifactSetType.Set2: {
         'description': '治疗加成提高15%。',
         'effect': {
-          Stats.HealingBonus: 30.0,
+          Stats.HealingBonus: 15.0,
         },
         'damageType': {
           Stats.HealingBonus: [
-            DamageType.Normal,
-            DamageType.Charged,
-            DamageType.Plunging,
-            DamageType.SkillE,
-            DamageType.SkillQ,
+            DamageType.All,
           ],
         },
         'effectAlways': [

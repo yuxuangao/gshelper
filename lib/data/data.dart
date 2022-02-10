@@ -1,61 +1,63 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_picker/flutter_picker.dart';
+import 'package:gshelper/data/constellation.dart';
 
 import 'character.dart';
 import 'weapon.dart';
 import 'enemy.dart';
 import 'artifact.dart';
 import 'skill.dart';
+import 'simulation.dart';
 
 class GsData {
+  static List<Map<String, Object>> getCharacterList() {
+    List<Map<String, Object>> result = [...CHARACTERS];
+    result.sort((c1, c2) {
+      if (c1['element'] != c2['element']) return _CHARACTERS_SHOW_ELEMENT_ORDER.indexOf(c1['element']) - _CHARACTERS_SHOW_ELEMENT_ORDER.indexOf(c2['element']);
+      if (c1['rarity'] != c2['rarity']) return (c2['rarity'] as Rarity).index - (c1['rarity'] as Rarity).index;
+      return (c1['character_id'] as int) - (c2['character_id'] as int);
+    });
+    return result;
+  }
+
+  static List<Map<String, Object>> getCharacterListByRarityOrder() {
+    List<Map<String, Object>> result = [...CHARACTERS];
+    result.sort((c1, c2) {
+      if (c1['rarity'] != c2['rarity']) return (c2['rarity'] as Rarity).index - (c1['rarity'] as Rarity).index;
+      if (c1['element'] != c2['element']) return _CHARACTERS_SHOW_ELEMENT_ORDER.indexOf(c1['element']) - _CHARACTERS_SHOW_ELEMENT_ORDER.indexOf(c2['element']);
+      return (c1['character_id'] as int) - (c2['character_id'] as int);
+    });
+    return result;
+  }
+
   static List<PickerItem<dynamic>> getCharacterNames() {
     List<PickerItem<dynamic>> result = [];
+    List<Map<String, Object>> characterList = getCharacterList();
 
-    List<List<Map<String, Object>>> tempList = List.generate(_CHARACTERS_SHOW_ELEMENT_ORDER.length, (index) => []);
-    for (var character in CHARACTERS) {
-      var index = _CHARACTERS_SHOW_ELEMENT_ORDER.indexOf(character['element']);
-      if (index >= 0) {
-        tempList[index].add(character);
-      }
-    }
-    for (var characterList in tempList) {
-      for (var character in characterList) {
-        result.add(PickerItem(
-          text: Text(
-            character['name'],
-            style: TextStyle(
-              color: _ELEMENT_TEXT_COLOR[character['element']],
-            ),
+    for (var character in characterList) {
+      result.add(PickerItem(
+        text: Text(
+          character['name'],
+          style: TextStyle(
+            color: _ELEMENT_TEXT_COLOR[character['element']],
           ),
-          value: character['name'],
-        ));
-      }
+        ),
+        value: character['name'],
+      ));
     }
 
     return result;
   }
 
+  static Color getElementBorderColor(Elements element) {
+    return _ELEMENT_BORDER_COLOR[element];
+  }
+
   static Map<String, Object> getCharacterFromIndex(int index) {
     if (index < 0) return null;
 
-    List<List<Map<String, Object>>> tempList = List.generate(_CHARACTERS_SHOW_ELEMENT_ORDER.length, (index) => []);
-    for (var character in CHARACTERS) {
-      var index = _CHARACTERS_SHOW_ELEMENT_ORDER.indexOf(character['element']);
-      if (index >= 0) {
-        tempList[index].add(character);
-      }
-    }
-
-    int i = 0;
-    for (var characterList in tempList) {
-      for (var character in characterList) {
-        if (i++ == index) {
-          return {...character};
-        }
-      }
-    }
-
-    return null;
+    List<Map<String, Object>> characterList = getCharacterList();
+    return index >= characterList.length ? null : characterList[index];
   }
 
   static List<String> getLevels() {
@@ -75,53 +77,66 @@ class GsData {
   }
 
   static List<String> getArtifactFlowerMainStatNameList() {
-    return List.generate(_ARTIFACT_FLOWER_MAIN_STAT.length, (index) => _STATS_NAME[_ARTIFACT_FLOWER_MAIN_STAT[index]]);
+    return List.generate(
+        _ARTIFACT_EACH_MAIN_STAT[ArtifactPosition.Flower].length, (index) => _STATS_NAME[_ARTIFACT_EACH_MAIN_STAT[ArtifactPosition.Flower][index]]);
   }
 
   static Stats getArtifactFlowerMainStatFromIndex(int index) {
     if (index < 0) return null;
-    if (index >= _ARTIFACT_FLOWER_MAIN_STAT.length) return null;
-    return _ARTIFACT_FLOWER_MAIN_STAT[index];
+    if (index >= _ARTIFACT_EACH_MAIN_STAT[ArtifactPosition.Flower].length) return null;
+    return _ARTIFACT_EACH_MAIN_STAT[ArtifactPosition.Flower][index];
   }
 
   static List<String> getArtifactPlumeMainStatNameList() {
-    return List.generate(_ARTIFACT_PLUME_MAIN_STAT.length, (index) => _STATS_NAME[_ARTIFACT_PLUME_MAIN_STAT[index]]);
+    return List.generate(
+        _ARTIFACT_EACH_MAIN_STAT[ArtifactPosition.Plume].length, (index) => _STATS_NAME[_ARTIFACT_EACH_MAIN_STAT[ArtifactPosition.Plume][index]]);
   }
 
   static Stats getArtifactPlumeMainStatFromIndex(int index) {
     if (index < 0) return null;
-    if (index >= _ARTIFACT_PLUME_MAIN_STAT.length) return null;
-    return _ARTIFACT_PLUME_MAIN_STAT[index];
+    if (index >= _ARTIFACT_EACH_MAIN_STAT[ArtifactPosition.Plume].length) return null;
+    return _ARTIFACT_EACH_MAIN_STAT[ArtifactPosition.Plume][index];
   }
 
   static List<String> getArtifactSandsMainStatNameList() {
-    return List.generate(_ARTIFACT_SANDS_MAIN_STAT.length, (index) => _STATS_NAME[_ARTIFACT_SANDS_MAIN_STAT[index]]);
+    return List.generate(
+        _ARTIFACT_EACH_MAIN_STAT[ArtifactPosition.Sands].length, (index) => _STATS_NAME[_ARTIFACT_EACH_MAIN_STAT[ArtifactPosition.Sands][index]]);
   }
 
   static Stats getArtifactSandsMainStatFromIndex(int index) {
     if (index < 0) return null;
-    if (index >= _ARTIFACT_SANDS_MAIN_STAT.length) return null;
-    return _ARTIFACT_SANDS_MAIN_STAT[index];
+    if (index >= _ARTIFACT_EACH_MAIN_STAT[ArtifactPosition.Sands].length) return null;
+    return _ARTIFACT_EACH_MAIN_STAT[ArtifactPosition.Sands][index];
   }
 
   static List<String> getArtifactGobletMainStatNameList() {
-    return List.generate(_ARTIFACT_GOBLET_MAIN_STAT.length, (index) => _STATS_NAME[_ARTIFACT_GOBLET_MAIN_STAT[index]]);
+    return List.generate(
+        _ARTIFACT_EACH_MAIN_STAT[ArtifactPosition.Goblet].length, (index) => _STATS_NAME[_ARTIFACT_EACH_MAIN_STAT[ArtifactPosition.Goblet][index]]);
   }
 
-  static Stats getArtifactGlobletMainStatFromIndex(int index) {
+  static Stats getArtifactGobletMainStatFromIndex(int index) {
     if (index < 0) return null;
-    if (index >= _ARTIFACT_GOBLET_MAIN_STAT.length) return null;
-    return _ARTIFACT_GOBLET_MAIN_STAT[index];
+    if (index >= _ARTIFACT_EACH_MAIN_STAT[ArtifactPosition.Goblet].length) return null;
+    return _ARTIFACT_EACH_MAIN_STAT[ArtifactPosition.Goblet][index];
   }
 
   static List<String> getArtifactCircletMainStatNameList() {
-    return List.generate(_ARTIFACT_CIRCLET_MAIN_STAT.length, (index) => _STATS_NAME[_ARTIFACT_CIRCLET_MAIN_STAT[index]]);
+    return List.generate(
+        _ARTIFACT_EACH_MAIN_STAT[ArtifactPosition.Circlet].length, (index) => _STATS_NAME[_ARTIFACT_EACH_MAIN_STAT[ArtifactPosition.Circlet][index]]);
   }
 
   static Stats getArtifactCircletMainStatFromIndex(int index) {
     if (index < 0) return null;
-    if (index >= _ARTIFACT_CIRCLET_MAIN_STAT.length) return null;
-    return _ARTIFACT_CIRCLET_MAIN_STAT[index];
+    if (index >= _ARTIFACT_EACH_MAIN_STAT[ArtifactPosition.Circlet].length) return null;
+    return _ARTIFACT_EACH_MAIN_STAT[ArtifactPosition.Circlet][index];
+  }
+
+  static int getArtifactMainStatIndexFromStat(ArtifactPosition position, Stats stat) {
+    return _ARTIFACT_EACH_MAIN_STAT[position].indexOf(stat);
+  }
+
+  static int getArtifactSubStatIndexFromStat(Stats stat) {
+    return _ARTIFACT_SUB_STAT.indexOf(stat);
   }
 
   static List<String> getArtifactSubStatNameList() {
@@ -194,6 +209,10 @@ class GsData {
     return _ARTIFACT_SUB_STAT_WORD_VALUE;
   }
 
+  static String getArtifactPositionName(ArtifactPosition position) {
+    return _ARTIFACT_POSITION_NAME[position];
+  }
+
   static String getStatNameAbbrevation(Stats stat) {
     return _STATS_NAME_ABBREVATION[stat] ?? '';
   }
@@ -207,7 +226,7 @@ class GsData {
     }
     tempList.sort((w1, w2) {
       return w1['rarity'] != w2['rarity']
-          ? (w1['rarity'] as Rarity).index - (w2['rarity'] as Rarity).index
+          ? (w2['rarity'] as Rarity).index - (w1['rarity'] as Rarity).index
           : (w1['weapon_id'] as int) - (w2['weapon_id'] as int);
     });
     List<String> result = [];
@@ -306,6 +325,15 @@ class GsData {
     return null;
   }
 
+  static Map<Constellation, Object> getConstellationFromCharacterId(int characterId, Constellation constellation) {
+    if (CONSTELLATIONS.containsKey(characterId))
+      return Map<Constellation, Object>.fromIterable(
+        List.generate(constellation.index, (index) => Constellation.values[index + 1]),
+        value: (element) => CONSTELLATIONS[characterId][element],
+      );
+    return null;
+  }
+
   static String getBuffTypeName(BuffType buffType) {
     return _BUFF_TYPE_NAME[buffType];
   }
@@ -326,6 +354,70 @@ class GsData {
     return _SKILL_TYPE_NAME[skillType];
   }
 
+  static String getCharacterFilePath(int characterId) {
+    return 'assets/images/c_' + characterId.toString() + '.png';
+  }
+
+  static String getCharacterFaceFilePath(int characterId) {
+    return 'assets/images/c_' + characterId.toString() + '_f.png';
+  }
+
+  static String getCharacterGachaFilePath(int characterId) {
+    return 'assets/images/c_' + characterId.toString() + '_g.png';
+  }
+
+  static String getWeaponFilePath(int weaponId) {
+    return 'assets/images/w_' + weaponId.toString() + '.png';
+  }
+
+  static String getArtifactFilePath(int artifactId, ArtifactPosition artifactPosition) {
+    return 'assets/images/a_' + artifactId.toString() + '_' + (artifactPosition.index + 1).toString() + '.png';
+  }
+
+  static String getRarityBackgroundFilePath(Rarity rarity) {
+    return _RARITY_BACKGROUND_FILE_PATH[rarity];
+  }
+
+  static String getRarityStarFilePath(Rarity rarity) {
+    return _RARITY_STAR_FILE_PATH[rarity];
+  }
+
+  static String getSkillFilePath(int characterId, SkillType skillType, {int passiveOrder}) {
+    if (skillType == SkillType.SkillA) return 'assets/images/s_' + characterId.toString() + '_a.png';
+    if (skillType == SkillType.SkillE) return 'assets/images/s_' + characterId.toString() + '_e.png';
+    if (skillType == SkillType.SkillQ) return 'assets/images/s_' + characterId.toString() + '_q.png';
+    return 'assets/images/s_' + characterId.toString() + '_p_' + passiveOrder.toString() + '.png';
+  }
+
+  static String getConstellationFilePath(int characterId, Constellation constellation) {
+    return 'assets/images/co_' + characterId.toString() + '_' + constellation.index.toString() + '.png';
+  }
+
+  static String getElementFilePath(Elements element) {
+    return _ELEMENT_FILE_PATH[element];
+  }
+
+  static String getWeaponTypeFilePath(WeaponTypes weaponType) {
+    return _WEAPON_TYPE_FILE_PATH[weaponType];
+  }
+
+  static List<String> getSimulationArtifactMainStatNameList() {
+    return List<String>.generate(SIMULATION_ARTIFACT_MAIN_STAT.length, (index) => SIMULATION_ARTIFACT_MAIN_STAT[index]['name']);
+  }
+
+  static List<Stats> getSimulationArtifactMainStatValueFromIndex(int index) {
+    if (index < 0) return null;
+    return SIMULATION_ARTIFACT_MAIN_STAT[index]['value'];
+  }
+
+  static List<String> getSimulationArtifactSubStatNameList() {
+    return List<String>.generate(SIMULATION_ARTIFACT_SUB_STAT.length, (index) => SIMULATION_ARTIFACT_SUB_STAT[index]['name']);
+  }
+
+  static Map<Stats, double> getSimulationArtifactSubStatValueFromIndex(int index) {
+    return SIMULATION_ARTIFACT_SUB_STAT[index]['value'];
+  }
+
   static const _CHARACTERS_SHOW_ELEMENT_ORDER = [
     Elements.Anemo,
     Elements.Hydro,
@@ -343,6 +435,15 @@ class GsData {
     Elements.Electro: Color(0xffd597ff),
     Elements.Geo: Color(0xfff8d056),
     Elements.Dendro: Color(0xffa5d534),
+  };
+  static const _ELEMENT_BORDER_COLOR = {
+    Elements.Anemo: Color(0xff288375),
+    Elements.Hydro: Color(0xff2154a1),
+    Elements.Pyro: Color(0xff8b463d),
+    Elements.Cryo: Color(0xff53a4c2),
+    Elements.Electro: Color(0xff9752b5),
+    Elements.Geo: Color(0xff977d37),
+    Elements.Dendro: Color(0xff71b211),
   };
   static const _ELEMENT_NAME = {
     Elements.Physical: '物',
@@ -401,15 +502,25 @@ class GsData {
     Stats.ExtraDamage: '额外伤害',
     Stats.ExtraDamageByAttack: '额外伤害（由攻击力结算）',
     Stats.ExtraDamageByHp: '额外伤害（由生命值结算）',
-    Stats.ExtraDmageByDefend: '额外伤害（由防御力结算）',
     Stats.AttackBonusByHp: '基于生命值上限提升攻击力',
     Stats.AttackBonusByDefend: '基于防御力提升攻击力',
     Stats.AttackBonusByRecharge: '基于充能效率提升攻击力',
+    Stats.AttackBonusByRechargeOver100: '基于充能效率超出100%的部分提升攻击力',
+    Stats.DmgBonusByRecharge: '基于充能效率提升元素伤害',
+    Stats.DmgBonusByRechargeOver100: '基于充能效率超出100%的部分提升元素伤害',
+    Stats.DmgBonusByHealingForHpExtraDamage: '基于治疗加成提高由生命值结算的额外伤害',
+    Stats.DmgBonusByEnergy: '基于元素能量提升元素伤害',
+    Stats.DmgBonusByMastery: '基于元素精通提升元素伤害',
+    Stats.DmgBonusExtra: '额外的伤害提升',
     Stats.DefendDecrease: '减防%',
     Stats.Resistance: '抗性%',
-    Stats.ResistanceDecrease: '减抗%',
+    Stats.ResistanceDecreaseElement: '元素抗性减抗%',
+    Stats.ResistanceDecreasePhysical: '物理抗性减抗%',
     Stats.VaporizeBonus: '蒸发系数加成%',
     Stats.MeltBonus: '融化系数加成%',
+    Stats.RatioExtra: '额外倍率加成',
+    Stats.RatioExtraByAttack: '基于攻击力增加倍率',
+    Stats.RatioExtraByMastery: '基于元素精通增加倍率',
   };
   static const _STATS_NAME_ABBREVATION = {
     Stats.Hp: "生",
@@ -433,25 +544,30 @@ class GsData {
     Stats.AttackBonusByHp: '基于生命值上限提升攻击力',
     Stats.AttackBonusByDefend: '基于防御力提升攻击力',
     Stats.AttackBonusByRecharge: '基于充能效率提升攻击力',
+    Stats.AttackBonusByRechargeOver100: '基于充能效率超出100%的部分提升攻击力',
+    Stats.DmgBonusByRecharge: '基于充能效率提升元素伤害',
+    Stats.DmgBonusByRechargeOver100: '基于充能效率超出100%的部分提升元素伤害',
+    Stats.DmgBonusByHealingForHpExtraDamage: '基于治疗加成提高由生命值结算的额外元素伤害',
+    Stats.DmgBonusByEnergy: '基于元素能量提升元素伤害',
+    Stats.DmgBonusByMastery: '基于元素精通提升元素伤害',
+    Stats.DmgBonusExtra: '额外的伤害提升',
     Stats.DefendDecrease: '减防',
     Stats.Resistance: '抗性',
-    Stats.ResistanceDecrease: '减抗',
+    Stats.ResistanceDecreaseElement: '元素抗性减抗%',
+    Stats.ResistanceDecreasePhysical: '物理抗性减抗%',
     Stats.VaporizeBonus: '蒸发系数加成',
     Stats.MeltBonus: '融化系数加成',
+    Stats.RatioExtra: '额外倍率加成',
+    Stats.RatioExtraByAttack: '基于攻击力增加倍率',
+    Stats.RatioExtraByMastery: '基于元素精通增加倍率',
   };
-  static const _ARTIFACT_FLOWER_MAIN_STAT = [Stats.Hp];
-  static const _ARTIFACT_PLUME_MAIN_STAT = [Stats.Attack];
-  static const _ARTIFACT_SANDS_MAIN_STAT = [Stats.HpBonus, Stats.AttackBonus, Stats.DefendBonus, Stats.Mastery, Stats.Recharge];
-  static const _ARTIFACT_GOBLET_MAIN_STAT = [Stats.HpBonus, Stats.AttackBonus, Stats.DefendBonus, Stats.Mastery, Stats.DmgBonus, Stats.PhyDmgBonus];
-  static const _ARTIFACT_CIRCLET_MAIN_STAT = [
-    Stats.HpBonus,
-    Stats.AttackBonus,
-    Stats.DefendBonus,
-    Stats.Mastery,
-    Stats.CritRate,
-    Stats.CritDmg,
-    Stats.HealingBonus
-  ];
+  static const _ARTIFACT_EACH_MAIN_STAT = {
+    ArtifactPosition.Flower: [Stats.Hp],
+    ArtifactPosition.Plume: [Stats.Attack],
+    ArtifactPosition.Sands: [Stats.HpBonus, Stats.AttackBonus, Stats.DefendBonus, Stats.Mastery, Stats.Recharge],
+    ArtifactPosition.Goblet: [Stats.HpBonus, Stats.AttackBonus, Stats.DefendBonus, Stats.Mastery, Stats.DmgBonus, Stats.PhyDmgBonus],
+    ArtifactPosition.Circlet: [Stats.HpBonus, Stats.AttackBonus, Stats.DefendBonus, Stats.Mastery, Stats.CritRate, Stats.CritDmg, Stats.HealingBonus],
+  };
   static const _ARTIFACT_SUB_STAT = [
     Stats.Hp,
     Stats.Attack,
@@ -523,21 +639,58 @@ class GsData {
   };
   static const _BUFF_TYPE_NAME = {
     BuffType.BuffForMe: '为自己施加buff',
-    BuffType.DebuffForMe: '为敌人施加debuff',
-    BuffType.DebuffForEnemy: '为自己施加debuff',
+    BuffType.DebuffForMe: '为自己施加debuff',
+    BuffType.DebuffForEnemy: '为敌人施加debuff',
   };
   static const _DAMAGE_TYPE_NAME = {
+    DamageType.All: '全部攻击',
     DamageType.Normal: '普通攻击',
     DamageType.Charged: '重击',
     DamageType.Plunging: '下落攻击',
     DamageType.SkillE: '元素战技',
     DamageType.SkillQ: '元素爆发',
+    DamageType.SkillQSpecial: '元素爆发（特殊）',
   };
   static const _SKILL_TYPE_NAME = {
     SkillType.Passive: '被动技能',
     SkillType.SkillA: '普通攻击',
     SkillType.SkillE: '元素战技',
     SkillType.SkillQ: '元素爆发',
+  };
+  static const _RARITY_BACKGROUND_FILE_PATH = {
+    Rarity.Star3: 'assets/images/rarity_3.png',
+    Rarity.Star4: 'assets/images/rarity_4.png',
+    Rarity.Star5: 'assets/images/rarity_5.png',
+    Rarity.Special: 'assets/images/rarity_5.png',
+  };
+  static const _RARITY_STAR_FILE_PATH = {
+    Rarity.Star3: 'assets/images/icon_3_stars.png',
+    Rarity.Star4: 'assets/images/icon_4_stars.png',
+    Rarity.Star5: 'assets/images/icon_5_stars.png',
+    Rarity.Special: 'assets/images/icon_5_stars.png',
+  };
+  static const _ARTIFACT_POSITION_NAME = {
+    ArtifactPosition.Flower: '生之花',
+    ArtifactPosition.Plume: '死之羽',
+    ArtifactPosition.Sands: '时之沙',
+    ArtifactPosition.Goblet: '空之杯',
+    ArtifactPosition.Circlet: '理之冠',
+  };
+  static const _ELEMENT_FILE_PATH = {
+    Elements.Anemo: 'assets/images/e_anemo.png',
+    Elements.Hydro: 'assets/images/e_hydro.png',
+    Elements.Pyro: 'assets/images/e_pyro.png',
+    Elements.Cryo: 'assets/images/e_cryo.png',
+    Elements.Electro: 'assets/images/e_electro.png',
+    Elements.Geo: 'assets/images/e_geo.png',
+    Elements.Dendro: 'assets/images/e_dendro.png',
+  };
+  static const _WEAPON_TYPE_FILE_PATH = {
+    WeaponTypes.Sword: 'assets/images/icon_sword.png',
+    WeaponTypes.Claymore: 'assets/images/icon_claymore.png',
+    WeaponTypes.Polearm: 'assets/images/icon_polearm.png',
+    WeaponTypes.Bow: 'assets/images/icon_bow.png',
+    WeaponTypes.Catalyst: 'assets/images/icon_catalyst.png',
   };
 }
 
@@ -565,19 +718,31 @@ enum Stats {
   AttackBonusByHp,
   AttackBonusByDefend,
   AttackBonusByRecharge,
+  AttackBonusByRechargeOver100,
+  DmgBonusByRecharge,
+  DmgBonusByRechargeOver100,
+  DmgBonusByHealingForHpExtraDamage,
+  DmgBonusByEnergy,
+  DmgBonusByMastery,
+  DmgBonusExtra,
   Resistance,
   DefendDecrease,
-  ResistanceDecrease,
+  ResistanceDecreasePhysical,
+  ResistanceDecreaseElement,
   VaporizeBonus,
   MeltBonus,
+  RatioExtra,
+  RatioExtraByAttack,
+  RatioExtraByMastery,
 }
 enum WeaponTypes { Sword, Claymore, Polearm, Bow, Catalyst }
-enum Rarity { Star3, Star4, Star5, Special }
+enum Rarity { Star3, Star4, Special, Star5 }
 enum Refine { Refine1, Refine2, Refine3, Refine4, Refine5 }
 enum Constellation { Con0, Con1, Con2, Con3, Con4, Con5, Con6 }
-enum DamageType { Normal, Charged, Plunging, SkillE, SkillQ }
+enum DamageType { All, Normal, Charged, Plunging, SkillE, SkillQ, SkillQSpecial }
 enum SkillType { Passive, SkillA, SkillE, SkillQ }
 enum BuffType { BuffForMe, DebuffForMe, DebuffForEnemy }
 enum SkillElementType { Both, Element, Physical }
 enum ElementReactionType { Vaporize, Melt }
 enum ArtifactSetType { Set2, Set4 }
+enum ArtifactPosition { Flower, Plume, Sands, Goblet, Circlet }

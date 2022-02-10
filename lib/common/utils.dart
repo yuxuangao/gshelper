@@ -14,8 +14,11 @@ class Utils {
     return valueList[min(max(0, skillLevel - 1), valueList.length - 1)];
   }
 
-  static double getSkillValueWithCharacter(
-      List<double> valueList, MyCharacter myCharacter, SkillType skillType) {
+  static String getSkillOtherValue(List<String> valueList, int skillLevel) {
+    return valueList[min(max(0, skillLevel - 1), valueList.length - 1)];
+  }
+
+  static double getSkillValueWithCharacter(List<double> valueList, MyCharacter myCharacter, SkillType skillType) {
     switch (skillType) {
       case SkillType.SkillA:
         return getSkillValue(valueList, myCharacter.skillALevel);
@@ -31,10 +34,41 @@ class Utils {
   static String generateNumberCharacter(int number) {
     if (number <= 0 || number >= 100) return '';
     if (number <= 10) return Const.NUMBER_CHARACTERS[number - 1];
-    return (number / 10 >= 2
-            ? Const.NUMBER_CHARACTERS[(number / 10).floor() - 1]
-            : '') +
+    return (number / 10 >= 2 ? Const.NUMBER_CHARACTERS[(number / 10).floor() - 1] : '') +
         Const.NUMBER_CHARACTERS[9] +
         (number % 10 == 0 ? '' : Const.NUMBER_CHARACTERS[number % 10 - 1]);
+  }
+
+  static String getValueUnitFromStat(Stats stat) {
+    if (!Const.STATS_SHOW_PERCENT.contains(stat)) return '';
+
+    switch (stat) {
+      case Stats.AttackBonusByDefend:
+        return '%防御力';
+      case Stats.AttackBonusByHp:
+        return '%生命值';
+      case Stats.AttackBonusByRecharge:
+        return '%充能效率';
+      case Stats.AttackBonusByRechargeOver100:
+        return '%充能效率';
+      case Stats.DmgBonusByRecharge:
+        return '%充能效率';
+      case Stats.DmgBonusByRechargeOver100:
+        return '%充能效率';
+      case Stats.DmgBonusByHealingForHpExtraDamage:
+        return '%治疗加成';
+      case Stats.DmgBonusByMastery:
+        return '%元素精通';
+      case Stats.DmgBonusByEnergy:
+        return '%元素能量';
+      case Stats.ExtraDamageByAttack:
+        return '%攻击力';
+      case Stats.ExtraDamageByHp:
+        return '%生命值';
+      case Stats.ExtraDmageByDefend:
+        return '%防御力';
+      default:
+        return '%';
+    }
   }
 }

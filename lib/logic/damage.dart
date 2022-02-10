@@ -21,7 +21,7 @@ class DamageCalculator {
     if (input.critDmg == null || input.critDmg <= 0) {
       result.errorMessage += "暴击伤害输入有误\n";
     }
-    if (input.skillRatio == null || input.skillRatio <= 0) {
+    if (input.skillRatio == null || input.skillRatio < 0) {
       result.errorMessage += "技能倍率输入有误\n";
     }
     if (input.characterLevel == null || input.characterLevel <= 0) {
@@ -53,11 +53,8 @@ class DamageCalculator {
       return result;
     }
 
-    double r = input.skillRatio / 100;
-    double dr = (input.characterLevel + 100) /
-        (input.characterLevel +
-            100 +
-            (1 - input.defendDecrease / 100) * (input.enemyLevel + 100));
+    double r = (input.skillRatio + input.skillRatioExtra) / 100;
+    double dr = (input.characterLevel + 100) / (input.characterLevel + 100 + (1 - input.defendDecrease / 100) * (input.enemyLevel + 100));
     double rr = 1.0;
     if (input.enemyResistance > 75) {
       rr = 25 / (25 + input.enemyResistance);
@@ -68,23 +65,17 @@ class DamageCalculator {
     }
     if (input.enemyResistance > 75) {
       if (input.enemyResistance - input.resistanceDecrease > 75) {
-        rr *= (25 + input.enemyResistance) /
-            (25 + input.enemyResistance - input.resistanceDecrease);
+        rr *= (25 + input.enemyResistance) / (25 + input.enemyResistance - input.resistanceDecrease);
       } else if (input.enemyResistance - input.resistanceDecrease > 0) {
-        rr *= (25 + input.enemyResistance) *
-            (1 - (input.enemyResistance - input.resistanceDecrease)) /
-            25;
+        rr *= (25 + input.enemyResistance) * (1 - (input.enemyResistance - input.resistanceDecrease)) / 25;
       } else {
-        rr *= (25 + input.enemyResistance) *
-            (1 - (input.enemyResistance - input.resistanceDecrease) / 2) /
-            25;
+        rr *= (25 + input.enemyResistance) * (1 - (input.enemyResistance - input.resistanceDecrease) / 2) / 25;
       }
     } else if (input.enemyResistance > 0) {
       if (input.enemyResistance >= input.resistanceDecrease) {
         rr *= 1 + input.resistanceDecrease / (100 - input.enemyResistance);
       } else if (input.enemyResistance < input.resistanceDecrease) {
-        rr *= (100 + (input.resistanceDecrease - input.enemyResistance) / 2) /
-            (100 - input.enemyResistance);
+        rr *= (100 + (input.resistanceDecrease - input.enemyResistance) / 2) / (100 - input.enemyResistance);
       }
     }
     double at = input.attack;
@@ -92,19 +83,14 @@ class DamageCalculator {
     double db = 1 + input.damageBonus / 100 + input.damageBonusForOther / 100;
     double sp = 1.0;
     if (input.elementRatio > 1) {
-      sp = input.elementRatio *
-          (1 +
-              (278 * input.mastery / (input.mastery + 1400) / 100) +
-              input.elementEnhance / 100);
+      sp = input.elementRatio * (1 + (278 * input.mastery / (input.mastery + 1400) / 100) + input.elementEnhance / 100);
     }
+    double ex = input.damageBonusExtra / 100;
 
-    result.damageWithoutCrit = (r * at + input.extraDamage) * dr * rr * db * sp;
+    result.damageWithoutCrit = (r * at + input.extraDamage) * dr * rr * db * sp * ex;
     result.damageWithCrit = result.damageWithoutCrit * cr;
     result.damageAverage =
-        result.damageWithCrit * min(max(input.critRate, 0), 100) / 100 +
-            result.damageWithoutCrit *
-                (100 - min(max(input.critRate, 0), 100)) /
-                100;
+        result.damageWithCrit * min(max(input.critRate, 0), 100) / 100 + result.damageWithoutCrit * (100 - min(max(input.critRate, 0), 100)) / 100;
 
     result.damageWithoutCrit = result.damageWithoutCrit.roundToDouble();
     result.damageWithCrit = result.damageWithCrit.roundToDouble();

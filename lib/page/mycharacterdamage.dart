@@ -73,6 +73,7 @@ class _MyCharacterDamage extends State<MyCharacterDamage> {
     _input.character = GsData.getCharacterFromId(_input.myCharacter.characterId);
     _input.weapon = GsData.getWeaponFromId(_input.myCharacter.weaponId);
     _input.skill = GsData.getSkillFromCharacterId(_input.myCharacter.characterId);
+    _input.constellation = GsData.getConstellationFromCharacterId(_input.myCharacter.characterId, Constellation.values[_input.myCharacter.consetllationIndex]);
     _input.myCharacterResult = MyCharacterCalculator.cal(_input.myCharacter, _input.character, _input.weapon);
     _generateBuffList();
     _setInitValue();
@@ -125,269 +126,273 @@ class _MyCharacterDamage extends State<MyCharacterDamage> {
               ),
             ),
             Expanded(
-              child: _currentPageSelection == 0
-                  ? SingleChildScrollView(
-                      child: Column(
-                        children: <Widget>[
-                          _CharacterCard(_input),
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(12, 8, 12, 8),
-                            child: Card(
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: <Widget>[
-                                  Container(
-                                    width: double.infinity,
-                                    child: Padding(
-                                      padding: _getCardTitleMargin(),
-                                      child: Text(
-                                        '敌人',
-                                        style: _getCardTitleStyle(),
+              child: IndexedStack(
+                index: _currentPageSelection,
+                children: <Widget>[
+                  SingleChildScrollView(
+                    child: Column(
+                      children: <Widget>[
+                        _CharacterCard(_input),
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(12, 8, 12, 8),
+                          child: Card(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: <Widget>[
+                                Container(
+                                  width: double.infinity,
+                                  child: Padding(
+                                    padding: _getCardTitleMargin(),
+                                    child: Text(
+                                      '敌人',
+                                      style: _getCardTitleStyle(),
+                                    ),
+                                  ),
+                                ),
+                                Divider(
+                                  thickness: 1,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                    Flexible(
+                                      child: Padding(
+                                        padding: _getInputMargin(),
+                                        child: TextFormField(
+                                          readOnly: true,
+                                          controller: _enemyInputController,
+                                          decoration: InputDecoration(
+                                            border: UnderlineInputBorder(),
+                                            floatingLabelBehavior: FloatingLabelBehavior.always,
+                                            label: Text("敌人"),
+                                            contentPadding: _getTextFieldPadding(),
+                                          ),
+                                          onTap: () {
+                                            _showPicker(GsData.getEnemyNameList(), _input.enemyIndex, (picker, selected) {
+                                              _input.enemyIndex = selected[0];
+                                              _enemyInputController.text = picker.getSelectedValues()[0].toString();
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                    Flexible(
+                                      child: Padding(
+                                        padding: _getInputMargin(),
+                                        child: TextFormField(
+                                          controller: _enemyLevelInputController,
+                                          keyboardType: TextInputType.number,
+                                          inputFormatters: [
+                                            Utils.getNumberInputFormatter(),
+                                          ],
+                                          decoration: InputDecoration(
+                                            border: UnderlineInputBorder(),
+                                            floatingLabelBehavior: FloatingLabelBehavior.always,
+                                            label: Text("敌人等级"),
+                                            contentPadding: _getTextFieldPadding(),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 16,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(12, 8, 12, 8),
+                          child: Card(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: <Widget>[
+                                Container(
+                                  width: double.infinity,
+                                  child: Padding(
+                                    padding: _getCardTitleMargin(),
+                                    child: Text(
+                                      'buff',
+                                      style: _getCardTitleStyle(),
+                                    ),
+                                  ),
+                                ),
+                                Divider(
+                                  thickness: 1,
+                                ),
+                                Column(
+                                  children: List.generate(
+                                    _input.buffList.length,
+                                    (index) => CheckboxListTile(
+                                      value: _input.buffActiveList[index],
+                                      onChanged: (isChecked) {
+                                        setState(() {
+                                          _input.buffActiveList[index] = isChecked;
+                                        });
+                                      },
+                                      isThreeLine: true,
+                                      controlAffinity: ListTileControlAffinity.leading,
+                                      title: Text(
+                                        _input.buffList[index]['skillName'].toString() +
+                                            (_input.buffList[index]['name'] == null || _input.buffList[index]['name'] == ''
+                                                ? ''
+                                                : '（' + _input.buffList[index]['name'] + '）'),
+                                      ),
+                                      subtitle: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: <Widget>[
+                                          Text(
+                                            _input.buffList[index]['skillDescription'],
+                                          ),
+                                          SizedBox(
+                                            height: 5,
+                                          ),
+                                          Text(
+                                            _input.buffList[index]['buffTypeName'].toString() +
+                                                '： ' +
+                                                _input.buffList[index]['statName'].toString() +
+                                                '  ' +
+                                                _input.buffList[index]['valueString'].toString() +
+                                                (Const.STATS_SHOW_PERCENT.contains(_input.buffList[index]['stat']) ? '%' : ''),
+                                          ),
+                                          Text(
+                                            '生效范围： ' + _input.buffList[index]['damageTypeName'].toString(),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ),
-                                  Divider(
-                                    thickness: 1,
+                                ),
+                                SizedBox(
+                                  height: 16,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(12, 8, 12, 8),
+                          child: Card(
+                            child: ExpansionPanelList(
+                              expansionCallback: (int index, bool isExpanded) {
+                                setState(() {
+                                  _extraBuffSheet = !isExpanded;
+                                });
+                              },
+                              expandedHeaderPadding: EdgeInsets.all(0),
+                              children: <ExpansionPanel>[
+                                ExpansionPanel(
+                                  canTapOnHeader: true,
+                                  isExpanded: _extraBuffSheet,
+                                  headerBuilder: (context, isExpanded) => Padding(
+                                    padding: _getCardTitleMargin(),
+                                    child: Text(
+                                      '额外buff',
+                                      style: _getCardTitleStyle(),
+                                    ),
                                   ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  body: Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
                                     children: <Widget>[
-                                      Flexible(
-                                        child: Padding(
-                                          padding: _getInputMargin(),
-                                          child: TextFormField(
-                                            readOnly: true,
-                                            controller: _enemyInputController,
-                                            decoration: InputDecoration(
-                                              border: UnderlineInputBorder(),
-                                              floatingLabelBehavior: FloatingLabelBehavior.always,
-                                              label: Text("敌人"),
-                                              contentPadding: _getTextFieldPadding(),
-                                            ),
-                                            onTap: () {
-                                              _showPicker(GsData.getEnemyNameList(), _input.enemyIndex, (picker, selected) {
-                                                _input.enemyIndex = selected[0];
-                                                _enemyInputController.text = picker.getSelectedValues()[0].toString();
-                                              });
-                                            },
-                                          ),
-                                        ),
+                                      Divider(
+                                        thickness: 1,
+                                        height: 1,
                                       ),
-                                      Flexible(
-                                        child: Padding(
-                                          padding: _getInputMargin(),
-                                          child: TextFormField(
-                                            controller: _enemyLevelInputController,
-                                            keyboardType: TextInputType.number,
-                                            inputFormatters: [
-                                              Utils.getNumberInputFormatter(),
-                                            ],
-                                            decoration: InputDecoration(
-                                              border: UnderlineInputBorder(),
-                                              floatingLabelBehavior: FloatingLabelBehavior.always,
-                                              label: Text("敌人等级"),
-                                              contentPadding: _getTextFieldPadding(),
-                                            ),
-                                          ),
-                                        ),
+                                      SizedBox(
+                                        height: 8,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: <Widget>[
+                                          _getExtraBuffInput(_hpInputController, '生命值'),
+                                          _getExtraBuffInput(_hpBonusInputController, '生命值%'),
+                                          _getExtraBuffInput(_defendInputController, '防御力'),
+                                        ],
+                                      ),
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: <Widget>[
+                                          _getExtraBuffInput(_attackInputController, '攻击力'),
+                                          _getExtraBuffInput(_attackBonusInputController, '攻击力%'),
+                                          _getExtraBuffInput(_defendBonusInputController, '防御力%'),
+                                        ],
+                                      ),
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: <Widget>[
+                                          _getExtraBuffInput(_critRateInputController, '暴击率%'),
+                                          _getExtraBuffInput(_critDmgInputController, '暴击伤害%'),
+                                          _getExtraBuffInput(_masteryInputController, '元素精通'),
+                                        ],
+                                      ),
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: <Widget>[
+                                          _getExtraBuffInput(_dmgBonusInputController, '元素伤害%'),
+                                          _getExtraBuffInput(_phyDmgBonusInputController, '物理伤害%'),
+                                          _getExtraBuffInput(_rechargeInputController, '充能效率%'),
+                                        ],
+                                      ),
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: <Widget>[
+                                          _getExtraBuffInput(_extraDamageInputController, '额外伤害'),
+                                          _getExtraBuffInput(_resistanceDscreaseInputController, '减抗%'),
+                                          _getExtraBuffInput(_defendDscreaseInputController, '减防%'),
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: 16,
                                       ),
                                     ],
                                   ),
-                                  SizedBox(
-                                    height: 16,
-                                  ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ),
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(12, 8, 12, 8),
-                            child: Card(
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: <Widget>[
-                                  Container(
-                                    width: double.infinity,
-                                    child: Padding(
-                                      padding: _getCardTitleMargin(),
-                                      child: Text(
-                                        'buff',
-                                        style: _getCardTitleStyle(),
-                                      ),
-                                    ),
-                                  ),
-                                  Divider(
-                                    thickness: 1,
-                                  ),
-                                  Column(
-                                    children: List.generate(
-                                      _input.buffList.length,
-                                      (index) => CheckboxListTile(
-                                        value: _input.buffActiveList[index],
-                                        onChanged: (isChecked) {
-                                          setState(() {
-                                            _input.buffActiveList[index] = isChecked;
-                                          });
-                                        },
-                                        isThreeLine: true,
-                                        controlAffinity: ListTileControlAffinity.leading,
-                                        title: Text(
-                                          _input.buffList[index]['skillName'].toString() +
-                                              (_input.buffList[index]['name'] == null || _input.buffList[index]['name'] == ''
-                                                  ? ''
-                                                  : '（' + _input.buffList[index]['name'] + '）'),
-                                        ),
-                                        subtitle: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: <Widget>[
-                                            Text(
-                                              _input.buffList[index]['skillDescription'],
-                                            ),
-                                            SizedBox(
-                                              height: 5,
-                                            ),
-                                            Text(
-                                              _input.buffList[index]['buffTypeName'].toString() +
-                                                  '： ' +
-                                                  _input.buffList[index]['statName'].toString() +
-                                                  '  ' +
-                                                  _input.buffList[index]['valueString'].toString() +
-                                                  (Const.STATS_SHOW_PERCENT.contains(_input.buffList[index]['stat']) ? '%' : ''),
-                                            ),
-                                            Text(
-                                              '生效范围： ' + _input.buffList[index]['damageTypeName'].toString(),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 16,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(12, 8, 12, 8),
-                            child: Card(
-                              child: ExpansionPanelList(
-                                expansionCallback: (int index, bool isExpanded) {
-                                  setState(() {
-                                    _extraBuffSheet = !isExpanded;
-                                  });
-                                },
-                                expandedHeaderPadding: EdgeInsets.all(0),
-                                children: <ExpansionPanel>[
-                                  ExpansionPanel(
-                                    canTapOnHeader: true,
-                                    isExpanded: _extraBuffSheet,
-                                    headerBuilder: (context, isExpanded) => Padding(
-                                      padding: _getCardTitleMargin(),
-                                      child: Text(
-                                        '额外buff',
-                                        style: _getCardTitleStyle(),
-                                      ),
-                                    ),
-                                    body: Column(
-                                      mainAxisAlignment: MainAxisAlignment.start,
-                                      children: <Widget>[
-                                        Divider(
-                                          thickness: 1,
-                                          height: 1,
-                                        ),
-                                        SizedBox(
-                                          height: 8,
-                                        ),
-                                        Row(
-                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                          children: <Widget>[
-                                            _getExtraBuffInput(_hpInputController, '生命值'),
-                                            _getExtraBuffInput(_hpBonusInputController, '生命值%'),
-                                            _getExtraBuffInput(_defendInputController, '防御力'),
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                          children: <Widget>[
-                                            _getExtraBuffInput(_attackInputController, '攻击力'),
-                                            _getExtraBuffInput(_attackBonusInputController, '攻击力%'),
-                                            _getExtraBuffInput(_defendBonusInputController, '防御力%'),
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                          children: <Widget>[
-                                            _getExtraBuffInput(_critRateInputController, '暴击率%'),
-                                            _getExtraBuffInput(_critDmgInputController, '暴击伤害%'),
-                                            _getExtraBuffInput(_masteryInputController, '元素精通'),
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                          children: <Widget>[
-                                            _getExtraBuffInput(_dmgBonusInputController, '元素伤害%'),
-                                            _getExtraBuffInput(_phyDmgBonusInputController, '物理伤害%'),
-                                            _getExtraBuffInput(_rechargeInputController, '充能效率%'),
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                          children: <Widget>[
-                                            _getExtraBuffInput(_extraDamageInputController, '额外伤害'),
-                                            _getExtraBuffInput(_resistanceDscreaseInputController, '减抗%'),
-                                            _getExtraBuffInput(_defendDscreaseInputController, '减防%'),
-                                          ],
-                                        ),
-                                        SizedBox(
-                                          height: 16,
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 100,
-                          ),
-                        ],
-                      ),
-                    )
-                  : SingleChildScrollView(
-                      child: Column(
-                        children: <Widget>[
-                          SizedBox(
-                            height: 16,
-                          ),
-                          Container(
-                            width: double.infinity,
-                            child: MaterialSegmentedControl(
-                              children: _generateDamageResultTypeMap(),
-                              selectionIndex: _currentDamageResultSelection,
-                              borderColor: Theme.of(context).primaryColor,
-                              selectedColor: Theme.of(context).primaryColor,
-                              unselectedColor: Colors.white,
-                              borderRadius: 32.0,
-                              onSegmentChosen: (index) {
-                                setState(() {
-                                  _currentDamageResultSelection = index;
-                                });
-                              },
-                            ),
-                          ),
-                          SizedBox(
-                            height: 24,
-                          ),
-                          _generateDamageResult(),
-                          SizedBox(
-                            height: 80,
-                          ),
-                        ],
-                      ),
+                        ),
+                        SizedBox(
+                          height: 100,
+                        ),
+                      ],
                     ),
+                  ),
+                  SingleChildScrollView(
+                    child: Column(
+                      children: <Widget>[
+                        SizedBox(
+                          height: 16,
+                        ),
+                        Container(
+                          width: double.infinity,
+                          child: MaterialSegmentedControl(
+                            children: _generateDamageResultTypeMap(),
+                            selectionIndex: _currentDamageResultSelection,
+                            borderColor: Theme.of(context).primaryColor,
+                            selectedColor: Theme.of(context).primaryColor,
+                            unselectedColor: Colors.white,
+                            borderRadius: 32.0,
+                            onSegmentChosen: (index) {
+                              setState(() {
+                                _currentDamageResultSelection = index;
+                              });
+                            },
+                          ),
+                        ),
+                        SizedBox(
+                          height: 24,
+                        ),
+                        _generateDamageResult(),
+                        SizedBox(
+                          height: 80,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
@@ -396,7 +401,7 @@ class _MyCharacterDamage extends State<MyCharacterDamage> {
   }
 
   void _generateBuffList() {
-    Map<Stats, double> weaponBuffStats = (_input.weapon['specialEffect'] as Map<Refine, Object>)[Refine.values[_input.myCharacter.refineIndex]];
+    Map weaponBuffStats = (_input.weapon['specialEffect'] as Map<Refine, Object>)[Refine.values[_input.myCharacter.refineIndex]];
     for (MapEntry<Stats, double> buffEntry in weaponBuffStats.entries) {
       if ((_input.weapon['specialEffectAlways'] as List<dynamic>).contains(buffEntry.key)) continue;
       Map<String, Object> buff = {
@@ -406,7 +411,7 @@ class _MyCharacterDamage extends State<MyCharacterDamage> {
         'stat': buffEntry.key,
         'statName': GsData.getStatName(buffEntry.key),
         'value': buffEntry.value,
-        'valueString': sprintf('%.2f', [buffEntry.value]),
+        'valueString': sprintf(Const.STATS_SHOW_INTEGER.contains(buffEntry.key) ? '%.0f' : '%.2f', [buffEntry.value]),
         'buffType': BuffType.BuffForMe,
         'buffTypeName': GsData.getBuffTypeName(BuffType.BuffForMe),
         'damageType': (_input.weapon['specialEffectDamageType'] as Map<Stats, Object>)[buffEntry.key],
@@ -444,7 +449,7 @@ class _MyCharacterDamage extends State<MyCharacterDamage> {
           'stat': stat,
           'statName': GsData.getStatName(stat),
           'value': value,
-          'valueString': sprintf('%.2f', [value]),
+          'valueString': sprintf(Const.STATS_SHOW_INTEGER.contains(stat) ? '%.0f' : '%.2f', [value]),
           'buffType': BuffType.BuffForMe,
           'buffTypeName': GsData.getBuffTypeName(BuffType.BuffForMe),
           'damageType': (setEffect['damageType'] as Map<Stats, Object>)[stat],
@@ -471,7 +476,7 @@ class _MyCharacterDamage extends State<MyCharacterDamage> {
             newBuff['skillDescription'] = passiveSkill['description'];
             newBuff['name'] = '';
             newBuff['statName'] = GsData.getStatName(newBuff['stat']);
-            newBuff['valueString'] = sprintf('%.2f', [newBuff['value']]);
+            newBuff['valueString'] = sprintf(Const.STATS_SHOW_INTEGER.contains(newBuff['stat']) ? '%.0f' : '%.2f', [newBuff['value']]);
             newBuff['buffTypeName'] = GsData.getBuffTypeName(newBuff['buffType']);
             newBuff['damageTypeName'] = List.generate(
                     (newBuff['damageType'] as List<DamageType>).length, (index) => GsData.getDamageTypeName((newBuff['damageType'] as List<DamageType>)[index]))
@@ -501,7 +506,7 @@ class _MyCharacterDamage extends State<MyCharacterDamage> {
           }
           newBuff['skillDescription'] = (skill as Map<String, Object>)['description'];
           newBuff['statName'] = GsData.getStatName(newBuff['stat']);
-          newBuff['valueString'] = sprintf('%.2f', [newBuff['value']]);
+          newBuff['valueString'] = sprintf(Const.STATS_SHOW_INTEGER.contains(newBuff['stat']) ? '%.0f' : '%.2f', [newBuff['value']]);
           newBuff['buffTypeName'] = GsData.getBuffTypeName(newBuff['buffType']);
           newBuff['damageTypeName'] = List.generate(
                   (newBuff['damageType'] as List<DamageType>).length, (index) => GsData.getDamageTypeName((newBuff['damageType'] as List<DamageType>)[index]))
@@ -509,6 +514,27 @@ class _MyCharacterDamage extends State<MyCharacterDamage> {
           _input.buffList.add(newBuff);
           _input.buffActiveList.add(true);
         }
+      }
+    }
+
+    if (_input.constellation == null) return;
+
+    for (MapEntry<Constellation, Object> constellationMap in _input.constellation.entries) {
+      int constellationIndex = constellationMap.key.index;
+      Map<String, Object> constellation = constellationMap.value;
+      for (Map<String, Object> buff in constellation['buff']) {
+        Map<String, Object> newBuff = {...buff};
+        newBuff['skillName'] = '命座' + Utils.generateNumberCharacter(constellationIndex) + '：' + constellation['name'];
+        newBuff['skillDescription'] = constellation['description'];
+        newBuff['name'] = '';
+        newBuff['statName'] = GsData.getStatName(newBuff['stat']);
+        newBuff['valueString'] = sprintf(Const.STATS_SHOW_INTEGER.contains(newBuff['stat']) ? '%.0f' : '%.2f', [newBuff['value']]);
+        newBuff['buffTypeName'] = GsData.getBuffTypeName(newBuff['buffType']);
+        newBuff['damageTypeName'] = List.generate(
+                (newBuff['damageType'] as List<DamageType>).length, (index) => GsData.getDamageTypeName((newBuff['damageType'] as List<DamageType>)[index]))
+            .join('，');
+        _input.buffList.add(newBuff);
+        _input.buffActiveList.add(true);
       }
     }
   }
@@ -789,7 +815,7 @@ class _CharacterCard extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    width: 160,
+                    width: 180,
                     child: Padding(
                       padding: EdgeInsets.fromLTRB(24, 12, 12, 0),
                       child: Column(
@@ -912,7 +938,7 @@ class _CharacterCard extends StatelessWidget {
                               ),
                               Padding(
                                 padding: EdgeInsets.fromLTRB(12, 0, 0, 0),
-                                child: Text(GsData.getStatName(GsData.getArtifactGlobletMainStatFromIndex(_input.myCharacter.artifactGlobletIndex))),
+                                child: Text(GsData.getStatName(GsData.getArtifactGobletMainStatFromIndex(_input.myCharacter.artifactGobletIndex))),
                               ),
                               Padding(
                                 padding: EdgeInsets.fromLTRB(12, 0, 0, 0),
@@ -950,6 +976,7 @@ class _CharacterCard extends StatelessWidget {
                                 _getCharacterStatRow(Stats.Attack, sprintf('%.0f', [_input.myCharacterResult.attack])),
                                 _getCharacterStatRow(Stats.Defend, sprintf('%.0f', [_input.myCharacterResult.defend])),
                                 _getCharacterStatRow(Stats.Mastery, sprintf('%.0f', [_input.myCharacterResult.mastery])),
+                                _getCharacterStatRow(Stats.HealingBonus, sprintf('%.1f', [_input.myCharacterResult.healingBonus])),
                                 _getCharacterStatRow(Stats.CritRate, sprintf('%.1f%%', [_input.myCharacterResult.critRate])),
                                 _getCharacterStatRow(Stats.CritDmg, sprintf('%.1f%%', [_input.myCharacterResult.critDmg])),
                                 _getCharacterStatRow(Stats.Recharge, sprintf('%.1f%%', [_input.myCharacterResult.recharge + 100])),

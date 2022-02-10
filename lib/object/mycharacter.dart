@@ -10,7 +10,7 @@ class MyCharacter {
   int artifactFlowerIndex = 0;
   int artifactPlumeIndex = 0;
   int artifactSandsIndex = -1;
-  int artifactGlobletIndex = -1;
+  int artifactGobletIndex = -1;
   int artifactCircletIndex = -1;
   int artifactFlowerId = -1;
   int artifactPlumeId = -1;
@@ -24,6 +24,7 @@ class MyCharacter {
   List<int> artifactMainStatIndexList = List.generate(5, (index) => -1);
   List<int> artifactSubStatIndexList = List.generate(20, (index) => -1);
   List<double> artifactSubValueList = List.generate(20, (index) => 0.0);
+  List<Artifact> artifactList = [];
   double artifactHp = 0.0;
   double artifactAttack = 0.0;
   double artifactDefend = 0.0;
@@ -31,9 +32,11 @@ class MyCharacter {
   double artifactCritRate = 0.0;
   double artifactCritDmg = 0.0;
   double artifactRecharge = 0.0;
+  double artifactHealingBonus = 0.0;
   int skillALevel = 1;
   int skillELevel = 1;
   int skillQLevel = 1;
+  bool isAdjusted = false;
 }
 
 class MyCharacterResult {
@@ -49,5 +52,6 @@ class MyCharacterResult {
   double recharge = 0;
   double dmgBonus = 0;
   double phyDmgBonus = 0;
+  double healingBonus = 0;
   ArtifactResult artifactResult = ArtifactResult();
 }

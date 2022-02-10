@@ -24,3 +24,23 @@ class ArtifactResult {
   List<Map<Stats, double>> validStats;
   String errorMessage = "";
 }
+
+class Artifact {
+  int myCharacterId;
+  int characterId;
+  int artifactId;
+  ArtifactPosition position;
+  Stats mainStat;
+  List<Stats> subStatList;
+  List<double> subValueList;
+
+  Artifact({
+    this.myCharacterId,
+    this.characterId,
+    this.artifactId,
+    this.position,
+    this.mainStat,
+    this.subStatList,
+    this.subValueList,
+  });
+}
