@@ -5,6 +5,8 @@ import 'package:permission_handler/permission_handler.dart';
 import '../data/data.dart';
 import '../object/mycharacter.dart';
 import '../object/artifact.dart';
+import '../object/team.dart';
+import '../object/code.dart';
 
 class LocalData {
   static final _databaseFolder = "/storage/emulated/0/gshelper";
@@ -57,6 +59,15 @@ class LocalData {
   static final tableNameCode = 'code';
   static final tableColumnCodeCodeId = 'code_id';
   static final tableColumnCodeContent = 'code_content';
+  static final tableColumnCodeUsed = 'used';
+
+  static final tableNameTeam = 'team';
+  static final tableColumnTeamTeamId = 'team_id';
+  static final tableColumnTeamName = 'name';
+  static final tableColumnTeamMyCharacterId1 = 'my_character_id1';
+  static final tableColumnTeamMyCharacterId2 = 'my_character_id2';
+  static final tableColumnTeamMyCharacterId3 = 'my_character_id3';
+  static final tableColumnTeamMyCharacterId4 = 'my_character_id4';
 
   LocalData._privateConstructor();
   static final LocalData instance = LocalData._privateConstructor();
@@ -149,7 +160,18 @@ class LocalData {
     await db.execute('''
         CREATE TABLE $tableNameCode (
         $tableColumnCodeCodeId INTEGER PRIMARY KEY,
-        $tableColumnCodeContent TEXT
+        $tableColumnCodeContent TEXT,
+        $tableColumnCodeUsed INTEGER
+      );
+    ''');
+    await db.execute('''
+        CREATE TABLE $tableNameTeam (
+        $tableColumnTeamTeamId INTEGER PRIMARY KEY,
+        $tableColumnTeamName TEXT,
+        $tableColumnTeamMyCharacterId1 INTEGER,
+        $tableColumnTeamMyCharacterId2 INTEGER,
+        $tableColumnTeamMyCharacterId3 INTEGER,
+        $tableColumnTeamMyCharacterId4 INTEGER
       );
     ''');
   }
@@ -157,11 +179,9 @@ class LocalData {
   Future<void> debug() async {
     /*Database db = await database;
     await db.execute('''
-        CREATE TABLE $tableNameCode (
-        $tableColumnCodeCodeId INTEGER PRIMARY KEY,
-        $tableColumnCodeContent TEXT
-      );
-    ''');*/
+        ALTER TABLE $tableNameCode ADD COLUMN $tableColumnCodeUsed INTEGER;
+    ''');
+    await db.update(tableNameCode, {tableColumnCodeUsed: 0});*/
   }
 
   Future<void> keepArtifactInput(ArtifactInput input) async {
@@ -332,8 +352,8 @@ class LocalData {
         artifactId: character.artifactGobletId,
         position: ArtifactPosition.Goblet,
         mainStat: GsData.getArtifactGobletMainStatFromIndex(character.artifactGobletIndex),
-        subStatList: List.generate(4, (index) => GsData.getArtifactSubStatFromIndex(character.artifactSubStatIndexList[index + 8])),
-        subValueList: List.generate(4, (index) => character.artifactSubValueList[index + 8]),
+        subStatList: List.generate(4, (index) => GsData.getArtifactSubStatFromIndex(character.artifactSubStatIndexList[index + 12])),
+        subValueList: List.generate(4, (index) => character.artifactSubValueList[index + 12]),
       ));
       character.artifactList.add(Artifact(
         myCharacterId: character.myCharacterId,
@@ -341,8 +361,8 @@ class LocalData {
         artifactId: character.artifactCircletId,
         position: ArtifactPosition.Circlet,
         mainStat: GsData.getArtifactCircletMainStatFromIndex(character.artifactCircletIndex),
-        subStatList: List.generate(4, (index) => GsData.getArtifactSubStatFromIndex(character.artifactSubStatIndexList[index + 8])),
-        subValueList: List.generate(4, (index) => character.artifactSubValueList[index + 8]),
+        subStatList: List.generate(4, (index) => GsData.getArtifactSubStatFromIndex(character.artifactSubStatIndexList[index + 16])),
+        subValueList: List.generate(4, (index) => character.artifactSubValueList[index + 16]),
       ));
 
       result.add(character);
@@ -357,14 +377,18 @@ class LocalData {
     db.delete(tableNameMyCharacter, where: '$tableColumnMyCharacterMyCharacterId = ?', whereArgs: [myCharacterId]);
   }
 
-  Future<Map<int, String>> getCodeList() async {
+  Future<List<Code>> getCodeList() async {
     Database db = await database;
-    if (db == null) return {};
+    if (db == null) return [];
 
-    List<Map<String, Object>> searchResult = await db.query(tableNameCode);
-    Map<int, String> result = {};
+    List<Map<String, Object>> searchResult = await db.query(tableNameCode, orderBy: '$tableColumnCodeUsed ASC, $tableColumnCodeCodeId DESC');
+    List<Code> result = [];
     for (Map<String, Object> line in searchResult) {
-      result.addAll({line[tableColumnCodeCodeId]: line[tableColumnCodeContent]});
+      Code code = Code();
+      code.codeId = line[tableColumnCodeCodeId];
+      code.code = line[tableColumnCodeContent];
+      code.used = line[tableColumnCodeUsed] != 0;
+      result.add(code);
     }
 
     return result;
@@ -376,10 +400,17 @@ class LocalData {
 
     if (codeId < 0) {
       codeId = (((await db.rawQuery('SELECT MAX($tableColumnCodeCodeId) AS max_id FROM $tableNameCode'))[0]['max_id'] ?? 0) as int) + 1;
-      await db.insert(tableNameCode, {tableColumnCodeCodeId: codeId, tableColumnCodeContent: code});
+      await db.insert(tableNameCode, {tableColumnCodeCodeId: codeId, tableColumnCodeContent: code, tableColumnCodeUsed: 0});
     } else {
       await db.update(tableNameCode, {tableColumnCodeContent: code}, where: '$tableColumnCodeCodeId = ?', whereArgs: [codeId]);
     }
+  }
+
+  Future<void> updateCodeUsed(int codeId, bool used) async {
+    Database db = await database;
+    if (db == null) return;
+
+    await db.update(tableNameCode, {tableColumnCodeUsed: used ? 1 : 0}, where: '$tableColumnCodeCodeId = ?', whereArgs: [codeId]);
   }
 
   Future<void> deleteCode(int codeId) async {
@@ -387,5 +418,57 @@ class LocalData {
     if (db == null) return;
 
     db.delete(tableNameCode, where: '$tableColumnCodeCodeId = ?', whereArgs: [codeId]);
+  }
+
+  Future<void> keepTeam(Team team) async {
+    var teamTableValues = {
+      tableColumnTeamName: team.teamName,
+      tableColumnTeamMyCharacterId1: team.myCharacterIdList[0],
+      tableColumnTeamMyCharacterId2: team.myCharacterIdList[1],
+      tableColumnTeamMyCharacterId3: team.myCharacterIdList[2],
+      tableColumnTeamMyCharacterId4: team.myCharacterIdList[3],
+    };
+
+    Database db = await database;
+    if (db == null) return;
+
+    if (team.teamId < 0) {
+      int teamId = (((await db.rawQuery('SELECT MAX($tableColumnTeamTeamId) AS max_id FROM $tableNameTeam'))[0]['max_id'] ?? 0) as int) + 1;
+      teamTableValues.addAll({
+        tableColumnTeamTeamId: teamId,
+      });
+      await db.insert(tableNameTeam, teamTableValues);
+    } else {
+      await db.update(tableNameTeam, teamTableValues, where: '$tableColumnTeamTeamId = ?', whereArgs: [team.teamId]);
+    }
+  }
+
+  Future<List<Team>> getTeamList() async {
+    Database db = await database;
+    if (db == null) return [];
+
+    List<Map<String, Object>> searchResult = await db.query(tableNameTeam);
+    List<Team> result = [];
+    for (Map<String, Object> line in searchResult) {
+      Team team = Team();
+      team.teamId = line[tableColumnTeamTeamId];
+      team.teamName = line[tableColumnTeamName];
+      team.myCharacterIdList = [
+        line[tableColumnTeamMyCharacterId1],
+        line[tableColumnTeamMyCharacterId2],
+        line[tableColumnTeamMyCharacterId3],
+        line[tableColumnTeamMyCharacterId4],
+      ];
+      result.add(team);
+    }
+
+    return result;
+  }
+
+  Future<void> deleteTeam(int teamId) async {
+    Database db = await database;
+    if (db == null) return;
+
+    db.delete(tableNameTeam, where: '$tableColumnTeamTeamId = ?', whereArgs: [teamId]);
   }
 }

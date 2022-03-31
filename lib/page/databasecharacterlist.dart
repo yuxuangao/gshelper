@@ -22,7 +22,6 @@ class _DatabaseCharacterListPage extends State<DatabaseCharacterListPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(Const.TITLE_DATABASE_CHARACTER),
-        elevation: 0,
         bottomOpacity: 0,
       ),
       body: SingleChildScrollView(
@@ -63,7 +62,7 @@ class _CharacterCard extends StatelessWidget {
   final Map<String, Object> character;
   final int index;
 
-  const _CharacterCard({Key key, this.character, this.index}) : super(key: key);
+  const _CharacterCard({Key key, @required this.character, @required this.index}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -120,12 +119,12 @@ class _CharacterCard extends StatelessWidget {
         child: new Material(
           color: Colors.transparent,
           child: new InkWell(
-            onTap: () => {
+            onTap: () {
               Navigator.pushNamed(
                 context,
                 '/databasecharacterdetail',
                 arguments: index,
-              )
+              );
             },
           ),
         ),

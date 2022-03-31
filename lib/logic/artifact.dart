@@ -55,15 +55,12 @@ class ArtifactCalculator {
     };
 
     result.result[Stats.Hp] = ((input.artifactHp - artifactBaseStat[Stats.Hp]) / characterBaseStat[Stats.Hp] * 100 -
-            characterBaseStat[Stats.HpBonus] -
             _getArtifactMainStat(sandsMainStat, globleMainStat, circletMainStat, Stats.HpBonus, artifactMainStat)) /
         artifactSubStatWordValue[Stats.Hp];
     result.result[Stats.Attack] = ((input.artifactAttack - artifactBaseStat[Stats.Attack]) / (characterBaseStat[Stats.Attack] + input.baseAttack) * 100 -
-            characterBaseStat[Stats.AttackBonus] -
             _getArtifactMainStat(sandsMainStat, globleMainStat, circletMainStat, Stats.AttackBonus, artifactMainStat)) /
         artifactSubStatWordValue[Stats.Attack];
     result.result[Stats.Defend] = (input.artifactDefend / characterBaseStat[Stats.Defend] * 100 -
-            characterBaseStat[Stats.DefendBonus] -
             _getArtifactMainStat(sandsMainStat, globleMainStat, circletMainStat, Stats.DefendBonus, artifactMainStat)) /
         artifactSubStatWordValue[Stats.Defend];
     result.result[Stats.Mastery] =

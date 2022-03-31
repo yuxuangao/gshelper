@@ -21,6 +21,18 @@ class _MyCharacterDetailPage extends State<MyCharacterDetailPage> {
   MyCharacterResult _myCharacterResult;
 
   bool _firstLoad = true;
+  bool _isExpanded = true;
+  ScrollController _scrollController = ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(() {
+      setState(() {
+        _isExpanded = !(_scrollController.hasClients && _scrollController.offset > (160 - kToolbarHeight));
+      });
+    });
+  }
 
   @override
   void didChangeDependencies() {
@@ -42,13 +54,19 @@ class _MyCharacterDetailPage extends State<MyCharacterDetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScrollView(
+        controller: _scrollController,
         slivers: <Widget>[
           SliverAppBar(
             pinned: true,
-            elevation: 0,
+            elevation: Const.APP_BAR_ELEVATION,
             expandedHeight: 160.0,
             flexibleSpace: FlexibleSpaceBar(
-              title: Text(_character['name']),
+              title: Text(
+                _character['name'],
+                style: TextStyle(
+                  color: _isExpanded ? Colors.white : Theme.of(context).colorScheme.onPrimary,
+                ),
+              ),
               background: Container(
                 decoration: BoxDecoration(
                   image: DecorationImage(
@@ -98,7 +116,7 @@ class _MyCharacterDetailPage extends State<MyCharacterDetailPage> {
                   indent: 20,
                   endIndent: 20,
                 ),
-                _generateStatRow(Stats.DmgBonus, _myCharacterResult.dmgBonus),
+                _generateStatRow(Stats.EleDmgBonus, _myCharacterResult.dmgBonus),
                 _generateStatRow(Stats.PhyDmgBonus, _myCharacterResult.phyDmgBonus),
                 SizedBox(
                   height: 20,

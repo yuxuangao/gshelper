@@ -50,7 +50,6 @@ class _DatabaseCharacterDamagePage extends State<DatabaseCharacterDamagePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(Const.TITLE_DATABASE_CHARACTER_DAMAGE),
-        elevation: 0,
         bottomOpacity: 0,
         leading: IconButton(
           onPressed: () async {
@@ -510,9 +509,17 @@ class _DatabaseCharacterDamagePage extends State<DatabaseCharacterDamagePage> {
     _myCharacter.skillELevel = int.tryParse(_skillELevelInputController.text) ?? 1;
     _myCharacter.skillQLevel = int.tryParse(_skillQLevelInputController.text) ?? 1;
 
+    _myCharacter.artifactHp = 0.0;
+    _myCharacter.artifactAttack = 0.0;
+    _myCharacter.artifactDefend = 0.0;
+    _myCharacter.artifactMastery = 0.0;
+    _myCharacter.artifactCritRate = 0.0;
+    _myCharacter.artifactCritDmg = 0.0;
+    _myCharacter.artifactRecharge = 0.0;
+    _myCharacter.artifactHealingBonus = 0.0;
     _myCharacter.isAdjusted = false;
     MyCharacterCalculator.adjustMyCharacter(_myCharacter, _character, GsData.getWeaponFromId(_myCharacter.weaponId));
-    Navigator.pushNamed(context, '/mycharacterdamage', arguments: _myCharacter);
+    Navigator.pushNamed(context, '/mycharacterdamage', arguments: {'myCharacter': _myCharacter});
   }
 
   void _showPicker(List<dynamic> data, int selectedIndex, PickerConfirmCallback onConfirm) {

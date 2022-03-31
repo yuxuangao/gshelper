@@ -41,11 +41,11 @@ class _DatabaseCharacterDetailPage extends State<DatabaseCharacterDetailPage> {
 
     _currentIndex = ModalRoute.of(context).settings.arguments;
     _currentScrollPosition = _currentIndex.toDouble();
-    readCharacterInfo();
+    _readCharacterInfo();
     _firstLoad = false;
   }
 
-  void readCharacterInfo() {
+  void _readCharacterInfo() {
     _character = _characterList[_currentIndex];
     Map<Levels, Map<Stats, double>> rawStat = _character['stat'];
     _stat = {};
@@ -78,9 +78,12 @@ class _DatabaseCharacterDetailPage extends State<DatabaseCharacterDetailPage> {
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
+            forceElevated: true,
             pinned: true,
             elevation: 0,
             expandedHeight: 140.0,
+            backgroundColor: Theme.of(context).colorScheme.secondary,
+            foregroundColor: Theme.of(context).colorScheme.onSecondary,
             title: Text(Const.TITLE_DATABASE_CHARACTER_DETAIL),
             flexibleSpace: FlexibleSpaceBar(
               background: Container(
@@ -133,7 +136,7 @@ class _DatabaseCharacterDetailPage extends State<DatabaseCharacterDetailPage> {
                     onPageChanged: (index, reason) {
                       setState(() {
                         _currentIndex = index;
-                        readCharacterInfo();
+                        _readCharacterInfo();
                       });
                     },
                     onScrolled: (value) {
@@ -300,7 +303,7 @@ class _DatabaseCharacterDetailPage extends State<DatabaseCharacterDetailPage> {
                       padding: EdgeInsets.symmetric(vertical: 10, horizontal: 7),
                       decoration: BoxDecoration(
                         border: Border.all(
-                          color: Theme.of(context).primaryColor,
+                          color: Theme.of(context).colorScheme.secondary,
                           width: 2,
                         ),
                         borderRadius: BorderRadius.circular(10),
@@ -331,7 +334,7 @@ class _DatabaseCharacterDetailPage extends State<DatabaseCharacterDetailPage> {
           style: _getDescriptionBlockTitleStyle(),
         ),
         Divider(
-          color: Theme.of(context).primaryColor,
+          color: Theme.of(context).colorScheme.secondary,
           thickness: 1,
         ),
         Text(skill['description']),
@@ -353,7 +356,7 @@ class _DatabaseCharacterDetailPage extends State<DatabaseCharacterDetailPage> {
           style: _getDescriptionBlockTitleStyle(),
         ),
         Divider(
-          color: Theme.of(context).primaryColor,
+          color: Theme.of(context).colorScheme.secondary,
           thickness: 1,
         ),
         Text(skill['description']),
@@ -592,7 +595,7 @@ class _DatabaseCharacterDetailPage extends State<DatabaseCharacterDetailPage> {
           style: _getDescriptionBlockTitleStyle(),
         ),
         Divider(
-          color: Theme.of(context).primaryColor,
+          color: Theme.of(context).colorScheme.secondary,
           thickness: 1,
         ),
         Text(constellation['description']),
@@ -643,7 +646,7 @@ class _DatabaseCharacterDetailPage extends State<DatabaseCharacterDetailPage> {
           ],
         ),
         Divider(
-          color: Theme.of(context).primaryColor,
+          color: Theme.of(context).colorScheme.secondary,
           thickness: 1,
         ),
         Table(

@@ -12,6 +12,11 @@ class MyCharacterDamageInput {
   List<Map<String, Object>> buffList = [];
   List<bool> buffActiveList = [];
 
+  List<MyCharacter> teamMyCharacterList = [];
+  List<MyCharacterResult> teamMyCharacterResultList = [];
+  Map<int, List<Map<String, Object>>> teamBuffList = {};
+  Map<int, List<bool>> teamBuffActiveList = {};
+
   int enemyIndex = 0;
   int enemyLevel = 90;
 

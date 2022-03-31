@@ -1,7 +1,8 @@
 import 'dart:math';
 import 'package:flutter/services.dart';
-import 'package:gshelper/common/const.dart';
+import 'package:sprintf/sprintf.dart';
 
+import 'const.dart';
 import '../object/mycharacter.dart';
 import '../data/data.dart';
 
@@ -43,6 +44,8 @@ class Utils {
     if (!Const.STATS_SHOW_PERCENT.contains(stat)) return '';
 
     switch (stat) {
+      case Stats.AttackBonusByBaseAttack:
+        return '%基础攻击力';
       case Stats.AttackBonusByDefend:
         return '%防御力';
       case Stats.AttackBonusByHp:
@@ -63,12 +66,25 @@ class Utils {
         return '%元素能量';
       case Stats.ExtraDamageByAttack:
         return '%攻击力';
+      case Stats.ExtraDamageByAttackUsed:
+        return '%攻击力';
       case Stats.ExtraDamageByHp:
         return '%生命值';
       case Stats.ExtraDmageByDefend:
         return '%防御力';
+      case Stats.ExtraDmageByDefendUsed:
+        return '%防御力';
+      case Stats.MasteryByMastery:
+        return '%元素精通';
+      case Stats.CritRateByCritRate:
+        return '%暴击率';
       default:
         return '%';
     }
+  }
+
+  static String getWeaponDescription(Map<String, Object> weapon, Refine refine) {
+    List<dynamic> commentArguments = weapon['specialEffectCommentArguments'];
+    return sprintf(weapon['specialEffectComment'], List.generate(commentArguments.length, (index) => (commentArguments[index] as List<String>)[refine.index]));
   }
 }

@@ -31,33 +31,29 @@ class _HomeMyCharacterPage extends State<HomeMyCharacterPage> {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      behavior: HitTestBehavior.translucent,
-      onTap: () {
-        FocusScope.of(context).requestFocus(new FocusNode());
-      },
-      child: Container(
-        width: double.infinity,
-        color: Color(0xffeaeaea),
-        child: Column(
-          children: <Widget>[
-            widget.isLoading
-                ? Padding(
-                    padding: EdgeInsets.symmetric(vertical: 20),
-                    child: CircularProgressIndicator(),
-                  )
-                : Expanded(
-                    child: ListView.builder(
-                      itemCount: widget.characterList.length + 1,
-                      itemBuilder: (context, index) => index < widget.characterList.length
-                          ? _CharacterCard(widget.characterList[index], widget.refresh)
-                          : SizedBox(
-                              height: 40,
-                            ),
-                    ),
+    return Container(
+      width: double.infinity,
+      color: Color(0xffeaeaea),
+      child: Column(
+        children: <Widget>[
+          widget.isLoading
+              ? Padding(
+                  padding: EdgeInsets.symmetric(vertical: 20),
+                  child: CircularProgressIndicator(
+                    color: Theme.of(context).colorScheme.secondary,
                   ),
-          ],
-        ),
+                )
+              : Expanded(
+                  child: ListView.builder(
+                    itemCount: widget.characterList.length + 1,
+                    itemBuilder: (context, index) => index < widget.characterList.length
+                        ? _CharacterCard(widget.characterList[index], widget.refresh)
+                        : SizedBox(
+                            height: 40,
+                          ),
+                  ),
+                ),
+        ],
       ),
     );
   }
@@ -106,236 +102,244 @@ class _CharacterCardState extends State<_CharacterCard> {
         height: 0,
       );
     }
-    return Padding(
-      padding: EdgeInsets.fromLTRB(12, 8, 12, 8),
-      child: Card(
-        elevation: 4,
-        clipBehavior: Clip.antiAlias,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            InkWell(
-              onTap: () {
-                Navigator.pushNamed(context, "/mycharacterdetail", arguments: {
-                  'myCharacter': _myCharacter,
-                  'character': _character,
-                  'weapon': _weapon,
-                  'artifactSetList': _artifactSetList,
-                  'myCharacterResult': _myCharacterResult,
-                });
-              },
-              splashColor: Colors.white10,
-              child: Container(
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+    return Card(
+      elevation: 0.8,
+      shape: RoundedRectangleBorder(),
+      margin: EdgeInsets.only(bottom: 5, top: 5),
+      clipBehavior: Clip.antiAlias,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          InkWell(
+            onTap: () {
+              Navigator.pushNamed(context, "/mycharacterdetail", arguments: {
+                'myCharacter': _myCharacter,
+                'character': _character,
+                'weapon': _weapon,
+                'artifactSetList': _artifactSetList,
+                'myCharacterResult': _myCharacterResult,
+              });
+            },
+            splashColor: Colors.white10,
+            child: Container(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(8, 8, 0, 8),
+                    child: Image.asset(
+                      GsData.getCharacterFilePath(_myCharacter.characterId),
+                      height: 160,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Text(
+                        _character['name'],
+                        style: TextStyle(
+                          fontSize: 19,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      Row(
+                        children: <Widget>[
+                          Padding(
+                            padding: EdgeInsets.fromLTRB(0, 6, 0, 0),
+                            child: Text(
+                              GsData.getConstellationName(Constellation.values[_myCharacter.consetllationIndex]),
+                              style: _getCharacterPropertyTextStyle(),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.fromLTRB(8, 6, 0, 0),
+                            child: Text(
+                              GsData.getLevelNameFromIndex(_myCharacter.levelIndex),
+                              style: _getCharacterPropertyTextStyle(),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: <Widget>[
+                          Text(
+                            '天赋',
+                            style: _getCharacterPropertyTextStyle(),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            _myCharacter.skillALevel.toString(),
+                            style: _getCharacterPropertyTextStyle(),
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            _myCharacter.skillELevel.toString(),
+                            style: _getCharacterPropertyTextStyle(),
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            _myCharacter.skillQLevel.toString(),
+                            style: _getCharacterPropertyTextStyle(),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Text(
+                        '备注',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(6, 2, 0, 0),
+                        child: Text(_myCharacter.nickName),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Divider(
+            thickness: 1,
+            indent: 30,
+            endIndent: 30,
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              SizedBox(
+                width: 10,
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, '/weapondetail', arguments: _myCharacter);
+                },
+                splashColor: Colors.white10,
+                child: Column(
                   children: <Widget>[
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(8, 8, 0, 8),
-                      child: Image.asset(
-                        GsData.getCharacterFilePath(_myCharacter.characterId),
-                        height: 160,
+                    Image.asset(
+                      GsData.getWeaponFilePath(_myCharacter.weaponId),
+                      scale: 2,
+                      width: 120,
+                    ),
+                    Text(
+                      _weapon['name'],
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700,
                       ),
                     ),
-                    SizedBox(
-                      width: 10,
+                    Text(
+                      GsData.getRefineName(Refine.values[_myCharacter.refineIndex]),
+                      style: TextStyle(
+                        color: Colors.black87,
+                      ),
                     ),
-                    Column(
+                  ],
+                ),
+              ),
+              Flexible(
+                child: Column(
+                  children: <Widget>[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         SizedBox(
-                          height: 20,
+                          width: 1,
                         ),
-                        Text(
-                          _character['name'],
-                          style: TextStyle(
-                            fontSize: 19,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
-                        Row(
-                          children: <Widget>[
-                            Padding(
-                              padding: EdgeInsets.fromLTRB(0, 6, 0, 0),
-                              child: Text(
-                                GsData.getConstellationName(Constellation.values[_myCharacter.consetllationIndex]),
-                                style: _getCharacterPropertyTextStyle(),
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.fromLTRB(8, 6, 0, 0),
-                              child: Text(
-                                GsData.getLevelNameFromIndex(_myCharacter.levelIndex),
-                                style: _getCharacterPropertyTextStyle(),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          children: <Widget>[
-                            Text(
-                              '天赋',
-                              style: _getCharacterPropertyTextStyle(),
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text(
-                              _myCharacter.skillALevel.toString(),
-                              style: _getCharacterPropertyTextStyle(),
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Text(
-                              _myCharacter.skillELevel.toString(),
-                              style: _getCharacterPropertyTextStyle(),
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Text(
-                              _myCharacter.skillQLevel.toString(),
-                              style: _getCharacterPropertyTextStyle(),
-                            ),
-                          ],
-                        ),
+                        _getArtifactIcon(_myCharacter.artifactList[0]),
+                        _getArtifactIcon(_myCharacter.artifactList[1]),
                         SizedBox(
-                          height: 20,
+                          width: 1,
                         ),
-                        Text(
-                          '备注',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.fromLTRB(6, 2, 0, 0),
-                          child: Text(_myCharacter.nickName),
-                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 2,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        _getArtifactIcon(_myCharacter.artifactList[2]),
+                        _getArtifactIcon(_myCharacter.artifactList[3]),
+                        _getArtifactIcon(_myCharacter.artifactList[4]),
                       ],
                     ),
                   ],
                 ),
               ),
-            ),
-            Divider(
-              thickness: 1,
-              indent: 30,
-              endIndent: 30,
-            ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                SizedBox(
-                  width: 10,
-                ),
-                InkWell(
-                  onTap: () {
-                    Navigator.pushNamed(context, '/weapondetail', arguments: _myCharacter);
-                  },
-                  splashColor: Colors.white10,
-                  child: Column(
-                    children: <Widget>[
-                      Image.asset(
-                        GsData.getWeaponFilePath(_myCharacter.weaponId),
-                        scale: 2,
-                        width: 120,
-                      ),
-                      Text(
-                        _weapon['name'],
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                      Text(
-                        GsData.getRefineName(Refine.values[_myCharacter.refineIndex]),
-                        style: TextStyle(
-                          color: Colors.black87,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Flexible(
-                  child: Column(
-                    children: <Widget>[
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          SizedBox(
-                            width: 1,
-                          ),
-                          _getArtifactIcon(_myCharacter.artifactList[0]),
-                          _getArtifactIcon(_myCharacter.artifactList[1]),
-                          SizedBox(
-                            width: 1,
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 2,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          _getArtifactIcon(_myCharacter.artifactList[2]),
-                          _getArtifactIcon(_myCharacter.artifactList[3]),
-                          _getArtifactIcon(_myCharacter.artifactList[4]),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-              ],
-            ),
-            Divider(
-              thickness: 1,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                TextIconButton(
-                  label: '词条数',
-                  icon: Icons.menu_book,
-                  onPressed: () {
-                    _showArtifactDialog();
-                  },
-                ),
-                TextIconButton(
-                  label: '伤害模拟',
-                  icon: Icons.calculate,
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/mycharacterdamage', arguments: _myCharacter);
-                  },
-                ),
-                TextIconButton(
-                  label: '编辑',
-                  icon: Icons.drive_file_rename_outline,
-                  onPressed: () {
-                    Navigator.pushNamed(context, "/mycharacteredit", arguments: _myCharacter).then((value) async {
-                      await widget.refresh();
-                      _needLoadData = true;
-                    });
-                  },
-                ),
-                TextIconButton(
-                  label: '删除',
-                  icon: Icons.delete,
-                  onPressed: () async {
-                    await _delete();
-                  },
-                ),
-              ],
-            ),
-          ],
-        ),
+              SizedBox(
+                width: 10,
+              ),
+            ],
+          ),
+          Divider(
+            thickness: 1,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              TextIconButton(
+                label: '词条数',
+                icon: Icons.menu_book,
+                onPressed: () {
+                  _showArtifactDialog();
+                },
+              ),
+              TextIconButton(
+                label: '伤害模拟',
+                icon: Icons.calculate,
+                onPressed: () {
+                  Navigator.pushNamed(context, '/mycharacterdamage', arguments: {'myCharacter': _myCharacter});
+                },
+              ),
+              TextIconButton(
+                label: '角色数据',
+                icon: Icons.description,
+                onPressed: () {
+                  List<Map<String, Object>> characterList = GsData.getCharacterListByRarityOrder();
+                  int index = characterList.indexWhere((element) => element['character_id'] == _myCharacter.characterId);
+                  Navigator.pushNamed(context, '/databasecharacterdetail', arguments: index);
+                },
+              ),
+              TextIconButton(
+                label: '编辑',
+                icon: Icons.drive_file_rename_outline,
+                onPressed: () {
+                  Navigator.pushNamed(context, "/mycharacteredit", arguments: _myCharacter).then((value) async {
+                    await widget.refresh();
+                    _needLoadData = true;
+                  });
+                },
+              ),
+              TextIconButton(
+                label: '删除',
+                icon: Icons.delete,
+                onPressed: () async {
+                  await _delete();
+                },
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

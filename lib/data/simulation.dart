@@ -3,11 +3,11 @@ import 'data.dart';
 const SIMULATION_ARTIFACT_MAIN_STAT = [
   {
     'name': '攻伤暴击',
-    'value': [Stats.Hp, Stats.Attack, Stats.AttackBonus, Stats.DmgBonus, Stats.CritRate],
+    'value': [Stats.Hp, Stats.Attack, Stats.AttackBonus, Stats.EleDmgBonus, Stats.CritRate],
   },
   {
     'name': '攻伤爆伤',
-    'value': [Stats.Hp, Stats.Attack, Stats.AttackBonus, Stats.DmgBonus, Stats.CritDmg],
+    'value': [Stats.Hp, Stats.Attack, Stats.AttackBonus, Stats.EleDmgBonus, Stats.CritDmg],
   },
   {
     'name': '攻物暴击',
@@ -19,27 +19,27 @@ const SIMULATION_ARTIFACT_MAIN_STAT = [
   },
   {
     'name': '生伤暴击',
-    'value': [Stats.Hp, Stats.Attack, Stats.HpBonus, Stats.DmgBonus, Stats.CritRate],
+    'value': [Stats.Hp, Stats.Attack, Stats.HpBonus, Stats.EleDmgBonus, Stats.CritRate],
   },
   {
     'name': '生伤爆伤',
-    'value': [Stats.Hp, Stats.Attack, Stats.HpBonus, Stats.DmgBonus, Stats.CritDmg],
+    'value': [Stats.Hp, Stats.Attack, Stats.HpBonus, Stats.EleDmgBonus, Stats.CritDmg],
   },
   {
     'name': '充伤暴击',
-    'value': [Stats.Hp, Stats.Attack, Stats.Recharge, Stats.DmgBonus, Stats.CritRate],
+    'value': [Stats.Hp, Stats.Attack, Stats.Recharge, Stats.EleDmgBonus, Stats.CritRate],
   },
   {
     'name': '充伤爆伤',
-    'value': [Stats.Hp, Stats.Attack, Stats.Recharge, Stats.DmgBonus, Stats.CritDmg],
+    'value': [Stats.Hp, Stats.Attack, Stats.Recharge, Stats.EleDmgBonus, Stats.CritDmg],
   },
   {
     'name': '防伤暴击',
-    'value': [Stats.Hp, Stats.Attack, Stats.DefendBonus, Stats.DmgBonus, Stats.CritRate],
+    'value': [Stats.Hp, Stats.Attack, Stats.DefendBonus, Stats.EleDmgBonus, Stats.CritRate],
   },
   {
     'name': '防伤爆伤',
-    'value': [Stats.Hp, Stats.Attack, Stats.DefendBonus, Stats.DmgBonus, Stats.CritDmg],
+    'value': [Stats.Hp, Stats.Attack, Stats.DefendBonus, Stats.EleDmgBonus, Stats.CritDmg],
   },
   {
     'name': '精精精',
@@ -47,7 +47,7 @@ const SIMULATION_ARTIFACT_MAIN_STAT = [
   },
   {
     'name': '生伤治疗',
-    'value': [Stats.Hp, Stats.Attack, Stats.HpBonus, Stats.DmgBonus, Stats.HealingBonus],
+    'value': [Stats.Hp, Stats.Attack, Stats.HpBonus, Stats.EleDmgBonus, Stats.HealingBonus],
   },
   {
     'name': '生生治疗',

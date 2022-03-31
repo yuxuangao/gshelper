@@ -14,7 +14,6 @@ class ArtifactDetailPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(Const.TITLE_ARTIFACT_DETAIL),
-        elevation: 0,
         bottomOpacity: 0,
         leading: IconButton(
           onPressed: () {

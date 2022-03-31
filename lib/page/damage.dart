@@ -19,29 +19,18 @@ class _DamagePage extends State<DamagePage> {
 
   final TextEditingController _attackInputController = TextEditingController();
   final TextEditingController _masteryInputController = TextEditingController();
-  final TextEditingController _damageBonusInputController =
-      TextEditingController();
-  final TextEditingController _critRateInputController =
-      TextEditingController();
+  final TextEditingController _damageBonusInputController = TextEditingController();
+  final TextEditingController _critRateInputController = TextEditingController();
   final TextEditingController _critDmgInputController = TextEditingController();
-  final TextEditingController _skillRatioInputController =
-      TextEditingController();
-  final TextEditingController _characterLevelInputController =
-      TextEditingController();
-  final TextEditingController _enemyLevelInputController =
-      TextEditingController();
-  final TextEditingController _defendDecreaseInputController =
-      TextEditingController();
-  final TextEditingController _enemyResistanceInputController =
-      TextEditingController();
-  final TextEditingController _resistanceDecreaseInputController =
-      TextEditingController();
-  final TextEditingController _damageBonusForOtherInputController =
-      TextEditingController();
-  final TextEditingController _elementRatioInputController =
-      TextEditingController();
-  final TextEditingController _elementEnhanceInputController =
-      TextEditingController();
+  final TextEditingController _skillRatioInputController = TextEditingController();
+  final TextEditingController _characterLevelInputController = TextEditingController();
+  final TextEditingController _enemyLevelInputController = TextEditingController();
+  final TextEditingController _defendDecreaseInputController = TextEditingController();
+  final TextEditingController _enemyResistanceInputController = TextEditingController();
+  final TextEditingController _resistanceDecreaseInputController = TextEditingController();
+  final TextEditingController _damageBonusForOtherInputController = TextEditingController();
+  final TextEditingController _elementRatioInputController = TextEditingController();
+  final TextEditingController _elementEnhanceInputController = TextEditingController();
 
   @override
   void initState() {
@@ -49,28 +38,18 @@ class _DamagePage extends State<DamagePage> {
 
     _attackInputController.text = (_damageInput.attack ?? '').toString();
     _masteryInputController.text = (_damageInput.mastery ?? '').toString();
-    _damageBonusInputController.text =
-        (_damageInput.damageBonus ?? '').toString();
+    _damageBonusInputController.text = (_damageInput.damageBonus ?? '').toString();
     _critRateInputController.text = (_damageInput.critRate ?? '').toString();
     _critDmgInputController.text = (_damageInput.critDmg ?? '').toString();
-    _skillRatioInputController.text =
-        (_damageInput.skillRatio ?? '').toString();
-    _characterLevelInputController.text =
-        (_damageInput.characterLevel ?? '').toString();
-    _enemyLevelInputController.text =
-        (_damageInput.enemyLevel ?? '').toString();
-    _defendDecreaseInputController.text =
-        (_damageInput.defendDecrease ?? '').toString();
-    _enemyResistanceInputController.text =
-        (_damageInput.enemyResistance ?? '').toString();
-    _resistanceDecreaseInputController.text =
-        (_damageInput.resistanceDecrease ?? '').toString();
-    _damageBonusForOtherInputController.text =
-        (_damageInput.damageBonusForOther ?? '').toString();
-    _elementRatioInputController.text =
-        (_damageInput.elementRatio ?? '').toString();
-    _elementEnhanceInputController.text =
-        (_damageInput.elementEnhance ?? '').toString();
+    _skillRatioInputController.text = (_damageInput.skillRatio ?? '').toString();
+    _characterLevelInputController.text = (_damageInput.characterLevel ?? '').toString();
+    _enemyLevelInputController.text = (_damageInput.enemyLevel ?? '').toString();
+    _defendDecreaseInputController.text = (_damageInput.defendDecrease ?? '').toString();
+    _enemyResistanceInputController.text = (_damageInput.enemyResistance ?? '').toString();
+    _resistanceDecreaseInputController.text = (_damageInput.resistanceDecrease ?? '').toString();
+    _damageBonusForOtherInputController.text = (_damageInput.damageBonusForOther ?? '').toString();
+    _elementRatioInputController.text = (_damageInput.elementRatio ?? '').toString();
+    _elementEnhanceInputController.text = (_damageInput.elementEnhance ?? '').toString();
   }
 
   @override
@@ -78,7 +57,6 @@ class _DamagePage extends State<DamagePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(Const.TITLE_DAMAGE),
-        elevation: 0,
         bottomOpacity: 0,
         leading: IconButton(
           onPressed: () {
@@ -133,9 +111,6 @@ class _DamagePage extends State<DamagePage> {
                                     Utils.getNumberInputFormatter(),
                                   ],
                                   decoration: InputDecoration(
-                                    border: UnderlineInputBorder(),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
                                     label: Text("攻击力"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -152,9 +127,6 @@ class _DamagePage extends State<DamagePage> {
                                     Utils.getNumberInputFormatter(),
                                   ],
                                   decoration: InputDecoration(
-                                    border: UnderlineInputBorder(),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
                                     label: Text("元素精通"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -171,9 +143,6 @@ class _DamagePage extends State<DamagePage> {
                                     Utils.getNumberInputFormatter(),
                                   ],
                                   decoration: InputDecoration(
-                                    border: UnderlineInputBorder(),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
                                     label: Text("元素增伤%"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -194,9 +163,6 @@ class _DamagePage extends State<DamagePage> {
                                     Utils.getNumberInputFormatter(),
                                   ],
                                   decoration: InputDecoration(
-                                    border: UnderlineInputBorder(),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
                                     label: Text("暴击率%"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -213,17 +179,13 @@ class _DamagePage extends State<DamagePage> {
                                     Utils.getNumberInputFormatter(),
                                   ],
                                   decoration: InputDecoration(
-                                    border: UnderlineInputBorder(),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
                                     label: Text("暴击伤害%"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
                                 ),
                               ),
                             ),
-                            Flexible(
-                                child: Padding(padding: _getInputMargin())),
+                            Flexible(child: Padding(padding: _getInputMargin())),
                           ],
                         ),
                         SizedBox(
@@ -262,9 +224,6 @@ class _DamagePage extends State<DamagePage> {
                               Utils.getNumberInputFormatter(),
                             ],
                             decoration: InputDecoration(
-                              border: UnderlineInputBorder(),
-                              floatingLabelBehavior:
-                                  FloatingLabelBehavior.always,
                               label: Text("技能倍率"),
                               contentPadding: _getTextFieldPadding(),
                             ),
@@ -308,9 +267,6 @@ class _DamagePage extends State<DamagePage> {
                                     Utils.getNumberInputFormatter(),
                                   ],
                                   decoration: InputDecoration(
-                                    border: UnderlineInputBorder(),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
                                     label: Text("角色等级"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -327,9 +283,6 @@ class _DamagePage extends State<DamagePage> {
                                     Utils.getNumberInputFormatter(),
                                   ],
                                   decoration: InputDecoration(
-                                    border: UnderlineInputBorder(),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
                                     label: Text("敌人等级"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -346,9 +299,6 @@ class _DamagePage extends State<DamagePage> {
                                     Utils.getNumberInputFormatter(),
                                   ],
                                   decoration: InputDecoration(
-                                    border: UnderlineInputBorder(),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
                                     label: Text("减防%"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -395,9 +345,6 @@ class _DamagePage extends State<DamagePage> {
                                     Utils.getNumberInputFormatter(),
                                   ],
                                   decoration: InputDecoration(
-                                    border: UnderlineInputBorder(),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
                                     label: Text("敌人抗性%"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -408,16 +355,12 @@ class _DamagePage extends State<DamagePage> {
                               child: Padding(
                                 padding: _getInputMargin(),
                                 child: TextFormField(
-                                  controller:
-                                      _resistanceDecreaseInputController,
+                                  controller: _resistanceDecreaseInputController,
                                   keyboardType: TextInputType.number,
                                   inputFormatters: [
                                     Utils.getNumberInputFormatter(),
                                   ],
                                   decoration: InputDecoration(
-                                    border: UnderlineInputBorder(),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
                                     label: Text("减抗%"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -458,16 +401,12 @@ class _DamagePage extends State<DamagePage> {
                               child: Padding(
                                 padding: _getInputMargin(),
                                 child: TextFormField(
-                                  controller:
-                                      _damageBonusForOtherInputController,
+                                  controller: _damageBonusForOtherInputController,
                                   keyboardType: TextInputType.number,
                                   inputFormatters: [
                                     Utils.getNumberInputFormatter(),
                                   ],
                                   decoration: InputDecoration(
-                                    border: UnderlineInputBorder(),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
                                     label: Text("额外增伤%"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -514,9 +453,6 @@ class _DamagePage extends State<DamagePage> {
                                     Utils.getNumberInputFormatter(),
                                   ],
                                   decoration: InputDecoration(
-                                    border: UnderlineInputBorder(),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
                                     label: Text("反应倍率"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -533,9 +469,6 @@ class _DamagePage extends State<DamagePage> {
                                     Utils.getNumberInputFormatter(),
                                   ],
                                   decoration: InputDecoration(
-                                    border: UnderlineInputBorder(),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
                                     label: Text("额外增加%"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -604,8 +537,7 @@ class _DamagePage extends State<DamagePage> {
                                 width: 12,
                               ),
                               Text(
-                                sprintf(
-                                    "%.0f", [_damageResult.damageWithoutCrit]),
+                                sprintf("%.0f", [_damageResult.damageWithoutCrit]),
                                 style: _getResultTextStyle(),
                               ),
                             ],
@@ -668,26 +600,18 @@ class _DamagePage extends State<DamagePage> {
 
     _damageInput.attack = double.tryParse(_attackInputController.text);
     _damageInput.mastery = double.tryParse(_masteryInputController.text);
-    _damageInput.damageBonus =
-        double.tryParse(_damageBonusInputController.text);
+    _damageInput.damageBonus = double.tryParse(_damageBonusInputController.text);
     _damageInput.critRate = double.tryParse(_critRateInputController.text);
     _damageInput.critDmg = double.tryParse(_critDmgInputController.text);
     _damageInput.skillRatio = double.tryParse(_skillRatioInputController.text);
-    _damageInput.characterLevel =
-        int.tryParse(_characterLevelInputController.text);
+    _damageInput.characterLevel = int.tryParse(_characterLevelInputController.text);
     _damageInput.enemyLevel = int.tryParse(_enemyLevelInputController.text);
-    _damageInput.defendDecrease =
-        double.tryParse(_defendDecreaseInputController.text);
-    _damageInput.enemyResistance =
-        double.tryParse(_enemyResistanceInputController.text);
-    _damageInput.resistanceDecrease =
-        double.tryParse(_resistanceDecreaseInputController.text);
-    _damageInput.damageBonusForOther =
-        double.tryParse(_damageBonusForOtherInputController.text);
-    _damageInput.elementRatio =
-        double.tryParse(_elementRatioInputController.text);
-    _damageInput.elementEnhance =
-        double.tryParse(_elementEnhanceInputController.text);
+    _damageInput.defendDecrease = double.tryParse(_defendDecreaseInputController.text);
+    _damageInput.enemyResistance = double.tryParse(_enemyResistanceInputController.text);
+    _damageInput.resistanceDecrease = double.tryParse(_resistanceDecreaseInputController.text);
+    _damageInput.damageBonusForOther = double.tryParse(_damageBonusForOtherInputController.text);
+    _damageInput.elementRatio = double.tryParse(_elementRatioInputController.text);
+    _damageInput.elementEnhance = double.tryParse(_elementEnhanceInputController.text);
 
     setState(() {
       _damageResult = DamageCalculator.cal(_damageInput);

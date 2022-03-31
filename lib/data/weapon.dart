@@ -9,36 +9,21 @@ const WEAPONS = [
     'baseAttack': 565.0,
     'subStat': Stats.CritDmg,
     'subStatValue': 36.8,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.AttackBonus: 36.0,
+    'specialEffect': [
+      {
+        'stat': Stats.AttackBonus,
+        'value': [36.0, 45.0, 54.0, 63.0, 72.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.AttackBonus: 45.0,
-      },
-      Refine.Refine3: {
-        Stats.AttackBonus: 54.0,
-      },
-      Refine.Refine4: {
-        Stats.AttackBonus: 63.0,
-      },
-      Refine.Refine5: {
-        Stats.AttackBonus: 72.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '击败敌人后，攻击力提升12%，持续30秒。该效果至多叠加3层，每层持续时间独立。',
-      Refine.Refine2: '击败敌人后，攻击力提升15%，持续30秒。该效果至多叠加3层，每层持续时间独立。',
-      Refine.Refine3: '击败敌人后，攻击力提升18%，持续30秒。该效果至多叠加3层，每层持续时间独立。',
-      Refine.Refine4: '击败敌人后，攻击力提升21%，持续30秒。该效果至多叠加3层，每层持续时间独立。',
-      Refine.Refine5: '击败敌人后，攻击力提升24%，持续30秒。该效果至多叠加3层，每层持续时间独立。',
-    },
-    'specialEffectDamageType': {
-      Stats.AttackBonus: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '击败敌人后，攻击力提升%s，持续30秒。该效果至多叠加3层，每层持续时间独立。',
+    'specialEffectCommentArguments': [
+      ['12%', '15%', '18%', '21%', '24%'],
+    ],
   },
   {
     'name': '西风剑',
@@ -48,22 +33,12 @@ const WEAPONS = [
     'baseAttack': 454.0,
     'subStat': Stats.Recharge,
     'subStatValue': 61.3,
-    'specialEffect': {
-      Refine.Refine1: {},
-      Refine.Refine2: {},
-      Refine.Refine3: {},
-      Refine.Refine4: {},
-      Refine.Refine5: {},
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '攻击造成暴击时，有60%的几率产生少量元素微粒，能为角色恢复6点元素能量。该效果每12秒只能触发一次。',
-      Refine.Refine2: '攻击造成暴击时，有70%的几率产生少量元素微粒，能为角色恢复6点元素能量。该效果每10.5秒只能触发一次。',
-      Refine.Refine3: '攻击造成暴击时，有80%的几率产生少量元素微粒，能为角色恢复6点元素能量。该效果每9秒只能触发一次。',
-      Refine.Refine4: '攻击造成暴击时，有90%的几率产生少量元素微粒，能为角色恢复6点元素能量。该效果每7.5秒只能触发一次。',
-      Refine.Refine5: '攻击造成暴击时，有100%的几率产生少量元素微粒，能为角色恢复6点元素能量。该效果每6秒只能触发一次。',
-    },
-    'specialEffectDamageType': [],
-    'specialEffectAlways': [],
+    'specialEffect': [],
+    'specialEffectComment': '攻击造成暴击时，有%s的几率产生少量元素微粒，能为角色恢复6点元素能量。该效果每%s只能触发一次。',
+    'specialEffectCommentArguments': [
+      ['60%', '70%', '80%', '90%', '100%'],
+      ['12秒', '10.5秒', '9秒', '7.5秒', '6秒'],
+    ],
   },
   {
     'name': '铁蜂刺',
@@ -73,44 +48,21 @@ const WEAPONS = [
     'baseAttack': 510.0,
     'subStat': Stats.Mastery,
     'subStatValue': 165.0,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.DmgBonus: 12.0,
-        Stats.PhyDmgBonus: 12.0,
+    'specialEffect': [
+      {
+        'stat': Stats.DmgBonus,
+        'value': [12.0, 15.0, 18.0, 21.0, 24.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.DmgBonus: 15.0,
-        Stats.PhyDmgBonus: 15.0,
-      },
-      Refine.Refine3: {
-        Stats.DmgBonus: 18.0,
-        Stats.PhyDmgBonus: 18.0,
-      },
-      Refine.Refine4: {
-        Stats.DmgBonus: 21.0,
-        Stats.PhyDmgBonus: 21.0,
-      },
-      Refine.Refine5: {
-        Stats.DmgBonus: 24.0,
-        Stats.PhyDmgBonus: 24.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '造成元素伤害后的6秒内，角色造成的伤害提高6%，该效果最多叠加2层。该效果每1秒可以触发一次。',
-      Refine.Refine2: '造成元素伤害后的6秒内，角色造成的伤害提高7.5%，该效果最多叠加2层。该效果每1秒可以触发一次。',
-      Refine.Refine3: '造成元素伤害后的6秒内，角色造成的伤害提高9%，该效果最多叠加2层。该效果每1秒可以触发一次。',
-      Refine.Refine4: '造成元素伤害后的6秒内，角色造成的伤害提高10.5%，该效果最多叠加2层。该效果每1秒可以触发一次。',
-      Refine.Refine5: '造成元素伤害后的6秒内，角色造成的伤害提高12%，该效果最多叠加2层。该效果每1秒可以触发一次。',
-    },
-    'specialEffectDamageType': {
-      Stats.DmgBonus: [
-        DamageType.All,
-      ],
-      Stats.PhyDmgBonus: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '造成元素伤害后的6秒内，角色造成的伤害提高%s，该效果最多叠加2层。该效果每1秒可以触发一次。',
+    'specialEffectCommentArguments': [
+      ['6%', '7.5%', '9%', '10.5%', '12%'],
+    ],
   },
   {
     'name': '匣里龙吟',
@@ -120,44 +72,21 @@ const WEAPONS = [
     'baseAttack': 510.0,
     'subStat': Stats.AttackBonus,
     'subStatValue': 41.3,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.DmgBonus: 20.0,
-        Stats.PhyDmgBonus: 20.0,
+    'specialEffect': [
+      {
+        'stat': Stats.DmgBonus,
+        'value': [20.0, 24.0, 28.0, 32.0, 36.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.DmgBonus: 24.0,
-        Stats.PhyDmgBonus: 24.0,
-      },
-      Refine.Refine3: {
-        Stats.DmgBonus: 28.0,
-        Stats.PhyDmgBonus: 28.0,
-      },
-      Refine.Refine4: {
-        Stats.DmgBonus: 32.0,
-        Stats.PhyDmgBonus: 32.0,
-      },
-      Refine.Refine5: {
-        Stats.DmgBonus: 36.0,
-        Stats.PhyDmgBonus: 36.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '对处于火元素或雷元素影响下的敌人，造成的伤害提高20%。',
-      Refine.Refine2: '对处于火元素或雷元素影响下的敌人，造成的伤害提高24%。',
-      Refine.Refine3: '对处于火元素或雷元素影响下的敌人，造成的伤害提高28%。',
-      Refine.Refine4: '对处于火元素或雷元素影响下的敌人，造成的伤害提高32%。',
-      Refine.Refine5: '对处于火元素或雷元素影响下的敌人，造成的伤害提高36%。',
-    },
-    'specialEffectDamageType': {
-      Stats.DmgBonus: [
-        DamageType.All,
-      ],
-      Stats.PhyDmgBonus: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '对处于火元素或雷元素影响下的敌人，造成的伤害提高%s。',
+    'specialEffectCommentArguments': [
+      ['20%', '24%', '28%', '32%', '36%'],
+    ],
   },
   {
     'name': '试做斩岩',
@@ -167,44 +96,30 @@ const WEAPONS = [
     'baseAttack': 565.0,
     'subStat': Stats.PhyDmgBonus,
     'subStatValue': 34.5,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.AttackBonus: 16.0,
-        Stats.DefendBonus: 16.0,
+    'specialEffect': [
+      {
+        'stat': Stats.AttackBonus,
+        'value': [16.0, 20.0, 24.0, 28.0, 32.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.AttackBonus: 20.0,
-        Stats.DefendBonus: 20.0,
+      {
+        'stat': Stats.DefendBonus,
+        'value': [16.0, 20.0, 24.0, 28.0, 32.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine3: {
-        Stats.AttackBonus: 24.0,
-        Stats.DefendBonus: 24.0,
-      },
-      Refine.Refine4: {
-        Stats.AttackBonus: 28.0,
-        Stats.DefendBonus: 28.0,
-      },
-      Refine.Refine5: {
-        Stats.AttackBonus: 32.0,
-        Stats.DefendBonus: 32.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '普通攻击或重击命中时，攻击力和防御力提高4%，持续6秒，最多叠加4层。该效果每0.3秒只能触发一次。',
-      Refine.Refine2: '普通攻击或重击命中时，攻击力和防御力提高5%，持续6秒，最多叠加4层。该效果每0.3秒只能触发一次。',
-      Refine.Refine3: '普通攻击或重击命中时，攻击力和防御力提高6%，持续6秒，最多叠加4层。该效果每0.3秒只能触发一次。',
-      Refine.Refine4: '普通攻击或重击命中时，攻击力和防御力提高7%，持续6秒，最多叠加4层。该效果每0.3秒只能触发一次。',
-      Refine.Refine5: '普通攻击或重击命中时，攻击力和防御力提高8%，持续6秒，最多叠加4层。该效果每0.3秒只能触发一次。',
-    },
-    'specialEffectDamageType': {
-      Stats.AttackBonus: [
-        DamageType.All,
-      ],
-      Stats.DefendBonus: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '普通攻击或重击命中时，攻击力和防御力提高%s，持续6秒，最多叠加4层。该效果每0.3秒只能触发一次。',
+    'specialEffectCommentArguments': [
+      ['4%', '5%', '6%', '7%', '8%'],
+    ],
   },
   {
     'name': '宗室长剑',
@@ -214,36 +129,21 @@ const WEAPONS = [
     'baseAttack': 510.0,
     'subStat': Stats.AttackBonus,
     'subStatValue': 41.3,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.CritRate: 40.0,
+    'specialEffect': [
+      {
+        'stat': Stats.CritRate,
+        'value': [40.0, 50.0, 60.0, 70.0, 80.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.CritRate: 50.0,
-      },
-      Refine.Refine3: {
-        Stats.CritRate: 60.0,
-      },
-      Refine.Refine4: {
-        Stats.CritRate: 70.0,
-      },
-      Refine.Refine5: {
-        Stats.CritRate: 80.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '攻击造成伤害时，暴击率提升8%，最多堆叠5次。攻击造成暴击后，移除已有的专注效果。',
-      Refine.Refine2: '攻击造成伤害时，暴击率提升10%，最多堆叠5次。攻击造成暴击后，移除已有的专注效果。',
-      Refine.Refine3: '攻击造成伤害时，暴击率提升12%，最多堆叠5次。攻击造成暴击后，移除已有的专注效果。',
-      Refine.Refine4: '攻击造成伤害时，暴击率提升14%，最多堆叠5次。攻击造成暴击后，移除已有的专注效果。',
-      Refine.Refine5: '攻击造成伤害时，暴击率提升16%，最多堆叠5次。攻击造成暴击后，移除已有的专注效果。',
-    },
-    'specialEffectDamageType': {
-      Stats.CritRate: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '攻击造成伤害时，暴击率提升%s，最多堆叠5次。攻击造成暴击后，移除已有的专注效果。',
+    'specialEffectCommentArguments': [
+      ['8%', '10%', '12%', '14%', '16%'],
+    ],
   },
   {
     'name': '祭礼剑',
@@ -253,22 +153,12 @@ const WEAPONS = [
     'baseAttack': 454.0,
     'subStat': Stats.Recharge,
     'subStatValue': 61.3,
-    'specialEffect': {
-      Refine.Refine1: {},
-      Refine.Refine2: {},
-      Refine.Refine3: {},
-      Refine.Refine4: {},
-      Refine.Refine5: {},
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '元素战技造成伤害时，有40%的概率重置该技能的冷却时间，该效果每30秒只能触发一次。',
-      Refine.Refine2: '元素战技造成伤害时，有50%的概率重置该技能的冷却时间，该效果每26秒只能触发一次。',
-      Refine.Refine3: '元素战技造成伤害时，有60%的概率重置该技能的冷却时间，该效果每22秒只能触发一次。',
-      Refine.Refine4: '元素战技造成伤害时，有70%的概率重置该技能的冷却时间，该效果每19秒只能触发一次。',
-      Refine.Refine5: '元素战技造成伤害时，有80%的概率重置该技能的冷却时间，该效果每16秒只能触发一次。',
-    },
-    'specialEffectDamageType': [],
-    'specialEffectAlways': [],
+    'specialEffect': [],
+    'specialEffectComment': '元素战技造成伤害时，有%s的概率重置该技能的冷却时间，该效果每%s只能触发一次。',
+    'specialEffectCommentArguments': [
+      ['40%', '50%', '60%', '70%', '80%'],
+      ['30秒', '26秒', '22秒', '19秒', '16秒'],
+    ],
   },
   {
     'name': '暗巷闪光',
@@ -278,44 +168,21 @@ const WEAPONS = [
     'baseAttack': 620.0,
     'subStat': Stats.Mastery,
     'subStatValue': 55.0,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.DmgBonus: 12.0,
-        Stats.PhyDmgBonus: 12.0,
+    'specialEffect': [
+      {
+        'stat': Stats.DmgBonus,
+        'value': [12.0, 15.0, 18.0, 21.0, 24.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.DmgBonus: 15.0,
-        Stats.PhyDmgBonus: 15.0,
-      },
-      Refine.Refine3: {
-        Stats.DmgBonus: 18.0,
-        Stats.PhyDmgBonus: 18.0,
-      },
-      Refine.Refine4: {
-        Stats.DmgBonus: 21.0,
-        Stats.PhyDmgBonus: 21.0,
-      },
-      Refine.Refine5: {
-        Stats.DmgBonus: 24.0,
-        Stats.PhyDmgBonus: 24.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '角色造成的伤害提升12%。受到伤害后，该伤害提升效果会失效5秒。',
-      Refine.Refine2: '角色造成的伤害提升15%。受到伤害后，该伤害提升效果会失效5秒。',
-      Refine.Refine3: '角色造成的伤害提升18%。受到伤害后，该伤害提升效果会失效5秒。',
-      Refine.Refine4: '角色造成的伤害提升21%。受到伤害后，该伤害提升效果会失效5秒。',
-      Refine.Refine5: '角色造成的伤害提升24%。受到伤害后，该伤害提升效果会失效5秒。',
-    },
-    'specialEffectDamageType': {
-      Stats.DmgBonus: [
-        DamageType.All,
-      ],
-      Stats.PhyDmgBonus: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '角色造成的伤害提升%s。受到伤害后，该伤害提升效果会失效5秒。',
+    'specialEffectCommentArguments': [
+      ['12%', '15%', '18%', '21%', '24%'],
+    ],
   },
   {
     'name': '黑剑',
@@ -325,46 +192,23 @@ const WEAPONS = [
     'baseAttack': 510.0,
     'subStat': Stats.CritRate,
     'subStatValue': 27.6,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.DmgBonus: 20.0,
-        Stats.PhyDmgBonus: 20.0,
+    'specialEffect': [
+      {
+        'stat': Stats.DmgBonus,
+        'value': [20.0, 25.0, 30.0, 35.0, 40.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.Normal,
+          DamageType.Charged,
+        ],
       },
-      Refine.Refine2: {
-        Stats.DmgBonus: 25.0,
-        Stats.PhyDmgBonus: 25.0,
-      },
-      Refine.Refine3: {
-        Stats.DmgBonus: 30.0,
-        Stats.PhyDmgBonus: 30.0,
-      },
-      Refine.Refine4: {
-        Stats.DmgBonus: 35.0,
-        Stats.PhyDmgBonus: 35.0,
-      },
-      Refine.Refine5: {
-        Stats.DmgBonus: 40.0,
-        Stats.PhyDmgBonus: 40.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '普通攻击与重击的造成的伤害提升20%；此外，普通攻击与重击暴击时，回复等同于攻击力60%的生命值。该效果每5秒至多发动一次。',
-      Refine.Refine2: '普通攻击与重击的造成的伤害提升25%；此外，普通攻击与重击暴击时，回复等同于攻击力70%的生命值。该效果每5秒至多发动一次。',
-      Refine.Refine3: '普通攻击与重击的造成的伤害提升30%；此外，普通攻击与重击暴击时，回复等同于攻击力80%的生命值。该效果每5秒至多发动一次。',
-      Refine.Refine4: '普通攻击与重击的造成的伤害提升35%；此外，普通攻击与重击暴击时，回复等同于攻击力90%的生命值。该效果每5秒至多发动一次。',
-      Refine.Refine5: '普通攻击与重击的造成的伤害提升40%；此外，普通攻击与重击暴击时，回复等同于攻击力100%的生命值。该效果每5秒至多发动一次。',
-    },
-    'specialEffectDamageType': {
-      Stats.DmgBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-      ],
-      Stats.PhyDmgBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '普通攻击与重击的造成的伤害提升%s；此外，普通攻击与重击暴击时，回复等同于攻击力%s的生命值。该效果每5秒至多发动一次。',
+    'specialEffectCommentArguments': [
+      ['20%', '25%', '30%', '35%', '40%'],
+      ['60%', '70%', '80%', '90%', '100%'],
+    ],
   },
   {
     'name': '笛剑',
@@ -374,22 +218,11 @@ const WEAPONS = [
     'baseAttack': 510.0,
     'subStat': Stats.Attack,
     'subStatValue': 41.3,
-    'specialEffect': {
-      Refine.Refine1: {},
-      Refine.Refine2: {},
-      Refine.Refine3: {},
-      Refine.Refine4: {},
-      Refine.Refine5: {},
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '普通攻击或重击命中时，会获得一个和音。积攒了5个和音后，释放音律的力量，对周围的敌人造成100%攻击力的伤害。和音最多存在30秒，每0.5秒至多获得1个和音。',
-      Refine.Refine2: '普通攻击或重击命中时，会获得一个和音。积攒了5个和音后，释放音律的力量，对周围的敌人造成125%攻击力的伤害。和音最多存在30秒，每0.5秒至多获得1个和音。',
-      Refine.Refine3: '普通攻击或重击命中时，会获得一个和音。积攒了5个和音后，释放音律的力量，对周围的敌人造成150%攻击力的伤害。和音最多存在30秒，每0.5秒至多获得1个和音。',
-      Refine.Refine4: '普通攻击或重击命中时，会获得一个和音。积攒了5个和音后，释放音律的力量，对周围的敌人造成175%攻击力的伤害。和音最多存在30秒，每0.5秒至多获得1个和音。',
-      Refine.Refine5: '普通攻击或重击命中时，会获得一个和音。积攒了5个和音后，释放音律的力量，对周围的敌人造成200%攻击力的伤害。和音最多存在30秒，每0.5秒至多获得1个和音。',
-    },
-    'specialEffectDamageType': [],
-    'specialEffectAlways': [],
+    'specialEffect': [],
+    'specialEffectComment': '普通攻击或重击命中时，会获得一个和音。积攒了5个和音后，释放音律的力量，对周围的敌人造成%s攻击力的伤害。和音最多存在30秒，每0.5秒至多获得1个和音。',
+    'specialEffectCommentArguments': [
+      ['100%', '125%', '150%', '175%', '200%'],
+    ],
   },
   {
     'name': '降临之剑',
@@ -399,22 +232,9 @@ const WEAPONS = [
     'baseAttack': 440.0,
     'subStat': Stats.AttackBonus,
     'subStatValue': 35.2,
-    'specialEffect': {
-      Refine.Refine1: {},
-      Refine.Refine2: {},
-      Refine.Refine3: {},
-      Refine.Refine4: {},
-      Refine.Refine5: {},
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '仅在以下平台生效：\n"PlayStation Network"\n普通攻击与重击命中敌人后有50%概率在小范围内造成200%攻击力的伤害。该效果每10秒只能触发一次；此外，旅行者装备降临之剑时，攻击力提升66点。',
-      Refine.Refine2: '',
-      Refine.Refine3: '',
-      Refine.Refine4: '',
-      Refine.Refine5: '',
-    },
-    'specialEffectDamageType': [],
-    'specialEffectAlways': [],
+    'specialEffect': [],
+    'specialEffectComment': '仅在以下平台生效：\n"PlayStation Network"\n普通攻击与重击命中敌人后有50%%概率在小范围内造成200%%攻击力的伤害。该效果每10秒只能触发一次；此外，旅行者装备降临之剑时，攻击力提升66点。',
+    'specialEffectCommentArguments': [],
   },
   {
     'name': '腐殖之剑',
@@ -424,52 +244,33 @@ const WEAPONS = [
     'baseAttack': 510.0,
     'subStat': Stats.Recharge,
     'subStatValue': 45.9,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.DmgBonus: 16.0,
-        Stats.PhyDmgBonus: 16.0,
-        Stats.CritRate: 6.0,
+    'specialEffect': [
+      {
+        'stat': Stats.DmgBonus,
+        'value': [16.0, 20.0, 24.0, 28.0, 32.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.SkillE,
+          DamageType.SkillESpecial,
+        ],
       },
-      Refine.Refine2: {
-        Stats.DmgBonus: 20.0,
-        Stats.PhyDmgBonus: 20.0,
-        Stats.CritRate: 7.5,
+      {
+        'stat': Stats.CritRate,
+        'value': [6.0, 7.5, 8.0, 10.5, 12.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.SkillE,
+          DamageType.SkillESpecial,
+        ],
       },
-      Refine.Refine3: {
-        Stats.DmgBonus: 24.0,
-        Stats.PhyDmgBonus: 24.0,
-        Stats.CritRate: 9.0,
-      },
-      Refine.Refine4: {
-        Stats.DmgBonus: 28.0,
-        Stats.PhyDmgBonus: 28.0,
-        Stats.CritRate: 10.5,
-      },
-      Refine.Refine5: {
-        Stats.DmgBonus: 32.0,
-        Stats.PhyDmgBonus: 32.0,
-        Stats.CritRate: 12.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '元素战技造成的伤害增加16%，元素战技的暴击率提升6%。',
-      Refine.Refine2: '元素战技造成的伤害增加20%，元素战技的暴击率提升7.5%。',
-      Refine.Refine3: '元素战技造成的伤害增加24%，元素战技的暴击率提升9%。',
-      Refine.Refine4: '元素战技造成的伤害增加28%，元素战技的暴击率提升10.5%。',
-      Refine.Refine5: '元素战技造成的伤害增加32%，元素战技的暴击率提升12%。',
-    },
-    'specialEffectDamageType': {
-      Stats.DmgBonus: [
-        DamageType.SkillE,
-      ],
-      Stats.PhyDmgBonus: [
-        DamageType.SkillE,
-      ],
-      Stats.CritRate: [
-        DamageType.SkillE,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '元素战技造成的伤害增加%s，元素战技的暴击率提升%s。',
+    'specialEffectCommentArguments': [
+      ['16%', '20%', '24%', '28%', '32%'],
+      ['6%', '7.5%', '9%', '10.5%', '12%'],
+    ],
   },
   {
     'name': '天目影打刀',
@@ -479,22 +280,11 @@ const WEAPONS = [
     'baseAttack': 454.0,
     'subStat': Stats.AttackBonus,
     'subStatValue': 55.1,
-    'specialEffect': {
-      Refine.Refine1: {},
-      Refine.Refine2: {},
-      Refine.Refine3: {},
-      Refine.Refine4: {},
-      Refine.Refine5: {},
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '施放元素战技后，获得1个胤种，该效果每5秒至多触发一次。胤种持续30秒，至多同时存在3个。施放元素爆发后，会清除持有的所有胤种，并在2秒之后，基于消耗的胤种数量，每个为该角色恢复6点元素能量。',
-      Refine.Refine2: '施放元素战技后，获得1个胤种，该效果每5秒至多触发一次。胤种持续30秒，至多同时存在3个。施放元素爆发后，会清除持有的所有胤种，并在2秒之后，基于消耗的胤种数量，每个为该角色恢复7.5点元素能量。',
-      Refine.Refine3: '施放元素战技后，获得1个胤种，该效果每5秒至多触发一次。胤种持续30秒，至多同时存在3个。施放元素爆发后，会清除持有的所有胤种，并在2秒之后，基于消耗的胤种数量，每个为该角色恢复9点元素能量。',
-      Refine.Refine4: '施放元素战技后，获得1个胤种，该效果每5秒至多触发一次。胤种持续30秒，至多同时存在3个。施放元素爆发后，会清除持有的所有胤种，并在2秒之后，基于消耗的胤种数量，每个为该角色恢复10.5点元素能量。',
-      Refine.Refine5: '施放元素战技后，获得1个胤种，该效果每5秒至多触发一次。胤种持续30秒，至多同时存在3个。施放元素爆发后，会清除持有的所有胤种，并在2秒之后，基于消耗的胤种数量，每个为该角色恢复12点元素能量。',
-    },
-    'specialEffectDamageType': [],
-    'specialEffectAlways': [],
+    'specialEffect': [],
+    'specialEffectComment': '施放元素战技后，获得1个胤种，该效果每5秒至多触发一次。胤种持续30秒，至多同时存在3个。施放元素爆发后，会清除持有的所有胤种，并在2秒之后，基于消耗的胤种数量，每个为该角色恢复%s元素能量。',
+    'specialEffectCommentArguments': [
+      ['6点', '7.5点', '9点', '10.5点', '12点'],
+    ],
   },
   {
     'name': '风鹰剑',
@@ -504,37 +294,22 @@ const WEAPONS = [
     'baseAttack': 674.0,
     'subStat': Stats.PhyDmgBonus,
     'subStatValue': 41.3,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.AttackBonus: 20.0,
+    'specialEffect': [
+      {
+        'stat': Stats.AttackBonus,
+        'value': [20.0, 25.0, 30.0, 35.0, 40.0],
+        'always': true,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.AttackBonus: 25.0,
-      },
-      Refine.Refine3: {
-        Stats.AttackBonus: 30.0,
-      },
-      Refine.Refine4: {
-        Stats.AttackBonus: 35.0,
-      },
-      Refine.Refine5: {
-        Stats.AttackBonus: 40.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '攻击力提高20%；受到伤害时触发：高扬抗争旗号的西风鹰之魂苏醒，恢复等同于攻击力的100%的生命值，并对周围的敌人造成200%攻击力的伤害。该效果每15秒只能触发一次。',
-      Refine.Refine2: '攻击力提高25%；受到伤害时触发：高扬抗争旗号的西风鹰之魂苏醒，恢复等同于攻击力的115%的生命值，并对周围的敌人造成230%攻击力的伤害。该效果每15秒只能触发一次。',
-      Refine.Refine3: '攻击力提高30%；受到伤害时触发：高扬抗争旗号的西风鹰之魂苏醒，恢复等同于攻击力的130%的生命值，并对周围的敌人造成260%攻击力的伤害。该效果每15秒只能触发一次。',
-      Refine.Refine4: '攻击力提高35%；受到伤害时触发：高扬抗争旗号的西风鹰之魂苏醒，恢复等同于攻击力的145%的生命值，并对周围的敌人造成290%攻击力的伤害。该效果每15秒只能触发一次。',
-      Refine.Refine5: '攻击力提高40%；受到伤害时触发：高扬抗争旗号的西风鹰之魂苏醒，恢复等同于攻击力的160%的生命值，并对周围的敌人造成320%攻击力的伤害。该效果每15秒只能触发一次。',
-    },
-    'specialEffectDamageType': {
-      Stats.AttackBonus: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [
-      Stats.AttackBonus,
+    ],
+    'specialEffectComment': '攻击力提高%s；受到伤害时触发：高扬抗争旗号的西风鹰之魂苏醒，恢复等同于攻击力的%s的生命值，并对周围的敌人造成%s攻击力的伤害。该效果每15秒只能触发一次。',
+    'specialEffectCommentArguments': [
+      ['20%', '25%', '30%', '35%', '40%'],
+      ['100%', '115%', '130%', '145%', '160%'],
+      ['200%', '230%', '260%', '290%', '320%'],
     ],
   },
   {
@@ -545,46 +320,31 @@ const WEAPONS = [
     'baseAttack': 608.0,
     'subStat': Stats.Recharge,
     'subStatValue': 55.1,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.CritRate: 4.0,
-        Stats.ExtraDamageByAttack: 20.0,
+    'specialEffect': [
+      {
+        'stat': Stats.CritRate,
+        'value': [4.0, 5.0, 6.0, 7.0, 8.0],
+        'always': true,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.CritRate: 5.0,
-        Stats.ExtraDamageByAttack: 25.0,
+      {
+        'stat': Stats.ExtraDamageByAttack,
+        'value': [20.0, 25.0, 30.0, 35.0, 40.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.Normal,
+          DamageType.Charged,
+        ],
       },
-      Refine.Refine3: {
-        Stats.CritRate: 6.0,
-        Stats.ExtraDamageByAttack: 30.0,
-      },
-      Refine.Refine4: {
-        Stats.CritRate: 7.0,
-        Stats.ExtraDamageByAttack: 35.0,
-      },
-      Refine.Refine5: {
-        Stats.CritRate: 8.0,
-        Stats.ExtraDamageByAttack: 40.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '暴击率提升4%；施放元素爆发时，获得破空之势：移动速度提升10%，攻击速度提升10%，普通攻击与重击命中时，额外造成20%攻击力的伤害，持续12秒。',
-      Refine.Refine2: '暴击率提升5%；施放元素爆发时，获得破空之势：移动速度提升10%，攻击速度提升10%，普通攻击与重击命中时，额外造成25%攻击力的伤害，持续12秒。',
-      Refine.Refine3: '暴击率提升6%；施放元素爆发时，获得破空之势：移动速度提升10%，攻击速度提升10%，普通攻击与重击命中时，额外造成30%攻击力的伤害，持续12秒。',
-      Refine.Refine4: '暴击率提升7%；施放元素爆发时，获得破空之势：移动速度提升10%，攻击速度提升10%，普通攻击与重击命中时，额外造成35%攻击力的伤害，持续12秒。',
-      Refine.Refine5: '暴击率提升8%；施放元素爆发时，获得破空之势：移动速度提升10%，攻击速度提升10%，普通攻击与重击命中时，额外造成40%攻击力的伤害，持续12秒。',
-    },
-    'specialEffectDamageType': {
-      Stats.CritRate: [
-        DamageType.All,
-      ],
-      Stats.ExtraDamageByAttack: [
-        DamageType.Normal,
-        DamageType.Charged,
-      ],
-    },
-    'specialEffectAlways': [
-      Stats.CritRate,
+    ],
+    'specialEffectComment': '暴击率提升%s；施放元素爆发时，获得破空之势：移动速度提升10%%，攻击速度提升10%%，普通攻击与重击命中时，额外造成%s攻击力的伤害，持续12秒。',
+    'specialEffectCommentArguments': [
+      ['4%', '5%', '6%', '7%', '8%'],
+      ['20%', '25%', '30%', '35%', '40%'],
     ],
   },
   {
@@ -595,45 +355,39 @@ const WEAPONS = [
     'baseAttack': 608.0,
     'subStat': Stats.AttackBonus,
     'subStatValue': 49.6,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.AttackBonus: 40.0,
-        Stats.ShieldStrength: 20.0,
+    'specialEffect': [
+      {
+        'stat': Stats.AttackBonus,
+        'value': [20.0, 25.0, 30.0, 35.0, 40.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.AttackBonus: 50.0,
-        Stats.ShieldStrength: 25.0,
+      {
+        'stat': Stats.AttackBonus,
+        'value': [20.0, 25.0, 30.0, 35.0, 40.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine3: {
-        Stats.AttackBonus: 60.0,
-        Stats.ShieldStrength: 30.0,
+      {
+        'stat': Stats.ShieldStrength,
+        'value': [20.0, 25.0, 30.0, 35.0, 40.0],
+        'always': true,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine4: {
-        Stats.AttackBonus: 70.0,
-        Stats.ShieldStrength: 35.0,
-      },
-      Refine.Refine5: {
-        Stats.AttackBonus: 80.0,
-        Stats.ShieldStrength: 40.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '护盾强效提升20%。攻击命中后的8秒内，攻击力提升4%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
-      Refine.Refine2: '护盾强效提升25%。攻击命中后的8秒内，攻击力提升5%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
-      Refine.Refine3: '护盾强效提升30%。攻击命中后的8秒内，攻击力提升6%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
-      Refine.Refine4: '护盾强效提升35%。攻击命中后的8秒内，攻击力提升7%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
-      Refine.Refine5: '护盾强效提升40%。攻击命中后的8秒内，攻击力提升8%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
-    },
-    'specialEffectDamageType': {
-      Stats.AttackBonus: [
-        DamageType.All,
-      ],
-      Stats.ShieldStrength: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [
-      Stats.ShieldStrength,
+    ],
+    'specialEffectComment': '护盾强效提升%s。攻击命中后的8秒内，攻击力提升%s。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%%。',
+    'specialEffectCommentArguments': [
+      ['20%', '25%', '30%', '35%', '40%'],
+      ['4%', '5%', '6%', '7%', '8%'],
     ],
   },
   {
@@ -644,46 +398,30 @@ const WEAPONS = [
     'baseAttack': 542.0,
     'subStat': Stats.CritRate,
     'subStatValue': 44.1,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.HpBonus: 20.0,
-        Stats.AttackBonusByHp: 1.2,
+    'specialEffect': [
+      {
+        'stat': Stats.HpBonus,
+        'value': [20.0, 25.0, 30.0, 35.0, 40.0],
+        'always': true,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.HpBonus: 25.0,
-        Stats.AttackBonusByHp: 1.5,
+      {
+        'stat': Stats.AttackBonusByHp,
+        'value': [1.2, 1.5, 1.8, 2.1, 2.4],
+        'always': true,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine3: {
-        Stats.HpBonus: 30.0,
-        Stats.AttackBonusByHp: 1.8,
-      },
-      Refine.Refine4: {
-        Stats.HpBonus: 35.0,
-        Stats.AttackBonusByHp: 2.1,
-      },
-      Refine.Refine5: {
-        Stats.HpBonus: 40.0,
-        Stats.AttackBonusByHp: 2.4,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '生命值提升20%。此外，基于装备该武器的角色生命值上限的1.2%，获得攻击力加成。',
-      Refine.Refine2: '生命值提升25%。此外，基于装备该武器的角色生命值上限的1.5%，获得攻击力加成。',
-      Refine.Refine3: '生命值提升30%。此外，基于装备该武器的角色生命值上限的1.8%，获得攻击力加成。',
-      Refine.Refine4: '生命值提升35%。此外，基于装备该武器的角色生命值上限的2.1%，获得攻击力加成。',
-      Refine.Refine5: '生命值提升40%。此外，基于装备该武器的角色生命值上限的2.4%，获得攻击力加成。',
-    },
-    'specialEffectDamageType': {
-      Stats.HpBonus: [
-        DamageType.All,
-      ],
-      Stats.AttackBonusByHp: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [
-      Stats.HpBonus,
-      Stats.AttackBonusByHp,
+    ],
+    'specialEffectComment': '生命值提升%s。此外，基于装备该武器的角色生命值上限的%s，获得攻击力加成。',
+    'specialEffectCommentArguments': [
+      ['20%', '25%', '30%', '35%', '40%'],
+      ['1.2%', '1.5%', '1.8%', '2.1%', '2.4%'],
     ],
   },
   {
@@ -694,61 +432,44 @@ const WEAPONS = [
     'baseAttack': 608.0,
     'subStat': Stats.Mastery,
     'subStatValue': 198.0,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.DmgBonus: 26.0,
-        Stats.PhyDmgBonus: 26.0,
-        Stats.AttackBonus: 20.0,
+    'specialEffect': [
+      {
+        'stat': Stats.DmgBonus,
+        'value': [10.0, 12.5, 15.0, 17.5, 20.0],
+        'always': true,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.DmgBonus: 32.5,
-        Stats.PhyDmgBonus: 32.5,
-        Stats.AttackBonus: 25.0,
+      {
+        'stat': Stats.DmgBonus,
+        'value': [16.0, 20.0, 24.0, 28.0, 32.0],
+        'always': false,
+        'buffType': BuffType.BuffForTeam,
+        'damageType': [
+          DamageType.Normal,
+          DamageType.Charged,
+          DamageType.Plunging,
+        ],
       },
-      Refine.Refine3: {
-        Stats.DmgBonus: 39.0,
-        Stats.PhyDmgBonus: 39.0,
-        Stats.AttackBonus: 30.0,
+      {
+        'stat': Stats.AttackBonus,
+        'value': [20.0, 25.0, 30.0, 35.0, 40.0],
+        'always': false,
+        'buffType': BuffType.BuffForTeam,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine4: {
-        Stats.DmgBonus: 45.5,
-        Stats.PhyDmgBonus: 45.5,
-        Stats.AttackBonus: 35.0,
-      },
-      Refine.Refine5: {
-        Stats.DmgBonus: 52.0,
-        Stats.PhyDmgBonus: 52.0,
-        Stats.AttackBonus: 40.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1:
-          '飘游风中的「千年的大乐章」的一部分。造成的伤害提高10%；触发元素反应时，角色获得一枚奋起之符，每0.5秒内至多触发一次，角色处于队伍后台也能触发。拥有2枚奋起之符时，将消耗所有奋起之符，使附近的队伍中所有角色获得持续12秒的「千年的大乐章·抗争之歌」效果：普通攻击、重击、下落攻击造成的伤害提高16%，攻击力提升20%。触发后20秒内，无法再次获得奋起之符。「千年的大乐章」触发的多种数值效果中，同类数值效果不可叠加。',
-      Refine.Refine2:
-          '飘游风中的「千年的大乐章」的一部分。造成的伤害提高12.5%；触发元素反应时，角色获得一枚奋起之符，每0.5秒内至多触发一次，角色处于队伍后台也能触发。拥有2枚奋起之符时，将消耗所有奋起之符，使附近的队伍中所有角色获得持续12秒的「千年的大乐章·抗争之歌」效果：普通攻击、重击、下落攻击造成的伤害提高20%，攻击力提升25%。触发后20秒内，无法再次获得奋起之符。「千年的大乐章」触发的多种数值效果中，同类数值效果不可叠加。',
-      Refine.Refine3:
-          '飘游风中的「千年的大乐章」的一部分。造成的伤害提高15%；触发元素反应时，角色获得一枚奋起之符，每0.5秒内至多触发一次，角色处于队伍后台也能触发。拥有2枚奋起之符时，将消耗所有奋起之符，使附近的队伍中所有角色获得持续12秒的「千年的大乐章·抗争之歌」效果：普通攻击、重击、下落攻击造成的伤害提高24%，攻击力提升30%。触发后20秒内，无法再次获得奋起之符。「千年的大乐章」触发的多种数值效果中，同类数值效果不可叠加。',
-      Refine.Refine4:
-          '飘游风中的「千年的大乐章」的一部分。造成的伤害提高17.5%；触发元素反应时，角色获得一枚奋起之符，每0.5秒内至多触发一次，角色处于队伍后台也能触发。拥有2枚奋起之符时，将消耗所有奋起之符，使附近的队伍中所有角色获得持续12秒的「千年的大乐章·抗争之歌」效果：普通攻击、重击、下落攻击造成的伤害提高28%，攻击力提升35%。触发后20秒内，无法再次获得奋起之符。「千年的大乐章」触发的多种数值效果中，同类数值效果不可叠加。',
-      Refine.Refine5:
-          '飘游风中的「千年的大乐章」的一部分。造成的伤害提高20%；触发元素反应时，角色获得一枚奋起之符，每0.5秒内至多触发一次，角色处于队伍后台也能触发。拥有2枚奋起之符时，将消耗所有奋起之符，使附近的队伍中所有角色获得持续12秒的「千年的大乐章·抗争之歌」效果：普通攻击、重击、下落攻击造成的伤害提高32%，攻击力提升40%。触发后20秒内，无法再次获得奋起之符。「千年的大乐章」触发的多种数值效果中，同类数值效果不可叠加。',
-    },
-    'specialEffectDamageType': {
-      Stats.DmgBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-      ],
-      Stats.PhyDmgBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-        DamageType.Plunging,
-      ],
-      Stats.AttackBonus: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment':
+        '飘游风中的「千年的大乐章」的一部分。造成的伤害提高%s；触发元素反应时，角色获得一枚奋起之符，每0.5秒内至多触发一次，角色处于队伍后台也能触发。拥有2枚奋起之符时，将消耗所有奋起之符，使附近的队伍中所有角色获得持续12秒的「千年的大乐章·抗争之歌」效果：普通攻击、重击、下落攻击造成的伤害提高%s，攻击力提升%s。触发后20秒内，无法再次获得奋起之符。「千年的大乐章」触发的多种数值效果中，同类数值效果不可叠加。',
+    'specialEffectCommentArguments': [
+      ['10%', '12.5%', '15%', '17.5%', '20%'],
+      ['16%', '20%', '24%', '28%', '32%'],
+      ['20%', '25%', '30%', '35%', '40%'],
+    ],
   },
   {
     'name': '雾切之回光',
@@ -758,41 +479,32 @@ const WEAPONS = [
     'baseAttack': 674.0,
     'subStat': Stats.CritDmg,
     'subStatValue': 44.1,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.DmgBonus: 40.0,
+    'specialEffect': [
+      {
+        'stat': Stats.EleDmgBonus,
+        'value': [12.0, 15.0, 18.0, 21.0, 24.0],
+        'always': true,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.DmgBonus: 50.0,
+      {
+        'stat': Stats.EleDmgBonus,
+        'value': [28.0, 35.0, 42.0, 49.0, 56.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine3: {
-        Stats.DmgBonus: 60.0,
-      },
-      Refine.Refine4: {
-        Stats.DmgBonus: 70.0,
-      },
-      Refine.Refine5: {
-        Stats.DmgBonus: 80.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1:
-          '获得12%所有元素伤害加成，并能获得「雾切之巴印」的威势。雾切之巴印：持有1/2/3层雾切之巴印时，获得8/16/28%自己的元素类型的元素伤害加成。在下列情况下，角色将各获得1层雾切之巴印：普通攻击造成元素伤害时，持续5秒；施放元素爆发时，持续10秒；此外，角色元素能量低于100%时，将获得1层雾切之巴印，此雾切之巴印会在角色的元素能量充满时消失。每层雾切之巴印的持续时间独立计算。',
-      Refine.Refine2:
-          '获得15%所有元素伤害加成，并能获得「雾切之巴印」的威势。雾切之巴印：持有1/2/3层雾切之巴印时，获得10/20/35%自己的元素类型的元素伤害加成。在下列情况下，角色将各获得1层雾切之巴印：普通攻击造成元素伤害时，持续5秒；施放元素爆发时，持续10秒；此外，角色元素能量低于100%时，将获得1层雾切之巴印，此雾切之巴印会在角色的元素能量充满时消失。每层雾切之巴印的持续时间独立计算。',
-      Refine.Refine3:
-          '获得18%所有元素伤害加成，并能获得「雾切之巴印」的威势。雾切之巴印：持有1/2/3层雾切之巴印时，获得12/24/42%自己的元素类型的元素伤害加成。在下列情况下，角色将各获得1层雾切之巴印：普通攻击造成元素伤害时，持续5秒；施放元素爆发时，持续10秒；此外，角色元素能量低于100%时，将获得1层雾切之巴印，此雾切之巴印会在角色的元素能量充满时消失。每层雾切之巴印的持续时间独立计算。',
-      Refine.Refine4:
-          '获得21%所有元素伤害加成，并能获得「雾切之巴印」的威势。雾切之巴印：持有1/2/3层雾切之巴印时，获得14/28/49%自己的元素类型的元素伤害加成。在下列情况下，角色将各获得1层雾切之巴印：普通攻击造成元素伤害时，持续5秒；施放元素爆发时，持续10秒；此外，角色元素能量低于100%时，将获得1层雾切之巴印，此雾切之巴印会在角色的元素能量充满时消失。每层雾切之巴印的持续时间独立计算。',
-      Refine.Refine5:
-          '获得24%所有元素伤害加成，并能获得「雾切之巴印」的威势。雾切之巴印：持有1/2/3层雾切之巴印时，获得16/32/56%自己的元素类型的元素伤害加成。在下列情况下，角色将各获得1层雾切之巴印：普通攻击造成元素伤害时，持续5秒；施放元素爆发时，持续10秒；此外，角色元素能量低于100%时，将获得1层雾切之巴印，此雾切之巴印会在角色的元素能量充满时消失。每层雾切之巴印的持续时间独立计算。',
-    },
-    'specialEffectDamageType': {
-      Stats.DmgBonus: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment':
+        '获得%s所有元素伤害加成，并能获得「雾切之巴印」的威势。雾切之巴印：持有1/2/3层雾切之巴印时，获得%s自己的元素类型的元素伤害加成。在下列情况下，角色将各获得1层雾切之巴印：普通攻击造成元素伤害时，持续5秒；施放元素爆发时，持续10秒；此外，角色元素能量低于100%%时，将获得1层雾切之巴印，此雾切之巴印会在角色的元素能量充满时消失。每层雾切之巴印的持续时间独立计算。',
+    'specialEffectCommentArguments': [
+      ['12%', '15%', '18%', '21%', '24%'],
+      ['8/16/28%', '10/20/35%', '12/24/42%', '14/28/49%', '16/32/56%'],
+    ],
   },
   {
     'name': '黑岩斩刀',
@@ -802,36 +514,21 @@ const WEAPONS = [
     'baseAttack': 510.0,
     'subStat': Stats.CritDmg,
     'subStatValue': 55.1,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.AttackBonus: 36.0,
+    'specialEffect': [
+      {
+        'stat': Stats.AttackBonus,
+        'value': [36.0, 45.0, 54.0, 63.0, 72.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.AttackBonus: 45.0,
-      },
-      Refine.Refine3: {
-        Stats.AttackBonus: 54.0,
-      },
-      Refine.Refine4: {
-        Stats.AttackBonus: 63.0,
-      },
-      Refine.Refine5: {
-        Stats.AttackBonus: 72.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '击败敌人后，攻击力提升12%，持续30秒。该效果至多叠加3层，每层持续时间独立。',
-      Refine.Refine2: '击败敌人后，攻击力提升15%，持续30秒。该效果至多叠加3层，每层持续时间独立。',
-      Refine.Refine3: '击败敌人后，攻击力提升18%，持续30秒。该效果至多叠加3层，每层持续时间独立。',
-      Refine.Refine4: '击败敌人后，攻击力提升21%，持续30秒。该效果至多叠加3层，每层持续时间独立。',
-      Refine.Refine5: '击败敌人后，攻击力提升24%，持续30秒。该效果至多叠加3层，每层持续时间独立。',
-    },
-    'specialEffectDamageType': {
-      Stats.AttackBonus: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '击败敌人后，攻击力提升%s，持续30秒。该效果至多叠加3层，每层持续时间独立。',
+    'specialEffectCommentArguments': [
+      ['12%', '15%', '18%', '21%', '24%'],
+    ],
   },
   {
     'name': '西风大剑',
@@ -841,22 +538,12 @@ const WEAPONS = [
     'baseAttack': 454.0,
     'subStat': Stats.Recharge,
     'subStatValue': 61.3,
-    'specialEffect': {
-      Refine.Refine1: {},
-      Refine.Refine2: {},
-      Refine.Refine3: {},
-      Refine.Refine4: {},
-      Refine.Refine5: {},
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '攻击造成暴击时，有60%的几率产生少量元素微粒，能为角色恢复6点元素能量。该效果每12秒只能触发一次。',
-      Refine.Refine2: '攻击造成暴击时，有70%的几率产生少量元素微粒，能为角色恢复6点元素能量。该效果每10.5秒只能触发一次。',
-      Refine.Refine3: '攻击造成暴击时，有80%的几率产生少量元素微粒，能为角色恢复6点元素能量。该效果每9秒只能触发一次。',
-      Refine.Refine4: '攻击造成暴击时，有90%的几率产生少量元素微粒，能为角色恢复6点元素能量。该效果每7.5秒只能触发一次。',
-      Refine.Refine5: '攻击造成暴击时，有100%的几率产生少量元素微粒，能为角色恢复6点元素能量。该效果每6秒只能触发一次。',
-    },
-    'specialEffectDamageType': {},
-    'specialEffectAlways': [],
+    'specialEffect': [],
+    'specialEffectComment': '攻击造成暴击时，有%s的几率产生少量元素微粒，能为角色恢复6点元素能量。该效果每%s只能触发一次。',
+    'specialEffectCommentArguments': [
+      ['60%', '70%', '80%', '90%', '100%'],
+      ['12秒', '10.5秒', '9秒', '7.5秒', '6秒'],
+    ],
   },
   {
     'name': '千岩古剑',
@@ -866,44 +553,31 @@ const WEAPONS = [
     'baseAttack': 510.0,
     'subStat': Stats.AttackBonus,
     'subStatValue': 41.3,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.AttackBonus: 28.0,
-        Stats.CritRate: 12.0,
+    'specialEffect': [
+      {
+        'stat': Stats.AttackBonus,
+        'value': [28.0, 32.0, 36.0, 40.0, 44.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.AttackBonus: 32.0,
-        Stats.CritRate: 16.0,
+      {
+        'stat': Stats.CritRate,
+        'value': [12.0, 16.0, 20.0, 24.0, 28.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine3: {
-        Stats.AttackBonus: 36.0,
-        Stats.CritRate: 20.0,
-      },
-      Refine.Refine4: {
-        Stats.AttackBonus: 40.0,
-        Stats.CritRate: 24.0,
-      },
-      Refine.Refine5: {
-        Stats.AttackBonus: 44.0,
-        Stats.CritRate: 28.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '队伍中每有一位璃月角色，装备该武器的角色便获得7%攻击力提升与3%暴击率提升。至多获得4层提升效果。',
-      Refine.Refine2: '队伍中每有一位璃月角色，装备该武器的角色便获得8%攻击力提升与4%暴击率提升。至多获得4层提升效果。',
-      Refine.Refine3: '队伍中每有一位璃月角色，装备该武器的角色便获得9%攻击力提升与5%暴击率提升。至多获得4层提升效果。',
-      Refine.Refine4: '队伍中每有一位璃月角色，装备该武器的角色便获得10%攻击力提升与6%暴击率提升。至多获得4层提升效果。',
-      Refine.Refine5: '队伍中每有一位璃月角色，装备该武器的角色便获得11%攻击力提升与7%暴击率提升。至多获得4层提升效果。',
-    },
-    'specialEffectDamageType': {
-      Stats.AttackBonus: [
-        DamageType.All,
-      ],
-      Stats.CritRate: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '队伍中每有一位璃月角色，装备该武器的角色便获得%s攻击力提升与%s暴击率提升。至多获得4层提升效果。',
+    'specialEffectCommentArguments': [
+      ['7%', '8%', '9%', '10%', '11%'],
+      ['3%', '4%', '5%', '6%', '7%'],
+    ],
   },
   {
     'name': '试做古华',
@@ -913,22 +587,11 @@ const WEAPONS = [
     'baseAttack': 565.0,
     'subStat': Stats.AttackBonus,
     'subStatValue': 27.6,
-    'specialEffect': {
-      Refine.Refine1: {},
-      Refine.Refine2: {},
-      Refine.Refine3: {},
-      Refine.Refine4: {},
-      Refine.Refine5: {},
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '普通攻击和重击命中时，有50%的概率对小范围内的敌人造成240%攻击力的额外伤害。该效果每15秒只能触发一次。',
-      Refine.Refine2: '普通攻击和重击命中时，有50%的概率对小范围内的敌人造成300%攻击力的额外伤害。该效果每15秒只能触发一次。',
-      Refine.Refine3: '普通攻击和重击命中时，有50%的概率对小范围内的敌人造成360%攻击力的额外伤害。该效果每15秒只能触发一次。',
-      Refine.Refine4: '普通攻击和重击命中时，有50%的概率对小范围内的敌人造成420%攻击力的额外伤害。该效果每15秒只能触发一次。',
-      Refine.Refine5: '普通攻击和重击命中时，有50%的概率对小范围内的敌人造成480%攻击力的额外伤害。该效果每15秒只能触发一次。',
-    },
-    'specialEffectDamageType': {},
-    'specialEffectAlways': [],
+    'specialEffect': [],
+    'specialEffectComment': '普通攻击和重击命中时，有50%%的概率对小范围内的敌人造成%s攻击力的额外伤害。该效果每15秒只能触发一次。',
+    'specialEffectCommentArguments': [
+      ['240%', '300%', '360%', '420%', '480%'],
+    ],
   },
   {
     'name': '雨裁',
@@ -938,44 +601,21 @@ const WEAPONS = [
     'baseAttack': 510.0,
     'subStat': Stats.Mastery,
     'subStatValue': 165.0,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.DmgBonus: 20.0,
-        Stats.PhyDmgBonus: 20.0,
+    'specialEffect': [
+      {
+        'stat': Stats.DmgBonus,
+        'value': [20.0, 24.0, 28.0, 32.0, 36.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.DmgBonus: 24.0,
-        Stats.PhyDmgBonus: 24.0,
-      },
-      Refine.Refine3: {
-        Stats.DmgBonus: 28.0,
-        Stats.PhyDmgBonus: 28.0,
-      },
-      Refine.Refine4: {
-        Stats.DmgBonus: 32.0,
-        Stats.PhyDmgBonus: 32.0,
-      },
-      Refine.Refine5: {
-        Stats.DmgBonus: 36.0,
-        Stats.PhyDmgBonus: 36.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '对处于水元素或雷元素影响下的敌人，造成的伤害提高20%。',
-      Refine.Refine2: '对处于水元素或雷元素影响下的敌人，造成的伤害提高24%。',
-      Refine.Refine3: '对处于水元素或雷元素影响下的敌人，造成的伤害提高28%。',
-      Refine.Refine4: '对处于水元素或雷元素影响下的敌人，造成的伤害提高32%。',
-      Refine.Refine5: '对处于水元素或雷元素影响下的敌人，造成的伤害提高36%。',
-    },
-    'specialEffectDamageType': {
-      Stats.DmgBonus: [
-        DamageType.All,
-      ],
-      Stats.PhyDmgBonus: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '对处于水元素或雷元素影响下的敌人，造成的伤害提高%s。',
+    'specialEffectCommentArguments': [
+      ['20%', '24%', '28%', '32%', '36%'],
+    ],
   },
   {
     'name': '宗室大剑',
@@ -985,36 +625,21 @@ const WEAPONS = [
     'baseAttack': 565.0,
     'subStat': Stats.AttackBonus,
     'subStatValue': 27.6,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.CritRate: 40.0,
+    'specialEffect': [
+      {
+        'stat': Stats.CritRate,
+        'value': [40.0, 50.0, 60.0, 70.0, 80.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.CritRate: 50.0,
-      },
-      Refine.Refine3: {
-        Stats.CritRate: 60.0,
-      },
-      Refine.Refine4: {
-        Stats.CritRate: 70.0,
-      },
-      Refine.Refine5: {
-        Stats.CritRate: 80.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '攻击造成伤害时，暴击率提升8%，最多堆叠5次。攻击造成暴击后，移除已有的专注效果。',
-      Refine.Refine2: '攻击造成伤害时，暴击率提升10%，最多堆叠5次。攻击造成暴击后，移除已有的专注效果。',
-      Refine.Refine3: '攻击造成伤害时，暴击率提升12%，最多堆叠5次。攻击造成暴击后，移除已有的专注效果。',
-      Refine.Refine4: '攻击造成伤害时，暴击率提升14%，最多堆叠5次。攻击造成暴击后，移除已有的专注效果。',
-      Refine.Refine5: '攻击造成伤害时，暴击率提升16%，最多堆叠5次。攻击造成暴击后，移除已有的专注效果。',
-    },
-    'specialEffectDamageType': {
-      Stats.CritRate: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '攻击造成伤害时，暴击率提升%s，最多堆叠5次。攻击造成暴击后，移除已有的专注效果。',
+    'specialEffectCommentArguments': [
+      ['8%', '10%', '12%', '14%', '16%'],
+    ],
   },
   {
     'name': '螭骨剑',
@@ -1024,44 +649,22 @@ const WEAPONS = [
     'baseAttack': 510.0,
     'subStat': Stats.CritRate,
     'subStatValue': 27.6,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.DmgBonus: 30.0,
-        Stats.PhyDmgBonus: 30.0,
+    'specialEffect': [
+      {
+        'stat': Stats.DmgBonus,
+        'value': [30.0, 35.0, 40.0, 45.0, 50.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.DmgBonus: 35.0,
-        Stats.PhyDmgBonus: 35.0,
-      },
-      Refine.Refine3: {
-        Stats.DmgBonus: 40.0,
-        Stats.PhyDmgBonus: 40.0,
-      },
-      Refine.Refine4: {
-        Stats.DmgBonus: 45.0,
-        Stats.PhyDmgBonus: 45.0,
-      },
-      Refine.Refine5: {
-        Stats.DmgBonus: 50.0,
-        Stats.PhyDmgBonus: 50.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '角色在场上时，每4秒提升6%造成的伤害，3%受到的伤害。该效果最多叠加5层，不随角色退场重置，受到伤害后会减少1层效果。',
-      Refine.Refine2: '角色在场上时，每4秒提升7%造成的伤害，2.7%受到的伤害。该效果最多叠加5层，不随角色退场重置，受到伤害后会减少1层效果。',
-      Refine.Refine3: '角色在场上时，每4秒提升8%造成的伤害，2.4%受到的伤害。该效果最多叠加5层，不随角色退场重置，受到伤害后会减少1层效果。',
-      Refine.Refine4: '角色在场上时，每4秒提升9%造成的伤害，2.2%受到的伤害。该效果最多叠加5层，不随角色退场重置，受到伤害后会减少1层效果。',
-      Refine.Refine5: '角色在场上时，每4秒提升10%造成的伤害，2%受到的伤害。该效果最多叠加5层，不随角色退场重置，受到伤害后会减少1层效果。',
-    },
-    'specialEffectDamageType': {
-      Stats.DmgBonus: [
-        DamageType.All,
-      ],
-      Stats.PhyDmgBonus: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '角色在场上时，每4秒提升%s造成的伤害，%s受到的伤害。该效果最多叠加5层，不随角色退场重置，受到伤害后会减少1层效果。',
+    'specialEffectCommentArguments': [
+      ['6%', '7%', '8%', '9%', '10%'],
+      ['3%', '2.7%', '2.4%', '2.2%', '2%'],
+    ],
   },
   {
     'name': '钟剑',
@@ -1071,44 +674,22 @@ const WEAPONS = [
     'baseAttack': 510.0,
     'subStat': Stats.HpBonus,
     'subStatValue': 41.3,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.DmgBonus: 12.0,
-        Stats.PhyDmgBonus: 12.0,
+    'specialEffect': [
+      {
+        'stat': Stats.DmgBonus,
+        'value': [12.0, 15.0, 18.0, 21.0, 24.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.DmgBonus: 15.0,
-        Stats.PhyDmgBonus: 15.0,
-      },
-      Refine.Refine3: {
-        Stats.DmgBonus: 18.0,
-        Stats.PhyDmgBonus: 18.0,
-      },
-      Refine.Refine4: {
-        Stats.DmgBonus: 21.0,
-        Stats.PhyDmgBonus: 21.0,
-      },
-      Refine.Refine5: {
-        Stats.DmgBonus: 24.0,
-        Stats.PhyDmgBonus: 24.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '受到伤害时，生成一个伤害吸收量等同于生命值上限20%的护盾，持续10秒或直到护盾失效,每45秒只能触发一次。角色处于护盾庇护下时，造成的伤害提升12%。',
-      Refine.Refine2: '受到伤害时，生成一个伤害吸收量等同于生命值上限23%的护盾，持续10秒或直到护盾失效,每45秒只能触发一次。角色处于护盾庇护下时，造成的伤害提升15%。',
-      Refine.Refine3: '受到伤害时，生成一个伤害吸收量等同于生命值上限26%的护盾，持续10秒或直到护盾失效,每45秒只能触发一次。角色处于护盾庇护下时，造成的伤害提升18%。',
-      Refine.Refine4: '受到伤害时，生成一个伤害吸收量等同于生命值上限29%的护盾，持续10秒或直到护盾失效,每45秒只能触发一次。角色处于护盾庇护下时，造成的伤害提升21%。',
-      Refine.Refine5: '受到伤害时，生成一个伤害吸收量等同于生命值上限32%的护盾，持续10秒或直到护盾失效,每45秒只能触发一次。角色处于护盾庇护下时，造成的伤害提升24%。',
-    },
-    'specialEffectDamageType': {
-      Stats.DmgBonus: [
-        DamageType.All,
-      ],
-      Stats.PhyDmgBonus: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '受到伤害时，生成一个伤害吸收量等同于生命值上限%s的护盾，持续10秒或直到护盾失效,每45秒只能触发一次。角色处于护盾庇护下时，造成的伤害提升%s。',
+    'specialEffectCommentArguments': [
+      ['20%', '23%', '26%', '29%', '32%'],
+      ['12%', '15%', '18%', '21%', '24%'],
+    ],
   },
   {
     'name': '白影剑',
@@ -1118,44 +699,30 @@ const WEAPONS = [
     'baseAttack': 510.0,
     'subStat': Stats.DefendBonus,
     'subStatValue': 51.7,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.AttackBonus: 24.0,
-        Stats.DefendBonus: 24.0,
+    'specialEffect': [
+      {
+        'stat': Stats.AttackBonus,
+        'value': [24.0, 30.0, 36.0, 42.0, 48.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.AttackBonus: 30.0,
-        Stats.DefendBonus: 30.0,
+      {
+        'stat': Stats.DefendBonus,
+        'value': [24.0, 30.0, 36.0, 42.0, 48.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine3: {
-        Stats.AttackBonus: 36.0,
-        Stats.DefendBonus: 36.0,
-      },
-      Refine.Refine4: {
-        Stats.AttackBonus: 42.0,
-        Stats.DefendBonus: 42.0,
-      },
-      Refine.Refine5: {
-        Stats.AttackBonus: 48.0,
-        Stats.DefendBonus: 48.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '普通攻击和重击命中后，攻击力和防御力提高6%。该效果持续6秒，最多叠加4层，每0.5秒只能触发一次。',
-      Refine.Refine2: '普通攻击和重击命中后，攻击力和防御力提高7.5%。该效果持续6秒，最多叠加4层，每0.5秒只能触发一次。',
-      Refine.Refine3: '普通攻击和重击命中后，攻击力和防御力提高9%。该效果持续6秒，最多叠加4层，每0.5秒只能触发一次。',
-      Refine.Refine4: '普通攻击和重击命中后，攻击力和防御力提高10.5%。该效果持续6秒，最多叠加4层，每0.5秒只能触发一次。',
-      Refine.Refine5: '普通攻击和重击命中后，攻击力和防御力提高12%。该效果持续6秒，最多叠加4层，每0.5秒只能触发一次。',
-    },
-    'specialEffectDamageType': {
-      Stats.AttackBonus: [
-        DamageType.All,
-      ],
-      Stats.DefendBonus: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '普通攻击和重击命中后，攻击力和防御力提高%s。该效果持续6秒，最多叠加4层，每0.5秒只能触发一次。',
+    'specialEffectCommentArguments': [
+      ['6%', '7.5%', '9%', '10.5%', '12%'],
+    ],
   },
   {
     'name': '祭礼大剑',
@@ -1165,22 +732,12 @@ const WEAPONS = [
     'baseAttack': 565.0,
     'subStat': Stats.Recharge,
     'subStatValue': 30.6,
-    'specialEffect': {
-      Refine.Refine1: {},
-      Refine.Refine2: {},
-      Refine.Refine3: {},
-      Refine.Refine4: {},
-      Refine.Refine5: {},
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '元素战技造成伤害时，有40%的概率重置该技能的冷却时间，该效果每30秒只能触发一次。',
-      Refine.Refine2: '元素战技造成伤害时，有50%的概率重置该技能的冷却时间，该效果每26秒只能触发一次。',
-      Refine.Refine3: '元素战技造成伤害时，有60%的概率重置该技能的冷却时间，该效果每22秒只能触发一次。',
-      Refine.Refine4: '元素战技造成伤害时，有70%的概率重置该技能的冷却时间，该效果每19秒只能触发一次。',
-      Refine.Refine5: '元素战技造成伤害时，有80%的概率重置该技能的冷却时间，该效果每16秒只能触发一次。',
-    },
-    'specialEffectDamageType': {},
-    'specialEffectAlways': [],
+    'specialEffect': [],
+    'specialEffectComment': '元素战技造成伤害时，有%s的概率重置该技能的冷却时间，该效果每%s只能触发一次。',
+    'specialEffectCommentArguments': [
+      ['40%', '50%', '60%', '70%', '80%'],
+      ['30秒', '26秒', '22秒', '19秒', '16秒'],
+    ],
   },
   {
     'name': '雪葬的星银',
@@ -1190,22 +747,13 @@ const WEAPONS = [
     'baseAttack': 565.0,
     'subStat': Stats.PhyDmgBonus,
     'subStatValue': 34.5,
-    'specialEffect': {
-      Refine.Refine1: {},
-      Refine.Refine2: {},
-      Refine.Refine3: {},
-      Refine.Refine4: {},
-      Refine.Refine5: {},
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '普通攻击与重击命中敌人时，有60%概率在敌人上方生成恒冰晶核并坠落，造成80%攻击力的范围伤害。若敌人处于冰元素影响下，则造成200%攻击力的伤害。该效果每10秒至多触发一次。',
-      Refine.Refine2: '普通攻击与重击命中敌人时，有70%概率在敌人上方生成恒冰晶核并坠落，造成95%攻击力的范围伤害。若敌人处于冰元素影响下，则造成240%攻击力的伤害。该效果每10秒至多触发一次。',
-      Refine.Refine3: '普通攻击与重击命中敌人时，有80%概率在敌人上方生成恒冰晶核并坠落，造成110%攻击力的范围伤害。若敌人处于冰元素影响下，则造成280%攻击力的伤害。该效果每10秒至多触发一次。',
-      Refine.Refine4: '普通攻击与重击命中敌人时，有90%概率在敌人上方生成恒冰晶核并坠落，造成125%攻击力的范围伤害。若敌人处于冰元素影响下，则造成320%攻击力的伤害。该效果每10秒至多触发一次。',
-      Refine.Refine5: '普通攻击与重击命中敌人时，有100%概率在敌人上方生成恒冰晶核并坠落，造成140%攻击力的范围伤害。若敌人处于冰元素影响下，则造成360%攻击力的伤害。该效果每10秒至多触发一次。',
-    },
-    'specialEffectDamageType': {},
-    'specialEffectAlways': [],
+    'specialEffect': [],
+    'specialEffectComment': '普通攻击与重击命中敌人时，有%s概率在敌人上方生成恒冰晶核并坠落，造成%s攻击力的范围伤害。若敌人处于冰元素影响下，则造成%s攻击力的伤害。该效果每10秒至多触发一次。',
+    'specialEffectCommentArguments': [
+      ['60%', '70%', '80%', '90%', '100%'],
+      ['80%', '95%', '110%', '125%', '140%'],
+      ['200%', '240%', '280%', '320%', '360%'],
+    ],
   },
   {
     'name': '桂木斩长正',
@@ -1215,44 +763,23 @@ const WEAPONS = [
     'baseAttack': 510.0,
     'subStat': Stats.Recharge,
     'subStatValue': 45.9,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.DmgBonus: 6.0,
-        Stats.PhyDmgBonus: 6.0,
+    'specialEffect': [
+      {
+        'stat': Stats.DmgBonus,
+        'value': [6.0, 7.5, 9.0, 10.5, 12.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.SkillE,
+          DamageType.SkillESpecial,
+        ],
       },
-      Refine.Refine2: {
-        Stats.DmgBonus: 7.5,
-        Stats.PhyDmgBonus: 7.5,
-      },
-      Refine.Refine3: {
-        Stats.DmgBonus: 9.0,
-        Stats.PhyDmgBonus: 9.0,
-      },
-      Refine.Refine4: {
-        Stats.DmgBonus: 10.5,
-        Stats.PhyDmgBonus: 10.5,
-      },
-      Refine.Refine5: {
-        Stats.DmgBonus: 12.0,
-        Stats.PhyDmgBonus: 12.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '元素战技造成的伤害提升6%。元素战技命中后，角色流失3点元素能量，并在此后的6秒内，每2秒恢复3点元素能量。该效果每10秒至多触发一次，角色处于队伍后台也能触发。',
-      Refine.Refine2: '元素战技造成的伤害提升7.5%。元素战技命中后，角色流失3点元素能量，并在此后的6秒内，每2秒恢复3.5点元素能量。该效果每10秒至多触发一次，角色处于队伍后台也能触发。',
-      Refine.Refine3: '元素战技造成的伤害提升9%。元素战技命中后，角色流失3点元素能量，并在此后的6秒内，每2秒恢复4点元素能量。该效果每10秒至多触发一次，角色处于队伍后台也能触发。',
-      Refine.Refine4: '元素战技造成的伤害提升10.5%。元素战技命中后，角色流失3点元素能量，并在此后的6秒内，每2秒恢复4.5点元素能量。该效果每10秒至多触发一次，角色处于队伍后台也能触发。',
-      Refine.Refine5: '元素战技造成的伤害提升12%。元素战技命中后，角色流失3点元素能量，并在此后的6秒内，每2秒恢复5点元素能量。该效果每10秒至多触发一次，角色处于队伍后台也能触发。',
-    },
-    'specialEffectDamageType': {
-      Stats.DmgBonus: [
-        DamageType.SkillE,
-      ],
-      Stats.PhyDmgBonus: [
-        DamageType.SkillE,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '元素战技造成的伤害提升%s。元素战技命中后，角色流失3点元素能量，并在此后的6秒内，每2秒恢复%s元素能量。该效果每10秒至多触发一次，角色处于队伍后台也能触发。',
+    'specialEffectCommentArguments': [
+      ['6%', '7.5%', '9%', '10.5%', '12%'],
+      ['3点', '3.5点', '4点', '4.5点', '5点'],
+    ],
   },
   {
     'name': '衔珠海皇',
@@ -1262,46 +789,23 @@ const WEAPONS = [
     'baseAttack': 454.0,
     'subStat': Stats.AttackBonus,
     'subStatValue': 55.1,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.DmgBonus: 12.0,
-        Stats.PhyDmgBonus: 12.0,
+    'specialEffect': [
+      {
+        'stat': Stats.DmgBonus,
+        'value': [12.0, 15.0, 18.0, 21.0, 24.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.SkillQ,
+          DamageType.SkillQSpecial,
+        ],
       },
-      Refine.Refine2: {
-        Stats.DmgBonus: 15.0,
-        Stats.PhyDmgBonus: 15.0,
-      },
-      Refine.Refine3: {
-        Stats.DmgBonus: 18.0,
-        Stats.PhyDmgBonus: 18.0,
-      },
-      Refine.Refine4: {
-        Stats.DmgBonus: 21.0,
-        Stats.PhyDmgBonus: 21.0,
-      },
-      Refine.Refine5: {
-        Stats.DmgBonus: 24.0,
-        Stats.PhyDmgBonus: 24.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '元素爆发造成的伤害提升12%。元素爆发命中敌人时，有100%概率召唤大鲔冲击，造成100%攻击力的范围伤害。该效果每15秒至多触发一次。',
-      Refine.Refine2: '元素爆发造成的伤害提升15%。元素爆发命中敌人时，有100%概率召唤大鲔冲击，造成125%攻击力的范围伤害。该效果每15秒至多触发一次。',
-      Refine.Refine3: '元素爆发造成的伤害提升18%。元素爆发命中敌人时，有100%概率召唤大鲔冲击，造成150%攻击力的范围伤害。该效果每15秒至多触发一次。',
-      Refine.Refine4: '元素爆发造成的伤害提升21%。元素爆发命中敌人时，有100%概率召唤大鲔冲击，造成175%攻击力的范围伤害。该效果每15秒至多触发一次。',
-      Refine.Refine5: '元素爆发造成的伤害提升24%。元素爆发命中敌人时，有100%概率召唤大鲔冲击，造成200%攻击力的范围伤害。该效果每15秒至多触发一次。',
-    },
-    'specialEffectDamageType': {
-      Stats.DmgBonus: [
-        DamageType.SkillQ,
-        DamageType.SkillQSpecial,
-      ],
-      Stats.PhyDmgBonus: [
-        DamageType.SkillQ,
-        DamageType.SkillQSpecial,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '元素爆发造成的伤害提升%s。元素爆发命中敌人时，有100%%概率召唤大鲔冲击，造成%s攻击力的范围伤害。该效果每15秒至多触发一次。',
+    'specialEffectCommentArguments': [
+      ['12%', '15%', '18%', '21%', '24%'],
+      ['100%', '125%', '150%', '175%', '200%'],
+    ],
   },
   {
     'name': '恶王丸',
@@ -1311,46 +815,23 @@ const WEAPONS = [
     'baseAttack': 510.0,
     'subStat': Stats.AttackBonus,
     'subStatValue': 41.3,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.DmgBonus: 40.0,
-        Stats.PhyDmgBonus: 40.0,
+    'specialEffect': [
+      {
+        'stat': Stats.DmgBonus,
+        'value': [40.0, 50.0, 60.0, 70.0, 80.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.SkillQ,
+          DamageType.SkillQSpecial,
+        ],
       },
-      Refine.Refine2: {
-        Stats.DmgBonus: 50.0,
-        Stats.PhyDmgBonus: 50.0,
-      },
-      Refine.Refine3: {
-        Stats.DmgBonus: 60.0,
-        Stats.PhyDmgBonus: 60.0,
-      },
-      Refine.Refine4: {
-        Stats.DmgBonus: 70.0,
-        Stats.PhyDmgBonus: 70.0,
-      },
-      Refine.Refine5: {
-        Stats.DmgBonus: 80.0,
-        Stats.PhyDmgBonus: 80.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.12%，通过这种方式，元素爆发造成的伤害至多提高40%。',
-      Refine.Refine2: '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.15%，通过这种方式，元素爆发造成的伤害至多提高50%。',
-      Refine.Refine3: '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.18%，通过这种方式，元素爆发造成的伤害至多提高60%。',
-      Refine.Refine4: '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.21%，通过这种方式，元素爆发造成的伤害至多提高70%。',
-      Refine.Refine5: '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.24%，通过这种方式，元素爆发造成的伤害至多提高80%。',
-    },
-    'specialEffectDamageType': {
-      Stats.DmgBonus: [
-        DamageType.SkillQ,
-        DamageType.SkillQSpecial,
-      ],
-      Stats.PhyDmgBonus: [
-        DamageType.SkillQ,
-        DamageType.SkillQSpecial,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高%s，通过这种方式，元素爆发造成的伤害至多提高%s。',
+    'specialEffectCommentArguments': [
+      ['0.12%', '0.15%', '0.18%', '0.21%', '0.24%'],
+      ['40%', '50%', '60%', '70%', '80%'],
+    ],
   },
   {
     'name': '天空之傲',
@@ -1360,46 +841,21 @@ const WEAPONS = [
     'baseAttack': 674.0,
     'subStat': Stats.Recharge,
     'subStatValue': 36.8,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.DmgBonus: 8.0,
-        Stats.PhyDmgBonus: 8.0,
+    'specialEffect': [
+      {
+        'stat': Stats.DmgBonus,
+        'value': [8.0, 10.0, 12.0, 14.0, 16.0],
+        'always': true,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.DmgBonus: 10.0,
-        Stats.PhyDmgBonus: 10.0,
-      },
-      Refine.Refine3: {
-        Stats.DmgBonus: 12.0,
-        Stats.PhyDmgBonus: 12.0,
-      },
-      Refine.Refine4: {
-        Stats.DmgBonus: 14.0,
-        Stats.PhyDmgBonus: 14.0,
-      },
-      Refine.Refine5: {
-        Stats.DmgBonus: 16.0,
-        Stats.PhyDmgBonus: 16.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '造成的伤害提高8%；施放元素爆发后：普通攻击和重击命中时会发出真空刃，对路径上的敌人造成80%攻击力的伤害，持续20秒或直至发出8次真空刃。',
-      Refine.Refine2: '造成的伤害提高10%；施放元素爆发后：普通攻击和重击命中时会发出真空刃，对路径上的敌人造成100%攻击力的伤害，持续20秒或直至发出8次真空刃。',
-      Refine.Refine3: '造成的伤害提高12%；施放元素爆发后：普通攻击和重击命中时会发出真空刃，对路径上的敌人造成120%攻击力的伤害，持续20秒或直至发出8次真空刃。',
-      Refine.Refine4: '造成的伤害提高14%；施放元素爆发后：普通攻击和重击命中时会发出真空刃，对路径上的敌人造成140%攻击力的伤害，持续20秒或直至发出8次真空刃。',
-      Refine.Refine5: '造成的伤害提高16%；施放元素爆发后：普通攻击和重击命中时会发出真空刃，对路径上的敌人造成160%攻击力的伤害，持续20秒或直至发出8次真空刃。',
-    },
-    'specialEffectDamageType': {
-      Stats.DmgBonus: [
-        DamageType.All,
-      ],
-      Stats.PhyDmgBonus: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [
-      Stats.DmgBonus,
-      Stats.PhyDmgBonus,
+    ],
+    'specialEffectComment': '造成的伤害提高%s；施放元素爆发后：普通攻击和重击命中时会发出真空刃，对路径上的敌人造成%s攻击力的伤害，持续20秒或直至发出8次真空刃。',
+    'specialEffectCommentArguments': [
+      ['8%', '10%', '12%', '14%', '16%'],
+      ['80%', '100%', '120%', '140%', '160%'],
     ],
   },
   {
@@ -1410,36 +866,31 @@ const WEAPONS = [
     'baseAttack': 608.0,
     'subStat': Stats.AttackBonus,
     'subStatValue': 49.6,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.AttackBonus: 60.0,
+    'specialEffect': [
+      {
+        'stat': Stats.AttackBonus,
+        'value': [20.0, 25.0, 30.0, 35.0, 40.0],
+        'always': true,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.AttackBonus: 75.0,
+      {
+        'stat': Stats.AttackBonus,
+        'value': [40.0, 50.0, 60.0, 70.0, 80.0],
+        'always': false,
+        'buffType': BuffType.BuffForTeam,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine3: {
-        Stats.AttackBonus: 90.0,
-      },
-      Refine.Refine4: {
-        Stats.AttackBonus: 105.0,
-      },
-      Refine.Refine5: {
-        Stats.AttackBonus: 120.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '攻击力提高20%；攻击命中生命值低于30%的敌人时，队伍中所有成员的攻击力提高40%，持续12秒。该效果30秒只能触发一次。',
-      Refine.Refine2: '攻击力提高25%；攻击命中生命值低于30%的敌人时，队伍中所有成员的攻击力提高50%，持续12秒。该效果30秒只能触发一次。',
-      Refine.Refine3: '攻击力提高30%；攻击命中生命值低于30%的敌人时，队伍中所有成员的攻击力提高60%，持续12秒。该效果30秒只能触发一次。',
-      Refine.Refine4: '攻击力提高35%；攻击命中生命值低于30%的敌人时，队伍中所有成员的攻击力提高70%，持续12秒。该效果30秒只能触发一次。',
-      Refine.Refine5: '攻击力提高40%；攻击命中生命值低于30%的敌人时，队伍中所有成员的攻击力提高80%，持续12秒。该效果30秒只能触发一次。',
-    },
-    'specialEffectDamageType': {
-      Stats.AttackBonus: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '攻击力提高%s；攻击命中生命值低于30%%的敌人时，队伍中所有成员的攻击力提高%s，持续12秒。该效果30秒只能触发一次。',
+    'specialEffectCommentArguments': [
+      ['20%', '25%', '30%', '35%', '40%'],
+      ['40%', '50%', '60%', '70%', '80%'],
+    ],
   },
   {
     'name': '无工之剑',
@@ -1449,45 +900,39 @@ const WEAPONS = [
     'baseAttack': 608.0,
     'subStat': Stats.AttackBonus,
     'subStatValue': 49.6,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.AttackBonus: 40.0,
-        Stats.ShieldStrength: 20.0,
+    'specialEffect': [
+      {
+        'stat': Stats.AttackBonus,
+        'value': [20.0, 25.0, 30.0, 35.0, 40.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.AttackBonus: 50.0,
-        Stats.ShieldStrength: 25.0,
+      {
+        'stat': Stats.AttackBonus,
+        'value': [20.0, 25.0, 30.0, 35.0, 40.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine3: {
-        Stats.AttackBonus: 60.0,
-        Stats.ShieldStrength: 30.0,
+      {
+        'stat': Stats.ShieldStrength,
+        'value': [20.0, 25.0, 30.0, 35.0, 40.0],
+        'always': true,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine4: {
-        Stats.AttackBonus: 70.0,
-        Stats.ShieldStrength: 35.0,
-      },
-      Refine.Refine5: {
-        Stats.AttackBonus: 80.0,
-        Stats.ShieldStrength: 40.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '护盾强效提升20%。攻击命中后的8秒内，攻击力提升4%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
-      Refine.Refine2: '护盾强效提升25%。攻击命中后的8秒内，攻击力提升5%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
-      Refine.Refine3: '护盾强效提升30%。攻击命中后的8秒内，攻击力提升6%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
-      Refine.Refine4: '护盾强效提升35%。攻击命中后的8秒内，攻击力提升7%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
-      Refine.Refine5: '护盾强效提升40%。攻击命中后的8秒内，攻击力提升8%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
-    },
-    'specialEffectDamageType': {
-      Stats.AttackBonus: [
-        DamageType.All,
-      ],
-      Stats.ShieldStrength: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [
-      Stats.ShieldStrength,
+    ],
+    'specialEffectComment': '护盾强效提升%s。攻击命中后的8秒内，攻击力提升%s。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%%。',
+    'specialEffectCommentArguments': [
+      ['20%', '25%', '30%', '35%', '40%'],
+      ['4%', '5%', '6%', '7%', '8%'],
     ],
   },
   {
@@ -1498,41 +943,33 @@ const WEAPONS = [
     'baseAttack': 741.0,
     'subStat': Stats.PhyDmgBonus,
     'subStatValue': 20.7,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.AttackBonus: 36.0,
+    'specialEffect': [
+      {
+        'stat': Stats.AttackBonus,
+        'value': [16.0, 20.0, 24.0, 28.0, 32.0],
+        'always': true,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.AttackBonus: 45.0,
+      {
+        'stat': Stats.AttackBonus,
+        'value': [20.0, 25.0, 30.0, 35.0, 40.0],
+        'always': false,
+        'buffType': BuffType.BuffForTeam,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine3: {
-        Stats.AttackBonus: 54.0,
-      },
-      Refine.Refine4: {
-        Stats.AttackBonus: 63.0,
-      },
-      Refine.Refine5: {
-        Stats.AttackBonus: 72.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1:
-          '飘游风中的「千年的大乐章」的一部分。攻击力提高16%；普通攻击或重击命中敌人时，角色获得一枚低语之符，每0.3秒内至多触发一次。拥有4枚低语之符时，将消耗所有低语之符，使附近的队伍中所有角色获得持续12秒的「千年的大乐章·揭旗之歌」效果：普通攻击速度提高12%，攻击力提升20%。触发后20秒内，无法再次获得低语之符。「千年的大乐章」触发的多种数值效果中，同类数值效果不可叠加。',
-      Refine.Refine2:
-          '飘游风中的「千年的大乐章」的一部分。攻击力提高20%；普通攻击或重击命中敌人时，角色获得一枚低语之符，每0.3秒内至多触发一次。拥有4枚低语之符时，将消耗所有低语之符，使附近的队伍中所有角色获得持续12秒的「千年的大乐章·揭旗之歌」效果：普通攻击速度提高15%，攻击力提升25%。触发后20秒内，无法再次获得低语之符。「千年的大乐章」触发的多种数值效果中，同类数值效果不可叠加。',
-      Refine.Refine3:
-          '飘游风中的「千年的大乐章」的一部分。攻击力提高24%；普通攻击或重击命中敌人时，角色获得一枚低语之符，每0.3秒内至多触发一次。拥有4枚低语之符时，将消耗所有低语之符，使附近的队伍中所有角色获得持续12秒的「千年的大乐章·揭旗之歌」效果：普通攻击速度提高18%，攻击力提升30%。触发后20秒内，无法再次获得低语之符。「千年的大乐章」触发的多种数值效果中，同类数值效果不可叠加。',
-      Refine.Refine4:
-          '飘游风中的「千年的大乐章」的一部分。攻击力提高28%；普通攻击或重击命中敌人时，角色获得一枚低语之符，每0.3秒内至多触发一次。拥有4枚低语之符时，将消耗所有低语之符，使附近的队伍中所有角色获得持续12秒的「千年的大乐章·揭旗之歌」效果：普通攻击速度提高21%，攻击力提升35%。触发后20秒内，无法再次获得低语之符。「千年的大乐章」触发的多种数值效果中，同类数值效果不可叠加。',
-      Refine.Refine5:
-          '飘游风中的「千年的大乐章」的一部分。攻击力提高32%；普通攻击或重击命中敌人时，角色获得一枚低语之符，每0.3秒内至多触发一次。拥有4枚低语之符时，将消耗所有低语之符，使附近的队伍中所有角色获得持续12秒的「千年的大乐章·揭旗之歌」效果：普通攻击速度提高24%，攻击力提升40%。触发后20秒内，无法再次获得低语之符。「千年的大乐章」触发的多种数值效果中，同类数值效果不可叠加。',
-    },
-    'specialEffectDamageType': {
-      Stats.AttackBonus: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment':
+        '飘游风中的「千年的大乐章」的一部分。攻击力提高%s；普通攻击或重击命中敌人时，角色获得一枚低语之符，每0.3秒内至多触发一次。拥有4枚低语之符时，将消耗所有低语之符，使附近的队伍中所有角色获得持续12秒的「千年的大乐章·揭旗之歌」效果：普通攻击速度提高%s，攻击力提升%s。触发后20秒内，无法再次获得低语之符。「千年的大乐章」触发的多种数值效果中，同类数值效果不可叠加。',
+    'specialEffectCommentArguments': [
+      ['16%', '20%', '24%', '28%', '32%'],
+      ['12%', '15%', '18%', '21%', '24%'],
+      ['20%', '25%', '30%', '35%', '40%'],
+    ],
   },
   {
     'name': '黑岩刺枪',
@@ -1542,36 +979,21 @@ const WEAPONS = [
     'baseAttack': 510.0,
     'subStat': Stats.CritDmg,
     'subStatValue': 55.1,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.AttackBonus: 36.0,
+    'specialEffect': [
+      {
+        'stat': Stats.AttackBonus,
+        'value': [36.0, 45.0, 54.0, 63.0, 72.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.AttackBonus: 45.0,
-      },
-      Refine.Refine3: {
-        Stats.AttackBonus: 54.0,
-      },
-      Refine.Refine4: {
-        Stats.AttackBonus: 63.0,
-      },
-      Refine.Refine5: {
-        Stats.AttackBonus: 72.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '击败敌人后，攻击力提升12%，持续30秒。该效果至多叠加3层，每层持续时间独立。',
-      Refine.Refine2: '击败敌人后，攻击力提升15%，持续30秒。该效果至多叠加3层，每层持续时间独立。',
-      Refine.Refine3: '击败敌人后，攻击力提升18%，持续30秒。该效果至多叠加3层，每层持续时间独立。',
-      Refine.Refine4: '击败敌人后，攻击力提升21%，持续30秒。该效果至多叠加3层，每层持续时间独立。',
-      Refine.Refine5: '击败敌人后，攻击力提升24%，持续30秒。该效果至多叠加3层，每层持续时间独立。',
-    },
-    'specialEffectDamageType': {
-      Stats.AttackBonus: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '击败敌人后，攻击力提升%s，持续30秒。该效果至多叠加3层，每层持续时间独立。',
+    'specialEffectCommentArguments': [
+      ['12%', '15%', '18%', '21%', '24%'],
+    ],
   },
   {
     'name': '流月针',
@@ -1581,37 +1003,22 @@ const WEAPONS = [
     'baseAttack': 565.0,
     'subStat': Stats.PhyDmgBonus,
     'subStatValue': 34.5,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.ExtraDamageByAttack: 20.0,
+    'specialEffect': [
+      {
+        'stat': Stats.ExtraDamageByAttack,
+        'value': [20.0, 25.0, 30.0, 35.0, 40.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.Normal,
+          DamageType.Charged,
+        ],
       },
-      Refine.Refine2: {
-        Stats.ExtraDamageByAttack: 25.0,
-      },
-      Refine.Refine3: {
-        Stats.ExtraDamageByAttack: 30.0,
-      },
-      Refine.Refine4: {
-        Stats.ExtraDamageByAttack: 35.0,
-      },
-      Refine.Refine5: {
-        Stats.ExtraDamageByAttack: 40.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '获得元素微粒或元素晶球后的5秒内，普通攻击和重击额外造成20%攻击力伤害。',
-      Refine.Refine2: '获得元素微粒或元素晶球后的5秒内，普通攻击和重击额外造成25%攻击力伤害。',
-      Refine.Refine3: '获得元素微粒或元素晶球后的5秒内，普通攻击和重击额外造成30%攻击力伤害。',
-      Refine.Refine4: '获得元素微粒或元素晶球后的5秒内，普通攻击和重击额外造成35%攻击力伤害。',
-      Refine.Refine5: '获得元素微粒或元素晶球后的5秒内，普通攻击和重击额外造成40%攻击力伤害。',
-    },
-    'specialEffectDamageType': {
-      Stats.AttackBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '获得元素微粒或元素晶球后的5秒内，普通攻击和重击额外造成%s攻击力伤害。',
+    'specialEffectCommentArguments': [
+      ['20%', '25%', '30%', '35%', '40%'],
+    ],
   },
   {
     'name': '决斗之枪',
@@ -1621,37 +1028,40 @@ const WEAPONS = [
     'baseAttack': 454.0,
     'subStat': Stats.CritRate,
     'subStatValue': 36.8,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.AttackBonus: 24.0,
+    'specialEffect': [
+      {
+        'stat': Stats.AttackBonus,
+        'value': [24.0, 30.0, 36.0, 42.0, 48.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.AttackBonus: 30.0,
+      {
+        'stat': Stats.AttackBonus,
+        'value': [16.0, 20.0, 24.0, 28.0, 32.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine3: {
-        Stats.AttackBonus: 36.0,
+      {
+        'stat': Stats.DefendBonus,
+        'value': [16.0, 20.0, 24.0, 28.0, 32.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine4: {
-        Stats.AttackBonus: 42.0,
-      },
-      Refine.Refine5: {
-        Stats.AttackBonus: 48.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '身边至少有2个敌人时，获得16%攻击力提升与16%防御力提升；身边的敌人少于2个时，获得24%攻击力提升。',
-      Refine.Refine2: '身边至少有2个敌人时，获得20%攻击力提升与20%防御力提升；身边的敌人少于2个时，获得30%攻击力提升。',
-      Refine.Refine3: '身边至少有2个敌人时，获得24%攻击力提升与24%防御力提升；身边的敌人少于2个时，获得36%攻击力提升。',
-      Refine.Refine4: '身边至少有2个敌人时，获得28%攻击力提升与28%防御力提升；身边的敌人少于2个时，获得42%攻击力提升。',
-      Refine.Refine5: '身边至少有2个敌人时，获得32%攻击力提升与32%防御力提升；身边的敌人少于2个时，获得48%攻击力提升。',
-    },
-    'specialEffectDamageType': {
-      Stats.AttackBonus: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [
-      Stats.AttackBonus,
+    ],
+    'specialEffectComment': '身边至少有2个敌人时，获得%s攻击力提升与%s防御力提升；身边的敌人少于2个时，获得%s攻击力提升。',
+    'specialEffectCommentArguments': [
+      ['16%', '20%', '24%', '28%', '32%'],
+      ['16%', '20%', '24%', '28%', '32%'],
+      ['24%', '30%', '36%', '42%', '48%'],
     ],
   },
   {
@@ -1662,44 +1072,21 @@ const WEAPONS = [
     'baseAttack': 454.0,
     'subStat': Stats.Mastery,
     'subStatValue': 221.0,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.DmgBonus: 20.0,
-        Stats.PhyDmgBonus: 20.0,
+    'specialEffect': [
+      {
+        'stat': Stats.DmgBonus,
+        'value': [20.0, 24.0, 28.0, 32.0, 36.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.DmgBonus: 24.0,
-        Stats.PhyDmgBonus: 24.0,
-      },
-      Refine.Refine3: {
-        Stats.DmgBonus: 28.0,
-        Stats.PhyDmgBonus: 28.0,
-      },
-      Refine.Refine4: {
-        Stats.DmgBonus: 32.0,
-        Stats.PhyDmgBonus: 32.0,
-      },
-      Refine.Refine5: {
-        Stats.DmgBonus: 36.0,
-        Stats.PhyDmgBonus: 36.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '对处于水元素或火元素影响下的敌人，造成的伤害提高20%。',
-      Refine.Refine2: '对处于水元素或火元素影响下的敌人，造成的伤害提高24%。',
-      Refine.Refine3: '对处于水元素或火元素影响下的敌人，造成的伤害提高28%。',
-      Refine.Refine4: '对处于水元素或火元素影响下的敌人，造成的伤害提高32%。',
-      Refine.Refine5: '对处于水元素或火元素影响下的敌人，造成的伤害提高36%。',
-    },
-    'specialEffectDamageType': {
-      Stats.DmgBonus: [
-        DamageType.All,
-      ],
-      Stats.PhyDmgBonus: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '对处于水元素或火元素影响下的敌人，造成的伤害提高%s。',
+    'specialEffectCommentArguments': [
+      ['20%', '24%', '28%', '32%', '36%'],
+    ],
   },
   {
     'name': '千岩长枪',
@@ -1709,44 +1096,31 @@ const WEAPONS = [
     'baseAttack': 565.0,
     'subStat': Stats.AttackBonus,
     'subStatValue': 27.6,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.AttackBonus: 28.0,
-        Stats.CritRate: 12.0,
+    'specialEffect': [
+      {
+        'stat': Stats.AttackBonus,
+        'value': [28.0, 32.0, 36.0, 40.0, 44.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.AttackBonus: 32.0,
-        Stats.CritRate: 16.0,
+      {
+        'stat': Stats.CritRate,
+        'value': [12.0, 16.0, 20.0, 24.0, 28.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine3: {
-        Stats.AttackBonus: 36.0,
-        Stats.CritRate: 20.0,
-      },
-      Refine.Refine4: {
-        Stats.AttackBonus: 40.0,
-        Stats.CritRate: 24.0,
-      },
-      Refine.Refine5: {
-        Stats.AttackBonus: 44.0,
-        Stats.CritRate: 28.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '队伍中每有一位璃月角色，装备该武器的角色便获得7%攻击力提升与3%暴击率提升。至多获得4层提升效果。',
-      Refine.Refine2: '队伍中每有一位璃月角色，装备该武器的角色便获得8%攻击力提升与4%暴击率提升。至多获得4层提升效果。',
-      Refine.Refine3: '队伍中每有一位璃月角色，装备该武器的角色便获得9%攻击力提升与5%暴击率提升。至多获得4层提升效果。',
-      Refine.Refine4: '队伍中每有一位璃月角色，装备该武器的角色便获得10%攻击力提升与6%暴击率提升。至多获得4层提升效果。',
-      Refine.Refine5: '队伍中每有一位璃月角色，装备该武器的角色便获得11%攻击力提升与7%暴击率提升。至多获得4层提升效果。',
-    },
-    'specialEffectDamageType': {
-      Stats.AttackBonus: [
-        DamageType.All,
-      ],
-      Stats.CritRate: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '队伍中每有一位璃月角色，装备该武器的角色便获得%s攻击力提升与%s暴击率提升。至多获得4层提升效果。',
+    'specialEffectCommentArguments': [
+      ['7%', '8%', '9%', '10%', '11%'],
+      ['3%', '4%', '5%', '6%', '7%'],
+    ],
   },
   {
     'name': '试做星镰',
@@ -1756,46 +1130,22 @@ const WEAPONS = [
     'baseAttack': 510.0,
     'subStat': Stats.Recharge,
     'subStatValue': 45.9,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.DmgBonus: 16.0,
-        Stats.PhyDmgBonus: 16.0,
+    'specialEffect': [
+      {
+        'stat': Stats.DmgBonus,
+        'value': [16.0, 20.0, 24.0, 28.0, 32.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.Normal,
+          DamageType.Charged,
+        ],
       },
-      Refine.Refine2: {
-        Stats.DmgBonus: 20.0,
-        Stats.PhyDmgBonus: 20.0,
-      },
-      Refine.Refine3: {
-        Stats.DmgBonus: 24.0,
-        Stats.PhyDmgBonus: 24.0,
-      },
-      Refine.Refine4: {
-        Stats.DmgBonus: 28.0,
-        Stats.PhyDmgBonus: 28.0,
-      },
-      Refine.Refine5: {
-        Stats.DmgBonus: 32.0,
-        Stats.PhyDmgBonus: 32.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '施放元素战技后，普通攻击和重击造成的伤害提高8%。该效果持续12秒，最多叠加2层。',
-      Refine.Refine2: '施放元素战技后，普通攻击和重击造成的伤害提高10%。该效果持续12秒，最多叠加2层。',
-      Refine.Refine3: '施放元素战技后，普通攻击和重击造成的伤害提高12%。该效果持续12秒，最多叠加2层。',
-      Refine.Refine4: '施放元素战技后，普通攻击和重击造成的伤害提高14%。该效果持续12秒，最多叠加2层。',
-      Refine.Refine5: '施放元素战技后，普通攻击和重击造成的伤害提高16%。该效果持续12秒，最多叠加2层。',
-    },
-    'specialEffectDamageType': {
-      Stats.DmgBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-      ],
-      Stats.PhyDmgBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '施放元素战技后，普通攻击和重击造成的伤害提高%s。该效果持续12秒，最多叠加2层。',
+    'specialEffectCommentArguments': [
+      ['8%', '10%', '12%', '14%', '16%'],
+    ],
   },
   {
     'name': '西风长枪',
@@ -1805,22 +1155,12 @@ const WEAPONS = [
     'baseAttack': 565.0,
     'subStat': Stats.Recharge,
     'subStatValue': 30.6,
-    'specialEffect': {
-      Refine.Refine1: {},
-      Refine.Refine2: {},
-      Refine.Refine3: {},
-      Refine.Refine4: {},
-      Refine.Refine5: {},
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '攻击造成暴击时，有60%的几率产生少量元素微粒，能为角色恢复6点元素能量。该效果每12秒只能触发一次。',
-      Refine.Refine2: '攻击造成暴击时，有70%的几率产生少量元素微粒，能为角色恢复6点元素能量。该效果每10.5秒只能触发一次。',
-      Refine.Refine3: '攻击造成暴击时，有80%的几率产生少量元素微粒，能为角色恢复6点元素能量。该效果每9秒只能触发一次。',
-      Refine.Refine4: '攻击造成暴击时，有90%的几率产生少量元素微粒，能为角色恢复6点元素能量。该效果每7.5秒只能触发一次。',
-      Refine.Refine5: '攻击造成暴击时，有100%的几率产生少量元素微粒，能为角色恢复6点元素能量。该效果每6秒只能触发一次。',
-    },
-    'specialEffectDamageType': {},
-    'specialEffectAlways': [],
+    'specialEffect': [],
+    'specialEffectComment': '攻击造成暴击时，有%s的几率产生少量元素微粒，能为角色恢复6点元素能量。该效果每%s只能触发一次。',
+    'specialEffectCommentArguments': [
+      ['60%', '70%', '80%', '90%', '100%'],
+      ['12秒', '10.5秒', '9秒', '7.5秒', '6秒'],
+    ],
   },
   {
     'name': '宗室猎枪',
@@ -1830,36 +1170,21 @@ const WEAPONS = [
     'baseAttack': 565.0,
     'subStat': Stats.AttackBonus,
     'subStatValue': 27.6,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.CritRate: 40.0,
+    'specialEffect': [
+      {
+        'stat': Stats.CritRate,
+        'value': [40.0, 50.0, 60.0, 70.0, 80.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.CritRate: 50.0,
-      },
-      Refine.Refine3: {
-        Stats.CritRate: 60.0,
-      },
-      Refine.Refine4: {
-        Stats.CritRate: 70.0,
-      },
-      Refine.Refine5: {
-        Stats.CritRate: 80.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '攻击造成伤害时，暴击率提升8%，最多堆叠5次。攻击造成暴击后，移除已有的专注效果。',
-      Refine.Refine2: '攻击造成伤害时，暴击率提升10%，最多堆叠5次。攻击造成暴击后，移除已有的专注效果。',
-      Refine.Refine3: '攻击造成伤害时，暴击率提升12%，最多堆叠5次。攻击造成暴击后，移除已有的专注效果。',
-      Refine.Refine4: '攻击造成伤害时，暴击率提升14%，最多堆叠5次。攻击造成暴击后，移除已有的专注效果。',
-      Refine.Refine5: '攻击造成伤害时，暴击率提升16%，最多堆叠5次。攻击造成暴击后，移除已有的专注效果。',
-    },
-    'specialEffectDamageType': {
-      Stats.CritRate: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '攻击造成伤害时，暴击率提升%s，最多堆叠5次。攻击造成暴击后，移除已有的专注效果。',
+    'specialEffectCommentArguments': [
+      ['8%', '10%', '12%', '14%', '16%'],
+    ],
   },
   {
     'name': '龙脊长枪',
@@ -1869,22 +1194,13 @@ const WEAPONS = [
     'baseAttack': 454.0,
     'subStat': Stats.PhyDmgBonus,
     'subStatValue': 69.0,
-    'specialEffect': {
-      Refine.Refine1: {},
-      Refine.Refine2: {},
-      Refine.Refine3: {},
-      Refine.Refine4: {},
-      Refine.Refine5: {},
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '普通攻击与重击命中敌人时，有60%概率在敌人上方生成恒冰晶核并坠落，造成80%攻击力的范围伤害。若敌人处于冰元素影响下，则造成200%攻击力的伤害。该效果每10秒至多触发一次。',
-      Refine.Refine2: '普通攻击与重击命中敌人时，有70%概率在敌人上方生成恒冰晶核并坠落，造成95%攻击力的范围伤害。若敌人处于冰元素影响下，则造成240%攻击力的伤害。该效果每10秒至多触发一次。',
-      Refine.Refine3: '普通攻击与重击命中敌人时，有80%概率在敌人上方生成恒冰晶核并坠落，造成110%攻击力的范围伤害。若敌人处于冰元素影响下，则造成280%攻击力的伤害。该效果每10秒至多触发一次。',
-      Refine.Refine4: '普通攻击与重击命中敌人时，有90%概率在敌人上方生成恒冰晶核并坠落，造成125%攻击力的范围伤害。若敌人处于冰元素影响下，则造成320%攻击力的伤害。该效果每10秒至多触发一次。',
-      Refine.Refine5: '普通攻击与重击命中敌人时，有100%概率在敌人上方生成恒冰晶核并坠落，造成140%攻击力的范围伤害。若敌人处于冰元素影响下，则造成360%攻击力的伤害。该效果每10秒至多触发一次。',
-    },
-    'specialEffectDamageType': {},
-    'specialEffectAlways': [],
+    'specialEffect': [],
+    'specialEffectComment': '普通攻击与重击命中敌人时，有%s概率在敌人上方生成恒冰晶核并坠落，造成%s攻击力的范围伤害。若敌人处于冰元素影响下，则造成%s攻击力的伤害。该效果每10秒至多触发一次。',
+    'specialEffectCommentArguments': [
+      ['60%', '70%', '80%', '90%', '100%'],
+      ['80%', '95%', '110%', '125%', '140%'],
+      ['200%', '240%', '280%', '320%', '360%'],
+    ],
   },
   {
     'name': '喜多院十文字',
@@ -1894,44 +1210,23 @@ const WEAPONS = [
     'baseAttack': 565.0,
     'subStat': Stats.Mastery,
     'subStatValue': 110.0,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.DmgBonus: 6.0,
-        Stats.PhyDmgBonus: 6.0,
+    'specialEffect': [
+      {
+        'stat': Stats.DmgBonus,
+        'value': [6.0, 7.5, 9.0, 10.5, 12.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.SkillE,
+          DamageType.SkillESpecial,
+        ],
       },
-      Refine.Refine2: {
-        Stats.DmgBonus: 7.5,
-        Stats.PhyDmgBonus: 7.5,
-      },
-      Refine.Refine3: {
-        Stats.DmgBonus: 9.0,
-        Stats.PhyDmgBonus: 9.0,
-      },
-      Refine.Refine4: {
-        Stats.DmgBonus: 10.5,
-        Stats.PhyDmgBonus: 10.5,
-      },
-      Refine.Refine5: {
-        Stats.DmgBonus: 12.0,
-        Stats.PhyDmgBonus: 12.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '元素战技造成的伤害提升6%。元素战技命中后，角色流失3点元素能量，并在此后的6秒内，每2秒恢复3点元素能量。该效果每10秒至多触发一次，角色处于队伍后台也能触发。',
-      Refine.Refine2: '元素战技造成的伤害提升7.5%。元素战技命中后，角色流失3点元素能量，并在此后的6秒内，每2秒恢复3.5点元素能量。该效果每10秒至多触发一次，角色处于队伍后台也能触发。',
-      Refine.Refine3: '元素战技造成的伤害提升9%。元素战技命中后，角色流失3点元素能量，并在此后的6秒内，每2秒恢复4点元素能量。该效果每10秒至多触发一次，角色处于队伍后台也能触发。',
-      Refine.Refine4: '元素战技造成的伤害提升10.5%。元素战技命中后，角色流失3点元素能量，并在此后的6秒内，每2秒恢复4.5点元素能量。该效果每10秒至多触发一次，角色处于队伍后台也能触发。',
-      Refine.Refine5: '元素战技造成的伤害提升12%。元素战技命中后，角色流失3点元素能量，并在此后的6秒内，每2秒恢复5点元素能量。该效果每10秒至多触发一次，角色处于队伍后台也能触发。',
-    },
-    'specialEffectDamageType': {
-      Stats.DmgBonus: [
-        DamageType.SkillE,
-      ],
-      Stats.PhyDmgBonus: [
-        DamageType.SkillE,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '元素战技造成的伤害提升%s。元素战技命中后，角色流失3点元素能量，并在此后的6秒内，每2秒恢复%s元素能量。该效果每10秒至多触发一次，角色处于队伍后台也能触发。',
+    'specialEffectCommentArguments': [
+      ['6%', '7.5%', '9%', '10.5%', '12%'],
+      ['3点', '3.5点', '4点', '4.5点', '5点'],
+    ],
   },
   {
     'name': '「渔获」',
@@ -1941,55 +1236,33 @@ const WEAPONS = [
     'baseAttack': 510.0,
     'subStat': Stats.Recharge,
     'subStatValue': 45.9,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.DmgBonus: 16.0,
-        Stats.PhyDmgBonus: 16.0,
-        Stats.CritRate: 6.0,
+    'specialEffect': [
+      {
+        'stat': Stats.DmgBonus,
+        'value': [16.0, 20.0, 24.0, 28.0, 32.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.SkillQ,
+          DamageType.SkillQSpecial,
+        ],
       },
-      Refine.Refine2: {
-        Stats.DmgBonus: 20.0,
-        Stats.PhyDmgBonus: 20.0,
-        Stats.CritRate: 7.5,
+      {
+        'stat': Stats.CritRate,
+        'value': [6.0, 7.5, 9.0, 10.5, 12.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.SkillQ,
+          DamageType.SkillQSpecial,
+        ],
       },
-      Refine.Refine3: {
-        Stats.DmgBonus: 24.0,
-        Stats.PhyDmgBonus: 24.0,
-        Stats.CritRate: 9.0,
-      },
-      Refine.Refine4: {
-        Stats.DmgBonus: 28.0,
-        Stats.PhyDmgBonus: 28.0,
-        Stats.CritRate: 10.5,
-      },
-      Refine.Refine5: {
-        Stats.DmgBonus: 32.0,
-        Stats.PhyDmgBonus: 32.0,
-        Stats.CritRate: 12.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '元素爆发造成的伤害提升16%，元素爆发的暴击率提升6%。',
-      Refine.Refine2: '元素爆发造成的伤害提升20%，元素爆发的暴击率提升7.5%。',
-      Refine.Refine3: '元素爆发造成的伤害提升24%，元素爆发的暴击率提升9%。',
-      Refine.Refine4: '元素爆发造成的伤害提升28%，元素爆发的暴击率提升10.5%。',
-      Refine.Refine5: '元素爆发造成的伤害提升32%，元素爆发的暴击率提升12%。',
-    },
-    'specialEffectDamageType': {
-      Stats.DmgBonus: [
-        DamageType.SkillQ,
-        DamageType.SkillQSpecial,
-      ],
-      Stats.PhyDmgBonus: [
-        DamageType.SkillQ,
-        DamageType.SkillQSpecial,
-      ],
-      Stats.CritRate: [
-        DamageType.SkillQ,
-        DamageType.SkillQSpecial,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '元素爆发造成的伤害提升%s，元素爆发的暴击率提升%s。',
+    'specialEffectCommentArguments': [
+      ['16%', '20%', '24%', '28%', '32%'],
+      ['6%', '7.5%', '9%', '10.5%', '12%'],
+    ],
   },
   {
     'name': '断浪长鳍',
@@ -1999,46 +1272,23 @@ const WEAPONS = [
     'baseAttack': 620.0,
     'subStat': Stats.AttackBonus,
     'subStatValue': 13.8,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.DmgBonus: 40.0,
-        Stats.PhyDmgBonus: 40.0,
+    'specialEffect': [
+      {
+        'stat': Stats.DmgBonus,
+        'value': [40.0, 50.0, 60.0, 70.0, 80.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.SkillQ,
+          DamageType.SkillQSpecial,
+        ],
       },
-      Refine.Refine2: {
-        Stats.DmgBonus: 50.0,
-        Stats.PhyDmgBonus: 50.0,
-      },
-      Refine.Refine3: {
-        Stats.DmgBonus: 60.0,
-        Stats.PhyDmgBonus: 60.0,
-      },
-      Refine.Refine4: {
-        Stats.DmgBonus: 70.0,
-        Stats.PhyDmgBonus: 70.0,
-      },
-      Refine.Refine5: {
-        Stats.DmgBonus: 80.0,
-        Stats.PhyDmgBonus: 80.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.12%，通过这种方式，元素爆发造成的伤害至多提高40%。',
-      Refine.Refine2: '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.15%，通过这种方式，元素爆发造成的伤害至多提高50%。',
-      Refine.Refine3: '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.18%，通过这种方式，元素爆发造成的伤害至多提高60%。',
-      Refine.Refine4: '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.21%，通过这种方式，元素爆发造成的伤害至多提高70%。',
-      Refine.Refine5: '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.24%，通过这种方式，元素爆发造成的伤害至多提高80%。',
-    },
-    'specialEffectDamageType': {
-      Stats.DmgBonus: [
-        DamageType.SkillQ,
-        DamageType.SkillQSpecial,
-      ],
-      Stats.PhyDmgBonus: [
-        DamageType.SkillQ,
-        DamageType.SkillQSpecial,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高%s，通过这种方式，元素爆发造成的伤害至多提高%s。',
+    'specialEffectCommentArguments': [
+      ['0.12%', '0.15%', '0.18%', '0.21%', '0.24%'],
+      ['40%', '50%', '60%', '70%', '80%'],
+    ],
   },
   {
     'name': '贯虹之槊',
@@ -2048,45 +1298,39 @@ const WEAPONS = [
     'baseAttack': 608.0,
     'subStat': Stats.AttackBonus,
     'subStatValue': 49.6,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.AttackBonus: 40.0,
-        Stats.ShieldStrength: 20.0,
+    'specialEffect': [
+      {
+        'stat': Stats.AttackBonus,
+        'value': [20.0, 25.0, 30.0, 35.0, 40.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.AttackBonus: 50.0,
-        Stats.ShieldStrength: 25.0,
+      {
+        'stat': Stats.AttackBonus,
+        'value': [20.0, 25.0, 30.0, 35.0, 40.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine3: {
-        Stats.AttackBonus: 60.0,
-        Stats.ShieldStrength: 30.0,
+      {
+        'stat': Stats.ShieldStrength,
+        'value': [20.0, 25.0, 30.0, 35.0, 40.0],
+        'always': true,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine4: {
-        Stats.AttackBonus: 70.0,
-        Stats.ShieldStrength: 35.0,
-      },
-      Refine.Refine5: {
-        Stats.AttackBonus: 80.0,
-        Stats.ShieldStrength: 40.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '护盾强效提升20%。攻击命中后的8秒内，攻击力提升4%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
-      Refine.Refine2: '护盾强效提升25%。攻击命中后的8秒内，攻击力提升5%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
-      Refine.Refine3: '护盾强效提升30%。攻击命中后的8秒内，攻击力提升6%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
-      Refine.Refine4: '护盾强效提升35%。攻击命中后的8秒内，攻击力提升7%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
-      Refine.Refine5: '护盾强效提升40%。攻击命中后的8秒内，攻击力提升8%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
-    },
-    'specialEffectDamageType': {
-      Stats.AttackBonus: [
-        DamageType.All,
-      ],
-      Stats.ShieldStrength: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [
-      Stats.ShieldStrength,
+    ],
+    'specialEffectComment': '护盾强效提升%s。攻击命中后的8秒内，攻击力提升%s。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%%。',
+    'specialEffectCommentArguments': [
+      ['20%', '25%', '30%', '35%', '40%'],
+      ['4%', '5%', '6%', '7%', '8%'],
     ],
   },
   {
@@ -2097,52 +1341,31 @@ const WEAPONS = [
     'baseAttack': 674.0,
     'subStat': Stats.CritRate,
     'subStatValue': 22.1,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.AttackBonus: 22.4,
-        Stats.DmgBonus: 12.0,
-        Stats.PhyDmgBonus: 12.0,
+    'specialEffect': [
+      {
+        'stat': Stats.AttackBonus,
+        'value': [22.4, 27.3, 32.2, 37.1, 42.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.AttackBonus: 27.3,
-        Stats.DmgBonus: 15.0,
-        Stats.PhyDmgBonus: 15.0,
+      {
+        'stat': Stats.DmgBonus,
+        'value': [12.0, 15.0, 18.0, 21.0, 24.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine3: {
-        Stats.AttackBonus: 32.2,
-        Stats.DmgBonus: 18.0,
-        Stats.PhyDmgBonus: 18.0,
-      },
-      Refine.Refine4: {
-        Stats.AttackBonus: 37.1,
-        Stats.DmgBonus: 21.0,
-        Stats.PhyDmgBonus: 21.0,
-      },
-      Refine.Refine5: {
-        Stats.AttackBonus: 42.0,
-        Stats.DmgBonus: 24.0,
-        Stats.PhyDmgBonus: 24.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '命中敌人时自身攻击力提高3.2%，持续6秒，最高可以叠加7层。该效果每0.3秒最多触发一次。满层状态时伤害提升12%。',
-      Refine.Refine2: '命中敌人时自身攻击力提高3.9%，持续6秒，最高可以叠加7层。该效果每0.3秒最多触发一次。满层状态时伤害提升15%。',
-      Refine.Refine3: '命中敌人时自身攻击力提高4.6%，持续6秒，最高可以叠加7层。该效果每0.3秒最多触发一次。满层状态时伤害提升18%。',
-      Refine.Refine4: '命中敌人时自身攻击力提高5.3%，持续6秒，最高可以叠加7层。该效果每0.3秒最多触发一次。满层状态时伤害提升21%。',
-      Refine.Refine5: '命中敌人时自身攻击力提高6%，持续6秒，最高可以叠加7层。该效果每0.3秒最多触发一次。满层状态时伤害提升24%。',
-    },
-    'specialEffectDamageType': {
-      Stats.AttackBonus: [
-        DamageType.All,
-      ],
-      Stats.DmgBonus: [
-        DamageType.All,
-      ],
-      Stats.PhyDmgBonus: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '命中敌人时自身攻击力提高%s，持续6秒，最高可以叠加7层。该效果每0.3秒最多触发一次。满层状态时伤害提升%s。',
+    'specialEffectCommentArguments': [
+      ['3.2%', '3.9%', '4.6%', '5.3%', '6%'],
+      ['12%', '15%', '18%', '21%', '24%'],
+    ],
   },
   {
     'name': '天空之脊',
@@ -2152,37 +1375,21 @@ const WEAPONS = [
     'baseAttack': 674.0,
     'subStat': Stats.Recharge,
     'subStatValue': 36.8,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.CritRate: 8.0,
+    'specialEffect': [
+      {
+        'stat': Stats.CritRate,
+        'value': [8.0, 10.0, 12.0, 14.0, 16.0],
+        'always': true,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.CritRate: 10.0,
-      },
-      Refine.Refine3: {
-        Stats.CritRate: 12.0,
-      },
-      Refine.Refine4: {
-        Stats.CritRate: 14.0,
-      },
-      Refine.Refine5: {
-        Stats.CritRate: 16.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '暴击率提升8%，普通攻击速度提升12%。此外，普通攻击与重击命中敌人时，有50%概率触发真空刃，在小范围内造成额外40%攻击力的伤害。该效果每2秒至多触发一次。',
-      Refine.Refine2: '暴击率提升10%，普通攻击速度提升12%。此外，普通攻击与重击命中敌人时，有50%概率触发真空刃，在小范围内造成额外55%攻击力的伤害。该效果每2秒至多触发一次。',
-      Refine.Refine3: '暴击率提升12%，普通攻击速度提升12%。此外，普通攻击与重击命中敌人时，有50%概率触发真空刃，在小范围内造成额外70%攻击力的伤害。该效果每2秒至多触发一次。',
-      Refine.Refine4: '暴击率提升14%，普通攻击速度提升12%。此外，普通攻击与重击命中敌人时，有50%概率触发真空刃，在小范围内造成额外85%攻击力的伤害。该效果每2秒至多触发一次。',
-      Refine.Refine5: '暴击率提升16%，普通攻击速度提升12%。此外，普通攻击与重击命中敌人时，有50%概率触发真空刃，在小范围内造成额外100%攻击力的伤害。该效果每2秒至多触发一次。',
-    },
-    'specialEffectDamageType': {
-      Stats.CritRate: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [
-      Stats.CritRate,
+    ],
+    'specialEffectComment': '暴击率提升%s，普通攻击速度提升12%%。此外，普通攻击与重击命中敌人时，有50%%概率触发真空刃，在小范围内造成额外%s攻击力的伤害。该效果每2秒至多触发一次。',
+    'specialEffectCommentArguments': [
+      ['8%', '10%', '12%', '14%', '16%'],
+      ['40%', '55%', '70%', '85%', '100%'],
     ],
   },
   {
@@ -2193,45 +1400,40 @@ const WEAPONS = [
     'baseAttack': 608.0,
     'subStat': Stats.CritDmg,
     'subStatValue': 66.2,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.HpBonus: 20.0,
-        Stats.AttackBonusByHp: 1.8,
+    'specialEffect': [
+      {
+        'stat': Stats.HpBonus,
+        'value': [20.0, 25.0, 30.0, 35.0, 40.0],
+        'always': true,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.HpBonus: 25.0,
-        Stats.AttackBonusByHp: 2.2,
+      {
+        'stat': Stats.AttackBonusByHp,
+        'value': [0.8, 1.0, 1.2, 1.4, 1.6],
+        'always': true,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine3: {
-        Stats.HpBonus: 30.0,
-        Stats.AttackBonusByHp: 2.6,
+      {
+        'stat': Stats.AttackBonusByHp,
+        'value': [1.0, 1.2, 1.4, 1.6, 1.8],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine4: {
-        Stats.HpBonus: 35.0,
-        Stats.AttackBonusByHp: 3.0,
-      },
-      Refine.Refine5: {
-        Stats.HpBonus: 40.0,
-        Stats.AttackBonusByHp: 3.4,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '生命值提升20%。此外，基于装备该武器的角色生命值上限的0.8%，获得攻击力加成。当装备该武器的角色生命值低于50%时，进一步获得1%基于生命值上限的攻击力提升。',
-      Refine.Refine2: '生命值提升25%。此外，基于装备该武器的角色生命值上限的1%，获得攻击力加成。当装备该武器的角色生命值低于50%时，进一步获得1.2%基于生命值上限的攻击力提升。',
-      Refine.Refine3: '生命值提升30%。此外，基于装备该武器的角色生命值上限的1.2%，获得攻击力加成。当装备该武器的角色生命值低于50%时，进一步获得1.4%基于生命值上限的攻击力提升。',
-      Refine.Refine4: '生命值提升35%。此外，基于装备该武器的角色生命值上限的1.4%，获得攻击力加成。当装备该武器的角色生命值低于50%时，进一步获得1.6%基于生命值上限的攻击力提升。',
-      Refine.Refine5: '生命值提升40%。此外，基于装备该武器的角色生命值上限的1.6%，获得攻击力加成。当装备该武器的角色生命值低于50%时，进一步获得1.8%基于生命值上限的攻击力提升。',
-    },
-    'specialEffectDamageType': {
-      Stats.HpBonus: [
-        DamageType.All,
-      ],
-      Stats.AttackBonusByHp: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [
-      Stats.HpBonus,
+    ],
+    'specialEffectComment': '生命值提升%s。此外，基于装备该武器的角色生命值上限的%s，获得攻击力加成。当装备该武器的角色生命值低于50%%时，进一步获得%s基于生命值上限的攻击力提升。',
+    'specialEffectCommentArguments': [
+      ['20%', '25%', '30%', '35%', '40%'],
+      ['0.8%', '1%', '1.2%', '1.4%', '1.6%'],
+      ['1%', '1.2%', '1.4%', '1.6%', '1.8%'],
     ],
   },
   {
@@ -2242,44 +1444,32 @@ const WEAPONS = [
     'baseAttack': 608.0,
     'subStat': Stats.Recharge,
     'subStatValue': 55.1,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.AttackBonusByRechargeOver100: 28.0,
-        Stats.Recharge: 30.0,
+    'specialEffect': [
+      {
+        'stat': Stats.AttackBonusByRechargeOver100,
+        'value': [28.0, 35.0, 42.0, 49.0, 56.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.AttackBonusByRechargeOver100: 35.0,
-        Stats.Recharge: 35.0,
+      {
+        'stat': Stats.Recharge,
+        'value': [30.0, 35.0, 40.0, 45.0, 50.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine3: {
-        Stats.AttackBonusByRechargeOver100: 42.0,
-        Stats.Recharge: 40.0,
-      },
-      Refine.Refine4: {
-        Stats.AttackBonusByRechargeOver100: 49.0,
-        Stats.Recharge: 45.0,
-      },
-      Refine.Refine5: {
-        Stats.AttackBonusByRechargeOver100: 56.0,
-        Stats.Recharge: 50.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '攻击力获得提升，提升程度相当于元素充能效率超出100%部分的28%，至多通过这种方式提升80%。施放元素爆发后的12秒内，元素充能效率提升30%。',
-      Refine.Refine2: '攻击力获得提升，提升程度相当于元素充能效率超出100%部分的35%，至多通过这种方式提升90%。施放元素爆发后的12秒内，元素充能效率提升35%。',
-      Refine.Refine3: '攻击力获得提升，提升程度相当于元素充能效率超出100%部分的42%，至多通过这种方式提升100%。施放元素爆发后的12秒内，元素充能效率提升40%。',
-      Refine.Refine4: '攻击力获得提升，提升程度相当于元素充能效率超出100%部分的49%，至多通过这种方式提升110%。施放元素爆发后的12秒内，元素充能效率提升45%。',
-      Refine.Refine5: '攻击力获得提升，提升程度相当于元素充能效率超出100%部分的56%，至多通过这种方式提升120%。施放元素爆发后的12秒内，元素充能效率提升50%。',
-    },
-    'specialEffectDamageType': {
-      Stats.AttackBonusByRechargeOver100: [
-        DamageType.All,
-      ],
-      Stats.Recharge: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '攻击力获得提升，提升程度相当于元素充能效率超出100%%部分的%s，至多通过这种方式提升%s。施放元素爆发后的12秒内，元素充能效率提升%s。',
+    'specialEffectCommentArguments': [
+      ['28%', '35%', '42%', '49%', '56%'],
+      ['80%', '90%', '100%', '110%', '120%'],
+      ['30%', '35%', '40%', '45%', '50%'],
+    ],
   },
   {
     'name': '绝弦',
@@ -2289,48 +1479,24 @@ const WEAPONS = [
     'baseAttack': 510.0,
     'subStat': Stats.Mastery,
     'subStatValue': 165.0,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.DmgBonus: 24.0,
-        Stats.PhyDmgBonus: 24.0,
+    'specialEffect': [
+      {
+        'stat': Stats.DmgBonus,
+        'value': [24.0, 30.0, 36.0, 42.0, 48.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.SkillE,
+          DamageType.SkillESpecial,
+          DamageType.SkillQ,
+          DamageType.SkillQSpecial,
+        ],
       },
-      Refine.Refine2: {
-        Stats.DmgBonus: 30.0,
-        Stats.PhyDmgBonus: 30.0,
-      },
-      Refine.Refine3: {
-        Stats.DmgBonus: 36.0,
-        Stats.PhyDmgBonus: 36.0,
-      },
-      Refine.Refine4: {
-        Stats.DmgBonus: 42.0,
-        Stats.PhyDmgBonus: 42.0,
-      },
-      Refine.Refine5: {
-        Stats.DmgBonus: 48.0,
-        Stats.PhyDmgBonus: 48.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '元素战技与元素爆发的伤害提高24%。',
-      Refine.Refine2: '元素战技与元素爆发的伤害提高30%。',
-      Refine.Refine3: '元素战技与元素爆发的伤害提高36%。',
-      Refine.Refine4: '元素战技与元素爆发的伤害提高42%。',
-      Refine.Refine5: '元素战技与元素爆发的伤害提高48%。',
-    },
-    'specialEffectDamageType': {
-      Stats.DmgBonus: [
-        DamageType.SkillE,
-        DamageType.SkillQ,
-        DamageType.SkillQSpecial,
-      ],
-      Stats.PhyDmgBonus: [
-        DamageType.SkillE,
-        DamageType.SkillQ,
-        DamageType.SkillQSpecial,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '元素战技与元素爆发的伤害提高%s。',
+    'specialEffectCommentArguments': [
+      ['24%', '30%', '36%', '42%', '48%'],
+    ],
   },
   {
     'name': '暗巷猎手',
@@ -2340,44 +1506,23 @@ const WEAPONS = [
     'baseAttack': 565.0,
     'subStat': Stats.AttackBonus,
     'subStatValue': 27.3,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.DmgBonus: 20.0,
-        Stats.PhyDmgBonus: 20.0,
+    'specialEffect': [
+      {
+        'stat': Stats.DmgBonus,
+        'value': [20.0, 25.0, 30.0, 35.0, 40.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.DmgBonus: 25.0,
-        Stats.PhyDmgBonus: 25.0,
-      },
-      Refine.Refine3: {
-        Stats.DmgBonus: 30.0,
-        Stats.PhyDmgBonus: 30.0,
-      },
-      Refine.Refine4: {
-        Stats.DmgBonus: 35.0,
-        Stats.PhyDmgBonus: 35.0,
-      },
-      Refine.Refine5: {
-        Stats.DmgBonus: 40.0,
-        Stats.PhyDmgBonus: 40.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '装备该武器的角色处于队伍后台时，每1秒角色造成的伤害提升2%，最多通过这种方式获得20%的伤害提升；在场上超过4秒后，上述伤害提升效果每1秒会流失4%，直到降低至0%。',
-      Refine.Refine2: '装备该武器的角色处于队伍后台时，每1秒角色造成的伤害提升2.5%，最多通过这种方式获得25%的伤害提升；在场上超过4秒后，上述伤害提升效果每1秒会流失5%，直到降低至0%。',
-      Refine.Refine3: '装备该武器的角色处于队伍后台时，每1秒角色造成的伤害提升3%，最多通过这种方式获得30%的伤害提升；在场上超过4秒后，上述伤害提升效果每1秒会流失6%，直到降低至0%。',
-      Refine.Refine4: '装备该武器的角色处于队伍后台时，每1秒角色造成的伤害提升3.5%，最多通过这种方式获得35%的伤害提升；在场上超过4秒后，上述伤害提升效果每1秒会流失7%，直到降低至0%。',
-      Refine.Refine5: '装备该武器的角色处于队伍后台时，每1秒角色造成的伤害提升4%，最多通过这种方式获得40%的伤害提升；在场上超过4秒后，上述伤害提升效果每1秒会流失8%，直到降低至0%。',
-    },
-    'specialEffectDamageType': {
-      Stats.DmgBonus: [
-        DamageType.All,
-      ],
-      Stats.PhyDmgBonus: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '装备该武器的角色处于队伍后台时，每1秒角色造成的伤害提升%s，最多通过这种方式获得%s的伤害提升；在场上超过4秒后，上述伤害提升效果每1秒会流失%s，直到降低至0%。',
+    'specialEffectCommentArguments': [
+      ['2%', '2.5%', '3%', '3.5%', '4%'],
+      ['20%', '25%', '30%', '35%', '40%'],
+      ['4%', '5%', '6%', '7%', '8%'],
+    ],
   },
   {
     'name': '黑岩战弓',
@@ -2387,36 +1532,21 @@ const WEAPONS = [
     'baseAttack': 565.0,
     'subStat': Stats.CritDmg,
     'subStatValue': 36.8,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.AttackBonus: 36.0,
+    'specialEffect': [
+      {
+        'stat': Stats.AttackBonus,
+        'value': [36.0, 45.0, 54.0, 63.0, 72.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.AttackBonus: 45.0,
-      },
-      Refine.Refine3: {
-        Stats.AttackBonus: 54.0,
-      },
-      Refine.Refine4: {
-        Stats.AttackBonus: 63.0,
-      },
-      Refine.Refine5: {
-        Stats.AttackBonus: 72.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '击败敌人后，攻击力提升12%，持续30秒。该效果至多叠加3层，每层持续时间独立。',
-      Refine.Refine2: '击败敌人后，攻击力提升15%，持续30秒。该效果至多叠加3层，每层持续时间独立。',
-      Refine.Refine3: '击败敌人后，攻击力提升18%，持续30秒。该效果至多叠加3层，每层持续时间独立。',
-      Refine.Refine4: '击败敌人后，攻击力提升21%，持续30秒。该效果至多叠加3层，每层持续时间独立。',
-      Refine.Refine5: '击败敌人后，攻击力提升24%，持续30秒。该效果至多叠加3层，每层持续时间独立。',
-    },
-    'specialEffectDamageType': {
-      Stats.AttackBonus: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '击败敌人后，攻击力提升%s，持续30秒。该效果至多叠加3层，每层持续时间独立。',
+    'specialEffectCommentArguments': [
+      ['12%', '15%', '18%', '21%', '24%'],
+    ],
   },
   {
     'name': '钢轮弓',
@@ -2426,36 +1556,22 @@ const WEAPONS = [
     'baseAttack': 454.0,
     'subStat': Stats.PhyDmgBonus,
     'subStatValue': 69.0,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.AttackBonus: 16.0,
+    'specialEffect': [
+      {
+        'stat': Stats.AttackBonus,
+        'value': [16.0, 20.0, 24.0, 28.0, 32.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.AttackBonus: 20.0,
-      },
-      Refine.Refine3: {
-        Stats.AttackBonus: 24.0,
-      },
-      Refine.Refine4: {
-        Stats.AttackBonus: 28.0,
-      },
-      Refine.Refine5: {
-        Stats.AttackBonus: 32.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '普通攻击与重击命中时，提升4%攻击力与1.2%普通攻击速度。该效果持续6秒，最多可以叠加4层，每0.3秒只能触发一次。',
-      Refine.Refine2: '普通攻击与重击命中时，提升5%攻击力与1.5%普通攻击速度。该效果持续6秒，最多可以叠加4层，每0.3秒只能触发一次。',
-      Refine.Refine3: '普通攻击与重击命中时，提升6%攻击力与1.8%普通攻击速度。该效果持续6秒，最多可以叠加4层，每0.3秒只能触发一次。',
-      Refine.Refine4: '普通攻击与重击命中时，提升7%攻击力与2.1%普通攻击速度。该效果持续6秒，最多可以叠加4层，每0.3秒只能触发一次。',
-      Refine.Refine5: '普通攻击与重击命中时，提升8%攻击力与2.4%普通攻击速度。该效果持续6秒，最多可以叠加4层，每0.3秒只能触发一次。',
-    },
-    'specialEffectDamageType': {
-      Stats.AttackBonus: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '普通攻击与重击命中时，提升%s攻击力与%s普通攻击速度。该效果持续6秒，最多可以叠加4层，每0.3秒只能触发一次。',
+    'specialEffectCommentArguments': [
+      ['4%', '5%', '6%', '7%', '8%'],
+      ['1.2%', '1.5%', '1.8%', '2.1%', '2.4%'],
+    ],
   },
   {
     'name': '西风猎弓',
@@ -2465,22 +1581,12 @@ const WEAPONS = [
     'baseAttack': 454.0,
     'subStat': Stats.Recharge,
     'subStatValue': 61.3,
-    'specialEffect': {
-      Refine.Refine1: {},
-      Refine.Refine2: {},
-      Refine.Refine3: {},
-      Refine.Refine4: {},
-      Refine.Refine5: {},
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '攻击造成暴击时，有60%的几率产生少量元素微粒，能为角色恢复6点元素能量。该效果每12秒只能触发一次。',
-      Refine.Refine2: '攻击造成暴击时，有70%的几率产生少量元素微粒，能为角色恢复6点元素能量。该效果每10.5秒只能触发一次。',
-      Refine.Refine3: '攻击造成暴击时，有80%的几率产生少量元素微粒，能为角色恢复6点元素能量。该效果每9秒只能触发一次。',
-      Refine.Refine4: '攻击造成暴击时，有90%的几率产生少量元素微粒，能为角色恢复6点元素能量。该效果每7.5秒只能触发一次。',
-      Refine.Refine5: '攻击造成暴击时，有100%的几率产生少量元素微粒，能为角色恢复6点元素能量。该效果每6秒只能触发一次。',
-    },
-    'specialEffectDamageType': {},
-    'specialEffectAlways': [],
+    'specialEffect': [],
+    'specialEffectComment': '攻击造成暴击时，有%s的几率产生少量元素微粒，能为角色恢复6点元素能量。该效果每%s只能触发一次。',
+    'specialEffectCommentArguments': [
+      ['60%', '70%', '80%', '90%', '100%'],
+      ['12秒', '10.5秒', '9秒', '7.5秒', '6秒'],
+    ],
   },
   {
     'name': '试做澹月',
@@ -2490,36 +1596,21 @@ const WEAPONS = [
     'baseAttack': 510.0,
     'subStat': Stats.AttackBonus,
     'subStatValue': 41.3,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.AttackBonus: 36.0,
+    'specialEffect': [
+      {
+        'stat': Stats.AttackBonus,
+        'value': [36.0, 45.0, 54.0, 63.0, 72.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.AttackBonus: 45.0,
-      },
-      Refine.Refine3: {
-        Stats.AttackBonus: 54.0,
-      },
-      Refine.Refine4: {
-        Stats.AttackBonus: 63.0,
-      },
-      Refine.Refine5: {
-        Stats.AttackBonus: 72.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '重击若命中要害，则提升10%移动速度与36%攻击力，持续10秒。',
-      Refine.Refine2: '重击若命中要害，则提升10%移动速度与45%攻击力，持续10秒。',
-      Refine.Refine3: '重击若命中要害，则提升10%移动速度与54%攻击力，持续10秒。',
-      Refine.Refine4: '重击若命中要害，则提升10%移动速度与63%攻击力，持续10秒。',
-      Refine.Refine5: '重击若命中要害，则提升10%移动速度与72%攻击力，持续10秒。',
-    },
-    'specialEffectDamageType': {
-      Stats.AttackBonus: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '重击若命中要害，则提升10%%移动速度与%s攻击力，持续10秒。',
+    'specialEffectCommentArguments': [
+      ['36%', '45%', '54%', '63%', '72%'],
+    ],
   },
   {
     'name': '宗室长弓',
@@ -2529,36 +1620,21 @@ const WEAPONS = [
     'baseAttack': 510.0,
     'subStat': Stats.AttackBonus,
     'subStatValue': 41.3,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.CritRate: 40.0,
+    'specialEffect': [
+      {
+        'stat': Stats.CritRate,
+        'value': [40.0, 50.0, 60.0, 70.0, 80.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.CritRate: 50.0,
-      },
-      Refine.Refine3: {
-        Stats.CritRate: 60.0,
-      },
-      Refine.Refine4: {
-        Stats.CritRate: 70.0,
-      },
-      Refine.Refine5: {
-        Stats.CritRate: 80.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '攻击造成伤害时，暴击率提升8%，最多堆叠5次。攻击造成暴击后，移除已有的专注效果。',
-      Refine.Refine2: '攻击造成伤害时，暴击率提升10%，最多堆叠5次。攻击造成暴击后，移除已有的专注效果。',
-      Refine.Refine3: '攻击造成伤害时，暴击率提升12%，最多堆叠5次。攻击造成暴击后，移除已有的专注效果。',
-      Refine.Refine4: '攻击造成伤害时，暴击率提升14%，最多堆叠5次。攻击造成暴击后，移除已有的专注效果。',
-      Refine.Refine5: '攻击造成伤害时，暴击率提升16%，最多堆叠5次。攻击造成暴击后，移除已有的专注效果。',
-    },
-    'specialEffectDamageType': {
-      Stats.CritRate: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '攻击造成伤害时，暴击率提升%s，最多堆叠5次。攻击造成暴击后，移除已有的专注效果。',
+    'specialEffectCommentArguments': [
+      ['8%', '10%', '12%', '14%', '16%'],
+    ],
   },
   {
     'name': '弓藏',
@@ -2568,44 +1644,30 @@ const WEAPONS = [
     'baseAttack': 510.0,
     'subStat': Stats.AttackBonus,
     'subStatValue': 41.3,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.DmgBonus: 40.0,
-        Stats.PhyDmgBonus: 40.0,
+    'specialEffect': [
+      {
+        'stat': Stats.DmgBonus,
+        'value': [40.0, 50.0, 60.0, 70.0, 80.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.Normal,
+        ],
       },
-      Refine.Refine2: {
-        Stats.DmgBonus: 50.0,
-        Stats.PhyDmgBonus: 50.0,
+      {
+        'stat': Stats.DmgBonus,
+        'value': [10.0, 10.0, 10.0, 10.0, 10.0],
+        'always': false,
+        'buffType': BuffType.DebuffForMe,
+        'damageType': [
+          DamageType.Charged,
+        ],
       },
-      Refine.Refine3: {
-        Stats.DmgBonus: 60.0,
-        Stats.PhyDmgBonus: 60.0,
-      },
-      Refine.Refine4: {
-        Stats.DmgBonus: 70.0,
-        Stats.PhyDmgBonus: 70.0,
-      },
-      Refine.Refine5: {
-        Stats.DmgBonus: 80.0,
-        Stats.PhyDmgBonus: 80.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '普通攻击造成的伤害提升40%，重击造成的伤害下降10%。',
-      Refine.Refine2: '普通攻击造成的伤害提升50%，重击造成的伤害下降10%。',
-      Refine.Refine3: '普通攻击造成的伤害提升60%，重击造成的伤害下降10%。',
-      Refine.Refine4: '普通攻击造成的伤害提升70%，重击造成的伤害下降10%。',
-      Refine.Refine5: '普通攻击造成的伤害提升80%，重击造成的伤害下降10%。',
-    },
-    'specialEffectDamageType': {
-      Stats.DmgBonus: [
-        DamageType.Normal,
-      ],
-      Stats.PhyDmgBonus: [
-        DamageType.Normal,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '普通攻击造成的伤害提升%s，重击造成的伤害下降10%%。',
+    'specialEffectCommentArguments': [
+      ['40%', '50%', '60%', '70%', '80%'],
+    ],
   },
   {
     'name': '祭礼弓',
@@ -2615,22 +1677,12 @@ const WEAPONS = [
     'baseAttack': 565.0,
     'subStat': Stats.Recharge,
     'subStatValue': 30.6,
-    'specialEffect': {
-      Refine.Refine1: {},
-      Refine.Refine2: {},
-      Refine.Refine3: {},
-      Refine.Refine4: {},
-      Refine.Refine5: {},
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '元素战技造成伤害时，有40%的概率重置该技能的冷却时间，该效果每30秒只能触发一次。',
-      Refine.Refine2: '元素战技造成伤害时，有50%的概率重置该技能的冷却时间，该效果每26秒只能触发一次。',
-      Refine.Refine3: '元素战技造成伤害时，有60%的概率重置该技能的冷却时间，该效果每22秒只能触发一次。',
-      Refine.Refine4: '元素战技造成伤害时，有70%的概率重置该技能的冷却时间，该效果每19秒只能触发一次。',
-      Refine.Refine5: '元素战技造成伤害时，有80%的概率重置该技能的冷却时间，该效果每16秒只能触发一次。',
-    },
-    'specialEffectDamageType': {},
-    'specialEffectAlways': [],
+    'specialEffect': [],
+    'specialEffectComment': '元素战技造成伤害时，有%s的概率重置该技能的冷却时间，该效果每%s只能触发一次。',
+    'specialEffectCommentArguments': [
+      ['40%', '50%', '60%', '70%', '80%'],
+      ['30秒', '26秒', '22秒', '19秒', '16秒'],
+    ],
   },
   {
     'name': '苍翠猎弓',
@@ -2640,22 +1692,12 @@ const WEAPONS = [
     'baseAttack': 510.0,
     'subStat': Stats.Recharge,
     'subStatValue': 27.6,
-    'specialEffect': {
-      Refine.Refine1: {},
-      Refine.Refine2: {},
-      Refine.Refine3: {},
-      Refine.Refine4: {},
-      Refine.Refine5: {},
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '普通攻击与重击命中时，有50%几率生成一个风之眼，持续吸引周围敌人，并对其中的敌人每0.5秒造成40%攻击的伤害。该效果持续4秒，每14秒至多触发一次。',
-      Refine.Refine2: '普通攻击与重击命中时，有50%几率生成一个风之眼，持续吸引周围敌人，并对其中的敌人每0.5秒造成50%攻击的伤害。该效果持续4秒，每13秒至多触发一次。',
-      Refine.Refine3: '普通攻击与重击命中时，有50%几率生成一个风之眼，持续吸引周围敌人，并对其中的敌人每0.5秒造成60%攻击的伤害。该效果持续4秒，每12秒至多触发一次。',
-      Refine.Refine4: '普通攻击与重击命中时，有50%几率生成一个风之眼，持续吸引周围敌人，并对其中的敌人每0.5秒造成70%攻击的伤害。该效果持续4秒，每11秒至多触发一次。',
-      Refine.Refine5: '普通攻击与重击命中时，有50%几率生成一个风之眼，持续吸引周围敌人，并对其中的敌人每0.5秒造成80%攻击的伤害。该效果持续4秒，每10秒至多触发一次。',
-    },
-    'specialEffectDamageType': {},
-    'specialEffectAlways': [],
+    'specialEffect': [],
+    'specialEffectComment': '普通攻击与重击命中时，有50%%几率生成一个风之眼，持续吸引周围敌人，并对其中的敌人每0.5秒造成%s攻击的伤害。该效果持续4秒，每%s至多触发一次。',
+    'specialEffectCommentArguments': [
+      ['40%', '50%', '60%', '70%', '80%'],
+      ['14秒', '13秒', '12秒', '11秒', '10秒'],
+    ],
   },
   {
     'name': '风花之颂',
@@ -2665,36 +1707,21 @@ const WEAPONS = [
     'baseAttack': 510.0,
     'subStat': Stats.Mastery,
     'subStatValue': 165.0,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.AttackBonus: 16.0,
+    'specialEffect': [
+      {
+        'stat': Stats.AttackBonus,
+        'value': [16.0, 20.0, 24.0, 28.0, 32.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.AttackBonus: 20.0,
-      },
-      Refine.Refine3: {
-        Stats.AttackBonus: 24.0,
-      },
-      Refine.Refine4: {
-        Stats.AttackBonus: 28.0,
-      },
-      Refine.Refine5: {
-        Stats.AttackBonus: 32.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '施放元素战技时，获得风之花的悠古愿望加持，攻击力提升16%，持续6秒。',
-      Refine.Refine2: '施放元素战技时，获得风之花的悠古愿望加持，攻击力提升20%，持续6秒。',
-      Refine.Refine3: '施放元素战技时，获得风之花的悠古愿望加持，攻击力提升24%，持续6秒。',
-      Refine.Refine4: '施放元素战技时，获得风之花的悠古愿望加持，攻击力提升28%，持续6秒。',
-      Refine.Refine5: '施放元素战技时，获得风之花的悠古愿望加持，攻击力提升32%，持续6秒。',
-    },
-    'specialEffectDamageType': {
-      Stats.AttackBonus: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '施放元素战技时，获得风之花的悠古愿望加持，攻击力提升%s，持续6秒。',
+    'specialEffectCommentArguments': [
+      ['16%', '20%', '24%', '28%', '32%'],
+    ],
   },
   {
     'name': '幽夜华尔兹',
@@ -2704,46 +1731,32 @@ const WEAPONS = [
     'baseAttack': 510.0,
     'subStat': Stats.PhyDmgBonus,
     'subStatValue': 51.7,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.DmgBonus: 20.0,
-        Stats.PhyDmgBonus: 20.0,
+    'specialEffect': [
+      {
+        'stat': Stats.DmgBonus,
+        'value': [20.0, 25.0, 30.0, 35.0, 40.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.SkillE,
+          DamageType.SkillESpecial,
+        ],
       },
-      Refine.Refine2: {
-        Stats.DmgBonus: 25.0,
-        Stats.PhyDmgBonus: 25.0,
+      {
+        'stat': Stats.DmgBonus,
+        'value': [20.0, 25.0, 30.0, 35.0, 40.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.Normal,
+        ],
       },
-      Refine.Refine3: {
-        Stats.DmgBonus: 30.0,
-        Stats.PhyDmgBonus: 30.0,
-      },
-      Refine.Refine4: {
-        Stats.DmgBonus: 35.0,
-        Stats.PhyDmgBonus: 35.0,
-      },
-      Refine.Refine5: {
-        Stats.DmgBonus: 40.0,
-        Stats.PhyDmgBonus: 40.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '普通攻击命中敌人后的5秒内，元素战技造成的伤害提升20%；元素战技命中敌人后的5秒内，普通攻击造成的伤害提升20%。',
-      Refine.Refine2: '普通攻击命中敌人后的5秒内，元素战技造成的伤害提升25%；元素战技命中敌人后的5秒内，普通攻击造成的伤害提升25%。',
-      Refine.Refine3: '普通攻击命中敌人后的5秒内，元素战技造成的伤害提升30%；元素战技命中敌人后的5秒内，普通攻击造成的伤害提升30%。',
-      Refine.Refine4: '普通攻击命中敌人后的5秒内，元素战技造成的伤害提升35%；元素战技命中敌人后的5秒内，普通攻击造成的伤害提升35%。',
-      Refine.Refine5: '普通攻击命中敌人后的5秒内，元素战技造成的伤害提升40%；元素战技命中敌人后的5秒内，普通攻击造成的伤害提升40%。',
-    },
-    'specialEffectDamageType': {
-      Stats.DmgBonus: [
-        DamageType.Normal,
-        DamageType.SkillE,
-      ],
-      Stats.PhyDmgBonus: [
-        DamageType.Normal,
-        DamageType.SkillE,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '普通攻击命中敌人后的5秒内，元素战技造成的伤害提升%s；元素战技命中敌人后的5秒内，普通攻击造成的伤害提升%s。',
+    'specialEffectCommentArguments': [
+      ['20%', '25%', '30%', '35%', '40%'],
+      ['20%', '25%', '30%', '35%', '40%'],
+    ],
   },
   {
     'name': '破魔之弓',
@@ -2753,46 +1766,49 @@ const WEAPONS = [
     'baseAttack': 454.0,
     'subStat': Stats.AttackBonus,
     'subStatValue': 55.1,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.DmgBonus: 24.0,
-        Stats.PhyDmgBonus: 24.0,
+    'specialEffect': [
+      {
+        'stat': Stats.DmgBonus,
+        'value': [16.0, 20.0, 24.0, 28.0, 32.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.Normal,
+        ],
       },
-      Refine.Refine2: {
-        Stats.DmgBonus: 30.0,
-        Stats.PhyDmgBonus: 30.0,
+      {
+        'stat': Stats.DmgBonus,
+        'value': [12.0, 15.0, 18.0, 21.0, 24.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.Charged,
+        ],
       },
-      Refine.Refine3: {
-        Stats.DmgBonus: 36.0,
-        Stats.PhyDmgBonus: 36.0,
+      {
+        'stat': Stats.DmgBonus,
+        'value': [16.0, 20.0, 24.0, 28.0, 32.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.Normal,
+        ],
       },
-      Refine.Refine4: {
-        Stats.DmgBonus: 42.0,
-        Stats.PhyDmgBonus: 42.0,
+      {
+        'stat': Stats.DmgBonus,
+        'value': [12.0, 15.0, 18.0, 21.0, 24.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.Charged,
+        ],
       },
-      Refine.Refine5: {
-        Stats.DmgBonus: 48.0,
-        Stats.PhyDmgBonus: 48.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '普通攻击造成的伤害提升16%，重击造成的伤害提升12%。当装备该武器的角色元素能量等于100%时，这个效果提升100%。',
-      Refine.Refine2: '普通攻击造成的伤害提升20%，重击造成的伤害提升15%。当装备该武器的角色元素能量等于100%时，这个效果提升100%。',
-      Refine.Refine3: '普通攻击造成的伤害提升24%，重击造成的伤害提升18%。当装备该武器的角色元素能量等于100%时，这个效果提升100%。',
-      Refine.Refine4: '普通攻击造成的伤害提升28%，重击造成的伤害提升21%。当装备该武器的角色元素能量等于100%时，这个效果提升100%。',
-      Refine.Refine5: '普通攻击造成的伤害提升32%，重击造成的伤害提升24%。当装备该武器的角色元素能量等于100%时，这个效果提升100%。',
-    },
-    'specialEffectDamageType': {
-      Stats.DmgBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-      ],
-      Stats.PhyDmgBonus: [
-        DamageType.Normal,
-        DamageType.Charged,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '普通攻击造成的伤害提升%s，重击造成的伤害提升%s。当装备该武器的角色元素能量等于100%%时，这个效果提升100%%。',
+    'specialEffectCommentArguments': [
+      ['16%', '20%', '24%', '28%', '32%'],
+      ['12%', '15%', '18%', '21%', '24%'],
+    ],
   },
   {
     'name': '掠食者',
@@ -2802,22 +1818,9 @@ const WEAPONS = [
     'baseAttack': 510.0,
     'subStat': Stats.AttackBonus,
     'subStatValue': 41.3,
-    'specialEffect': {
-      Refine.Refine1: {},
-      Refine.Refine2: {},
-      Refine.Refine3: {},
-      Refine.Refine4: {},
-      Refine.Refine5: {},
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '仅在以下平台生效：\n"PlayStation Network"\n对敌人造成冰元素伤害后，普通攻击与重击造成的伤害提高10%，该效果持续6秒，至多叠加2次；此外，埃洛伊装备掠食者时，攻击力提升66点。',
-      Refine.Refine2: '',
-      Refine.Refine3: '',
-      Refine.Refine4: '',
-      Refine.Refine5: '',
-    },
-    'specialEffectDamageType': {},
-    'specialEffectAlways': [],
+    'specialEffect': [],
+    'specialEffectComment': '仅在以下平台生效：\n"PlayStation Network"\n对敌人造成冰元素伤害后，普通攻击与重击造成的伤害提高10%%，该效果持续6秒，至多叠加2次；此外，埃洛伊装备掠食者时，攻击力提升66点。',
+    'specialEffectCommentArguments': [],
   },
   {
     'name': '曚云之月',
@@ -2827,46 +1830,23 @@ const WEAPONS = [
     'baseAttack': 565.0,
     'subStat': Stats.AttackBonus,
     'subStatValue': 27.6,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.DmgBonus: 40.0,
-        Stats.PhyDmgBonus: 40.0,
+    'specialEffect': [
+      {
+        'stat': Stats.DmgBonus,
+        'value': [40.0, 50.0, 60.0, 70.0, 80.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.SkillQ,
+          DamageType.SkillQSpecial,
+        ],
       },
-      Refine.Refine2: {
-        Stats.DmgBonus: 50.0,
-        Stats.PhyDmgBonus: 50.0,
-      },
-      Refine.Refine3: {
-        Stats.DmgBonus: 60.0,
-        Stats.PhyDmgBonus: 60.0,
-      },
-      Refine.Refine4: {
-        Stats.DmgBonus: 70.0,
-        Stats.PhyDmgBonus: 70.0,
-      },
-      Refine.Refine5: {
-        Stats.DmgBonus: 80.0,
-        Stats.PhyDmgBonus: 80.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.12%，通过这种方式，元素爆发造成的伤害至多提高40%。',
-      Refine.Refine2: '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.15%，通过这种方式，元素爆发造成的伤害至多提高50%。',
-      Refine.Refine3: '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.18%，通过这种方式，元素爆发造成的伤害至多提高60%。',
-      Refine.Refine4: '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.21%，通过这种方式，元素爆发造成的伤害至多提高70%。',
-      Refine.Refine5: '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高0.24%，通过这种方式，元素爆发造成的伤害至多提高80%。',
-    },
-    'specialEffectDamageType': {
-      Stats.DmgBonus: [
-        DamageType.SkillQ,
-        DamageType.SkillQSpecial,
-      ],
-      Stats.PhyDmgBonus: [
-        DamageType.SkillQ,
-        DamageType.SkillQSpecial,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '队伍中所有角色的元素能量上限的总和，每1点能使装备此武器的角色的元素爆发造成的伤害提高%s，通过这种方式，元素爆发造成的伤害至多提高%s。',
+    'specialEffectCommentArguments': [
+      ['0.12%', '0.15%', '0.18%', '0.21%', '0.24%'],
+      ['40%', '50%', '60%', '70%', '80%'],
+    ],
   },
   {
     'name': '天空之翼',
@@ -2876,37 +1856,22 @@ const WEAPONS = [
     'baseAttack': 674.0,
     'subStat': Stats.CritRate,
     'subStatValue': 22.1,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.CritDmg: 20.0,
+    'specialEffect': [
+      {
+        'stat': Stats.CritDmg,
+        'value': [20.0, 25.0, 30.0, 35.0, 40.0],
+        'always': true,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.CritDmg: 25.0,
-      },
-      Refine.Refine3: {
-        Stats.CritDmg: 30.0,
-      },
-      Refine.Refine4: {
-        Stats.CritDmg: 35.0,
-      },
-      Refine.Refine5: {
-        Stats.CritDmg: 40.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '暴击伤害提高20%；攻击命中时有60%概率造成125%攻击力的小范围物理伤害，该效果每4秒只能触发一次。',
-      Refine.Refine2: '暴击伤害提高25%；攻击命中时有70%概率造成125%攻击力的小范围物理伤害，该效果每3.5秒只能触发一次。',
-      Refine.Refine3: '暴击伤害提高30%；攻击命中时有80%概率造成125%攻击力的小范围物理伤害，该效果每3秒只能触发一次。',
-      Refine.Refine4: '暴击伤害提高35%；攻击命中时有90%概率造成125%攻击力的小范围物理伤害，该效果每2.5秒只能触发一次。',
-      Refine.Refine5: '暴击伤害提高40%；攻击命中时有100%概率造成125%攻击力的小范围物理伤害，该效果每2秒只能触发一次。',
-    },
-    'specialEffectDamageType': {
-      Stats.CritDmg: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [
-      Stats.CritDmg,
+    ],
+    'specialEffectComment': '暴击伤害提高%s；攻击命中时有%s概率造成125%%攻击力的小范围物理伤害，该效果每%s只能触发一次。',
+    'specialEffectCommentArguments': [
+      ['20%', '25%', '30%', '35%', '40%'],
+      ['60%', '70%', '80%', '90%', '100%'],
+      ['4秒', '3.5秒', '3秒', '2.5秒', '2秒'],
     ],
   },
   {
@@ -2917,42 +1882,33 @@ const WEAPONS = [
     'baseAttack': 608.0,
     'subStat': Stats.AttackBonus,
     'subStatValue': 49.6,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.DmgBonus: 52.0,
-        Stats.PhyDmgBonus: 52.0,
+    'specialEffect': [
+      {
+        'stat': Stats.DmgBonus,
+        'value': [12.0, 15.0, 18.0, 21.0, 24.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.Normal,
+          DamageType.Charged,
+        ],
       },
-      Refine.Refine2: {
-        Stats.DmgBonus: 65.0,
-        Stats.PhyDmgBonus: 65.0,
+      {
+        'stat': Stats.DmgBonus,
+        'value': [40.0, 50.0, 60.0, 70.0, 80.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.Normal,
+          DamageType.Charged,
+        ],
       },
-      Refine.Refine3: {
-        Stats.DmgBonus: 78.0,
-        Stats.PhyDmgBonus: 78.0,
-      },
-      Refine.Refine4: {
-        Stats.DmgBonus: 91.0,
-        Stats.PhyDmgBonus: 91.0,
-      },
-      Refine.Refine5: {
-        Stats.DmgBonus: 104.0,
-        Stats.PhyDmgBonus: 104.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '普通攻击和重击造成的伤害提升12%;箭矢发射后每经过0.1秒，伤害还会提升8%。至多提升5次。',
-      Refine.Refine2: '普通攻击和重击造成的伤害提升15%;箭矢发射后每经过0.1秒，伤害还会提升10%。至多提升5次。',
-      Refine.Refine3: '普通攻击和重击造成的伤害提升18%;箭矢发射后每经过0.1秒，伤害还会提升12%。至多提升5次。',
-      Refine.Refine4: '普通攻击和重击造成的伤害提升21%;箭矢发射后每经过0.1秒，伤害还会提升14%。至多提升5次。',
-      Refine.Refine5: '普通攻击和重击造成的伤害提升24%;箭矢发射后每经过0.1秒，伤害还会提升16%。至多提升5次。',
-    },
-    'specialEffectDamageType': {
-      Stats.CritDmg: [
-        DamageType.Normal,
-        DamageType.Charged,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '普通攻击和重击造成的伤害提升%s;箭矢发射后每经过0.1秒，伤害还会提升%s。至多提升5次。',
+    'specialEffectCommentArguments': [
+      ['12%', '15%', '18%', '21%', '24%'],
+      ['8%', '10%', '12%', '14%', '16%'],
+    ],
   },
   {
     'name': '终末嗟叹之诗',
@@ -2962,46 +1918,42 @@ const WEAPONS = [
     'baseAttack': 608.0,
     'subStat': Stats.Recharge,
     'subStatValue': 55.1,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.Mastery: 160.0,
-        Stats.AttackBonus: 20.0,
+    'specialEffect': [
+      {
+        'stat': Stats.Mastery,
+        'value': [60.0, 75.0, 90.0, 105.0, 120.0],
+        'always': true,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.Mastery: 200.0,
-        Stats.AttackBonus: 25.0,
+      {
+        'stat': Stats.Mastery,
+        'value': [100.0, 125.0, 150.0, 175.0, 200.0],
+        'always': false,
+        'buffType': BuffType.BuffForTeam,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine3: {
-        Stats.Mastery: 240.0,
-        Stats.AttackBonus: 30.0,
+      {
+        'stat': Stats.AttackBonus,
+        'value': [20.0, 25.0, 30.0, 35.0, 40.0],
+        'always': false,
+        'buffType': BuffType.BuffForTeam,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine4: {
-        Stats.Mastery: 280.0,
-        Stats.AttackBonus: 35.0,
-      },
-      Refine.Refine5: {
-        Stats.Mastery: 320.0,
-        Stats.AttackBonus: 40.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1:
-          '飘游风中的「千年的大乐章」的一部分。元素精通提高60点；元素战技或元素爆发命中敌人时，角色获得一枚追思之符，每0.2秒内至多触发一次，角色处于队伍后台也能触发。拥有4枚追思之符时，将消耗所有追思之符，使附近的队伍中所有角色获得持续12秒的「千年的大乐章·别离之歌」效果：元素精通提高100点，攻击力提升20%。触发后20秒内，无法再次获得追思之符。「千年的大乐章」触发的多种数值效果中，同类数值效果不可叠加。',
-      Refine.Refine2:
-          '飘游风中的「千年的大乐章」的一部分。元素精通提高75点；元素战技或元素爆发命中敌人时，角色获得一枚追思之符，每0.2秒内至多触发一次，角色处于队伍后台也能触发。拥有4枚追思之符时，将消耗所有追思之符，使附近的队伍中所有角色获得持续12秒的「千年的大乐章·别离之歌」效果：元素精通提高125点，攻击力提升25%。触发后20秒内，无法再次获得追思之符。「千年的大乐章」触发的多种数值效果中，同类数值效果不可叠加。',
-      Refine.Refine3:
-          '飘游风中的「千年的大乐章」的一部分。元素精通提高90点；元素战技或元素爆发命中敌人时，角色获得一枚追思之符，每0.2秒内至多触发一次，角色处于队伍后台也能触发。拥有4枚追思之符时，将消耗所有追思之符，使附近的队伍中所有角色获得持续12秒的「千年的大乐章·别离之歌」效果：元素精通提高150点，攻击力提升30%。触发后20秒内，无法再次获得追思之符。「千年的大乐章」触发的多种数值效果中，同类数值效果不可叠加。',
-      Refine.Refine4:
-          '飘游风中的「千年的大乐章」的一部分。元素精通提高105点；元素战技或元素爆发命中敌人时，角色获得一枚追思之符，每0.2秒内至多触发一次，角色处于队伍后台也能触发。拥有4枚追思之符时，将消耗所有追思之符，使附近的队伍中所有角色获得持续12秒的「千年的大乐章·别离之歌」效果：元素精通提高175点，攻击力提升35%。触发后20秒内，无法再次获得追思之符。「千年的大乐章」触发的多种数值效果中，同类数值效果不可叠加。',
-      Refine.Refine5:
-          '飘游风中的「千年的大乐章」的一部分。元素精通提高120点；元素战技或元素爆发命中敌人时，角色获得一枚追思之符，每0.2秒内至多触发一次，角色处于队伍后台也能触发。拥有4枚追思之符时，将消耗所有追思之符，使附近的队伍中所有角色获得持续12秒的「千年的大乐章·别离之歌」效果：元素精通提高200点，攻击力提升40%。触发后20秒内，无法再次获得追思之符。「千年的大乐章」触发的多种数值效果中，同类数值效果不可叠加。',
-    },
-    'specialEffectDamageType': {
-      Stats.CritDmg: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment':
+        '飘游风中的「千年的大乐章」的一部分。元素精通提高%s；元素战技或元素爆发命中敌人时，角色获得一枚追思之符，每0.2秒内至多触发一次，角色处于队伍后台也能触发。拥有4枚追思之符时，将消耗所有追思之符，使附近的队伍中所有角色获得持续12秒的「千年的大乐章·别离之歌」效果：元素精通提高%s，攻击力提升%s。触发后20秒内，无法再次获得追思之符。「千年的大乐章」触发的多种数值效果中，同类数值效果不可叠加。',
+    'specialEffectCommentArguments': [
+      ['60点', '75点', '90点', '105点', '120点'],
+      ['100点', '125点', '150点', '175点', '200点'],
+      ['20%', '25%', '30%', '35%', '40%'],
+    ],
   },
   {
     'name': '飞雷之弦振',
@@ -3011,58 +1963,31 @@ const WEAPONS = [
     'baseAttack': 608.0,
     'subStat': Stats.CritDmg,
     'subStatValue': 66.2,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.AttackBonus: 20.0,
-        Stats.DmgBonus: 40.0,
-        Stats.PhyDmgBonus: 40.0,
+    'specialEffect': [
+      {
+        'stat': Stats.AttackBonus,
+        'value': [20.0, 25.0, 30.0, 35.0, 40.0],
+        'always': true,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.AttackBonus: 25.0,
-        Stats.DmgBonus: 50.0,
-        Stats.PhyDmgBonus: 50.0,
+      {
+        'stat': Stats.DmgBonus,
+        'value': [40.0, 50.0, 60.0, 70.0, 80.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.Normal,
+        ],
       },
-      Refine.Refine3: {
-        Stats.AttackBonus: 30.0,
-        Stats.DmgBonus: 60.0,
-        Stats.PhyDmgBonus: 60.0,
-      },
-      Refine.Refine4: {
-        Stats.AttackBonus: 35.0,
-        Stats.DmgBonus: 70.0,
-        Stats.PhyDmgBonus: 70.0,
-      },
-      Refine.Refine5: {
-        Stats.AttackBonus: 40.0,
-        Stats.DmgBonus: 80.0,
-        Stats.PhyDmgBonus: 80.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1:
-          '攻击力提高20%，并能获得「飞雷之巴印」的威势。飞雷之巴印：持有1/2/3层飞雷之巴印时，普通攻击造成的伤害提高12/24/40%。在下列情况下，角色将各获得1层飞雷之巴印：普通攻击造成伤害时，持续5秒；施放元素战技时，持续10秒；此外，角色元素能量低于100%时，将获得1层飞雷之巴印，此飞雷之巴印会在角色的元素能量充满时消失。每层飞雷之巴印的持续时间独立计算。',
-      Refine.Refine2:
-          '攻击力提高25%，并能获得「飞雷之巴印」的威势。飞雷之巴印：持有1/2/3层飞雷之巴印时，普通攻击造成的伤害提高15/30/50%。在下列情况下，角色将各获得1层飞雷之巴印：普通攻击造成伤害时，持续5秒；施放元素战技时，持续10秒；此外，角色元素能量低于100%时，将获得1层飞雷之巴印，此飞雷之巴印会在角色的元素能量充满时消失。每层飞雷之巴印的持续时间独立计算。',
-      Refine.Refine3:
-          '攻击力提高30%，并能获得「飞雷之巴印」的威势。飞雷之巴印：持有1/2/3层飞雷之巴印时，普通攻击造成的伤害提高18/36/60%。在下列情况下，角色将各获得1层飞雷之巴印：普通攻击造成伤害时，持续5秒；施放元素战技时，持续10秒；此外，角色元素能量低于100%时，将获得1层飞雷之巴印，此飞雷之巴印会在角色的元素能量充满时消失。每层飞雷之巴印的持续时间独立计算。',
-      Refine.Refine4:
-          '攻击力提高35%，并能获得「飞雷之巴印」的威势。飞雷之巴印：持有1/2/3层飞雷之巴印时，普通攻击造成的伤害提高21/42/70%。在下列情况下，角色将各获得1层飞雷之巴印：普通攻击造成伤害时，持续5秒；施放元素战技时，持续10秒；此外，角色元素能量低于100%时，将获得1层飞雷之巴印，此飞雷之巴印会在角色的元素能量充满时消失。每层飞雷之巴印的持续时间独立计算。',
-      Refine.Refine5:
-          '攻击力提高40%，并能获得「飞雷之巴印」的威势。飞雷之巴印：持有1/2/3层飞雷之巴印时，普通攻击造成的伤害提高24/48/80%。在下列情况下，角色将各获得1层飞雷之巴印：普通攻击造成伤害时，持续5秒；施放元素战技时，持续10秒；此外，角色元素能量低于100%时，将获得1层飞雷之巴印，此飞雷之巴印会在角色的元素能量充满时消失。每层飞雷之巴印的持续时间独立计算。',
-    },
-    'specialEffectDamageType': {
-      Stats.AttackBonus: [
-        DamageType.All,
-      ],
-      Stats.DmgBonus: [
-        DamageType.Normal,
-      ],
-      Stats.PhyDmgBonus: [
-        DamageType.Normal,
-      ],
-    },
-    'specialEffectAlways': [
-      Stats.AttackBonus,
+    ],
+    'specialEffectComment':
+        '攻击力提高%s，并能获得「飞雷之巴印」的威势。飞雷之巴印：持有1/2/3层飞雷之巴印时，普通攻击造成的伤害提高%s。在下列情况下，角色将各获得1层飞雷之巴印：普通攻击造成伤害时，持续5秒；施放元素战技时，持续10秒；此外，角色元素能量低于100%%时，将获得1层飞雷之巴印，此飞雷之巴印会在角色的元素能量充满时消失。每层飞雷之巴印的持续时间独立计算。',
+    'specialEffectCommentArguments': [
+      ['20%', '25%', '30%', '35%', '40%'],
+      ['12/24/40%', '15/30/50%', '18/36/60%', '21/42/70%', '24/48/80%'],
     ],
   },
   {
@@ -3073,61 +1998,34 @@ const WEAPONS = [
     'baseAttack': 608.0,
     'subStat': Stats.CritRate,
     'subStatValue': 33.1,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.AttackBonus: 48.0,
-        Stats.DmgBonus: 12.0,
-        Stats.PhyDmgBonus: 12.0,
+    'specialEffect': [
+      {
+        'stat': Stats.DmgBonus,
+        'value': [12.0, 15.0, 18.0, 21.0, 24.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.SkillE,
+          DamageType.SkillESpecial,
+          DamageType.SkillQ,
+          DamageType.SkillQSpecial,
+        ],
       },
-      Refine.Refine2: {
-        Stats.AttackBonus: 60.0,
-        Stats.DmgBonus: 15.0,
-        Stats.PhyDmgBonus: 15.0,
+      {
+        'stat': Stats.AttackBonus,
+        'value': [48.0, 60.0, 72.0, 84.0, 96.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine3: {
-        Stats.AttackBonus: 72.0,
-        Stats.DmgBonus: 18.0,
-        Stats.PhyDmgBonus: 18.0,
-      },
-      Refine.Refine4: {
-        Stats.AttackBonus: 84.0,
-        Stats.DmgBonus: 21.0,
-        Stats.PhyDmgBonus: 21.0,
-      },
-      Refine.Refine5: {
-        Stats.AttackBonus: 96.0,
-        Stats.DmgBonus: 24.0,
-        Stats.PhyDmgBonus: 24.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1:
-          '元素战技和元素爆发造成的伤害提高12%；普通攻击、重击、元素战技或元素爆发命中敌人后，将产生1层持续12秒的「白夜极星」效果。处于1/2/3/4层「白夜极星」效果下时，攻击力将提高10/20/30/48%。由普通攻击、重击、元素战技或元素爆发产生的「白夜极星」将分别独立存在。',
-      Refine.Refine2:
-          '元素战技和元素爆发造成的伤害提高15%；普通攻击、重击、元素战技或元素爆发命中敌人后，将产生1层持续12秒的「白夜极星」效果。处于1/2/3/4层「白夜极星」效果下时，攻击力将提高12.5/25/37.5/60%。由普通攻击、重击、元素战技或元素爆发产生的「白夜极星」将分别独立存在。',
-      Refine.Refine3:
-          '元素战技和元素爆发造成的伤害提高18%；普通攻击、重击、元素战技或元素爆发命中敌人后，将产生1层持续12秒的「白夜极星」效果。处于1/2/3/4层「白夜极星」效果下时，攻击力将提高15/30/45/72%。由普通攻击、重击、元素战技或元素爆发产生的「白夜极星」将分别独立存在。',
-      Refine.Refine4:
-          '元素战技和元素爆发造成的伤害提高21%；普通攻击、重击、元素战技或元素爆发命中敌人后，将产生1层持续12秒的「白夜极星」效果。处于1/2/3/4层「白夜极星」效果下时，攻击力将提高17.5/35/52.5/84%。由普通攻击、重击、元素战技或元素爆发产生的「白夜极星」将分别独立存在。',
-      Refine.Refine5:
-          '元素战技和元素爆发造成的伤害提高24%；普通攻击、重击、元素战技或元素爆发命中敌人后，将产生1层持续12秒的「白夜极星」效果。处于1/2/3/4层「白夜极星」效果下时，攻击力将提高20/40/60/96%。由普通攻击、重击、元素战技或元素爆发产生的「白夜极星」将分别独立存在。',
-    },
-    'specialEffectDamageType': {
-      Stats.AttackBonus: [
-        DamageType.All,
-      ],
-      Stats.DmgBonus: [
-        DamageType.SkillE,
-        DamageType.SkillQ,
-        DamageType.SkillQSpecial,
-      ],
-      Stats.PhyDmgBonus: [
-        DamageType.SkillE,
-        DamageType.SkillQ,
-        DamageType.SkillQSpecial,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '元素战技和元素爆发造成的伤害提高%s；普通攻击、重击、元素战技或元素爆发命中敌人后，将产生1层持续12秒的「白夜极星」效果。处于1/2/3/4层「白夜极星」效果下时，攻击力将提高%s。由普通攻击、重击、元素战技或元素爆发产生的「白夜极星」将分别独立存在。',
+    'specialEffectCommentArguments': [
+      ['12%', '15%', '18%', '21%', '24%'],
+      ['10/20/30/48%', '12.5/25/37.5/60%', '15/30/45/72%', '17.5/35/52.5/84%', '20/40/60/96%'],
+    ],
   },
   {
     'name': '黑岩绯玉',
@@ -3137,36 +2035,21 @@ const WEAPONS = [
     'baseAttack': 510.0,
     'subStat': Stats.CritDmg,
     'subStatValue': 55.1,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.AttackBonus: 36.0,
+    'specialEffect': [
+      {
+        'stat': Stats.AttackBonus,
+        'value': [36.0, 45.0, 54.0, 63.0, 72.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.AttackBonus: 45.0,
-      },
-      Refine.Refine3: {
-        Stats.AttackBonus: 54.0,
-      },
-      Refine.Refine4: {
-        Stats.AttackBonus: 63.0,
-      },
-      Refine.Refine5: {
-        Stats.AttackBonus: 72.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '击败敌人后，攻击力提升12%，持续30秒。该效果至多叠加3层，每层持续时间独立。',
-      Refine.Refine2: '击败敌人后，攻击力提升15%，持续30秒。该效果至多叠加3层，每层持续时间独立。',
-      Refine.Refine3: '击败敌人后，攻击力提升18%，持续30秒。该效果至多叠加3层，每层持续时间独立。',
-      Refine.Refine4: '击败敌人后，攻击力提升21%，持续30秒。该效果至多叠加3层，每层持续时间独立。',
-      Refine.Refine5: '击败敌人后，攻击力提升24%，持续30秒。该效果至多叠加3层，每层持续时间独立。',
-    },
-    'specialEffectDamageType': {
-      Stats.AttackBonus: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '击败敌人后，攻击力提升%s，持续30秒。该效果至多叠加3层，每层持续时间独立。',
+    'specialEffectCommentArguments': [
+      ['12%', '15%', '18%', '21%', '24%'],
+    ],
   },
   {
     'name': '西风秘典',
@@ -3176,22 +2059,12 @@ const WEAPONS = [
     'baseAttack': 510.0,
     'subStat': Stats.Recharge,
     'subStatValue': 45.9,
-    'specialEffect': {
-      Refine.Refine1: {},
-      Refine.Refine2: {},
-      Refine.Refine3: {},
-      Refine.Refine4: {},
-      Refine.Refine5: {},
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '攻击造成暴击时，有60%的几率产生少量元素微粒，能为角色恢复6点元素能量。该效果每12秒只能触发一次。',
-      Refine.Refine2: '攻击造成暴击时，有70%的几率产生少量元素微粒，能为角色恢复6点元素能量。该效果每10.5秒只能触发一次。',
-      Refine.Refine3: '攻击造成暴击时，有80%的几率产生少量元素微粒，能为角色恢复6点元素能量。该效果每9秒只能触发一次。',
-      Refine.Refine4: '攻击造成暴击时，有90%的几率产生少量元素微粒，能为角色恢复6点元素能量。该效果每7.5秒只能触发一次。',
-      Refine.Refine5: '攻击造成暴击时，有100%的几率产生少量元素微粒，能为角色恢复6点元素能量。该效果每6秒只能触发一次。',
-    },
-    'specialEffectDamageType': {},
-    'specialEffectAlways': [],
+    'specialEffect': [],
+    'specialEffectComment': '攻击造成暴击时，有%s的几率产生少量元素微粒，能为角色恢复6点元素能量。该效果每%s只能触发一次。',
+    'specialEffectCommentArguments': [
+      ['60%', '70%', '80%', '90%', '100%'],
+      ['12秒', '10.5秒', '9秒', '7.5秒', '6秒'],
+    ],
   },
   {
     'name': '万国诸海图谱',
@@ -3201,36 +2074,21 @@ const WEAPONS = [
     'baseAttack': 565.0,
     'subStat': Stats.Mastery,
     'subStatValue': 110.0,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.DmgBonus: 16.0,
+    'specialEffect': [
+      {
+        'stat': Stats.EleDmgBonus,
+        'value': [16.0, 20.0, 24.0, 28.0, 32.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.DmgBonus: 20.0,
-      },
-      Refine.Refine3: {
-        Stats.DmgBonus: 24.0,
-      },
-      Refine.Refine4: {
-        Stats.DmgBonus: 28.0,
-      },
-      Refine.Refine5: {
-        Stats.DmgBonus: 32.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '触发元素反应后的10秒内，获得8%元素伤害加成，该效果最多可以叠加2层。',
-      Refine.Refine2: '触发元素反应后的10秒内，获得10%元素伤害加成，该效果最多可以叠加2层。',
-      Refine.Refine3: '触发元素反应后的10秒内，获得12%元素伤害加成，该效果最多可以叠加2层。',
-      Refine.Refine4: '触发元素反应后的10秒内，获得14%元素伤害加成，该效果最多可以叠加2层。',
-      Refine.Refine5: '触发元素反应后的10秒内，获得16%元素伤害加成，该效果最多可以叠加2层。',
-    },
-    'specialEffectDamageType': {
-      Stats.DmgBonus: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '触发元素反应后的10秒内，获得%s元素伤害加成，该效果最多可以叠加2层。',
+    'specialEffectCommentArguments': [
+      ['8%', '10%', '12%', '14%', '16%'],
+    ],
   },
   {
     'name': '试做金珀',
@@ -3240,22 +2098,12 @@ const WEAPONS = [
     'baseAttack': 510.0,
     'subStat': Stats.HpBonus,
     'subStatValue': 41.3,
-    'specialEffect': {
-      Refine.Refine1: {},
-      Refine.Refine2: {},
-      Refine.Refine3: {},
-      Refine.Refine4: {},
-      Refine.Refine5: {},
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '施放元素爆发后6秒内，每2秒恢复4点元素能量，队伍中的所有角色每2秒恢复4%生命值。',
-      Refine.Refine2: '施放元素爆发后6秒内，每2秒恢复4.5点元素能量，队伍中的所有角色每2秒恢复4.5%生命值。',
-      Refine.Refine3: '施放元素爆发后6秒内，每2秒恢复5点元素能量，队伍中的所有角色每2秒恢复5%生命值。',
-      Refine.Refine4: '施放元素爆发后6秒内，每2秒恢复5.5点元素能量，队伍中的所有角色每2秒恢复5.5%生命值。',
-      Refine.Refine5: '施放元素爆发后6秒内，每2秒恢复6点元素能量，队伍中的所有角色每2秒恢复6%生命值。',
-    },
-    'specialEffectDamageType': {},
-    'specialEffectAlways': [],
+    'specialEffect': [],
+    'specialEffectComment': '施放元素爆发后6秒内，每2秒恢复%s元素能量，队伍中的所有角色每2秒恢复%s生命值。',
+    'specialEffectCommentArguments': [
+      ['4点', '4.5点', '5点', '5.5点', '6点'],
+      ['4%', '4.5%', '5%', '5.5%', '6%'],
+    ],
   },
   {
     'name': '宗室秘法录',
@@ -3265,36 +2113,21 @@ const WEAPONS = [
     'baseAttack': 565.0,
     'subStat': Stats.AttackBonus,
     'subStatValue': 27.6,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.CritRate: 40.0,
+    'specialEffect': [
+      {
+        'stat': Stats.CritRate,
+        'value': [40.0, 50.0, 60.0, 70.0, 80.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.CritRate: 50.0,
-      },
-      Refine.Refine3: {
-        Stats.CritRate: 60.0,
-      },
-      Refine.Refine4: {
-        Stats.CritRate: 70.0,
-      },
-      Refine.Refine5: {
-        Stats.CritRate: 80.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '攻击造成伤害时，暴击率提升8%，最多堆叠5次。攻击造成暴击后，移除已有的专注效果。',
-      Refine.Refine2: '攻击造成伤害时，暴击率提升10%，最多堆叠5次。攻击造成暴击后，移除已有的专注效果。',
-      Refine.Refine3: '攻击造成伤害时，暴击率提升12%，最多堆叠5次。攻击造成暴击后，移除已有的专注效果。',
-      Refine.Refine4: '攻击造成伤害时，暴击率提升14%，最多堆叠5次。攻击造成暴击后，移除已有的专注效果。',
-      Refine.Refine5: '攻击造成伤害时，暴击率提升16%，最多堆叠5次。攻击造成暴击后，移除已有的专注效果。',
-    },
-    'specialEffectDamageType': {
-      Stats.CritRate: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '攻击造成伤害时，暴击率提升%s，最多堆叠5次。攻击造成暴击后，移除已有的专注效果。',
+    'specialEffectCommentArguments': [
+      ['8%', '10%', '12%', '14%', '16%'],
+    ],
   },
   {
     'name': '祭礼残章',
@@ -3304,22 +2137,12 @@ const WEAPONS = [
     'baseAttack': 454.0,
     'subStat': Stats.Mastery,
     'subStatValue': 221.0,
-    'specialEffect': {
-      Refine.Refine1: {},
-      Refine.Refine2: {},
-      Refine.Refine3: {},
-      Refine.Refine4: {},
-      Refine.Refine5: {},
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '元素战技造成伤害时，有40%的概率重置该技能的冷却时间，该效果每30秒只能触发一次。',
-      Refine.Refine2: '元素战技造成伤害时，有50%的概率重置该技能的冷却时间，该效果每26秒只能触发一次。',
-      Refine.Refine3: '元素战技造成伤害时，有60%的概率重置该技能的冷却时间，该效果每22秒只能触发一次。',
-      Refine.Refine4: '元素战技造成伤害时，有70%的概率重置该技能的冷却时间，该效果每19秒只能触发一次。',
-      Refine.Refine5: '元素战技造成伤害时，有80%的概率重置该技能的冷却时间，该效果每16秒只能触发一次。',
-    },
-    'specialEffectDamageType': {},
-    'specialEffectAlways': [],
+    'specialEffect': [],
+    'specialEffectComment': '元素战技造成伤害时，有%s的概率重置该技能的冷却时间，该效果每%s只能触发一次。',
+    'specialEffectCommentArguments': [
+      ['40%', '50%', '60%', '70%', '80%'],
+      ['30秒', '26秒', '22秒', '19秒', '16秒'],
+    ],
   },
   {
     'name': '匣里日月',
@@ -3329,50 +2152,34 @@ const WEAPONS = [
     'baseAttack': 510.0,
     'subStat': Stats.CritRate,
     'subStatValue': 27.6,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.DmgBonus: 20.0,
-        Stats.PhyDmgBonus: 20.0,
+    'specialEffect': [
+      {
+        'stat': Stats.DmgBonus,
+        'value': [20.0, 25.0, 30.0, 35.0, 40.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.SkillE,
+          DamageType.SkillESpecial,
+          DamageType.SkillQ,
+          DamageType.SkillQSpecial,
+        ],
       },
-      Refine.Refine2: {
-        Stats.DmgBonus: 25.0,
-        Stats.PhyDmgBonus: 25.0,
+      {
+        'stat': Stats.DmgBonus,
+        'value': [20.0, 25.0, 30.0, 35.0, 40.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.Normal,
+        ],
       },
-      Refine.Refine3: {
-        Stats.DmgBonus: 30.0,
-        Stats.PhyDmgBonus: 30.0,
-      },
-      Refine.Refine4: {
-        Stats.DmgBonus: 35.0,
-        Stats.PhyDmgBonus: 35.0,
-      },
-      Refine.Refine5: {
-        Stats.DmgBonus: 40.0,
-        Stats.PhyDmgBonus: 40.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '普通攻击命中后的6秒内，元素战技与元素爆发的伤害提高20%；元素战技与元素爆发命中后的6秒内，普通攻击的伤害提高20%。',
-      Refine.Refine2: '普通攻击命中后的6秒内，元素战技与元素爆发的伤害提高25%；元素战技与元素爆发命中后的6秒内，普通攻击的伤害提高25%。',
-      Refine.Refine3: '普通攻击命中后的6秒内，元素战技与元素爆发的伤害提高30%；元素战技与元素爆发命中后的6秒内，普通攻击的伤害提高30%。',
-      Refine.Refine4: '普通攻击命中后的6秒内，元素战技与元素爆发的伤害提高35%；元素战技与元素爆发命中后的6秒内，普通攻击的伤害提高35%。',
-      Refine.Refine5: '普通攻击命中后的6秒内，元素战技与元素爆发的伤害提高40%；元素战技与元素爆发命中后的6秒内，普通攻击的伤害提高40%。',
-    },
-    'specialEffectDamageType': {
-      Stats.DmgBonus: [
-        DamageType.Normal,
-        DamageType.SkillE,
-        DamageType.SkillQ,
-        DamageType.SkillQSpecial,
-      ],
-      Stats.PhyDmgBonus: [
-        DamageType.Normal,
-        DamageType.SkillE,
-        DamageType.SkillQ,
-        DamageType.SkillQSpecial,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '普通攻击命中后的6秒内，元素战技与元素爆发的伤害提高%s；元素战技与元素爆发命中后的6秒内，普通攻击的伤害提高%s。',
+    'specialEffectCommentArguments': [
+      ['20%', '25%', '30%', '35%', '40%'],
+      ['20%', '25%', '30%', '35%', '40%'],
+    ],
   },
   {
     'name': '流浪乐章',
@@ -3382,52 +2189,41 @@ const WEAPONS = [
     'baseAttack': 510.0,
     'subStat': Stats.CritDmg,
     'subStatValue': 55.1,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.Attack: 60.0,
-        Stats.DmgBonus: 48.0,
-        Stats.Mastery: 240.0,
+    'specialEffect': [
+      {
+        'stat': Stats.AttackBonus,
+        'value': [60.0, 75.0, 90.0, 105.0, 120.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.Attack: 75.0,
-        Stats.DmgBonus: 60.0,
-        Stats.Mastery: 300.0,
+      {
+        'stat': Stats.EleDmgBonus,
+        'value': [48.0, 60.0, 72.0, 84.0, 96.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine3: {
-        Stats.Attack: 90.0,
-        Stats.DmgBonus: 72.0,
-        Stats.Mastery: 360.0,
+      {
+        'stat': Stats.Mastery,
+        'value': [240.0, 300.0, 360.0, 420.0, 480.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine4: {
-        Stats.Attack: 105.0,
-        Stats.DmgBonus: 84.0,
-        Stats.Mastery: 420.0,
-      },
-      Refine.Refine5: {
-        Stats.Attack: 120.0,
-        Stats.DmgBonus: 96.0,
-        Stats.Mastery: 480.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '角色登场时，随机获得一个主题曲，持续10秒。每30秒只能触发一次。宣叙调：攻击力提升60%；咏叹调：全元素伤害提升48%;间奏曲：元素精通提升240。',
-      Refine.Refine2: '角色登场时，随机获得一个主题曲，持续10秒。每30秒只能触发一次。宣叙调：攻击力提升75%；咏叹调：全元素伤害提升60%;间奏曲：元素精通提升300。',
-      Refine.Refine3: '角色登场时，随机获得一个主题曲，持续10秒。每30秒只能触发一次。宣叙调：攻击力提升90%；咏叹调：全元素伤害提升72%;间奏曲：元素精通提升360。',
-      Refine.Refine4: '角色登场时，随机获得一个主题曲，持续10秒。每30秒只能触发一次。宣叙调：攻击力提升105%；咏叹调：全元素伤害提升84%;间奏曲：元素精通提升420。',
-      Refine.Refine5: '角色登场时，随机获得一个主题曲，持续10秒。每30秒只能触发一次。宣叙调：攻击力提升120%；咏叹调：全元素伤害提升96%;间奏曲：元素精通提升480。',
-    },
-    'specialEffectDamageType': {
-      Stats.Attack: [
-        DamageType.All,
-      ],
-      Stats.DmgBonus: [
-        DamageType.All,
-      ],
-      Stats.Mastery: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '角色登场时，随机获得一个主题曲，持续10秒。每30秒只能触发一次。宣叙调：攻击力提升%s；咏叹调：全元素伤害提升%s;间奏曲：元素精通提升%s。',
+    'specialEffectCommentArguments': [
+      ['60%', '75%', '90%', '105%', '120%'],
+      ['48%', '60%', '72%', '84%', '96%'],
+      ['240', '300', '360', '420', '480'],
+    ],
   },
   {
     'name': '暗巷的酒与诗',
@@ -3437,36 +2233,22 @@ const WEAPONS = [
     'baseAttack': 565.0,
     'subStat': Stats.Recharge,
     'subStatValue': 30.6,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.AttackBonus: 20.0,
+    'specialEffect': [
+      {
+        'stat': Stats.AttackBonus,
+        'value': [20.0, 25.0, 30.0, 35.0, 40.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.AttackBonus: 25.0,
-      },
-      Refine.Refine3: {
-        Stats.AttackBonus: 30.0,
-      },
-      Refine.Refine4: {
-        Stats.AttackBonus: 35.0,
-      },
-      Refine.Refine5: {
-        Stats.AttackBonus: 40.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '普通攻击命中敌人后，冲刺或替代冲刺的能力消耗的体力降低14%，持续5秒。此外，使用冲刺或替代冲刺的能力后，攻击力提升20%，持续5秒。',
-      Refine.Refine2: '普通攻击命中敌人后，冲刺或替代冲刺的能力消耗的体力降低16%，持续5秒。此外，使用冲刺或替代冲刺的能力后，攻击力提升25%，持续5秒。',
-      Refine.Refine3: '普通攻击命中敌人后，冲刺或替代冲刺的能力消耗的体力降低18%，持续5秒。此外，使用冲刺或替代冲刺的能力后，攻击力提升30%，持续5秒。',
-      Refine.Refine4: '普通攻击命中敌人后，冲刺或替代冲刺的能力消耗的体力降低20%，持续5秒。此外，使用冲刺或替代冲刺的能力后，攻击力提升35%，持续5秒。',
-      Refine.Refine5: '普通攻击命中敌人后，冲刺或替代冲刺的能力消耗的体力降低22%，持续5秒。此外，使用冲刺或替代冲刺的能力后，攻击力提升40%，持续5秒。',
-    },
-    'specialEffectDamageType': {
-      Stats.AttackBonus: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '普通攻击命中敌人后，冲刺或替代冲刺的能力消耗的体力降低%s，持续5秒。此外，使用冲刺或替代冲刺的能力后，攻击力提升%s，持续5秒。',
+    'specialEffectCommentArguments': [
+      ['14%', '16%', '18%', '20%', '22%'],
+      ['20%', '25%', '30%', '35%', '40%'],
+    ],
   },
   {
     'name': '昭心',
@@ -3476,22 +2258,12 @@ const WEAPONS = [
     'baseAttack': 510.0,
     'subStat': Stats.AttackBonus,
     'subStatValue': 41.3,
-    'specialEffect': {
-      Refine.Refine1: {},
-      Refine.Refine2: {},
-      Refine.Refine3: {},
-      Refine.Refine4: {},
-      Refine.Refine5: {},
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '普通攻击与重击命中时，有50%几率发射一枚昭心法球，造成240%攻击力伤害，至多在敌人之间弹射四次。该效果每12秒至多触发一次。',
-      Refine.Refine2: '普通攻击与重击命中时，有50%几率发射一枚昭心法球，造成270%攻击力伤害，至多在敌人之间弹射四次。该效果每11秒至多触发一次。',
-      Refine.Refine3: '普通攻击与重击命中时，有50%几率发射一枚昭心法球，造成300%攻击力伤害，至多在敌人之间弹射四次。该效果每10秒至多触发一次。',
-      Refine.Refine4: '普通攻击与重击命中时，有50%几率发射一枚昭心法球，造成330%攻击力伤害，至多在敌人之间弹射四次。该效果每9秒至多触发一次。',
-      Refine.Refine5: '普通攻击与重击命中时，有50%几率发射一枚昭心法球，造成360%攻击力伤害，至多在敌人之间弹射四次。该效果每8秒至多触发一次。',
-    },
-    'specialEffectDamageType': {},
-    'specialEffectAlways': [],
+    'specialEffect': [],
+    'specialEffectComment': '普通攻击与重击命中时，有50%%几率发射一枚昭心法球，造成%s攻击力伤害，至多在敌人之间弹射四次。该效果每%s至多触发一次。',
+    'specialEffectCommentArguments': [
+      ['240%', '270%', '300%', '330%', '360%'],
+      ['12秒', '11秒', '10秒', '9秒', '8秒'],
+    ],
   },
   {
     'name': '忍冬之果',
@@ -3501,22 +2273,13 @@ const WEAPONS = [
     'baseAttack': 454.0,
     'subStat': Stats.AttackBonus,
     'subStatValue': 55.1,
-    'specialEffect': {
-      Refine.Refine1: {},
-      Refine.Refine2: {},
-      Refine.Refine3: {},
-      Refine.Refine4: {},
-      Refine.Refine5: {},
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '普通攻击与重击命中敌人时，有60%概率在敌人上方生成恒冰晶核并坠落，造成80%攻击力的范围伤害。若敌人处于冰元素影响下，则造成200%攻击力的伤害。该效果每10秒至多触发一次。',
-      Refine.Refine2: '普通攻击与重击命中敌人时，有70%概率在敌人上方生成恒冰晶核并坠落，造成95%攻击力的范围伤害。若敌人处于冰元素影响下，则造成240%攻击力的伤害。该效果每10秒至多触发一次。',
-      Refine.Refine3: '普通攻击与重击命中敌人时，有80%概率在敌人上方生成恒冰晶核并坠落，造成110%攻击力的范围伤害。若敌人处于冰元素影响下，则造成280%攻击力的伤害。该效果每10秒至多触发一次。',
-      Refine.Refine4: '普通攻击与重击命中敌人时，有90%概率在敌人上方生成恒冰晶核并坠落，造成125%攻击力的范围伤害。若敌人处于冰元素影响下，则造成320%攻击力的伤害。该效果每10秒至多触发一次。',
-      Refine.Refine5: '普通攻击与重击命中敌人时，有100%概率在敌人上方生成恒冰晶核并坠落，造成140%攻击力的范围伤害。若敌人处于冰元素影响下，则造成360%攻击力的伤害。该效果每10秒至多触发一次。',
-    },
-    'specialEffectDamageType': {},
-    'specialEffectAlways': [],
+    'specialEffect': [],
+    'specialEffectComment': '普通攻击与重击命中敌人时，有%s概率在敌人上方生成恒冰晶核并坠落，造成%s攻击力的范围伤害。若敌人处于冰元素影响下，则造成%s攻击力的伤害。该效果每10秒至多触发一次。',
+    'specialEffectCommentArguments': [
+      ['60%', '70%', '80%', '90%', '100%'],
+      ['80%', '95%', '110%', '125%', '140%'],
+      ['200%', '240%', '280%', '320%', '360%'],
+    ],
   },
   {
     'name': '嘟嘟可故事集',
@@ -3526,52 +2289,31 @@ const WEAPONS = [
     'baseAttack': 454.0,
     'subStat': Stats.AttackBonus,
     'subStatValue': 55.1,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.AttackBonus: 8.0,
-        Stats.DmgBonus: 16.0,
-        Stats.PhyDmgBonus: 16.0,
+    'specialEffect': [
+      {
+        'stat': Stats.DmgBonus,
+        'value': [16.0, 20.0, 24.0, 28.0, 32.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.Charged,
+        ],
       },
-      Refine.Refine2: {
-        Stats.AttackBonus: 10.0,
-        Stats.DmgBonus: 20.0,
-        Stats.PhyDmgBonus: 20.0,
+      {
+        'stat': Stats.AttackBonus,
+        'value': [8.0, 10.0, 12.0, 14.0, 16.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine3: {
-        Stats.AttackBonus: 12.0,
-        Stats.DmgBonus: 24.0,
-        Stats.PhyDmgBonus: 24.0,
-      },
-      Refine.Refine4: {
-        Stats.AttackBonus: 14.0,
-        Stats.DmgBonus: 28.0,
-        Stats.PhyDmgBonus: 28.0,
-      },
-      Refine.Refine5: {
-        Stats.AttackBonus: 16.0,
-        Stats.DmgBonus: 32.0,
-        Stats.PhyDmgBonus: 32.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '普通攻击命中敌人后的6秒内，重击造成的伤害提升16%；重击命中敌人后的6秒内，攻击力提升8%。',
-      Refine.Refine2: '普通攻击命中敌人后的6秒内，重击造成的伤害提升20%；重击命中敌人后的6秒内，攻击力提升10%。',
-      Refine.Refine3: '普通攻击命中敌人后的6秒内，重击造成的伤害提升24%；重击命中敌人后的6秒内，攻击力提升12%。',
-      Refine.Refine4: '普通攻击命中敌人后的6秒内，重击造成的伤害提升28%；重击命中敌人后的6秒内，攻击力提升14%。',
-      Refine.Refine5: '普通攻击命中敌人后的6秒内，重击造成的伤害提升32%；重击命中敌人后的6秒内，攻击力提升16%。',
-    },
-    'specialEffectDamageType': {
-      Stats.AttackBonus: [
-        DamageType.All,
-      ],
-      Stats.DmgBonus: [
-        DamageType.Charged,
-      ],
-      Stats.PhyDmgBonus: [
-        DamageType.Charged,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '普通攻击命中敌人后的6秒内，重击造成的伤害提升%s；重击命中敌人后的6秒内，攻击力提升%s。',
+    'specialEffectCommentArguments': [
+      ['16%', '20%', '24%', '28%', '32%'],
+      ['8%', '10%', '12%', '14%', '16%'],
+    ],
   },
   {
     'name': '白辰之环',
@@ -3581,36 +2323,21 @@ const WEAPONS = [
     'baseAttack': 565.0,
     'subStat': Stats.Recharge,
     'subStatValue': 30.6,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.DmgBonus: 10.0,
+    'specialEffect': [
+      {
+        'stat': Stats.EleDmgBonus,
+        'value': [10.0, 12.5, 15.0, 17.5, 20.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.DmgBonus: 12.5,
-      },
-      Refine.Refine3: {
-        Stats.DmgBonus: 15.0,
-      },
-      Refine.Refine4: {
-        Stats.DmgBonus: 17.5,
-      },
-      Refine.Refine5: {
-        Stats.DmgBonus: 20.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '装备该武器的角色触发雷元素相关反应后，队伍中附近的与该元素反应相关的元素类型的角色，获得10%对应元素的元素伤害加成，持续6秒。通过这种方式，角色获得的元素伤害加成无法叠加。',
-      Refine.Refine2: '装备该武器的角色触发雷元素相关反应后，队伍中附近的与该元素反应相关的元素类型的角色，获得12.5%对应元素的元素伤害加成，持续6秒。通过这种方式，角色获得的元素伤害加成无法叠加。',
-      Refine.Refine3: '装备该武器的角色触发雷元素相关反应后，队伍中附近的与该元素反应相关的元素类型的角色，获得15%对应元素的元素伤害加成，持续6秒。通过这种方式，角色获得的元素伤害加成无法叠加。',
-      Refine.Refine4: '装备该武器的角色触发雷元素相关反应后，队伍中附近的与该元素反应相关的元素类型的角色，获得17.5%对应元素的元素伤害加成，持续6秒。通过这种方式，角色获得的元素伤害加成无法叠加。',
-      Refine.Refine5: '装备该武器的角色触发雷元素相关反应后，队伍中附近的与该元素反应相关的元素类型的角色，获得20%对应元素的元素伤害加成，持续6秒。通过这种方式，角色获得的元素伤害加成无法叠加。',
-    },
-    'specialEffectDamageType': {
-      Stats.DmgBonus: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '装备该武器的角色触发雷元素相关反应后，队伍中附近的与该元素反应相关的元素类型的角色，获得%s对应元素的元素伤害加成，持续6秒。通过这种方式，角色获得的元素伤害加成无法叠加。',
+    'specialEffectCommentArguments': [
+      ['10%', '12.5%', '15%', '17.5%', '20%'],
+    ],
   },
   {
     'name': '四风原典',
@@ -3620,36 +2347,21 @@ const WEAPONS = [
     'baseAttack': 608.0,
     'subStat': Stats.CritRate,
     'subStatValue': 33.1,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.DmgBonus: 32.0,
+    'specialEffect': [
+      {
+        'stat': Stats.EleDmgBonus,
+        'value': [32.0, 40.0, 48.0, 56.0, 64.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.DmgBonus: 40.0,
-      },
-      Refine.Refine3: {
-        Stats.DmgBonus: 48.0,
-      },
-      Refine.Refine4: {
-        Stats.DmgBonus: 56.0,
-      },
-      Refine.Refine5: {
-        Stats.DmgBonus: 64.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '移动速度提高10%；在场上每4秒获得8%元素伤害加成。该效果最多叠加4层，持续直到角色倒下或离场。',
-      Refine.Refine2: '移动速度提高10%；在场上每4秒获得10%元素伤害加成。该效果最多叠加4层，持续直到角色倒下或离场。',
-      Refine.Refine3: '移动速度提高10%；在场上每4秒获得12%元素伤害加成。该效果最多叠加4层，持续直到角色倒下或离场。',
-      Refine.Refine4: '移动速度提高10%；在场上每4秒获得14%元素伤害加成。该效果最多叠加4层，持续直到角色倒下或离场。',
-      Refine.Refine5: '移动速度提高10%；在场上每4秒获得16%元素伤害加成。该效果最多叠加4层，持续直到角色倒下或离场。',
-    },
-    'specialEffectDamageType': {
-      Stats.DmgBonus: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '移动速度提高10%%；在场上每4秒获得%s元素伤害加成。该效果最多叠加4层，持续直到角色倒下或离场。',
+    'specialEffectCommentArguments': [
+      ['8%', '10%', '12%', '14%', '16%'],
+    ],
   },
   {
     'name': '天空之卷',
@@ -3659,37 +2371,21 @@ const WEAPONS = [
     'baseAttack': 674.0,
     'subStat': Stats.AttackBonus,
     'subStatValue': 33.1,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.DmgBonus: 12.0,
+    'specialEffect': [
+      {
+        'stat': Stats.EleDmgBonus,
+        'value': [12.0, 15.0, 18.0, 21.0, 24.0],
+        'always': true,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.DmgBonus: 15.0,
-      },
-      Refine.Refine3: {
-        Stats.DmgBonus: 18.0,
-      },
-      Refine.Refine4: {
-        Stats.DmgBonus: 21.0,
-      },
-      Refine.Refine5: {
-        Stats.DmgBonus: 24.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '元素伤害加成提升12%；普通攻击命中时，有50%的概率获得高天流云的青睐，在15秒内主动攻击附近的敌人，造成等同于160%攻击力的伤害。该效果每30秒只能触发一次。',
-      Refine.Refine2: '元素伤害加成提升15%；普通攻击命中时，有50%的概率获得高天流云的青睐，在15秒内主动攻击附近的敌人，造成等同于200%攻击力的伤害。该效果每30秒只能触发一次。',
-      Refine.Refine3: '元素伤害加成提升18%；普通攻击命中时，有50%的概率获得高天流云的青睐，在15秒内主动攻击附近的敌人，造成等同于240%攻击力的伤害。该效果每30秒只能触发一次。',
-      Refine.Refine4: '元素伤害加成提升21%；普通攻击命中时，有50%的概率获得高天流云的青睐，在15秒内主动攻击附近的敌人，造成等同于280%攻击力的伤害。该效果每30秒只能触发一次。',
-      Refine.Refine5: '元素伤害加成提升24%；普通攻击命中时，有50%的概率获得高天流云的青睐，在15秒内主动攻击附近的敌人，造成等同于320%攻击力的伤害。该效果每30秒只能触发一次。',
-    },
-    'specialEffectDamageType': {
-      Stats.DmgBonus: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [
-      Stats.DmgBonus,
+    ],
+    'specialEffectComment': '元素伤害加成提升%s；普通攻击命中时，有50%%的概率获得高天流云的青睐，在15秒内主动攻击附近的敌人，造成等同于%s攻击力的伤害。该效果每30秒只能触发一次。',
+    'specialEffectCommentArguments': [
+      ['12%', '15%', '18%', '21%', '24%'],
+      ['160%', '200%', '240%', '280%', '320%'],
     ],
   },
   {
@@ -3700,45 +2396,39 @@ const WEAPONS = [
     'baseAttack': 608.0,
     'subStat': Stats.AttackBonus,
     'subStatValue': 49.6,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.AttackBonus: 40.0,
-        Stats.ShieldStrength: 20.0,
+    'specialEffect': [
+      {
+        'stat': Stats.AttackBonus,
+        'value': [20.0, 25.0, 30.0, 35.0, 40.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.AttackBonus: 50.0,
-        Stats.ShieldStrength: 25.0,
+      {
+        'stat': Stats.AttackBonus,
+        'value': [20.0, 25.0, 30.0, 35.0, 40.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine3: {
-        Stats.AttackBonus: 60.0,
-        Stats.ShieldStrength: 30.0,
+      {
+        'stat': Stats.ShieldStrength,
+        'value': [20.0, 25.0, 30.0, 35.0, 40.0],
+        'always': true,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine4: {
-        Stats.AttackBonus: 70.0,
-        Stats.ShieldStrength: 35.0,
-      },
-      Refine.Refine5: {
-        Stats.AttackBonus: 80.0,
-        Stats.ShieldStrength: 40.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '护盾强效提升20%。攻击命中后的8秒内，攻击力提升4%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
-      Refine.Refine2: '护盾强效提升25%。攻击命中后的8秒内，攻击力提升5%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
-      Refine.Refine3: '护盾强效提升30%。攻击命中后的8秒内，攻击力提升6%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
-      Refine.Refine4: '护盾强效提升35%。攻击命中后的8秒内，攻击力提升7%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
-      Refine.Refine5: '护盾强效提升40%。攻击命中后的8秒内，攻击力提升8%。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%。',
-    },
-    'specialEffectDamageType': {
-      Stats.AttackBonus: [
-        DamageType.All,
-      ],
-      Stats.ShieldStrength: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [
-      Stats.ShieldStrength,
+    ],
+    'specialEffectComment': '护盾强效提升%s。攻击命中后的8秒内，攻击力提升%s。该效果至多可叠加5层，每0.3秒只能触发一次。此外，处于护盾庇护下时，该效果的攻击力提升效果提高100%%。',
+    'specialEffectCommentArguments': [
+      ['20%', '25%', '30%', '35%', '40%'],
+      ['4%', '5%', '6%', '7%', '8%'],
     ],
   },
   {
@@ -3749,45 +2439,30 @@ const WEAPONS = [
     'baseAttack': 608.0,
     'subStat': Stats.HpBonus,
     'subStatValue': 49.6,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.HealingBonus: 10.0,
-        Stats.ExtraDamageByHp: 1.0,
+    'specialEffect': [
+      {
+        'stat': Stats.HealingBonus,
+        'value': [10.0, 12.5, 15.0, 17.5, 20.0],
+        'always': true,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.HealingBonus: 12.5,
-        Stats.ExtraDamageByHp: 1.5,
+      {
+        'stat': Stats.ExtraDamageByHp,
+        'value': [1.0, 1.5, 2.0, 2.5, 3.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.Normal,
+        ],
       },
-      Refine.Refine3: {
-        Stats.HealingBonus: 15.0,
-        Stats.ExtraDamageByHp: 2.0,
-      },
-      Refine.Refine4: {
-        Stats.HealingBonus: 17.5,
-        Stats.ExtraDamageByHp: 2.5,
-      },
-      Refine.Refine5: {
-        Stats.HealingBonus: 20.0,
-        Stats.ExtraDamageByHp: 3.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '治疗加成提升10%；普通攻击造成的伤害增加，增加值为装备该武器的角色生命值上限的1%。在施放元素爆发后的12秒内，普通攻击命中敌人时恢复0.6点元素能量，每0.1秒至多通过这种方式恢复一次元素能量。',
-      Refine.Refine2: '治疗加成提升12.5%；普通攻击造成的伤害增加，增加值为装备该武器的角色生命值上限的1.5%。在施放元素爆发后的12秒内，普通攻击命中敌人时恢复0.6点元素能量，每0.1秒至多通过这种方式恢复一次元素能量。',
-      Refine.Refine3: '治疗加成提升15%；普通攻击造成的伤害增加，增加值为装备该武器的角色生命值上限的2%。在施放元素爆发后的12秒内，普通攻击命中敌人时恢复0.6点元素能量，每0.1秒至多通过这种方式恢复一次元素能量。',
-      Refine.Refine4: '治疗加成提升17.5%；普通攻击造成的伤害增加，增加值为装备该武器的角色生命值上限的2.5%。在施放元素爆发后的12秒内，普通攻击命中敌人时恢复0.6点元素能量，每0.1秒至多通过这种方式恢复一次元素能量。',
-      Refine.Refine5: '治疗加成提升20%；普通攻击造成的伤害增加，增加值为装备该武器的角色生命值上限的3%。在施放元素爆发后的12秒内，普通攻击命中敌人时恢复0.6点元素能量，每0.1秒至多通过这种方式恢复一次元素能量。',
-    },
-    'specialEffectDamageType': {
-      Stats.HealingBonus: [
-        DamageType.All,
-      ],
-      Stats.ExtraDamageByHp: [
-        DamageType.Normal,
-      ],
-    },
-    'specialEffectAlways': [
-      Stats.HealingBonus,
+    ],
+    'specialEffectComment': '治疗加成提升%s；普通攻击造成的伤害增加，增加值为装备该武器的角色生命值上限的%s。在施放元素爆发后的12秒内，普通攻击命中敌人时恢复0.6点元素能量，每0.1秒至多通过这种方式恢复一次元素能量。',
+    'specialEffectCommentArguments': [
+      ['10%', '12.5%', '15%', '17.5%', '20%'],
+      ['1%', '1.5%', '2%', '2.5%', '3%'],
     ],
   },
   {
@@ -3798,36 +2473,22 @@ const WEAPONS = [
     'baseAttack': 454.0,
     'subStat': Stats.DefendBonus,
     'subStatValue': 69.0,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.ExtraDmageByDefend: 40.0,
+    'specialEffect': [
+      {
+        'stat': Stats.ExtraDmageByDefend,
+        'value': [40.0, 50.0, 60.0, 70.0, 80.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.SkillE,
+          DamageType.SkillESpecial,
+        ],
       },
-      Refine.Refine2: {
-        Stats.ExtraDmageByDefend: 50.0,
-      },
-      Refine.Refine3: {
-        Stats.ExtraDmageByDefend: 60.0,
-      },
-      Refine.Refine4: {
-        Stats.ExtraDmageByDefend: 70.0,
-      },
-      Refine.Refine5: {
-        Stats.ExtraDmageByDefend: 80.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '元素战技造成的伤害值提高，提高数值相当于防御力的40%。该效果每1.5秒最多触发一次，并将在元素战技造成伤害后的0.1秒后清除效果。',
-      Refine.Refine2: '元素战技造成的伤害值提高，提高数值相当于防御力的50%。该效果每1.5秒最多触发一次，并将在元素战技造成伤害后的0.1秒后清除效果。',
-      Refine.Refine3: '元素战技造成的伤害值提高，提高数值相当于防御力的60%。该效果每1.5秒最多触发一次，并将在元素战技造成伤害后的0.1秒后清除效果。',
-      Refine.Refine4: '元素战技造成的伤害值提高，提高数值相当于防御力的70%。该效果每1.5秒最多触发一次，并将在元素战技造成伤害后的0.1秒后清除效果。',
-      Refine.Refine5: '元素战技造成的伤害值提高，提高数值相当于防御力的80%。该效果每1.5秒最多触发一次，并将在元素战技造成伤害后的0.1秒后清除效果。',
-    },
-    'specialEffectDamageType': {
-      Stats.ExtraDmageByDefend: [
-        DamageType.SkillE,
-      ],
-    },
-    'specialEffectAlways': [],
+    ],
+    'specialEffectComment': '元素战技造成的伤害值提高，提高数值相当于防御力的%s。该效果每1.5秒最多触发一次，并将在元素战技造成伤害后的0.1秒后清除效果。',
+    'specialEffectCommentArguments': [
+      ['40%', '50%', '60%', '70%', '80%'],
+    ],
   },
   {
     'name': '赤角石溃杵',
@@ -3837,46 +2498,31 @@ const WEAPONS = [
     'baseAttack': 542.0,
     'subStat': Stats.CritDmg,
     'subStatValue': 88.2,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.DefendBonus: 28.0,
-        Stats.ExtraDmageByDefend: 40.0,
+    'specialEffect': [
+      {
+        'stat': Stats.DefendBonus,
+        'value': [28.0, 35.0, 42.0, 49.0, 56.0],
+        'always': true,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.DefendBonus: 35.0,
-        Stats.ExtraDmageByDefend: 50.0,
+      {
+        'stat': Stats.ExtraDmageByDefend,
+        'value': [40.0, 50.0, 60.0, 70.0, 80.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.Normal,
+          DamageType.Charged,
+        ],
       },
-      Refine.Refine3: {
-        Stats.DefendBonus: 42.0,
-        Stats.ExtraDmageByDefend: 60.0,
-      },
-      Refine.Refine4: {
-        Stats.DefendBonus: 49.0,
-        Stats.ExtraDmageByDefend: 70.0,
-      },
-      Refine.Refine5: {
-        Stats.DefendBonus: 56.0,
-        Stats.ExtraDmageByDefend: 80.0,
-      },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '防御力提高28%；普通攻击与重击造成的伤害值提高，提高数值相当于防御力的40%。',
-      Refine.Refine2: '防御力提高35%；普通攻击与重击造成的伤害值提高，提高数值相当于防御力的50%。',
-      Refine.Refine3: '防御力提高42%；普通攻击与重击造成的伤害值提高，提高数值相当于防御力的60%。',
-      Refine.Refine4: '防御力提高49%；普通攻击与重击造成的伤害值提高，提高数值相当于防御力的70%。',
-      Refine.Refine5: '防御力提高56%；普通攻击与重击造成的伤害值提高，提高数值相当于防御力的80%。',
-    },
-    'specialEffectDamageType': {
-      Stats.DefendBonus: [
-        DamageType.All,
-      ],
-      Stats.ExtraDmageByDefend: [
-        DamageType.Normal,
-        DamageType.Charged,
-      ],
-    },
-    'specialEffectAlways': [
-      Stats.DefendBonus,
+    ],
+    'specialEffectComment': '防御力提高%s；普通攻击与重击造成的伤害值提高，提高数值相当于防御力的%s。',
+    'specialEffectCommentArguments': [
+      ['28%', '35%', '42%', '49%', '56%'],
+      ['40%', '50%', '60%', '70%', '80%'],
     ],
   },
   {
@@ -3887,45 +2533,142 @@ const WEAPONS = [
     'baseAttack': 741.0,
     'subStat': Stats.AttackBonus,
     'subStatValue': 16.5,
-    'specialEffect': {
-      Refine.Refine1: {
-        Stats.DmgBonus: 12.0,
-        Stats.AttackBonus: 19.2,
+    'specialEffect': [
+      {
+        'stat': Stats.EleDmgBonus,
+        'value': [12.0, 15.0, 18.0, 21.0, 24.0],
+        'always': true,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine2: {
-        Stats.DmgBonus: 15.0,
-        Stats.AttackBonus: 24.0,
+      {
+        'stat': Stats.AttackBonus,
+        'value': [19.2, 24.0, 28.8, 33.6, 38.4],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine3: {
-        Stats.DmgBonus: 18.0,
-        Stats.AttackBonus: 28.8,
+      {
+        'stat': Stats.AttackBonus,
+        'value': [19.2, 24.0, 28.8, 33.6, 38.4],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-      Refine.Refine4: {
-        Stats.DmgBonus: 21.0,
-        Stats.AttackBonus: 33.6,
+    ],
+    'specialEffectComment': '获得%s所有元素伤害加成；施放元素战技后，获得持续20秒的「圆顿」，攻击力每1秒提升%s，该攻击力提升效果至多叠加6次。当装备此武器的角色处于队伍后台时，「圆顿」的攻击力提升效果翻倍。',
+    'specialEffectCommentArguments': [
+      ['12%', '15%', '18%', '21%', '24%'],
+      ['3.2%', '4%', '4.8%', '5.6%', '6.4%'],
+    ],
+  },
+  {
+    'name': '神乐之真意',
+    'weapon_id': 95,
+    'type': WeaponTypes.Catalyst,
+    'rarity': Rarity.Star5,
+    'baseAttack': 608.0,
+    'subStat': Stats.CritDmg,
+    'subStatValue': 66.2,
+    'specialEffect': [
+      {
+        'stat': Stats.EleDmgBonus,
+        'value': [36.0, 45.0, 54.0, 63.0, 72.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.SkillE,
+          DamageType.SkillESpecial,
+        ],
       },
-      Refine.Refine5: {
-        Stats.DmgBonus: 24.0,
-        Stats.AttackBonus: 38.4,
+      {
+        'stat': Stats.EleDmgBonus,
+        'value': [12.0, 15.0, 18.0, 21.0, 24.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
       },
-    },
-    'specialEffectComent': {
-      Refine.Refine1: '获得12%所有元素伤害加成；施放元素战技后，获得持续20秒的「圆顿」，攻击力每1秒提升3.2%，该攻击力提升效果至多叠加6次。当装备此武器的角色处于队伍后台时，「圆顿」的攻击力提升效果翻倍。',
-      Refine.Refine2: '获得15%所有元素伤害加成；施放元素战技后，获得持续20秒的「圆顿」，攻击力每1秒提升4%，该攻击力提升效果至多叠加6次。当装备此武器的角色处于队伍后台时，「圆顿」的攻击力提升效果翻倍。',
-      Refine.Refine3: '获得18%所有元素伤害加成；施放元素战技后，获得持续20秒的「圆顿」，攻击力每1秒提升4.8%，该攻击力提升效果至多叠加6次。当装备此武器的角色处于队伍后台时，「圆顿」的攻击力提升效果翻倍。',
-      Refine.Refine4: '获得21%所有元素伤害加成；施放元素战技后，获得持续20秒的「圆顿」，攻击力每1秒提升5.6%，该攻击力提升效果至多叠加6次。当装备此武器的角色处于队伍后台时，「圆顿」的攻击力提升效果翻倍。',
-      Refine.Refine5: '获得24%所有元素伤害加成；施放元素战技后，获得持续20秒的「圆顿」，攻击力每1秒提升6.4%，该攻击力提升效果至多叠加6次。当装备此武器的角色处于队伍后台时，「圆顿」的攻击力提升效果翻倍。',
-    },
-    'specialEffectDamageType': {
-      Stats.DmgBonus: [
-        DamageType.All,
-      ],
-      Stats.AttackBonus: [
-        DamageType.All,
-      ],
-    },
-    'specialEffectAlways': [
-      Stats.DmgBonus,
+    ],
+    'specialEffectComment': '施放元素战技时，将获得「神乐舞」的效果，使装备该武器的角色的元素战技造成的伤害提高%s，该效果持续16秒，至多叠加3层。持有3层时，该角色获得%s所有元素伤害加成。',
+    'specialEffectCommentArguments': [
+      ['12%', '15%', '18%', '21%', '24%'],
+      ['12%', '15%', '18%', '21%', '24%'],
+    ],
+  },
+  {
+    'name': '证誓之明瞳',
+    'weapon_id': 96,
+    'type': WeaponTypes.Catalyst,
+    'rarity': Rarity.Star4,
+    'baseAttack': 565.0,
+    'subStat': Stats.AttackBonus,
+    'subStatValue': 27.6,
+    'specialEffect': [
+      {
+        'stat': Stats.Recharge,
+        'value': [24.0, 30.0, 36.0, 42.0, 48.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
+      },
+    ],
+    'specialEffectComment': '施放元素战技后，元素充能效率提升%s，持续10秒。',
+    'specialEffectCommentArguments': [
+      ['24%', '30%', '36%', '42%', '48%'],
+    ],
+  },
+  {
+    'name': '波乱月白经津',
+    'weapon_id': 97,
+    'type': WeaponTypes.Sword,
+    'rarity': Rarity.Star5,
+    'baseAttack': 608.0,
+    'subStat': Stats.CritRate,
+    'subStatValue': 33.1,
+    'specialEffect': [
+      {
+        'stat': Stats.EleDmgBonus,
+        'value': [12.0, 15.0, 18.0, 21.0, 24.0],
+        'always': true,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
+      },
+      {
+        'stat': Stats.DmgBonus,
+        'value': [20.0, 25.0, 30.0, 35.0, 40.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.Normal,
+        ],
+      },
+      {
+        'stat': Stats.DmgBonus,
+        'value': [20.0, 25.0, 30.0, 35.0, 40.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.Normal,
+        ],
+      },
+    ],
+    'specialEffectComment':
+        '获得%s所有元素伤害加成；队伍中附近的其他角色在施放元素战技时，会为装备该武器的角色产生1层「波穗」效果，至多叠加2层，每0.3秒最多触发1次。装备该武器的角色施放元素战技时，如果有积累的「波穗」效果，则将消耗已有的「波穗」，获得「波乱」：根据消耗的层数，每层提升%s普通攻击伤害，持续8秒。',
+    'specialEffectCommentArguments': [
+      ['12%', '15%', '18%', '21%', '24%'],
+      ['20%', '25%', '30%', '35%', '40%'],
     ],
   },
 ];

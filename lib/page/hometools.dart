@@ -35,7 +35,9 @@ class HomeToolsPage extends StatelessWidget {
           ListTile(
             title: Text(Const.TITLE_DATABASE_WEAPON),
             trailing: Icon(Icons.navigate_next),
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, "/databaseweaponlist");
+            },
           ),
           Divider(
             height: 0.5,
@@ -43,7 +45,9 @@ class HomeToolsPage extends StatelessWidget {
           ListTile(
             title: Text(Const.TITLE_DATABASE_ARTIFACT),
             trailing: Icon(Icons.navigate_next),
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, "/databaseartifactlist");
+            },
           ),
           Divider(
             height: 0.5,

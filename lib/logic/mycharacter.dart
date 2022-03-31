@@ -121,8 +121,15 @@ class MyCharacterCalculator {
     return result;
   }
 
+  static List<Elements> getTeamElementEffect(List<Map<String, Object>> characterList) {
+    List<Elements> result = List.generate(characterList.length, (index) => characterList[index]['element']);
+    result.removeWhere((element) => result.indexOf(element) == result.lastIndexOf(element));
+    return result;
+  }
+
   static MyCharacterResult cal(MyCharacter myCharacter, Map<String, Object> character, Map<String, Object> weapon) {
     MyCharacterResult result = MyCharacterResult();
+    result.myCharacterId = myCharacter.myCharacterId;
 
     Levels level = GsData.getLevelFromIndex(myCharacter.levelIndex);
     Map<Stats, double> baseStats = (character['stat'] as Map<Levels, Object>)[level];
@@ -130,8 +137,11 @@ class MyCharacterCalculator {
     Stats subStat = weapon['subStat'];
     double subStatValue = weapon['subStatValue'];
     Map<Stats, double> weaponEffect = {};
-    for (Stats stat in weapon['specialEffectAlways']) {
-      double value = (weapon['specialEffect'] as Map<Refine, Map<Stats, double>>)[Refine.values[myCharacter.refineIndex]][stat];
+
+    for (Map<String, Object> weaponBuff in weapon['specialEffect']) {
+      if (!weaponBuff['always']) continue;
+      Stats stat = weaponBuff['stat'];
+      double value = (weaponBuff['value'] as List<double>)[myCharacter.refineIndex];
       weaponEffect.addAll({stat: value});
     }
 
@@ -141,12 +151,14 @@ class MyCharacterCalculator {
       if (artifactSet.keys.elementAt(0) < 0) continue;
       Map<String, Object> artifactSetEffect =
           (GsData.getArtifactFromId(artifactSet.keys.elementAt(0))['setEffect'] as Map<ArtifactSetType, Object>)[artifactSet.values.elementAt(0)];
-      for (Stats stat in artifactSetEffect['effectAlways']) {
-        if (artifactEffect.containsKey(stat)) {
-          artifactEffect[stat] += (artifactSetEffect['effect'] as Map<Stats, double>)[stat];
-        } else {
-          artifactEffect[stat] = (artifactSetEffect['effect'] as Map<Stats, double>)[stat];
-        }
+      for (Map<String, Object> effect in artifactSetEffect['effect']) {
+        if (!effect['always']) continue;
+        Stats stat = effect['stat'];
+        double value = effect['value'];
+        if (artifactEffect.containsKey(stat))
+          artifactEffect[stat] += value;
+        else
+          artifactEffect[stat] = value;
       }
     }
 
@@ -165,17 +177,23 @@ class MyCharacterCalculator {
         (weaponEffect[Stats.Recharge] ?? 0) +
         (artifactEffect[Stats.Recharge] ?? 0) +
         myCharacter.artifactRecharge;
-    result.dmgBonus = baseStats[Stats.DmgBonus] +
-        (subStat == Stats.DmgBonus ? subStatValue : 0) +
+    result.dmgBonus = baseStats[Stats.EleDmgBonus] +
+        (subStat == Stats.EleDmgBonus ? subStatValue : 0) +
+        (weaponEffect[Stats.EleDmgBonus] ?? 0) +
+        (artifactEffect[Stats.EleDmgBonus] ?? 0) +
         (weaponEffect[Stats.DmgBonus] ?? 0) +
         (artifactEffect[Stats.DmgBonus] ?? 0) +
         (subStat == Stats.DmgBonusByRecharge ? (result.recharge + 100) * subStatValue / 100 : 0) +
         (subStat == Stats.DmgBonusByRechargeOver100 ? result.recharge * subStatValue / 100 : 0) +
-        (GsData.getArtifactGobletMainStatFromIndex(myCharacter.artifactGobletIndex) == Stats.DmgBonus ? GsData.getArtifactMainStatValue(Stats.DmgBonus) : 0);
+        (GsData.getArtifactGobletMainStatFromIndex(myCharacter.artifactGobletIndex) == Stats.EleDmgBonus
+            ? GsData.getArtifactMainStatValue(Stats.EleDmgBonus)
+            : 0);
     result.phyDmgBonus = baseStats[Stats.PhyDmgBonus] +
         (subStat == Stats.PhyDmgBonus ? subStatValue : 0) +
         (weaponEffect[Stats.PhyDmgBonus] ?? 0) +
         (artifactEffect[Stats.PhyDmgBonus] ?? 0) +
+        (weaponEffect[Stats.DmgBonus] ?? 0) +
+        (artifactEffect[Stats.DmgBonus] ?? 0) +
         (GsData.getArtifactGobletMainStatFromIndex(myCharacter.artifactGobletIndex) == Stats.PhyDmgBonus
             ? GsData.getArtifactMainStatValue(Stats.PhyDmgBonus)
             : 0);
@@ -236,6 +254,37 @@ class MyCharacterCalculator {
     return result;
   }
 
+  static Map<String, Object> getBuffFromTeam(MyCharacterResult myCharacterResult, Map<String, Object> buffObject) {
+    Map<String, Object> result = {...buffObject};
+
+    if (result['stat'] == Stats.AttackBonusByBaseAttack) {
+      result['stat'] = Stats.Attack;
+      result['value'] = (result['value'] as double) * myCharacterResult.baseAttack / 100;
+    }
+    if (result['stat'] == Stats.MasteryByMastery) {
+      result['stat'] = Stats.Mastery;
+      result['value'] = (result['value'] as double) * myCharacterResult.mastery / 100;
+    }
+    if (result['stat'] == Stats.DmgBonusByMastery) {
+      result['stat'] = Stats.EleDmgBonus;
+      result['value'] = (result['value'] as double) * myCharacterResult.mastery;
+    }
+    if (result['stat'] == Stats.CritRateByCritRate) {
+      result['stat'] = Stats.CritRate;
+      result['value'] = (result['value'] as double) * myCharacterResult.critRate / 100;
+    }
+    if (result['stat'] == Stats.ExtraDamageByAttackUsed) {
+      result['stat'] = Stats.ExtraDamage;
+      result['value'] = (result['value'] as double) * myCharacterResult.attack / 100;
+    }
+    if (result['stat'] == Stats.ExtraDmageByDefendUsed) {
+      result['stat'] = Stats.ExtraDamage;
+      result['value'] = (result['value'] as double) * myCharacterResult.defend / 100;
+    }
+
+    return result;
+  }
+
   static MyCharacterDamageResult calDamage(MyCharacterDamageInput input) {
     if (input.skill == null) return MyCharacterDamageResult();
     Map<DamageType, DamageInput> elementDamageTypeInputMap = Map<DamageType, DamageInput>();
@@ -253,12 +302,39 @@ class MyCharacterCalculator {
       for (int i = 0; i < input.buffList.length; i++) {
         if (i >= input.buffActiveList.length || !input.buffActiveList[i]) continue;
         Map<String, Object> buffObject = input.buffList[i];
+        if (buffObject['buffType'] == BuffType.BuffForTeamWithoutMe) continue;
         if (!(buffObject['damageType'] as List<DamageType>).contains(damageType) && !(buffObject['damageType'] as List<DamageType>).contains(DamageType.All))
           continue;
-        if (buffObject['buffType'] == BuffType.BuffForMe || buffObject['buffType'] == BuffType.DebuffForEnemy) {
+        if (buffObject['buffType'] == BuffType.BuffForMe ||
+            buffObject['buffType'] == BuffType.BuffForTeam ||
+            buffObject['buffType'] == BuffType.DebuffForEnemy) {
           buff[buffObject['stat']] += buffObject['value'];
         } else {
           buff[buffObject['stat']] -= buffObject['value'];
+        }
+      }
+
+      for (var teamBuffEntry in input.teamBuffList.entries) {
+        int myCharacterId = teamBuffEntry.key;
+        List<Map<String, Object>> teamBuffList = teamBuffEntry.value;
+        List<bool> teamBuffActiveList = input.teamBuffActiveList[myCharacterId];
+        MyCharacterResult myCharacterResult =
+            input.teamMyCharacterResultList.firstWhere((element) => element.myCharacterId == myCharacterId, orElse: () => null);
+        if (myCharacterResult == null) continue;
+
+        for (int i = 0; i < teamBuffList.length; i++) {
+          if (i >= teamBuffActiveList.length || !teamBuffActiveList[i]) continue;
+          Map<String, Object> buffObject = getBuffFromTeam(myCharacterResult, teamBuffList[i]);
+          if (buffObject['buffType'] == BuffType.BuffForMe) continue;
+          if (!(buffObject['damageType'] as List<DamageType>).contains(damageType) && !(buffObject['damageType'] as List<DamageType>).contains(DamageType.All))
+            continue;
+          if (buffObject['buffType'] == BuffType.BuffForTeam ||
+              buffObject['buffType'] == BuffType.BuffForTeamWithoutMe ||
+              buffObject['buffType'] == BuffType.DebuffForEnemy) {
+            buff[buffObject['stat']] += buffObject['value'];
+          } else {
+            buff[buffObject['stat']] -= buffObject['value'];
+          }
         }
       }
 
@@ -270,7 +346,7 @@ class MyCharacterCalculator {
       double attack = myCharacterResult.attack +
           buff[Stats.Attack] +
           input.attack +
-          myCharacterResult.baseAttack * (buff[Stats.AttackBonus] + input.attackBouns) / 100 +
+          myCharacterResult.baseAttack * (buff[Stats.AttackBonus] + buff[Stats.AttackBonusByBaseAttack] + input.attackBouns) / 100 +
           buff[Stats.AttackBonusByDefend] * defend / 100 +
           buff[Stats.AttackBonusByHp] * hp / 100 +
           myCharacterResult.baseAttack * buff[Stats.AttackBonusByRecharge] * (recharge + 100) / 10000 +
@@ -278,17 +354,20 @@ class MyCharacterCalculator {
       double extraDamage = buff[Stats.ExtraDamage] +
           input.extraDmage +
           buff[Stats.ExtraDamageByAttack] * attack / 100 +
-          (buff[Stats.ExtraDamageByHp] + buff[Stats.DmgBonusByHealingForHpExtraDamage] * healingBonus / 100) * hp / 100 +
-          buff[Stats.ExtraDmageByDefend] * defend / 100;
+          buff[Stats.ExtraDamageByAttackUsed] * attack / 100 +
+          (buff[Stats.ExtraDamageByHp]) * hp / 100 * (1 + (buff[Stats.DmgBonusByHealingForHpExtraDamage] * healingBonus / 10000)) +
+          buff[Stats.ExtraDmageByDefend] * defend / 100 +
+          buff[Stats.ExtraDmageByDefendUsed] * defend / 100;
       double mastery = myCharacterResult.mastery + buff[Stats.Mastery] + input.mastery;
       double elementDamageBonus = myCharacterResult.dmgBonus +
+          buff[Stats.EleDmgBonus] +
           buff[Stats.DmgBonus] +
           buff[Stats.DmgBonusByRecharge] * (recharge + 100) / 100 +
           buff[Stats.DmgBonusByRechargeOver100] * recharge / 100 +
           buff[Stats.DmgBonusByEnergy] * energy +
           buff[Stats.DmgBonusByMastery] * mastery +
           input.dmgBonus;
-      double physicalDamageBonus = myCharacterResult.phyDmgBonus + buff[Stats.PhyDmgBonus] + input.phyDmgBonus;
+      double physicalDamageBonus = myCharacterResult.phyDmgBonus + buff[Stats.PhyDmgBonus] + buff[Stats.DmgBonus] + input.phyDmgBonus;
       double critRate = myCharacterResult.critRate + buff[Stats.CritRate] + input.critRate;
       double critDmg = myCharacterResult.critDmg + buff[Stats.CritDmg] + input.critDmg;
       double defendDecrease = buff[Stats.DefendDecrease] + input.defendDecrease;

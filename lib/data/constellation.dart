@@ -58,7 +58,7 @@ const CONSTELLATIONS = {
       'description': '温迪获取元素晶球或元素微粒后，获得25%风元素伤害加成，持续10秒。',
       'buff': [
         {
-          'stat': Stats.DmgBonus,
+          'stat': Stats.EleDmgBonus,
           'value': 25.0,
           'buffType': BuffType.BuffForMe,
           'damageType': [
@@ -294,9 +294,9 @@ const CONSTELLATIONS = {
       'description': '禁 • 风灵作成 • 柒伍同构贰型如果发生了元素转化，则使队伍中所有角色在技能持续时间内获得20%的对应元素伤害加成。',
       'buff': [
         {
-          'stat': Stats.DmgBonus,
+          'stat': Stats.EleDmgBonus,
           'value': 20.0,
-          'buffType': BuffType.BuffForMe,
+          'buffType': BuffType.BuffForTeam,
           'damageType': [
             DamageType.All,
           ],
@@ -319,7 +319,7 @@ const CONSTELLATIONS = {
         {
           'stat': Stats.Mastery,
           'value': 200.0,
-          'buffType': BuffType.BuffForMe,
+          'buffType': BuffType.BuffForTeam,
           'damageType': [
             DamageType.All,
           ],
@@ -493,7 +493,7 @@ const CONSTELLATIONS = {
         {
           'stat': Stats.CritRate,
           'value': 15.0,
-          'buffType': BuffType.BuffForMe,
+          'buffType': BuffType.BuffForTeam,
           'damageType': [
             DamageType.All,
           ],
@@ -591,9 +591,9 @@ const CONSTELLATIONS = {
       'description': '演唱，开始♪的冷却时间降低15%；\n技能持续期间，当前场上自己的角色获得15%水元素伤害加成。',
       'buff': [
         {
-          'stat': Stats.DmgBonus,
+          'stat': Stats.EleDmgBonus,
           'value': 15.0,
-          'buffType': BuffType.BuffForMe,
+          'buffType': BuffType.BuffForTeam,
           'damageType': [
             DamageType.All,
           ],
@@ -676,7 +676,7 @@ const CONSTELLATIONS = {
       'description': '处于海人化羽的仪来羽衣状态下时，珊瑚宫心海的普通攻击和重击对生命值高于或等于80%的角色进行治疗时，将获得40%水元素伤害加成，持续4秒。',
       'buff': [
         {
-          'stat': Stats.DmgBonus,
+          'stat': Stats.EleDmgBonus,
           'value': 40.0,
           'buffType': BuffType.BuffForMe,
           'damageType': [
@@ -694,14 +694,6 @@ const CONSTELLATIONS = {
       'buff': [
         {
           'stat': Stats.DmgBonus,
-          'value': 15.0,
-          'buffType': BuffType.BuffForMe,
-          'damageType': [
-            DamageType.All,
-          ],
-        },
-        {
-          'stat': Stats.PhyDmgBonus,
           'value': 15.0,
           'buffType': BuffType.BuffForMe,
           'damageType': [
@@ -759,14 +751,6 @@ const CONSTELLATIONS = {
       'buff': [
         {
           'stat': Stats.DmgBonus,
-          'value': 30.0,
-          'buffType': BuffType.BuffForMe,
-          'damageType': [
-            DamageType.Normal,
-          ],
-        },
-        {
-          'stat': Stats.PhyDmgBonus,
           'value': 30.0,
           'buffType': BuffType.BuffForMe,
           'damageType': [
@@ -834,9 +818,9 @@ const CONSTELLATIONS = {
       'description': '在轰轰火花的状态下，可莉每3秒会为队伍中所有角色（不包括可莉自己）恢复3点元素能量；\n施放轰轰火花后的25秒内，队伍中所有角色获得10%火元素伤害加成。',
       'buff': [
         {
-          'stat': Stats.DmgBonus,
+          'stat': Stats.EleDmgBonus,
           'value': 10.0,
-          'buffType': BuffType.BuffForMe,
+          'buffType': BuffType.BuffForTeam,
           'damageType': [
             DamageType.All,
           ],
@@ -876,7 +860,16 @@ const CONSTELLATIONS = {
     Constellation.Con4: {
       'name': '伴君眠花房',
       'description': '处于胡桃自己施加的血梅香状态影响下的敌人被击败时，附近的队伍中所有角色（不包括胡桃自己）的暴击率提高12%，持续15秒。',
-      'buff': [],
+      'buff': [
+        {
+          'stat': Stats.CritRate,
+          'value': 12.0,
+          'buffType': BuffType.BuffForTeamWithoutMe,
+          'damageType': [
+            DamageType.All,
+          ],
+        },
+      ],
       'hit': [],
     },
     Constellation.Con5: {
@@ -913,7 +906,16 @@ const CONSTELLATIONS = {
     Constellation.Con1: {
       'name': '冒险憧憬',
       'description': '美妙旅程的攻击力提升效果不再有生命值限制，数值上追加班尼特基础攻击力的20%。',
-      'buff': [],
+      'buff': [
+        {
+          'stat': Stats.AttackBonusByBaseAttack,
+          'value': 20.0,
+          'buffType': BuffType.BuffForTeam,
+          'damageType': [
+            DamageType.All,
+          ],
+        },
+      ],
       'hit': [],
     },
     Constellation.Con2: {
@@ -954,9 +956,9 @@ const CONSTELLATIONS = {
       'description': '处在美妙旅程领域内的队伍中当前场上单手剑、双手剑、长柄武器角色获得15%火元素伤害加成，并获得火元素附魔。',
       'buff': [
         {
-          'stat': Stats.DmgBonus,
+          'stat': Stats.EleDmgBonus,
           'value': 15.0,
-          'buffType': BuffType.BuffForMe,
+          'buffType': BuffType.BuffForTeam,
           'damageType': [
             DamageType.All,
           ],
@@ -1022,9 +1024,9 @@ const CONSTELLATIONS = {
       'description': '旋火轮持续期间，队伍中所有角色获得15%火元素伤害加成。',
       'buff': [
         {
-          'stat': Stats.DmgBonus,
+          'stat': Stats.EleDmgBonus,
           'value': 15.0,
-          'buffType': BuffType.BuffForMe,
+          'buffType': BuffType.BuffForTeam,
           'damageType': [
             DamageType.All,
           ],
@@ -1071,7 +1073,7 @@ const CONSTELLATIONS = {
         {
           'stat': Stats.AttackBonus,
           'value': 15.0,
-          'buffType': BuffType.BuffForMe,
+          'buffType': BuffType.BuffForTeam,
           'damageType': [
             DamageType.All,
           ],
@@ -1213,7 +1215,7 @@ const CONSTELLATIONS = {
       'description': '宵宫的火元素伤害造成暴击后的6秒内，宵宫获得25%火元素伤害加成。\n宵宫处于队伍后台时，同样能获得该效果。',
       'buff': [
         {
-          'stat': Stats.DmgBonus,
+          'stat': Stats.EleDmgBonus,
           'value': 25.0,
           'buffType': BuffType.BuffForMe,
           'damageType': [
@@ -1286,17 +1288,7 @@ const CONSTELLATIONS = {
         {
           'stat': Stats.DmgBonus,
           'value': 15.0,
-          'buffType': BuffType.BuffForMe,
-          'damageType': [
-            DamageType.Normal,
-            DamageType.Charged,
-            DamageType.Plunging,
-          ],
-        },
-        {
-          'stat': Stats.PhyDmgBonus,
-          'value': 15.0,
-          'buffType': BuffType.BuffForMe,
+          'buffType': BuffType.BuffForTeam,
           'damageType': [
             DamageType.Normal,
             DamageType.Charged,
@@ -1320,15 +1312,6 @@ const CONSTELLATIONS = {
       'buff': [
         {
           'stat': Stats.DmgBonus,
-          'value': 15.0,
-          'buffType': BuffType.BuffForMe,
-          'damageType': [
-            DamageType.Normal,
-            DamageType.Charged,
-          ],
-        },
-        {
-          'stat': Stats.PhyDmgBonus,
           'value': 15.0,
           'buffType': BuffType.BuffForMe,
           'damageType': [
@@ -1399,7 +1382,7 @@ const CONSTELLATIONS = {
         {
           'stat': Stats.DmgBonusExtra,
           'value': 25.0,
-          'buffType': BuffType.BuffForMe,
+          'buffType': BuffType.BuffForTeam,
           'damageType': [
             DamageType.All,
           ],
@@ -1453,11 +1436,11 @@ const CONSTELLATIONS = {
       'description': '对生命值低于50%的敌人，光降之剑造成的伤害提高25%。',
       'buff': [
         {
-          'stat': Stats.PhyDmgBonus,
+          'stat': Stats.DmgBonus,
           'value': 25.0,
           'buffType': BuffType.BuffForMe,
           'damageType': [
-            DamageType.SkillQ,
+            DamageType.SkillQSpecial,
           ],
         },
       ],
@@ -1545,7 +1528,16 @@ const CONSTELLATIONS = {
     Constellation.Con2: {
       'name': '猫爪冰摇',
       'description': '猫爪冻冻造成的伤害提高15%，护盾的伤害吸收量提高15%；\n此外，命中时，将为附近的当前其他场上角色生成一个伤害吸收量为猫爪冻冻50%的护盾，持续5秒。',
-      'buff': [],
+      'buff': [
+        {
+          'stat': Stats.DmgBonus,
+          'value': 15.0,
+          'buffType': BuffType.BuffForMe,
+          'damageType': [
+            DamageType.SkillE,
+          ],
+        },
+      ],
       'hit': [],
     },
     Constellation.Con3: {
@@ -1573,7 +1565,7 @@ const CONSTELLATIONS = {
         {
           'stat': Stats.Mastery,
           'value': 200.0,
-          'buffType': BuffType.BuffForMe,
+          'buffType': BuffType.BuffForTeam,
           'damageType': [
             DamageType.All,
           ],
@@ -1637,14 +1629,6 @@ const CONSTELLATIONS = {
       'buff': [
         {
           'stat': Stats.DmgBonus,
-          'value': 10.0,
-          'buffType': BuffType.BuffForMe,
-          'damageType': [
-            DamageType.Normal,
-          ],
-        },
-        {
-          'stat': Stats.PhyDmgBonus,
           'value': 10.0,
           'buffType': BuffType.BuffForMe,
           'damageType': [
@@ -1740,14 +1724,6 @@ const CONSTELLATIONS = {
       'buff': [
         {
           'stat': Stats.DmgBonus,
-          'value': 298.0,
-          'buffType': BuffType.BuffForMe,
-          'damageType': [
-            DamageType.Charged,
-          ],
-        },
-        {
-          'stat': Stats.PhyDmgBonus,
           'value': 298.0,
           'buffType': BuffType.BuffForMe,
           'damageType': [
@@ -1853,7 +1829,7 @@ const CONSTELLATIONS = {
       'description': '进行普通攻击、重击、施放元素战技或元素爆发时，刻晴获得6%雷元素伤害加成，持续8秒。\n由普通攻击、重击、元素战技或元素爆发引起的效果分别独立存在。',
       'buff': [
         {
-          'stat': Stats.DmgBonus,
+          'stat': Stats.EleDmgBonus,
           'value': 24.0,
           'buffType': BuffType.BuffForMe,
           'damageType': [
@@ -2016,14 +1992,6 @@ const CONSTELLATIONS = {
       'buff': [
         {
           'stat': Stats.DmgBonus,
-          'value': 10.0,
-          'buffType': BuffType.BuffForMe,
-          'damageType': [
-            DamageType.All,
-          ],
-        },
-        {
-          'stat': Stats.PhyDmgBonus,
           'value': 10.0,
           'buffType': BuffType.BuffForMe,
           'damageType': [
@@ -2220,7 +2188,16 @@ const CONSTELLATIONS = {
     Constellation.Con4: {
       'name': '誓奉常道',
       'description': '奥义 • 梦想真说施加的梦想一心状态结束后，附近的队伍中所有角色（不包括雷电将军自己）的攻击力提升30%，持续10秒。',
-      'buff': [],
+      'buff': [
+        {
+          'stat': Stats.AttackBonus,
+          'value': 30.0,
+          'buffType': BuffType.BuffForTeamWithoutMe,
+          'damageType': [
+            DamageType.All,
+          ],
+        },
+      ],
       'hit': [],
     },
     Constellation.Con5: {
@@ -2362,15 +2339,7 @@ const CONSTELLATIONS = {
         {
           'stat': Stats.DmgBonus,
           'value': 30.0,
-          'buffType': BuffType.BuffForMe,
-          'damageType': [
-            DamageType.Plunging,
-          ],
-        },
-        {
-          'stat': Stats.PhyDmgBonus,
-          'value': 30.0,
-          'buffType': BuffType.BuffForMe,
+          'buffType': BuffType.BuffForTeam,
           'damageType': [
             DamageType.Plunging,
           ],
@@ -2391,15 +2360,7 @@ const CONSTELLATIONS = {
         {
           'stat': Stats.DmgBonus,
           'value': 17.0,
-          'buffType': BuffType.BuffForMe,
-          'damageType': [
-            DamageType.All,
-          ],
-        },
-        {
-          'stat': Stats.PhyDmgBonus,
-          'value': 17.0,
-          'buffType': BuffType.BuffForMe,
+          'buffType': BuffType.BuffForTeam,
           'damageType': [
             DamageType.All,
           ],
@@ -2481,7 +2442,7 @@ const CONSTELLATIONS = {
         {
           'stat': Stats.Resistance,
           'value': 10.0,
-          'buffType': BuffType.BuffForMe,
+          'buffType': BuffType.BuffForTeam,
           'damageType': [
             DamageType.All,
           ],
@@ -2515,14 +2476,6 @@ const CONSTELLATIONS = {
       'buff': [
         {
           'stat': Stats.DmgBonus,
-          'value': 15.0,
-          'buffType': BuffType.BuffForMe,
-          'damageType': [
-            DamageType.Charged,
-          ],
-        },
-        {
-          'stat': Stats.PhyDmgBonus,
           'value': 15.0,
           'buffType': BuffType.BuffForMe,
           'damageType': [
@@ -2616,7 +2569,7 @@ const CONSTELLATIONS = {
         {
           'stat': Stats.CritDmg,
           'value': 40.0,
-          'buffType': BuffType.BuffForMe,
+          'buffType': BuffType.BuffForTeam,
           'damageType': [
             DamageType.All,
           ],
@@ -2651,7 +2604,7 @@ const CONSTELLATIONS = {
         {
           'stat': Stats.AttackBonus,
           'value': 20.0,
-          'buffType': BuffType.BuffForMe,
+          'buffType': BuffType.BuffForTeam,
           'damageType': [
             DamageType.All,
           ],
@@ -2659,7 +2612,7 @@ const CONSTELLATIONS = {
         {
           'stat': Stats.DefendBonus,
           'value': 20.0,
-          'buffType': BuffType.BuffForMe,
+          'buffType': BuffType.BuffForTeam,
           'damageType': [
             DamageType.All,
           ],
@@ -2703,7 +2656,7 @@ const CONSTELLATIONS = {
         {
           'stat': Stats.CritDmg,
           'value': 15.0,
-          'buffType': BuffType.BuffForMe,
+          'buffType': BuffType.BuffForTeam,
           'damageType': [
             DamageType.All,
           ],
@@ -2759,15 +2712,7 @@ const CONSTELLATIONS = {
         {
           'stat': Stats.DmgBonus,
           'value': 15.0,
-          'buffType': BuffType.BuffForMe,
-          'damageType': [
-            DamageType.Normal,
-          ],
-        },
-        {
-          'stat': Stats.PhyDmgBonus,
-          'value': 15.0,
-          'buffType': BuffType.BuffForMe,
+          'buffType': BuffType.BuffForTeam,
           'damageType': [
             DamageType.Normal,
           ],
@@ -2807,6 +2752,130 @@ const CONSTELLATIONS = {
       'description': '处于「飞云旗阵」状态下的角色，普通攻击的攻击速度提升12%。',
       'buff': [],
       'hit': [],
+    },
+  },
+  49: {
+    Constellation.Con1: {
+      'name': '野狐供真篇',
+      'description': '大密法 • 天狐显真每引发一次天狐霆雷，都会为八重神子自己恢复8点元素能量。',
+      'buff': [],
+      'hit': [],
+    },
+    Constellation.Con2: {
+      'name': '望月吼哕声',
+      'description': '杀生樱创造时的初始位阶提升至贰阶，位阶上限提升至肆阶，攻击范围提升60%。',
+      'buff': [],
+      'hit': [],
+    },
+    Constellation.Con3: {
+      'name': '七段妙变化',
+      'description': '野干役咒 • 杀生樱的技能等级提高3级。\n至多提升至15级。',
+      'buff': [],
+      'hit': [],
+    },
+    Constellation.Con4: {
+      'name': '绯樱引雷章',
+      'description': '杀生樱的落雷命中敌人后，队伍中附近的所有角色获得20%雷元素伤害加成，持续5秒。',
+      'buff': [
+        {
+          'stat': Stats.EleDmgBonus,
+          'value': 20.0,
+          'buffType': BuffType.BuffForTeam,
+          'damageType': [
+            DamageType.All,
+          ],
+        },
+      ],
+      'hit': [],
+    },
+    Constellation.Con5: {
+      'name': '暴恶嗤笑面',
+      'description': '大密法 • 天狐显真的技能等级提高3级。\n至多提升至15级。',
+      'buff': [],
+      'hit': [],
+    },
+    Constellation.Con6: {
+      'name': '大杀生咒禁',
+      'description': '杀生樱在攻击时无视敌人60%的防御力。',
+      'buff': [
+        {
+          'stat': Stats.DefendDecrease,
+          'value': 60.0,
+          'buffType': BuffType.BuffForMe,
+          'damageType': [
+            DamageType.SkillE,
+          ],
+        },
+      ],
+      'hit': [],
+    },
+  },
+  50: {
+    Constellation.Con1: {
+      'name': '镜华风姿',
+      'description': '对于生命值低于或等于50%的敌人，瞬水剑造成的伤害提升40%。',
+      'buff': [
+        {
+          'stat': Stats.EleDmgBonus,
+          'value': 40.0,
+          'buffType': BuffType.BuffForMe,
+          'damageType': [
+            DamageType.Normal,
+          ],
+        },
+      ],
+      'hit': [],
+    },
+    Constellation.Con2: {
+      'name': '世有源泉',
+      'description': '浪闪叠加上限提升至5层；神里绫人处于至少3层浪闪状态下时，将提升50%生命值上限。',
+      'buff': [
+        {
+          'stat': Stats.HpBonus,
+          'value': 50.0,
+          'buffType': BuffType.BuffForMe,
+          'damageType': [
+            DamageType.All,
+          ],
+        },
+      ],
+      'hit': [],
+    },
+    Constellation.Con3: {
+      'name': '无意弄花',
+      'description': '神里流 • 镜花的技能等级提高3级。\n至多提升至15级。',
+      'buff': [],
+      'hit': [],
+    },
+    Constellation.Con4: {
+      'name': '不厌细流',
+      'description': '施放神里流 • 水囿后，队伍中附近的角色普通攻击的攻击速度提升15%，持续15秒。',
+      'buff': [],
+      'hit': [],
+    },
+    Constellation.Con5: {
+      'name': '万水一露',
+      'description': '神里流 • 水囿的技能等级提高3级。\n至多提升至15级。',
+      'buff': [],
+      'hit': [],
+    },
+    Constellation.Con6: {
+      'name': '滥觞无底',
+      'description': '施放神里流 • 镜花之后，神里绫人的下一次瞬水剑攻击命中敌人时，将进行2次额外的瞬水剑攻击，各自能造成神里绫人攻击力450%的伤害。\n此两次瞬水剑攻击不会受到浪闪的增益。',
+      'buff': [],
+      'hit': [
+        {
+          'name': '额外攻击',
+          'damageType': DamageType.Normal,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': 450.0,
+              'extra': {},
+            },
+          ],
+        },
+      ],
     },
   },
 };

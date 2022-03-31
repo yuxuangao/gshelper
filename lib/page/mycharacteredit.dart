@@ -107,7 +107,6 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
       child: Scaffold(
         appBar: AppBar(
           title: Text(_editMode ? Const.TITLE_MY_CHARACTER_EDIT : Const.TITLE_MY_CHARACTER_ADD),
-          elevation: 0,
           bottomOpacity: 0,
           leading: IconButton(
             onPressed: () async {
@@ -175,11 +174,9 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                   enabled: !_editMode,
                                   controller: _characterInputController,
                                   decoration: InputDecoration(
-                                    border: UnderlineInputBorder(),
                                     enabledBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(color: _inputErrorFlags.contains(_InputFlags.character) ? Colors.red : Colors.black38)),
                                     labelStyle: TextStyle(color: _inputErrorFlags.contains(_InputFlags.character) ? Colors.red : Colors.black54),
-                                    floatingLabelBehavior: FloatingLabelBehavior.always,
                                     label: Text("角色"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -205,11 +202,10 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                   readOnly: true,
                                   controller: _levelInputController,
                                   decoration: InputDecoration(
-                                    border: UnderlineInputBorder(),
                                     enabledBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(color: _inputErrorFlags.contains(_InputFlags.level) ? Colors.red : Colors.black38)),
+                                    focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Theme.of(context).colorScheme.secondary)),
                                     labelStyle: TextStyle(color: _inputErrorFlags.contains(_InputFlags.level) ? Colors.red : Colors.black54),
-                                    floatingLabelBehavior: FloatingLabelBehavior.always,
                                     label: Text("等级"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -230,11 +226,9 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                   readOnly: true,
                                   controller: _constellationInputController,
                                   decoration: InputDecoration(
-                                    border: UnderlineInputBorder(),
                                     enabledBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(color: _inputErrorFlags.contains(_InputFlags.constellation) ? Colors.red : Colors.black38)),
                                     labelStyle: TextStyle(color: _inputErrorFlags.contains(_InputFlags.constellation) ? Colors.red : Colors.black54),
-                                    floatingLabelBehavior: FloatingLabelBehavior.always,
                                     label: Text("命座"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -258,11 +252,9 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                 child: TextFormField(
                                   controller: _nickNameInputController,
                                   decoration: InputDecoration(
-                                    border: UnderlineInputBorder(),
                                     enabledBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(color: _inputErrorFlags.contains(_InputFlags.nickName) ? Colors.red : Colors.black38)),
                                     labelStyle: TextStyle(color: _inputErrorFlags.contains(_InputFlags.nickName) ? Colors.red : Colors.black54),
-                                    floatingLabelBehavior: FloatingLabelBehavior.always,
                                     label: Text("备注"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -310,11 +302,9 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                   readOnly: true,
                                   controller: _weaponInputController,
                                   decoration: InputDecoration(
-                                    border: UnderlineInputBorder(),
                                     enabledBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(color: _inputErrorFlags.contains(_InputFlags.weapon) ? Colors.red : Colors.black38)),
                                     labelStyle: TextStyle(color: _inputErrorFlags.contains(_InputFlags.weapon) ? Colors.red : Colors.black54),
-                                    floatingLabelBehavior: FloatingLabelBehavior.always,
                                     label: Text("装备武器"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -339,11 +329,9 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                   readOnly: true,
                                   controller: _refineLevelInputController,
                                   decoration: InputDecoration(
-                                    border: UnderlineInputBorder(),
                                     enabledBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(color: _inputErrorFlags.contains(_InputFlags.refine) ? Colors.red : Colors.black38)),
                                     labelStyle: TextStyle(color: _inputErrorFlags.contains(_InputFlags.refine) ? Colors.red : Colors.black54),
-                                    floatingLabelBehavior: FloatingLabelBehavior.always,
                                     label: Text("精炼等级"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -403,11 +391,9 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                     Utils.getNumberInputFormatter(),
                                   ],
                                   decoration: InputDecoration(
-                                    border: UnderlineInputBorder(),
                                     enabledBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(color: _inputErrorFlags.contains(_InputFlags.skillA) ? Colors.red : Colors.black38)),
                                     labelStyle: TextStyle(color: _inputErrorFlags.contains(_InputFlags.skillA) ? Colors.red : Colors.black54),
-                                    floatingLabelBehavior: FloatingLabelBehavior.always,
                                     label: Text("普通攻击"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -427,11 +413,9 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                     Utils.getNumberInputFormatter(),
                                   ],
                                   decoration: InputDecoration(
-                                    border: UnderlineInputBorder(),
                                     enabledBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(color: _inputErrorFlags.contains(_InputFlags.skillE) ? Colors.red : Colors.black38)),
                                     labelStyle: TextStyle(color: _inputErrorFlags.contains(_InputFlags.skillE) ? Colors.red : Colors.black54),
-                                    floatingLabelBehavior: FloatingLabelBehavior.always,
                                     label: Text("元素战技"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -451,11 +435,9 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                     Utils.getNumberInputFormatter(),
                                   ],
                                   decoration: InputDecoration(
-                                    border: UnderlineInputBorder(),
                                     enabledBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(color: _inputErrorFlags.contains(_InputFlags.skillQ) ? Colors.red : Colors.black38)),
                                     labelStyle: TextStyle(color: _inputErrorFlags.contains(_InputFlags.skillQ) ? Colors.red : Colors.black54),
-                                    floatingLabelBehavior: FloatingLabelBehavior.always,
                                     label: Text("元素爆发"),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
@@ -498,10 +480,8 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                     readOnly: true,
                     controller: _artifactSubStatInputControllerList[(index / 2).floor()],
                     decoration: InputDecoration(
-                      border: UnderlineInputBorder(),
                       enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: _inputErrorFlags.contains(_inputFlag) ? Colors.red : Colors.black38)),
                       labelStyle: TextStyle(color: _inputErrorFlags.contains(_inputFlag) ? Colors.red : Colors.black54),
-                      floatingLabelBehavior: FloatingLabelBehavior.always,
                       label: Text("副词条" + ((index % 8 + 1) / 2).ceil().toString()),
                       contentPadding: _getTextFieldPadding(),
                     ),
@@ -525,10 +505,8 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                       Utils.getNumberInputFormatter(),
                     ],
                     decoration: InputDecoration(
-                      border: UnderlineInputBorder(),
                       enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: _inputErrorFlags.contains(_inputFlag) ? Colors.red : Colors.black38)),
                       labelStyle: TextStyle(color: _inputErrorFlags.contains(_inputFlag) ? Colors.red : Colors.black54),
-                      floatingLabelBehavior: FloatingLabelBehavior.always,
                       label: Text("副词条" + ((index % 8 + 1) / 2).ceil().toString()),
                       contentPadding: _getTextFieldPadding(),
                     ),
@@ -572,10 +550,8 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                       readOnly: true,
                       controller: _artifactMainTypeInputControllerList[artifactIndex],
                       decoration: InputDecoration(
-                        border: UnderlineInputBorder(),
                         enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: _inputErrorFlags.contains(inputFlag) ? Colors.red : Colors.black38)),
                         labelStyle: TextStyle(color: _inputErrorFlags.contains(inputFlag) ? Colors.red : Colors.black54),
-                        floatingLabelBehavior: FloatingLabelBehavior.always,
                         label: Text("套装"),
                         contentPadding: _getTextFieldPadding(),
                       ),
@@ -596,10 +572,8 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                       readOnly: true,
                       controller: _artifactMainInputControllerList[artifactIndex],
                       decoration: InputDecoration(
-                        border: UnderlineInputBorder(),
                         enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: _inputErrorFlags.contains(inputFlag) ? Colors.red : Colors.black38)),
                         labelStyle: TextStyle(color: _inputErrorFlags.contains(inputFlag) ? Colors.red : Colors.black54),
-                        floatingLabelBehavior: FloatingLabelBehavior.always,
                         label: Text("主属性"),
                         contentPadding: _getTextFieldPadding(),
                       ),

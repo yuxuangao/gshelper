@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 
 import '../common/const.dart';
 import '../common/localdata.dart';
+import '../object/code.dart';
 
 class CodePage extends StatefulWidget {
   @override
@@ -11,17 +12,21 @@ class CodePage extends StatefulWidget {
 
 class _CodePage extends State<CodePage> {
   LocalData _localData = LocalData.instance;
-  Map<int, String> _codeMap = {};
+  List<Code> _codeList = [];
+
+  void _refresh() async {
+    var codeList = await _localData.getCodeList();
+    setState(() {
+      _codeList = codeList;
+    });
+  }
 
   @override
   void initState() {
     super.initState();
 
     Future(() async {
-      var codeMap = await _localData.getCodeList();
-      setState(() {
-        _codeMap = codeMap;
-      });
+      _refresh();
     });
   }
 
@@ -30,7 +35,6 @@ class _CodePage extends State<CodePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(Const.TITLE_CODE),
-        elevation: 0,
         bottomOpacity: 0,
         leading: IconButton(
           onPressed: () {
@@ -43,20 +47,28 @@ class _CodePage extends State<CodePage> {
         children: <Widget>[
           Expanded(
             child: ListView.separated(
-              itemCount: _codeMap.length > 0 ? _codeMap.length + 1 : 0,
-              separatorBuilder: (context, index) => Divider(),
+              itemCount: _codeList.length > 0 ? _codeList.length + 1 : 0,
+              separatorBuilder: (context, index) => Divider(
+                height: 0.5,
+              ),
               itemBuilder: (context, index) {
-                if (index == _codeMap.length) return Container();
-                int codeId = _codeMap.keys.elementAt(index);
-                String code = _codeMap[codeId];
+                if (index == _codeList.length) return SizedBox(height: 60);
+                Code code = _codeList[index];
                 return ListTile(
-                  title: Text(code),
+                  contentPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 6),
+                  title: Text(
+                    code.code,
+                    style: TextStyle(
+                      color: code.used ? Colors.black54 : Colors.black,
+                      decoration: code.used ? TextDecoration.lineThrough : TextDecoration.none,
+                    ),
+                  ),
                   trailing: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       IconButton(
                         onPressed: () async {
-                          final data = ClipboardData(text: code);
+                          final data = ClipboardData(text: code.code);
                           await Clipboard.setData(data);
                           const snackBar = SnackBar(
                             content: Text('已复制到剪贴板'),
@@ -67,18 +79,22 @@ class _CodePage extends State<CodePage> {
                       ),
                       IconButton(
                         onPressed: () async {
-                          await _addCode(codeId, code);
+                          await _addCode(code.codeId, code.code);
                         },
                         icon: Icon(Icons.edit),
                       ),
                       IconButton(
                         onPressed: () async {
-                          await _deleteCode(codeId);
+                          await _deleteCode(code.codeId);
                         },
                         icon: Icon(Icons.delete),
                       ),
                     ],
                   ),
+                  onTap: () async {
+                    await _localData.updateCodeUsed(code.codeId, !code.used);
+                    await _refresh();
+                  },
                 );
               },
             ),
@@ -139,10 +155,7 @@ class _CodePage extends State<CodePage> {
               if (inputController.text.length <= 0) return;
 
               await _localData.keepCode(codeId, inputController.text);
-              var codeMap = await _localData.getCodeList();
-              setState(() {
-                _codeMap = codeMap;
-              });
+              await _refresh();
             },
             child: Text('确定'),
           ),
@@ -168,10 +181,7 @@ class _CodePage extends State<CodePage> {
               Navigator.pop(context);
 
               await _localData.deleteCode(codeId);
-              var codeMap = await _localData.getCodeList();
-              setState(() {
-                _codeMap = codeMap;
-              });
+              await _refresh();
             },
             child: Text('确定'),
           ),

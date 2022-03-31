@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
-import 'package:gshelper/page/homeartifact.dart';
 
 import '../common/const.dart';
 import '../common/localdata.dart';
 import '../object/mycharacter.dart';
 import '../object/artifact.dart';
+import '../object/team.dart';
 import 'homemycharacter.dart';
+import 'homeartifact.dart';
+import 'hometeam.dart';
 import 'hometools.dart';
 
 class HomePage extends StatefulWidget {
@@ -20,8 +22,10 @@ class _HomePage extends State<HomePage> {
   LocalData _localData = LocalData.instance;
   List<MyCharacter> _myCharacterList = [];
   List<Artifact> _artifactList = [];
+  List<Team> _teamList = [];
 
   bool _isLoadingMyCharacter = true;
+  bool _isLoadingTeam = true;
 
   Future<void> _myCharacterRefresh() async {
     setState(() {
@@ -39,12 +43,22 @@ class _HomePage extends State<HomePage> {
     });
   }
 
+  Future<void> _teamRefresh() async {
+    setState(() {
+      _isLoadingTeam = true;
+    });
+    var teamList = await _localData.getTeamList();
+    setState(() {
+      _teamList = teamList;
+      _isLoadingTeam = false;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(Const.TITLE),
-        elevation: 0,
         bottomOpacity: 0,
       ),
       bottomNavigationBar: StyleProvider(
@@ -54,26 +68,26 @@ class _HomePage extends State<HomePage> {
             TabItem(
               icon: Image.asset(
                 'assets/images/icon_char.png',
-                color: _currentPage == _HomePageBody.MyCharacter ? Colors.white : Colors.white60,
+                color: _currentPage == _HomePageBody.MyCharacter ? Theme.of(context).colorScheme.secondary : Colors.black54,
               ),
               title: Const.TITLE_MY_CHARACTER,
             ),
             TabItem(
               icon: Image.asset(
                 'assets/images/icon_artifact.png',
-                color: _currentPage == _HomePageBody.Artifact ? Colors.white : Colors.white60,
+                color: _currentPage == _HomePageBody.Artifact ? Theme.of(context).colorScheme.secondary : Colors.black54,
               ),
               title: Const.TITLE_MY_ARTIFACT,
             ),
             TabItem(
               icon: Container(
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Theme.of(context).colorScheme.secondary,
                   borderRadius: BorderRadius.circular(90),
                 ),
                 child: Icon(
                   Icons.add,
-                  color: Theme.of(context).primaryColor,
+                  color: Colors.white,
                   size: 36,
                 ),
               ),
@@ -81,23 +95,24 @@ class _HomePage extends State<HomePage> {
             TabItem(
               icon: Image.asset(
                 'assets/images/icon_rep.png',
-                color: _currentPage == _HomePageBody.Team ? Colors.white : Colors.white60,
+                color: _currentPage == _HomePageBody.Team ? Theme.of(context).colorScheme.secondary : Colors.black54,
               ),
               title: Const.TITLE_MY_TEAM,
             ),
             TabItem(
               icon: Image.asset(
                 'assets/images/icon_gadget.png',
-                color: _currentPage == _HomePageBody.Tools ? Colors.white : Colors.white60,
+                color: _currentPage == _HomePageBody.Tools ? Theme.of(context).colorScheme.secondary : Colors.black54,
               ),
               title: Const.TITLE_TOOLS,
             ),
           ],
           style: TabStyle.fixedCircle,
           initialActiveIndex: _currentPage.index,
-          color: Colors.white60,
-          backgroundColor: Theme.of(context).primaryColor,
-          activeColor: Colors.white,
+          color: Colors.black54,
+          backgroundColor: Theme.of(context).colorScheme.primary,
+          activeColor: Theme.of(context).colorScheme.secondary,
+          elevation: 2,
           onTap: (index) {
             setState(() {
               _currentPage = _HomePageBody.values[index];
@@ -125,7 +140,12 @@ class _HomePage extends State<HomePage> {
             isLoading: _isLoadingMyCharacter,
           ),
           Text('error'),
-          Text('team'),
+          HomeTeam(
+            refresh: _teamRefresh,
+            teamList: _teamList,
+            isLoading: _isLoadingTeam,
+            myCharacterList: _myCharacterList,
+          ),
           HomeToolsPage(),
         ],
       ),
@@ -140,78 +160,127 @@ class _HomePage extends State<HomePage> {
         backgroundColor: Colors.transparent,
         onClosing: () {},
         builder: (context) => AnimatedContainer(
-          height: 200,
+          height: 250,
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(30),
+            borderRadius: BorderRadius.vertical(top: Radius.circular(10), bottom: Radius.circular(0)),
           ),
-          margin: EdgeInsets.all(20),
+          //margin: EdgeInsets.all(20),
           padding: EdgeInsets.symmetric(
             vertical: 40,
-            horizontal: 30,
+            horizontal: 60,
           ),
           duration: Duration(milliseconds: 400),
           child: Column(
             children: <Widget>[
-              ElevatedButton(
-                onPressed: () {
+              InkWell(
+                onTap: () {
                   Navigator.pop(context);
                   Navigator.pushNamed(context, "/mycharacteredit").then((value) async {
                     await _myCharacterRefresh();
                   });
                 },
-                child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 8),
+                child: Container(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 10,
+                  ),
                   child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Image.asset(
-                        'assets/images/icon_char.png',
-                        color: Theme.of(context).selectedRowColor,
-                        width: 24,
-                        height: 24,
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).colorScheme.secondary.withAlpha(50),
+                          shape: BoxShape.circle,
+                        ),
+                        padding: EdgeInsets.all(10),
+                        child: Center(
+                          child: Image.asset(
+                            'assets/images/icon_char.png',
+                            color: Theme.of(context).colorScheme.secondary,
+                            width: 30,
+                            height: 30,
+                          ),
+                        ),
                       ),
                       SizedBox(
                         width: 15,
                       ),
-                      Text(
-                        '添加角色',
-                        style: TextStyle(
-                          fontSize: 18,
-                        ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            Const.TITLE_MY_CHARACTER_ADD,
+                            style: TextStyle(
+                              fontSize: 21,
+                            ),
+                          ),
+                          Text(
+                            '添加一个新的角色',
+                            style: TextStyle(
+                              color: Colors.black54,
+                              fontSize: 13,
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: 10,
               ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, "/mycharacteredit").then((value) async {
-                    await _myCharacterRefresh();
+              InkWell(
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.pushNamed(context, "/teamedit", arguments: {'myCharacterList': _myCharacterList}).then((value) async {
+                    await _teamRefresh();
                   });
                 },
-                child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 8),
+                child: Container(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 10,
+                  ),
                   child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Image.asset(
-                        'assets/images/icon_rep.png',
-                        color: Theme.of(context).selectedRowColor,
-                        width: 24,
-                        height: 24,
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).colorScheme.secondary.withAlpha(50),
+                          shape: BoxShape.circle,
+                        ),
+                        padding: EdgeInsets.all(10),
+                        child: Center(
+                          child: Image.asset(
+                            'assets/images/icon_rep.png',
+                            color: Theme.of(context).colorScheme.secondary,
+                            width: 30,
+                            height: 30,
+                          ),
+                        ),
                       ),
                       SizedBox(
                         width: 15,
                       ),
-                      Text(
-                        '添加组队',
-                        style: TextStyle(
-                          fontSize: 18,
-                        ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            Const.TITLE_TEAM_ADD,
+                            style: TextStyle(
+                              fontSize: 21,
+                            ),
+                          ),
+                          Text(
+                            '添加一个新的组队',
+                            style: TextStyle(
+                              color: Colors.black54,
+                              fontSize: 13,
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),

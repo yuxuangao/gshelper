@@ -26,14 +26,15 @@ class TextIconButton extends StatelessWidget {
           Icon(
             icon,
             size: 24,
-            color: Theme.of(context).primaryColor,
           ),
           SizedBox(
             height: 2,
           ),
           Text(
             label,
-            style: TextStyle(fontSize: 10),
+            style: TextStyle(
+              fontSize: 10,
+            ),
           ),
         ],
       ),

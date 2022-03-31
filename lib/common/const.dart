@@ -20,10 +20,15 @@ class Const {
   static const TITLE_DATABASE_ARTIFACT = '圣遗物列表';
   static const TITLE_DATABASE_CHARACTER_DETAIL = '角色详情';
   static const TITLE_DATABASE_CHARACTER_DAMAGE = '简易伤害模拟';
+  static const TITLE_DATABASE_WEAPON_DETAIL = '武器详情';
+  static const TITLE_DATABASE_ARTIFACT_DETAIL = '圣遗物详情';
+  static const TITLE_TEAM_EDIT = '编辑队伍';
+  static const TITLE_TEAM_ADD = '添加队伍';
 
   static const NUMBER_CHARACTERS = '一二三四五六七八九十';
   static const STATS_SHOW_PERCENT = [
     Stats.AttackBonus,
+    Stats.AttackBonusByBaseAttack,
     Stats.AttackBonusByDefend,
     Stats.AttackBonusByHp,
     Stats.AttackBonusByRecharge,
@@ -33,9 +38,12 @@ class Const {
     Stats.DefendBonus,
     Stats.DefendDecrease,
     Stats.DmgBonus,
+    Stats.EleDmgBonus,
     Stats.ExtraDamageByAttack,
+    Stats.ExtraDamageByAttackUsed,
     Stats.ExtraDamageByHp,
     Stats.ExtraDmageByDefend,
+    Stats.ExtraDmageByDefendUsed,
     Stats.DmgBonusByRecharge,
     Stats.DmgBonusByRechargeOver100,
     Stats.DmgBonusByHealingForHpExtraDamage,
@@ -55,6 +63,8 @@ class Const {
     Stats.RatioExtra,
     Stats.RatioExtraByAttack,
     Stats.RatioExtraByMastery,
+    Stats.MasteryByMastery,
+    Stats.CritRateByCritRate,
   ];
 
   static const STATS_SHOW_INTEGER = [
@@ -63,4 +73,6 @@ class Const {
     Stats.Hp,
     Stats.Mastery,
   ];
+
+  static const double APP_BAR_ELEVATION = 1.2;
 }

@@ -40,6 +40,7 @@ class MyCharacter {
 }
 
 class MyCharacterResult {
+  int myCharacterId = -1;
   double hp = 0;
   double baseHp = 0;
   double attack = 0;

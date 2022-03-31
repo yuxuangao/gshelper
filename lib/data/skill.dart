@@ -519,7 +519,7 @@ const SKILLS = {
           },
           {
             'stat': Stats.DmgBonus,
-            'value': 30.0,
+            'value': 15.0,
             'buffType': BuffType.BuffForMe,
             'damageType': [
               DamageType.SkillE,
@@ -527,7 +527,7 @@ const SKILLS = {
           },
           {
             'stat': Stats.DmgBonus,
-            'value': 45.0,
+            'value': 15.0,
             'buffType': BuffType.BuffForMe,
             'damageType': [
               DamageType.SkillE,
@@ -698,7 +698,7 @@ const SKILLS = {
       'buff': [
         {
           'name': '伤害提升',
-          'stat': Stats.DmgBonus,
+          'stat': Stats.EleDmgBonus,
           'value': [58.45, 61.95, 65.45, 70.0, 73.5, 77.0, 81.55, 86.1, 90.65, 95.2, 99.75, 104.3, 108.85, 113.4, 117.95],
           'buffType': BuffType.BuffForMe,
           'damageType': [
@@ -997,13 +997,31 @@ const SKILLS = {
       {
         'name': '触媒置换术',
         'description': '砂糖触发扩散反应时，使队伍中所有对应元素类型的角色（不包括砂糖自己）元素精通提升50，持续8秒。',
-        'buff': [],
+        'buff': [
+          {
+            'stat': Stats.Mastery,
+            'value': 50.0,
+            'buffType': BuffType.BuffForTeamWithoutMe,
+            'damageType': [
+              DamageType.All,
+            ],
+          },
+        ],
         'hit': [],
       },
       {
         'name': '小小的慧风',
         'description': '风灵作成 • 陆叁零捌或禁 • 风灵作成 • 柒伍同构贰型命中敌人时，基于砂糖元素精通的20%，为队伍中所有角色（不包括砂糖自己）提供元素精通加成，持续8秒。',
-        'buff': [],
+        'buff': [
+          {
+            'stat': Stats.MasteryByMastery,
+            'value': 20.0,
+            'buffType': BuffType.BuffForTeamWithoutMe,
+            'damageType': [
+              DamageType.All,
+            ],
+          },
+        ],
         'hit': [],
       },
     ],
@@ -1185,7 +1203,8 @@ const SKILLS = {
       {
         'name': '相闻之剑法',
         'description': '千早振在施放时，如果接触了水元素/火元素/冰元素/雷元素，则会使这次千早振的下落攻击 • 乱岚拨止，发生元素转化，将附加200%攻击力的对应元素伤害，该伤害视为下落攻击伤害。每次千早振的技能效果中，元素转化仅会发生一次。',
-        'buff': [
+        'buff': [],
+        'hit': [
           {
             'name': '元素转化伤害',
             'damageType': DamageType.Plunging,
@@ -1198,12 +1217,20 @@ const SKILLS = {
             ],
           },
         ],
-        'hit': [],
       },
       {
         'name': '风物之诗咏',
         'description': '枫原万叶触发扩散反应后，枫原万叶的每点元素精通，会为队伍中所有角色提供0.04%对应元素伤害加成，持续8秒。通过这种方式获得的不同元素伤害加成可以共存。',
-        'buff': [],
+        'buff': [
+          {
+            'stat': Stats.DmgBonusByMastery,
+            'value': 0.04,
+            'buffType': BuffType.BuffForTeam,
+            'damageType': [
+              DamageType.All,
+            ],
+          },
+        ],
         'hit': [],
       },
     ],
@@ -2277,18 +2304,9 @@ const SKILLS = {
       'buff': [
         {
           'name': '伤害加成',
-          'stat': Stats.DmgBonus,
+          'stat': Stats.DmgBonusExtra,
           'value': [42.0, 44.0, 46.0, 48.0, 50.0, 52.0, 54.0, 56.0, 58.0, 60.0, 60.0, 60.0, 60.0, 60.0, 60.0],
-          'buffType': BuffType.BuffForMe,
-          'damageType': [
-            DamageType.All,
-          ],
-        },
-        {
-          'name': '伤害加成',
-          'stat': Stats.PhyDmgBonus,
-          'value': [42.0, 44.0, 46.0, 48.0, 50.0, 52.0, 54.0, 56.0, 58.0, 60.0, 60.0, 60.0, 60.0, 60.0, 60.0],
-          'buffType': BuffType.BuffForMe,
+          'buffType': BuffType.BuffForTeam,
           'damageType': [
             DamageType.All,
           ],
@@ -2339,7 +2357,7 @@ const SKILLS = {
         'description': '行秋获得20%水元素伤害加成。',
         'buff': [
           {
-            'stat': Stats.DmgBonus,
+            'stat': Stats.EleDmgBonus,
             'value': 20.0,
             'buffType': BuffType.BuffForMe,
             'damageType': [
@@ -3058,7 +3076,7 @@ const SKILLS = {
         'description': '黎明提供的火元素附魔持续时间延长4秒；此外，在效果持续期间，迪卢克获得20%火元素伤害加成。',
         'buff': [
           {
-            'stat': Stats.DmgBonus,
+            'stat': Stats.EleDmgBonus,
             'value': 20.0,
             'buffType': BuffType.BuffForMe,
             'damageType': [
@@ -3294,7 +3312,16 @@ const SKILLS = {
       {
         'name': '砰砰礼物',
         'description': '蹦蹦炸弹与普通攻击造成伤害时，有50%的几率赋予可莉一朵爆裂火花。\n施放重击时将消耗爆裂火花，使本次重击不消耗体力，造成的伤害提升50%。',
-        'buff': [],
+        'buff': [
+          {
+            'stat': Stats.DmgBonus,
+            'value': 50.0,
+            'buffType': BuffType.BuffForMe,
+            'damageType': [
+              DamageType.Charged,
+            ],
+          },
+        ],
         'hit': [],
       },
       {
@@ -3474,7 +3501,16 @@ const SKILLS = {
       {
         'name': '蝶隐之时',
         'description': '蝶引来生施加的彼岸蝶舞状态结束后，队伍中所有角色（不包括胡桃自己）的暴击率提高12%，持续8秒。',
-        'buff': [],
+        'buff': [
+          {
+            'stat': Stats.CritRate,
+            'value': 12.0,
+            'buffType': BuffType.BuffForTeamWithoutMe,
+            'damageType': [
+              DamageType.All,
+            ],
+          },
+        ],
         'hit': [],
       },
       {
@@ -3482,7 +3518,7 @@ const SKILLS = {
         'description': '胡桃的生命值低于或等于50%时，获得33%火元素伤害加成。',
         'buff': [
           {
-            'stat': Stats.DmgBonus,
+            'stat': Stats.EleDmgBonus,
             'value': 33.0,
             'buffType': BuffType.BuffForMe,
             'damageType': [
@@ -3986,9 +4022,9 @@ const SKILLS = {
       'buff': [
         {
           'name': '攻击力加成比例',
-          'stat': Stats.AttackBonus,
+          'stat': Stats.AttackBonusByBaseAttack,
           'value': [56.0, 60.2, 64.4, 70.0, 74.2, 78.4, 84.0, 89.6, 95.2, 100.8, 106.4, 112.0, 119.0, 126.0, 133.0],
-          'buffType': BuffType.BuffForMe,
+          'buffType': BuffType.BuffForTeam,
           'damageType': [
             DamageType.All,
           ],
@@ -4061,7 +4097,7 @@ const SKILLS = {
           {
             'stat': Stats.AttackBonus,
             'value': 10.0,
-            'buffType': BuffType.BuffForMe,
+            'buffType': BuffType.BuffForTeam,
             'damageType': [
               DamageType.All,
             ],
@@ -4548,7 +4584,7 @@ const SKILLS = {
           {
             'stat': Stats.PhyDmgBonus,
             'value': 15.0,
-            'buffType': BuffType.BuffForMe,
+            'buffType': BuffType.BuffForTeam,
             'damageType': [
               DamageType.All,
             ],
@@ -4772,7 +4808,7 @@ const SKILLS = {
         {
           'name': '技能伤害',
           'damageType': DamageType.SkillQ,
-          'elementType': SkillElementType.Element,
+          'elementType': SkillElementType.Physical,
           'value': [
             {
               'value': [340.8, 366.36, 391.92, 426.0, 451.56, 477.12, 511.2, 545.28, 579.36, 613.44, 647.52, 681.6, 724.2, 766.8, 809.4],
@@ -4782,7 +4818,7 @@ const SKILLS = {
         },
         {
           'name': '火元素持续伤害',
-          'damageType': DamageType.SkillQ,
+          'damageType': DamageType.SkillQSpecial,
           'elementType': SkillElementType.Element,
           'value': [
             {
@@ -4818,7 +4854,7 @@ const SKILLS = {
         'description': '烟绯通过重击消耗丹火印时，每枚丹火印会提升烟绯5%的火元素伤害加成，持续6秒。在该效果的持续时间内再次施放重击时，会先移除原有的效果。',
         'buff': [
           {
-            'stat': Stats.DmgBonus,
+            'stat': Stats.EleDmgBonus,
             'value': 15.0,
             'buffType': BuffType.BuffForMe,
             'damageType': [
@@ -4992,7 +5028,7 @@ const SKILLS = {
       'buff': [
         {
           'name': '重击伤害提升',
-          'stat': Stats.AttackBonus,
+          'stat': Stats.DmgBonus,
           'value': [33.4, 35.4, 37.4, 40.0, 42.0, 44.0, 46.6, 49.2, 51.8, 54.4, 57.0, 59.6, 62.2, 64.8, 67.4],
           'buffType': BuffType.BuffForMe,
           'damageType': [
@@ -5043,7 +5079,7 @@ const SKILLS = {
         'description': '在焰硝庭火舞的持续期间内，宵宫的普通攻击命中后，将为宵宫提供2%火元素伤害加成。该效果持续3秒，至多叠加10次。',
         'buff': [
           {
-            'stat': Stats.DmgBonus,
+            'stat': Stats.EleDmgBonus,
             'value': 20.0,
             'buffType': BuffType.BuffForMe,
             'damageType': [
@@ -5056,7 +5092,24 @@ const SKILLS = {
       {
         'name': '炎昼风物诗',
         'description': '施放琉金云间草后的15秒内，附近的队伍中所有其他角色（不包括宵宫自己）攻击力提高10%。此外，依据宵宫自己施放琉金云间草时固有天赋「袖火百景图」的叠加层数，将额外提升上述的攻击力效果，每层提升1%攻击力。',
-        'buff': [],
+        'buff': [
+          {
+            'stat': Stats.AttackBonus,
+            'value': 10.0,
+            'buffType': BuffType.BuffForTeamWithoutMe,
+            'damageType': [
+              DamageType.All,
+            ],
+          },
+          {
+            'stat': Stats.AttackBonus,
+            'value': 10.0,
+            'buffType': BuffType.BuffForTeamWithoutMe,
+            'damageType': [
+              DamageType.All,
+            ],
+          },
+        ],
         'hit': [],
       },
     ],
@@ -5281,7 +5334,7 @@ const SKILLS = {
           {
             'stat': Stats.ShieldStrength,
             'value': 25.0,
-            'buffType': BuffType.BuffForMe,
+            'buffType': BuffType.BuffForTeam,
             'damageType': [
               DamageType.All,
             ],
@@ -5848,9 +5901,9 @@ const SKILLS = {
         'description': '降众天华领域内的队伍中当前场上角色获得20%冰元素伤害加成。',
         'buff': [
           {
-            'stat': Stats.DmgBonus,
+            'stat': Stats.EleDmgBonus,
             'value': 20.0,
-            'buffType': BuffType.BuffForMe,
+            'buffType': BuffType.BuffForTeam,
             'damageType': [
               DamageType.All,
             ],
@@ -6236,7 +6289,7 @@ const SKILLS = {
       'buff': [
         {
           'name': '防御力提升',
-          'stat': Stats.DmgBonus,
+          'stat': Stats.DefendBonus,
           'value': [30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0],
           'buffType': BuffType.BuffForMe,
           'damageType': [
@@ -6335,7 +6388,7 @@ const SKILLS = {
         },
         {
           'name': '光降之剑基础伤害',
-          'damageType': DamageType.SkillQ,
+          'damageType': DamageType.SkillQSpecial,
           'elementType': SkillElementType.Physical,
           'value': [
             {
@@ -6346,7 +6399,7 @@ const SKILLS = {
         },
         {
           'name': '每层能量伤害',
-          'damageType': DamageType.SkillQ,
+          'damageType': DamageType.SkillQSpecial,
           'elementType': SkillElementType.Physical,
           'value': [
             {
@@ -7059,7 +7112,16 @@ const SKILLS = {
       {
         'name': '暗中支援的黯色',
         'description': '施放终命的圣礼时，依照萝莎莉亚自身暴击率的15%，提高附近队伍中所有角色（不包括萝莎莉亚自己）的暴击率，持续10秒。\n借由这种方式获得的暴击率提升，无法超过15%。',
-        'buff': [],
+        'buff': [
+          {
+            'stat': Stats.CritRateByCritRate,
+            'value': 15.0,
+            'buffType': BuffType.BuffForTeamWithoutMe,
+            'damageType': [
+              DamageType.All,
+            ],
+          },
+        ],
         'hit': [],
       },
     ],
@@ -7283,15 +7345,6 @@ const SKILLS = {
               DamageType.Charged,
             ],
           },
-          {
-            'stat': Stats.PhyDmgBonus,
-            'value': 30.0,
-            'buffType': BuffType.BuffForMe,
-            'damageType': [
-              DamageType.Normal,
-              DamageType.Charged,
-            ],
-          },
         ],
         'hit': [],
       },
@@ -7300,7 +7353,7 @@ const SKILLS = {
         'description': '神里流 • 霰步结束时释放的寒冰命中了敌人时，神里绫华将获得如下效果：\n• 恢复10点体力；\n• 获得18%冰元素伤害加成，持续10秒。',
         'buff': [
           {
-            'stat': Stats.DmgBonus,
+            'stat': Stats.EleDmgBonus,
             'value': 18.0,
             'buffType': BuffType.BuffForMe,
             'damageType': [
@@ -7524,6 +7577,14 @@ const SKILLS = {
               DamageType.All,
             ],
           },
+          {
+            'stat': Stats.AttackBonus,
+            'value': 8.0,
+            'buffType': BuffType.BuffForTeamWithoutMe,
+            'damageType': [
+              DamageType.All,
+            ],
+          },
         ],
         'hit': [],
       },
@@ -7532,7 +7593,7 @@ const SKILLS = {
         'description': '埃洛伊处于冰尘雪野的冰驰状态下时，每1秒提升3.5%冰元素伤害加成，通过这种方式至多获得35%冰元素伤害加成。',
         'buff': [
           {
-            'stat': Stats.DmgBonus,
+            'stat': Stats.EleDmgBonus,
             'value': 35.0,
             'buffType': BuffType.BuffForMe,
             'damageType': [
@@ -7669,15 +7730,6 @@ const SKILLS = {
           ],
         },
         {
-          'name': '线圈普通攻击伤害提升（1层）',
-          'stat': Stats.PhyDmgBonus,
-          'value': [5.85, 6.20, 6.54, 7.0, 7.35, 7.70, 8.16, 8.61, 9.07, 9.52, 9.98, 10.43, 10.89, 11.34, 11.80],
-          'buffType': BuffType.BuffForMe,
-          'damageType': [
-            DamageType.Normal,
-          ],
-        },
-        {
           'name': '线圈普通攻击伤害提升（2层）',
           'stat': Stats.DmgBonus,
           'value': [11.69, 12.39, 13.09, 14.0, 14.70, 15.40, 16.31, 17.22, 18.13, 19.04, 19.95, 20.86, 21.77, 22.68, 23.59],
@@ -7687,26 +7739,8 @@ const SKILLS = {
           ],
         },
         {
-          'name': '线圈普通攻击伤害提升（2层）',
-          'stat': Stats.PhyDmgBonus,
-          'value': [11.69, 12.39, 13.09, 14.0, 14.70, 15.40, 16.31, 17.22, 18.13, 19.04, 19.95, 20.86, 21.77, 22.68, 23.59],
-          'buffType': BuffType.BuffForMe,
-          'damageType': [
-            DamageType.Normal,
-          ],
-        },
-        {
           'name': '线圈普通攻击伤害提升（3层）',
           'stat': Stats.DmgBonus,
-          'value': [17.54, 18.58, 19.64, 21.0, 22.05, 23.10, 24.47, 25.83, 27.20, 28.56, 29.93, 31.29, 32.66, 34.02, 35.39],
-          'buffType': BuffType.BuffForMe,
-          'damageType': [
-            DamageType.Normal,
-          ],
-        },
-        {
-          'name': '线圈普通攻击伤害提升（3层）',
-          'stat': Stats.PhyDmgBonus,
           'value': [17.54, 18.58, 19.64, 21.0, 22.05, 23.10, 24.47, 25.83, 27.20, 28.56, 29.93, 31.29, 32.66, 34.02, 35.39],
           'buffType': BuffType.BuffForMe,
           'damageType': [
@@ -7715,7 +7749,7 @@ const SKILLS = {
         },
         {
           'name': '冰驰普通攻击伤害提升',
-          'stat': Stats.DmgBonus,
+          'stat': Stats.EleDmgBonus,
           'value': [29.23, 30.98, 32.73, 35.0, 36.75, 38.5, 40.78, 43.05, 45.33, 47.6, 49.88, 52.15, 54.43, 56.7, 58.98],
           'buffType': BuffType.BuffForMe,
           'damageType': [
@@ -8310,14 +8344,7 @@ const SKILLS = {
             'buffType': BuffType.BuffForMe,
             'damageType': [
               DamageType.Normal,
-            ],
-          },
-          {
-            'stat': Stats.PhyDmgBonus,
-            'value': 15.0,
-            'buffType': BuffType.BuffForMe,
-            'damageType': [
-              DamageType.Normal,
+              DamageType.Charged,
             ],
           },
         ],
@@ -8718,7 +8745,7 @@ const SKILLS = {
           'value': [20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0],
           'buffType': BuffType.BuffForMe,
           'damageType': [
-            DamageType.SkillE,
+            DamageType.All,
           ],
         },
       ],
@@ -9197,7 +9224,7 @@ const SKILLS = {
           'name': '元素充能效率提升',
           'stat': Stats.Recharge,
           'value': [20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0],
-          'buffType': BuffType.BuffForMe,
+          'buffType': BuffType.BuffForTeam,
           'damageType': [
             DamageType.All,
           ],
@@ -9294,7 +9321,7 @@ const SKILLS = {
         'buff': [
           {
             'stat': Stats.DmgBonusByRechargeOver100,
-            'value': 0.6,
+            'value': 0.4,
             'buffType': BuffType.BuffForMe,
             'damageType': [
               DamageType.All,
@@ -9435,7 +9462,7 @@ const SKILLS = {
           'name': '元素爆发伤害提高',
           'stat': Stats.DmgBonusByEnergy,
           'value': [0.22, 0.23, 0.24, 0.25, 0.26, 0.27, 0.28, 0.29, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3],
-          'buffType': BuffType.BuffForMe,
+          'buffType': BuffType.BuffForTeam,
           'damageType': [
             DamageType.SkillQ,
             DamageType.SkillQSpecial,
@@ -9503,7 +9530,7 @@ const SKILLS = {
       ],
       'hit': [
         {
-          'name': '梦想一刀基础伤害',
+          'name': '梦想一刀伤害',
           'damageType': DamageType.SkillQ,
           'elementType': SkillElementType.Element,
           'value': [
@@ -9826,7 +9853,17 @@ const SKILLS = {
       'name': '鸦羽天狗霆雷召咒',
       'description':
           '以天狗之神速向后转移，并唤来乌羽的加护。\n获得持续18秒的「乌羽护持」，当九条裟罗发射完成蓄力的箭矢时，会消耗「乌羽护持」，并在命中的位置留下「乌羽」。\n「乌羽」会在短时间后引发天狗咒雷 • 伏，对范围内敌人造成雷元素伤害，并使其范围内的当前场上角色基于九条裟罗的基础攻击力，以一定比例获得攻击力加成。\n各种天狗咒雷提供的攻击力提升不能叠加，效果与持续时间由后生效的为准。',
-      'buff': [],
+      'buff': [
+        {
+          'name': '攻击力加成',
+          'stat': Stats.AttackBonusByBaseAttack,
+          'value': [42.96, 46.18, 49.4, 53.7, 56.92, 60.14, 64.44, 68.74, 73.03, 77.33, 81.62, 85.92, 91.29, 96.66, 102.03],
+          'buffType': BuffType.BuffForTeam,
+          'damageType': [
+            DamageType.All,
+          ],
+        },
+      ],
       'hit': [
         {
           'name': '天狗咒雷·伏 伤害',
@@ -9841,26 +9878,6 @@ const SKILLS = {
         },
       ],
       'other': [
-        {
-          'name': '攻击力加成比例',
-          'value': [
-            '	42.96%',
-            '46.18%',
-            '49.4%',
-            '53.7%',
-            '56.92%',
-            '60.14%',
-            '64.44%',
-            '68.74%',
-            '73.03%',
-            '77.33%',
-            '81.62%',
-            '85.92%',
-            '91.29%',
-            '96.66%',
-            '102.03%'
-          ],
-        },
         {
           'name': '攻击力加成持续时间',
           'value': ['6秒', '6秒', '6秒', '6秒', '6秒', '6秒', '6秒', '6秒', '6秒', '6秒', '6秒', '6秒', '6秒', '6秒', '6秒'],
@@ -9924,7 +9941,7 @@ const SKILLS = {
           {
             'stat': Stats.ShieldStrength,
             'value': 25.0,
-            'buffType': BuffType.BuffForMe,
+            'buffType': BuffType.BuffForTeam,
             'damageType': [
               DamageType.All,
             ],
@@ -10259,7 +10276,7 @@ const SKILLS = {
           {
             'stat': Stats.Mastery,
             'value': 125.0,
-            'buffType': BuffType.BuffForMe,
+            'buffType': BuffType.BuffForTeam,
             'damageType': [
               DamageType.All,
             ],
@@ -10678,9 +10695,9 @@ const SKILLS = {
         'description': '穿过璇玑屏的角色会获得12%岩元素伤害加成，持续10秒。',
         'buff': [
           {
-            'stat': Stats.DmgBonus,
+            'stat': Stats.EleDmgBonus,
             'value': 12.0,
-            'buffType': BuffType.BuffForMe,
+            'buffType': BuffType.BuffForTeam,
             'damageType': [
               DamageType.All,
             ],
@@ -11101,9 +11118,9 @@ const SKILLS = {
           {
             'stat': Stats.DefendBonus,
             'value': 25.0,
-            'buffType': BuffType.BuffForMe,
+            'buffType': BuffType.BuffForTeam,
             'damageType': [
-              DamageType.Charged,
+              DamageType.All,
             ],
           },
         ],
@@ -11127,6 +11144,7 @@ const SKILLS = {
             'buffType': BuffType.BuffForMe,
             'damageType': [
               DamageType.SkillQ,
+              DamageType.SkillQSpecial,
             ],
           },
         ],
@@ -11249,16 +11267,16 @@ const SKILLS = {
           'name': '防御力提升',
           'stat': Stats.Defend,
           'value': [206.0, 222.0, 237.0, 258.0, 273.0, 289.0, 309.0, 330.0, 350.0, 371.0, 392.0, 412.0, 438.0, 464.0, 490.0],
-          'buffType': BuffType.BuffForMe,
+          'buffType': BuffType.BuffForTeam,
           'damageType': [
             DamageType.All,
           ],
         },
         {
           'name': '岩元素伤害加成',
-          'stat': Stats.DmgBonus,
+          'stat': Stats.EleDmgBonus,
           'value': [15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0],
-          'buffType': BuffType.BuffForMe,
+          'buffType': BuffType.BuffForTeam,
           'damageType': [
             DamageType.All,
           ],
@@ -11587,9 +11605,9 @@ const SKILLS = {
         'description': '处于神女遣灵真诀的领域中的当前场上角色，冰元素伤害加成提高15%。',
         'buff': [
           {
-            'stat': Stats.DmgBonus,
+            'stat': Stats.EleDmgBonus,
             'value': 15.0,
-            'buffType': BuffType.BuffForMe,
+            'buffType': BuffType.BuffForTeam,
             'damageType': [
               DamageType.All,
             ],
@@ -11604,19 +11622,10 @@ const SKILLS = {
           {
             'stat': Stats.DmgBonus,
             'value': 15.0,
-            'buffType': BuffType.BuffForMe,
+            'buffType': BuffType.BuffForTeam,
             'damageType': [
               DamageType.SkillE,
-              DamageType.SkillQ,
-              DamageType.SkillQSpecial,
-            ],
-          },
-          {
-            'stat': Stats.PhyDmgBonus,
-            'value': 15.0,
-            'buffType': BuffType.BuffForMe,
-            'damageType': [
-              DamageType.SkillE,
+              DamageType.SkillESpecial,
               DamageType.SkillQ,
               DamageType.SkillQSpecial,
             ],
@@ -11624,17 +11633,7 @@ const SKILLS = {
           {
             'stat': Stats.DmgBonus,
             'value': 15.0,
-            'buffType': BuffType.BuffForMe,
-            'damageType': [
-              DamageType.Normal,
-              DamageType.Charged,
-              DamageType.Plunging,
-            ],
-          },
-          {
-            'stat': Stats.PhyDmgBonus,
-            'value': 15.0,
-            'buffType': BuffType.BuffForMe,
+            'buffType': BuffType.BuffForTeam,
             'damageType': [
               DamageType.Normal,
               DamageType.Charged,
@@ -11770,7 +11769,7 @@ const SKILLS = {
           'name': '伤害值提升',
           'stat': Stats.ExtraDamageByAttack,
           'value': [45.66, 49.08, 52.5, 57.07, 60.49, 63.92, 68.48, 73.05, 77.62, 82.18, 86.75, 91.31, 97.02, 102.73, 108.43],
-          'buffType': BuffType.BuffForMe,
+          'buffType': BuffType.BuffForTeam,
           'damageType': [
             DamageType.All,
           ],
@@ -11843,7 +11842,7 @@ const SKILLS = {
           'name': '抗性降低',
           'stat': Stats.ResistanceDecreaseElement,
           'value': [6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0],
-          'buffType': BuffType.BuffForMe,
+          'buffType': BuffType.DebuffForEnemy,
           'damageType': [
             DamageType.All,
           ],
@@ -11852,7 +11851,7 @@ const SKILLS = {
           'name': '抗性降低',
           'stat': Stats.ResistanceDecreasePhysical,
           'value': [6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 15.0, 15.0, 15.0, 15.0, 15.0],
-          'buffType': BuffType.BuffForMe,
+          'buffType': BuffType.DebuffForEnemy,
           'damageType': [
             DamageType.All,
           ],
@@ -11916,7 +11915,7 @@ const SKILLS = {
           {
             'stat': Stats.ExtraDmageByDefend,
             'value': 2.5,
-            'buffType': BuffType.BuffForMe,
+            'buffType': BuffType.BuffForTeam,
             'damageType': [
               DamageType.Normal,
             ],
@@ -11924,7 +11923,7 @@ const SKILLS = {
           {
             'stat': Stats.ExtraDmageByDefend,
             'value': 5.0,
-            'buffType': BuffType.BuffForMe,
+            'buffType': BuffType.BuffForTeam,
             'damageType': [
               DamageType.Normal,
             ],
@@ -11932,7 +11931,7 @@ const SKILLS = {
           {
             'stat': Stats.ExtraDmageByDefend,
             'value': 7.5,
-            'buffType': BuffType.BuffForMe,
+            'buffType': BuffType.BuffForTeam,
             'damageType': [
               DamageType.Normal,
             ],
@@ -11940,7 +11939,7 @@ const SKILLS = {
           {
             'stat': Stats.ExtraDmageByDefend,
             'value': 11.5,
-            'buffType': BuffType.BuffForMe,
+            'buffType': BuffType.BuffForTeam,
             'damageType': [
               DamageType.Normal,
             ],
@@ -12165,9 +12164,9 @@ const SKILLS = {
       'buff': [
         {
           'name': '伤害值提升',
-          'stat': Stats.ExtraDmageByDefend,
+          'stat': Stats.ExtraDmageByDefendUsed,
           'value': [32.16, 34.57, 36.98, 40.2, 42.61, 45.02, 48.24, 51.46, 54.67, 57.89, 61.1, 64.32, 68.34, 72.36, 76.38],
-          'buffType': BuffType.BuffForMe,
+          'buffType': BuffType.BuffForTeam,
           'damageType': [
             DamageType.Normal,
           ],
@@ -12201,6 +12200,510 @@ const SKILLS = {
         },
       ],
       'energy': 60,
+    },
+  },
+  49: {
+    SkillType.Passive: [
+      {
+        'name': '野狐说禅',
+        'description': '合成角色天赋素材时，有25%概率额外产生一份地区相同的其他随机天赋素材，等阶与合成所消耗的素材相同。',
+        'buff': [],
+        'hit': [],
+      },
+      {
+        'name': '神篱之御荫',
+        'description': '施放大密法 • 天狐显真时，每摧毁一株杀生樱，就会重置一次野干役咒 • 杀生樱的冷却时间。',
+        'buff': [],
+        'hit': [],
+      },
+      {
+        'name': '启蜇之祝词',
+        'description': '八重神子的每点元素精通，能使杀生樱造成的伤害提升0.15%。',
+        'buff': [
+          {
+            'stat': Stats.DmgBonusByMastery,
+            'value': 0.15,
+            'buffType': BuffType.BuffForMe,
+            'damageType': [
+              DamageType.SkillE,
+            ],
+          },
+        ],
+        'hit': [],
+      },
+    ],
+    SkillType.SkillA: {
+      'name': '普通攻击·狐灵食罪式',
+      'description': '普通攻击\n驱役狐灵，进行至多三段的攻击，造成雷元素伤害。\n重击\n消耗一定体力，短暂咏唱后，造成雷元素范围伤害。\n下落攻击\n凝聚雷霆的力量，从空中下坠冲击地面，攻击下落路径上的敌人，并在落地时造成雷元素范围伤害。',
+      'buff': [],
+      'hit': [
+        {
+          'name': '一段伤害',
+          'damageType': DamageType.Normal,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': [39.66, 42.63, 45.61, 49.57, 52.55, 55.52, 59.49, 63.45, 67.42, 71.39, 75.35, 79.32, 84.27, 89.23, 94.19],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '二段伤害',
+          'damageType': DamageType.Normal,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': [38.52, 41.41, 44.3, 48.15, 51.04, 53.93, 57.78, 61.63, 65.48, 69.33, 73.19, 77.04, 81.85, 86.67, 91.48],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '三段伤害',
+          'damageType': DamageType.Normal,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': [56.89, 61.16, 65.42, 71.11, 75.38, 79.64, 85.33, 91.02, 96.71, 102.4, 108.09, 113.78, 120.89, 128.0, 135.11],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '重击伤害',
+          'damageType': DamageType.Charged,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': [142.89, 153.61, 164.33, 178.62, 189.34, 200.05, 214.34, 228.63, 242.92, 257.21, 271.5, 285.79, 303.65, 321.51, 339.38],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '下坠期间伤害',
+          'damageType': DamageType.Plunging,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': [56.83, 61.45, 66.08, 72.69, 77.31, 82.6, 89.87, 97.14, 104.41, 112.34, 120.27, 128.2, 136.12, 144.05, 151.98],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '低空坠地冲击伤害',
+          'damageType': DamageType.Plunging,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': [113.63, 122.88, 132.13, 145.35, 154.59, 165.17, 179.7, 194.23, 208.77, 224.62, 240.48, 256.34, 272.19, 288.05, 303.9],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '高空坠地冲击伤害',
+          'damageType': DamageType.Plunging,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': [141.93, 153.49, 165.04, 181.54, 193.1, 206.3, 224.45, 242.61, 260.76, 280.57, 300.37, 320.18, 339.98, 359.79, 379.59],
+              'extra': {},
+            },
+          ],
+        },
+      ],
+      'other': [
+        {
+          'name': '重击体力消耗',
+          'value': ['50', '50', '50', '50', '50', '50', '50', '50', '50', '50', '50', '50', '50', '50', '50'],
+        },
+      ],
+    },
+    SkillType.SkillE: {
+      'name': '野干役咒·杀生樱',
+      'description':
+          '对八重而言，驱役精怪就能解决的麻烦，自然是无须亲力亲为的。\n迅速移动，并留下一株「杀生樱」。\n杀生樱\n具有如下特性：\n• 间歇性对周围的一名敌人降下落雷，造成雷元素伤害；\n• 附近存在其他的杀生樱时，将提升其位阶，提高上述攻击造成的伤害。\n拥有3次可使用次数。\n最多同时存在3株杀生樱，杀生樱创造时的初始位阶为壹阶，阶级初始至多提升至叁阶。若创造的位置与已有的杀生樱距离过近，则会摧毁已有的杀生樱。',
+      'buff': [],
+      'hit': [
+        {
+          'name': '杀生樱伤害·壹阶',
+          'damageType': DamageType.SkillE,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': [60.67, 65.22, 69.77, 75.84, 80.39, 84.94, 91.01, 97.08, 103.14, 109.21, 115.28, 121.34, 128.93, 136.51, 144.1],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '杀生樱伤害·贰阶',
+          'damageType': DamageType.SkillE,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': [75.84, 81.53, 87.22, 94.8, 100.49, 106.18, 113.76, 121.34, 128.93, 136.51, 144.1, 151.68, 161.16, 170.64, 180.12],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '杀生樱伤害·叁阶',
+          'damageType': DamageType.SkillE,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': [94.8, 101.91, 109.02, 118.5, 125.61, 132.72, 142.2, 151.68, 161.16, 170.64, 180.12, 189.6, 201.45, 213.3, 225.15],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '杀生樱伤害·肆阶',
+          'damageType': DamageType.SkillE,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': [118.5, 127.39, 136.28, 148.13, 157.01, 165.9, 177.75, 189.6, 201.45, 213.3, 225.15, 237.0, 251.81, 266.63, 281.44],
+              'extra': {},
+            },
+          ],
+        },
+      ],
+      'other': [
+        {
+          'name': '持续时间',
+          'value': ['14秒', '14秒', '14秒', '14秒', '14秒', '14秒', '14秒', '14秒', '14秒', '14秒', '14秒', '14秒', '14秒', '14秒', '14秒'],
+        },
+        {
+          'name': '冷却时间',
+          'value': ['4秒', '4秒', '4秒', '4秒', '4秒', '4秒', '4秒', '4秒', '4秒', '4秒', '4秒', '4秒', '4秒', '4秒', '4秒'],
+        },
+      ],
+    },
+    SkillType.SkillQ: {
+      'name': '大密法·天狐显真',
+      'description': '稻妻民话中有「狐凭」一说。其中比较特殊的「天狐之凭」会以雷霆的形式降临在鸣神大社的敌人身上。降下雷电，造成雷元素范围伤害。\n施放时，八重神子会解放附近的杀生樱，摧毁它们的形姿，化作天狐霆雷降下，造成雷元素范围伤害。每通过这种方式摧毁一株杀生樱，就能降下一道天狐霆雷。',
+      'buff': [],
+      'hit': [
+        {
+          'name': '技能伤害',
+          'damageType': DamageType.SkillQ,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': [260.0, 279.5, 299.0, 325.0, 344.5, 364.0, 390.0, 416.0, 442.0, 468.0, 494.0, 520.0, 552.5, 585.0, 617.5],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '天狐霆雷伤害',
+          'damageType': DamageType.SkillQ,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': [333.82, 358.85, 383.89, 417.27, 442.31, 467.34, 500.72, 534.11, 567.49, 600.87, 634.25, 667.63, 709.36, 751.09, 792.81],
+              'extra': {},
+            },
+          ],
+        },
+      ],
+      'other': [
+        {
+          'name': '冷却时间',
+          'value': ['22秒', '22秒', '22秒', '22秒', '22秒', '22秒', '22秒', '22秒', '22秒', '22秒', '22秒', '22秒', '22秒', '22秒', '22秒'],
+        },
+      ],
+      'energy': 90,
+    },
+  },
+  50: {
+    SkillType.Passive: [
+      {
+        'name': '神里流·日常茶饭',
+        'description': '完美烹饪食物时，有18%概率额外获得一个「奇怪的」品质的同种料理。',
+        'buff': [],
+        'hit': [],
+      },
+      {
+        'name': '神里流·清泷绕峰',
+        'description': '神里流 • 镜花具有如下效果：\n• 施放后，神里绫人会获得2层浪闪效果；\n• 水影破裂后，神里绫人将获得等同于叠加上限层数的浪闪效果。',
+        'buff': [],
+        'hit': [],
+      },
+      {
+        'name': '神里流·破月渐盈',
+        'description': '神里绫人处于队伍后台时，若元素能量低于40点，每1秒为自己恢复2点元素能量。',
+        'buff': [],
+        'hit': [],
+      },
+    ],
+    SkillType.SkillA: {
+      'name': '普通攻击·神里流·转',
+      'description': '普通攻击\n进行至多五段的连续剑击。\n重击\n消耗一定体力，向前冲刺并施展居合。\n下落攻击\n从空中下坠冲击地面，攻击下落路径上的敌人，并在落地时造成范围伤害。',
+      'buff': [],
+      'hit': [
+        {
+          'name': '一段伤害',
+          'damageType': DamageType.Normal,
+          'elementType': SkillElementType.Physical,
+          'value': [
+            {
+              'value': [44.96, 48.62, 52.28, 57.51, 61.17, 65.35, 71.1, 76.85, 82.6, 88.88, 95.15, 101.43, 107.7, 113.97, 120.25],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '二段伤害',
+          'damageType': DamageType.Normal,
+          'elementType': SkillElementType.Physical,
+          'value': [
+            {
+              'value': [47.16, 51.0, 54.83, 60.32, 64.16, 68.54, 74.57, 80.61, 86.64, 93.22, 99.8, 106.38, 112.96, 119.54, 126.12],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '三段伤害',
+          'damageType': DamageType.Normal,
+          'elementType': SkillElementType.Physical,
+          'value': [
+            {
+              'value': [58.61, 63.38, 68.15, 74.97, 79.74, 85.19, 92.69, 100.19, 107.68, 115.86, 124.04, 132.22, 140.4, 148.58, 156.75],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '四段伤害',
+          'damageType': DamageType.Normal,
+          'elementType': SkillElementType.Physical,
+          'value': [
+            {
+              'value': [29.45, 31.85, 34.24, 37.67, 40.06, 42.8, 46.57, 50.34, 54.1, 58.21, 62.32, 66.43, 70.54, 74.65, 78.76],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '五段伤害',
+          'damageType': DamageType.Normal,
+          'elementType': SkillElementType.Physical,
+          'value': [
+            {
+              'value': [75.6, 81.76, 87.91, 96.7, 102.86, 109.89, 119.56, 129.23, 138.9, 149.45, 160.0, 170.55, 181.1, 191.65, 202.2],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '重击伤害',
+          'damageType': DamageType.Charged,
+          'elementType': SkillElementType.Physical,
+          'value': [
+            {
+              'value': [129.53, 140.07, 150.62, 165.68, 176.22, 188.27, 204.84, 221.41, 237.97, 256.05, 274.12, 292.19, 310.27, 328.34, 346.42],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '下坠期间伤害',
+          'damageType': DamageType.Plunging,
+          'elementType': SkillElementType.Physical,
+          'value': [
+            {
+              'value': [63.93, 69.14, 74.34, 81.77, 86.98, 92.93, 101.1, 109.28, 117.46, 126.38, 135.3, 144.22, 153.14, 162.06, 170.98],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '低空坠地冲击伤害',
+          'damageType': DamageType.Plunging,
+          'elementType': SkillElementType.Physical,
+          'value': [
+            {
+              'value': [127.84, 138.24, 148.65, 163.51, 173.92, 185.81, 202.16, 218.51, 234.86, 252.7, 270.54, 288.38, 306.22, 324.05, 341.89],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '高空坠地冲击伤害',
+          'damageType': DamageType.Plunging,
+          'elementType': SkillElementType.Physical,
+          'value': [
+            {
+              'value': [159.68, 172.67, 185.67, 204.24, 217.23, 232.09, 252.51, 272.93, 293.36, 315.64, 337.92, 360.2, 382.48, 404.76, 427.04],
+              'extra': {},
+            },
+          ],
+        },
+      ],
+      'other': [
+        {
+          'name': '重击体力消耗',
+          'value': ['20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20', '20'],
+        },
+      ],
+    },
+    SkillType.SkillE: {
+      'name': '神里流·镜花',
+      'description':
+          '神里绫人垫步移动并进入「泷廻鉴花」状态。\n移动后，神里绫人原本的位置上将产生「水影」。水影完全形成后，将在附近存在敌人或持续时间结束时破裂，造成水元素范围伤害。\n泷廻鉴花\n在此状态下，神里绫人将使用瞬水剑进行迅速的攻击，将普通攻击造成的伤害转为无法被附魔覆盖的水元素范围伤害。\n此外，具有如下效果：\n• 瞬水剑攻击命中敌人后，将为神里绫人赋予「浪闪」效果，基于神里绫人自己当前的生命值上限，提升瞬水剑造成的伤害。浪闪初始至多叠加4层，每0.1秒至多通过瞬水剑攻击获得一层，将在泷廻鉴花状态结束时消失。\n• 提高神里绫人的抗打断能力；\n• 无法施放重击与下落攻击。\n泷廻鉴花状态将在神里绫人退场时解除；处于泷廻鉴花状态下时再次施放神里流 • 镜花，将移除已有的泷廻鉴花状态。',
+      'buff': [
+        {
+          'name': '浪闪伤害值提高',
+          'stat': Stats.ExtraDamageByHp,
+          'value': [0.56, 0.61, 0.65, 0.72, 0.76, 0.82, 0.89, 0.96, 1.03, 1.11, 1.19, 1.27, 1.34, 1.42, 1.5],
+          'buffType': BuffType.BuffForMe,
+          'damageType': [
+            DamageType.Normal,
+          ],
+        },
+        {
+          'name': '浪闪伤害值提高',
+          'stat': Stats.ExtraDamageByHp,
+          'value': [0.56, 0.61, 0.65, 0.72, 0.76, 0.82, 0.89, 0.96, 1.03, 1.11, 1.19, 1.27, 1.34, 1.42, 1.5],
+          'buffType': BuffType.BuffForMe,
+          'damageType': [
+            DamageType.Normal,
+          ],
+        },
+        {
+          'name': '浪闪伤害值提高',
+          'stat': Stats.ExtraDamageByHp,
+          'value': [0.56, 0.61, 0.65, 0.72, 0.76, 0.82, 0.89, 0.96, 1.03, 1.11, 1.19, 1.27, 1.34, 1.42, 1.5],
+          'buffType': BuffType.BuffForMe,
+          'damageType': [
+            DamageType.Normal,
+          ],
+        },
+        {
+          'name': '浪闪伤害值提高',
+          'stat': Stats.ExtraDamageByHp,
+          'value': [0.56, 0.61, 0.65, 0.72, 0.76, 0.82, 0.89, 0.96, 1.03, 1.11, 1.19, 1.27, 1.34, 1.42, 1.5],
+          'buffType': BuffType.BuffForMe,
+          'damageType': [
+            DamageType.Normal,
+          ],
+        },
+        {
+          'name': '浪闪伤害值提高',
+          'stat': Stats.ExtraDamageByHp,
+          'value': [0.56, 0.61, 0.65, 0.72, 0.76, 0.82, 0.89, 0.96, 1.03, 1.11, 1.19, 1.27, 1.34, 1.42, 1.5],
+          'buffType': BuffType.BuffForMe,
+          'damageType': [
+            DamageType.Normal,
+          ],
+        },
+      ],
+      'hit': [
+        {
+          'name': '一段瞬水剑伤害',
+          'damageType': DamageType.Normal,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': [52.89, 57.2, 61.5, 67.65, 71.96, 76.88, 83.64, 90.41, 97.17, 104.55, 111.93, 119.31, 126.69, 134.07, 141.45],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '二段瞬水剑伤害',
+          'damageType': DamageType.Normal,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': [58.91, 63.71, 68.5, 75.35, 80.15, 85.63, 93.16, 100.7, 108.23, 116.45, 124.67, 132.89, 141.11, 149.33, 157.55],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '三段瞬水剑伤害',
+          'damageType': DamageType.Normal,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': [64.93, 70.22, 75.5, 83.05, 88.34, 94.38, 102.68, 110.99, 119.29, 128.35, 137.41, 146.47, 155.53, 164.59, 173.65],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '水影伤害',
+          'damageType': DamageType.SkillE,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': [101.48, 109.74, 118.0, 129.8, 138.06, 147.5, 160.48, 173.46, 186.44, 200.6, 214.76, 228.92, 243.08, 257.24, 271.4],
+              'extra': {},
+            },
+          ],
+        },
+      ],
+      'other': [
+        {
+          'name': '泷廻鉴花持续时间',
+          'value': ['6秒', '6秒', '6秒', '6秒', '6秒', '6秒', '6秒', '6秒', '6秒', '6秒', '6秒', '6秒', '6秒', '6秒', '6秒'],
+        },
+        {
+          'name': '水影持续时间',
+          'value': ['6秒', '6秒', '6秒', '6秒', '6秒', '6秒', '6秒', '6秒', '6秒', '6秒', '6秒', '6秒', '6秒', '6秒', '6秒'],
+        },
+        {
+          'name': '冷却时间',
+          'value': ['12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒'],
+        },
+      ],
+    },
+    SkillType.SkillQ: {
+      'name': '神里流·水囿',
+      'description': '展开清净之园囿，熄灭其中一切嚣闹。\n存在期间，其中会持续降下水花剑，攻击范围内的敌人，造成水元素伤害，并提高其中的角色的普通攻击伤害。',
+      'buff': [
+        {
+          'name': '普通攻击伤害提升',
+          'stat': Stats.DmgBonus,
+          'value': [11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0, 19.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0],
+          'buffType': BuffType.BuffForTeam,
+          'damageType': [
+            DamageType.Normal,
+          ],
+        },
+      ],
+      'hit': [
+        {
+          'name': '水花剑伤害',
+          'damageType': DamageType.SkillQ,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': [66.46, 71.44, 76.42, 83.07, 88.05, 93.04, 99.68, 106.33, 112.98, 119.62, 126.27, 132.91, 141.22, 149.53, 157.83],
+              'extra': {},
+            },
+          ],
+        },
+      ],
+      'other': [
+        {
+          'name': '持续时间',
+          'value': ['18秒', '18秒', '18秒', '18秒', '18秒', '18秒', '18秒', '18秒', '18秒', '18秒', '18秒', '18秒', '18秒', '18秒', '18秒'],
+        },
+        {
+          'name': '冷却时间',
+          'value': ['20秒', '20秒', '20秒', '20秒', '20秒', '20秒', '20秒', '20秒', '20秒', '20秒', '20秒', '20秒', '20秒', '20秒', '20秒'],
+        },
+      ],
+      'energy': 80,
     },
   },
 };

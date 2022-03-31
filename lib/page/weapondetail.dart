@@ -3,6 +3,7 @@ import 'package:sprintf/sprintf.dart';
 
 import '../object/mycharacter.dart';
 import '../common/const.dart';
+import '../common/utils.dart';
 import '../data/data.dart';
 
 class WeaponDetailPage extends StatelessWidget {
@@ -14,7 +15,6 @@ class WeaponDetailPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(Const.TITLE_WEAPON_DETAIL),
-        elevation: 0,
         bottomOpacity: 0,
         leading: IconButton(
           onPressed: () {
@@ -37,7 +37,7 @@ class WeaponDetailPage extends StatelessWidget {
                   width: 12,
                 ),
                 Container(
-                  padding: EdgeInsets.all(3),
+                  clipBehavior: Clip.antiAlias,
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage(GsData.getRarityBackgroundFilePath(weaponData['rarity'])),
@@ -49,7 +49,8 @@ class WeaponDetailPage extends StatelessWidget {
                     GsData.getWeaponFilePath(myCharacter.weaponId),
                     width: 100,
                     height: 100,
-                    scale: 2,
+                    fit: BoxFit.contain,
+                    alignment: Alignment.bottomCenter,
                   ),
                 ),
                 SizedBox(
@@ -145,7 +146,7 @@ class WeaponDetailPage extends StatelessWidget {
                   SizedBox(
                     height: 5,
                   ),
-                  Text((weaponData['specialEffectComent'] as Map<Refine, String>)[Refine.values[myCharacter.refineIndex]]),
+                  Text(Utils.getWeaponDescription(weaponData, Refine.values[myCharacter.refineIndex])),
                 ],
               ),
             ),

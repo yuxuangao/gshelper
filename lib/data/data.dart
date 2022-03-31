@@ -214,7 +214,7 @@ class GsData {
   }
 
   static String getStatNameAbbrevation(Stats stat) {
-    return _STATS_NAME_ABBREVATION[stat] ?? '';
+    return _STATS_NAME_ABBREVATION[stat] ?? _STATS_NAME[stat] ?? '';
   }
 
   static List<String> getWeaponNameListByType(WeaponTypes type) {
@@ -243,6 +243,25 @@ class GsData {
       }
     }
     return null;
+  }
+
+  static List<Map<String, Object>> getWeaponListByRarityOrder() {
+    List<Map<String, Object>> result = [...WEAPONS];
+    result.sort((c1, c2) {
+      if (c1['rarity'] != c2['rarity']) return (c2['rarity'] as Rarity).index - (c1['rarity'] as Rarity).index;
+      if (c1['type'] != c2['type']) return (c1['type'] as WeaponTypes).index - (c2['type'] as WeaponTypes).index;
+      return (c1['weapon_id'] as int) - (c2['weapon_id'] as int);
+    });
+    return result;
+  }
+
+  static List<Map<String, Object>> getArtifactListByRarityOrder() {
+    List<Map<String, Object>> result = [...ARTIFACT];
+    result.sort((c1, c2) {
+      if (c1['rarity'] != c2['rarity']) return (c2['rarity'] as Rarity).index - (c1['rarity'] as Rarity).index;
+      return (c1['artifact_id'] as int) - (c2['artifact_id'] as int);
+    });
+    return result;
   }
 
   static List<String> getRefineNameList() {
@@ -492,7 +511,8 @@ class GsData {
     Stats.CritRate: "暴击率%",
     Stats.CritDmg: "暴击伤害%",
     Stats.Recharge: "元素充能%",
-    Stats.DmgBonus: "元素伤害%",
+    Stats.DmgBonus: '伤害加成%',
+    Stats.EleDmgBonus: "元素伤害%",
     Stats.PhyDmgBonus: '物理伤害%',
     Stats.HealingBonus: "治疗加成%",
     Stats.AttackBonus: '攻击力%',
@@ -501,7 +521,11 @@ class GsData {
     Stats.ShieldStrength: '护盾强效%',
     Stats.ExtraDamage: '额外伤害',
     Stats.ExtraDamageByAttack: '额外伤害（由攻击力结算）',
+    Stats.ExtraDamageByAttackUsed: '额外伤害（由使用者的攻击力结算）',
     Stats.ExtraDamageByHp: '额外伤害（由生命值结算）',
+    Stats.ExtraDmageByDefend: '额外伤害（由使用者的防御力结算）',
+    Stats.ExtraDmageByDefendUsed: '额外伤害（由防御力结算）',
+    Stats.AttackBonusByBaseAttack: '基于基础攻击提升攻击力',
     Stats.AttackBonusByHp: '基于生命值上限提升攻击力',
     Stats.AttackBonusByDefend: '基于防御力提升攻击力',
     Stats.AttackBonusByRecharge: '基于充能效率提升攻击力',
@@ -510,7 +534,7 @@ class GsData {
     Stats.DmgBonusByRechargeOver100: '基于充能效率超出100%的部分提升元素伤害',
     Stats.DmgBonusByHealingForHpExtraDamage: '基于治疗加成提高由生命值结算的额外伤害',
     Stats.DmgBonusByEnergy: '基于元素能量提升元素伤害',
-    Stats.DmgBonusByMastery: '基于元素精通提升元素伤害',
+    Stats.DmgBonusByMastery: '基于使用者的元素精通提升元素伤害',
     Stats.DmgBonusExtra: '额外的伤害提升',
     Stats.DefendDecrease: '减防%',
     Stats.Resistance: '抗性%',
@@ -521,6 +545,8 @@ class GsData {
     Stats.RatioExtra: '额外倍率加成',
     Stats.RatioExtraByAttack: '基于攻击力增加倍率',
     Stats.RatioExtraByMastery: '基于元素精通增加倍率',
+    Stats.MasteryByMastery: '基于元素精通增加元素精通',
+    Stats.CritRateByCritRate: '基于暴击率提高暴击率',
   };
   static const _STATS_NAME_ABBREVATION = {
     Stats.Hp: "生",
@@ -530,42 +556,18 @@ class GsData {
     Stats.CritRate: "暴击",
     Stats.CritDmg: "暴伤",
     Stats.Recharge: "充能",
-    Stats.DmgBonus: "属伤",
+    Stats.EleDmgBonus: "属伤",
     Stats.PhyDmgBonus: '物伤',
     Stats.HealingBonus: "治",
     Stats.AttackBonus: '攻',
     Stats.HpBonus: '生',
     Stats.DefendBonus: '防',
-    Stats.ShieldStrength: '护盾强效',
-    Stats.ExtraDamage: '额外伤害',
-    Stats.ExtraDamageByAttack: '额外伤害（由攻击力结算）',
-    Stats.ExtraDamageByHp: '额外伤害（由生命值结算）',
-    Stats.ExtraDmageByDefend: '额外伤害（由防御力结算）',
-    Stats.AttackBonusByHp: '基于生命值上限提升攻击力',
-    Stats.AttackBonusByDefend: '基于防御力提升攻击力',
-    Stats.AttackBonusByRecharge: '基于充能效率提升攻击力',
-    Stats.AttackBonusByRechargeOver100: '基于充能效率超出100%的部分提升攻击力',
-    Stats.DmgBonusByRecharge: '基于充能效率提升元素伤害',
-    Stats.DmgBonusByRechargeOver100: '基于充能效率超出100%的部分提升元素伤害',
-    Stats.DmgBonusByHealingForHpExtraDamage: '基于治疗加成提高由生命值结算的额外元素伤害',
-    Stats.DmgBonusByEnergy: '基于元素能量提升元素伤害',
-    Stats.DmgBonusByMastery: '基于元素精通提升元素伤害',
-    Stats.DmgBonusExtra: '额外的伤害提升',
-    Stats.DefendDecrease: '减防',
-    Stats.Resistance: '抗性',
-    Stats.ResistanceDecreaseElement: '元素抗性减抗%',
-    Stats.ResistanceDecreasePhysical: '物理抗性减抗%',
-    Stats.VaporizeBonus: '蒸发系数加成',
-    Stats.MeltBonus: '融化系数加成',
-    Stats.RatioExtra: '额外倍率加成',
-    Stats.RatioExtraByAttack: '基于攻击力增加倍率',
-    Stats.RatioExtraByMastery: '基于元素精通增加倍率',
   };
   static const _ARTIFACT_EACH_MAIN_STAT = {
     ArtifactPosition.Flower: [Stats.Hp],
     ArtifactPosition.Plume: [Stats.Attack],
     ArtifactPosition.Sands: [Stats.HpBonus, Stats.AttackBonus, Stats.DefendBonus, Stats.Mastery, Stats.Recharge],
-    ArtifactPosition.Goblet: [Stats.HpBonus, Stats.AttackBonus, Stats.DefendBonus, Stats.Mastery, Stats.DmgBonus, Stats.PhyDmgBonus],
+    ArtifactPosition.Goblet: [Stats.HpBonus, Stats.AttackBonus, Stats.DefendBonus, Stats.Mastery, Stats.EleDmgBonus, Stats.PhyDmgBonus],
     ArtifactPosition.Circlet: [Stats.HpBonus, Stats.AttackBonus, Stats.DefendBonus, Stats.Mastery, Stats.CritRate, Stats.CritDmg, Stats.HealingBonus],
   };
   static const _ARTIFACT_SUB_STAT = [
@@ -608,7 +610,7 @@ class GsData {
     Stats.CritRate: 31.1,
     Stats.CritDmg: 62.2,
     Stats.Recharge: 51.8,
-    Stats.DmgBonus: 46.6,
+    Stats.EleDmgBonus: 46.6,
     Stats.PhyDmgBonus: 58.3,
     Stats.HealingBonus: 35.9,
   };
@@ -639,6 +641,8 @@ class GsData {
   };
   static const _BUFF_TYPE_NAME = {
     BuffType.BuffForMe: '为自己施加buff',
+    BuffType.BuffForTeam: '为全队施加buff',
+    BuffType.BuffForTeamWithoutMe: '为队友施加buff（除了自己）',
     BuffType.DebuffForMe: '为自己施加debuff',
     BuffType.DebuffForEnemy: '为敌人施加debuff',
   };
@@ -648,6 +652,7 @@ class GsData {
     DamageType.Charged: '重击',
     DamageType.Plunging: '下落攻击',
     DamageType.SkillE: '元素战技',
+    DamageType.SkillESpecial: '元素战技（特殊）',
     DamageType.SkillQ: '元素爆发',
     DamageType.SkillQSpecial: '元素爆发（特殊）',
   };
@@ -705,6 +710,7 @@ enum Stats {
   CritDmg,
   Recharge,
   DmgBonus,
+  EleDmgBonus,
   PhyDmgBonus,
   HealingBonus,
   AttackBonus,
@@ -713,8 +719,11 @@ enum Stats {
   ShieldStrength,
   ExtraDamage,
   ExtraDamageByAttack,
+  ExtraDamageByAttackUsed,
   ExtraDamageByHp,
   ExtraDmageByDefend,
+  ExtraDmageByDefendUsed,
+  AttackBonusByBaseAttack,
   AttackBonusByHp,
   AttackBonusByDefend,
   AttackBonusByRecharge,
@@ -734,14 +743,16 @@ enum Stats {
   RatioExtra,
   RatioExtraByAttack,
   RatioExtraByMastery,
+  MasteryByMastery,
+  CritRateByCritRate,
 }
 enum WeaponTypes { Sword, Claymore, Polearm, Bow, Catalyst }
 enum Rarity { Star3, Star4, Special, Star5 }
 enum Refine { Refine1, Refine2, Refine3, Refine4, Refine5 }
 enum Constellation { Con0, Con1, Con2, Con3, Con4, Con5, Con6 }
-enum DamageType { All, Normal, Charged, Plunging, SkillE, SkillQ, SkillQSpecial }
+enum DamageType { All, Normal, Charged, Plunging, SkillE, SkillESpecial, SkillQ, SkillQSpecial }
 enum SkillType { Passive, SkillA, SkillE, SkillQ }
-enum BuffType { BuffForMe, DebuffForMe, DebuffForEnemy }
+enum BuffType { BuffForMe, BuffForTeam, BuffForTeamWithoutMe, DebuffForMe, DebuffForEnemy }
 enum SkillElementType { Both, Element, Physical }
 enum ElementReactionType { Vaporize, Melt }
 enum ArtifactSetType { Set2, Set4 }
