@@ -2671,4 +2671,80 @@ const WEAPONS = [
       ['20%', '25%', '30%', '35%', '40%'],
     ],
   },
+  {
+    'name': '若水',
+    'weapon_id': 98,
+    'type': WeaponTypes.Bow,
+    'rarity': Rarity.Star5,
+    'baseAttack': 542.0,
+    'subStat': Stats.CritDmg,
+    'subStatValue': 88.2,
+    'specialEffect': [
+      {
+        'stat': Stats.HpBonus,
+        'value': [16.0, 20.0, 24.0, 28.0, 32.0],
+        'always': true,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
+      },
+      {
+        'stat': Stats.DmgBonus,
+        'value': [20.0, 25.0, 30.0, 35.0, 40.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
+      },
+    ],
+    'specialEffectComment': '生命值提升%s。周围存在敌人时，装备该武器的角色造成的伤害都会提升%s，不论该角色处于场上或是处于队伍后台。',
+    'specialEffectCommentArguments': [
+      ['16%', '20%', '24%', '28%', '32%'],
+      ['20%', '25%', '30%', '35%', '40%'],
+    ],
+  },
+  {
+    'name': '落霞',
+    'weapon_id': 99,
+    'type': WeaponTypes.Bow,
+    'rarity': Rarity.Star4,
+    'baseAttack': 565.0,
+    'subStat': Stats.Recharge,
+    'subStatValue': 30.6,
+    'specialEffect': [
+      {
+        'stat': Stats.DmgBonus,
+        'value': [6.0, 7.5, 9.0, 10.5, 12.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
+      },
+      {
+        'stat': Stats.DmgBonus,
+        'value': [10.0, 12.5, 15.0, 17.5, 20.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
+      },
+      {
+        'stat': Stats.DmgBonus,
+        'value': [14.0, 17.5, 21.0, 24.5, 28.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
+      },
+    ],
+    'specialEffectComment': '具有夕暮、流霞、朝晖三种状态，分别能使造成的伤害提升%s。攻击命中敌人后，将转换为下一种状态，每7秒至多转换一次状态。装备该武器的角色处于队伍后台时该效果依旧能触发转换。',
+    'specialEffectCommentArguments': [
+      ['6%/10%/14%', '7.5%/12.5%/17.5%', '9%/15%/21%', '10.5%/17.5%/24.5%', '12%/20%/28%'],
+    ],
+  },
 ];

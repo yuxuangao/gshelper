@@ -2878,4 +2878,126 @@ const CONSTELLATIONS = {
       ],
     },
   },
+  51: {
+    Constellation.Con1: {
+      'name': '与谋者，以局入局',
+      'description': '萦络纵命索的可使用次数增加1次。',
+      'buff': [],
+      'hit': [],
+    },
+    Constellation.Con2: {
+      'name': '入彀者，多多益善',
+      'description': '「玄掷玲珑」协同攻击时，会发射一枚额外的水箭，造成相当于夜兰生命值上限14%的水元素伤害。\n该效果每1.8秒至多触发一次。',
+      'buff': [],
+      'hit': [
+        {
+          'name': '水箭伤害',
+          'damageType': DamageType.SkillQ,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': 0.0,
+              'extra': {
+                Stats.ExtraDamageByHp: 14.0,
+              },
+            },
+          ],
+        },
+      ],
+    },
+    Constellation.Con3: {
+      'name': '晃盅者，琼畟药骰',
+      'description': '渊图玲珑骰的技能等级提高3级。\n至多提升至15级。',
+      'buff': [],
+      'hit': [],
+    },
+    Constellation.Con4: {
+      'name': '诓惑者，接树移花',
+      'description': '依照「络命丝」标记敌人的数量，每次标记将在爆发时使队伍中所有角色的生命值上限提升10%，持续25秒。通过这种方式，生命值上限至多获得40%提升。',
+      'buff': [
+        {
+          'stat': Stats.HpBonus,
+          'value': 40.0,
+          'buffType': BuffType.BuffForTeam,
+          'damageType': [
+            DamageType.All,
+          ],
+        },
+      ],
+      'hit': [],
+    },
+    Constellation.Con5: {
+      'name': '坐庄者，三仙戏法',
+      'description': '萦络纵命索的技能等级提高3级。\n至多提升至15级。',
+      'buff': [],
+      'hit': [],
+    },
+    Constellation.Con6: {
+      'name': '取胜者，大小通吃',
+      'description': '施放渊图玲珑骰后，夜兰将进入「运筹帷幄」状态：\n夜兰的普通攻击将转为发射特殊的「破局矢」。这种箭矢具有与破局矢近似的特性，造成的伤害视为重击伤害，能造成破局矢156%的伤害。\n「运筹帷幄」状态至多持续20秒，将在夜兰发射5枚箭矢后移除。',
+      'buff': [],
+      'hit': [],
+    },
+  },
+  52: {
+    Constellation.Con1: {
+      'name': '割舍怜悯之心',
+      'description': '御咏鸣神刈山祭的影响范围提升50%。',
+      'buff': [],
+      'hit': [],
+    },
+    Constellation.Con2: {
+      'name': '割舍侥幸之心',
+      'description': '越祓草轮的持续时间延长3秒。',
+      'buff': [],
+      'hit': [],
+    },
+    Constellation.Con3: {
+      'name': '割舍痛苦之心',
+      'description': '越祓雷草之轮的技能等级提高3级。\n至多提升至15级。',
+      'buff': [],
+      'hit': [],
+    },
+    Constellation.Con4: {
+      'name': '割舍封闭之心',
+      'description': '处于久岐忍自己的越祓草轮状态下的角色，在普通攻击、重击或下落攻击命中敌人时，雷草标将落在敌人所在的位置，基于久岐忍生命值上限的9.7%，造成雷元素范围伤害。\n该效果每5秒至多触发一次。',
+      'buff': [],
+      'hit': [
+        {
+          'name': '雷元素范围伤害',
+          'damageType': DamageType.SkillQ,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': 0.0,
+              'extra': {
+                Stats.ExtraDamageByHp: 9.7,
+              },
+            },
+          ],
+        },
+      ],
+    },
+    Constellation.Con5: {
+      'name': '割舍逢迎之心',
+      'description': '御咏鸣神刈山祭的技能等级提高3级。\n至多提升至15级。',
+      'buff': [],
+      'hit': [],
+    },
+    Constellation.Con6: {
+      'name': '割舍软弱之心',
+      'description': '久岐忍承受足以使她倒下的伤害时，此次伤害不会使她倒下，这个效果在久岐忍生命值为1时会自动触发，该效果每60秒只能触发一次。\n久岐忍生命值降至25%以下时，会提升自身150点精通，持续15秒，该效果每60秒只能触发一次。',
+      'buff': [
+        {
+          'stat': Stats.Mastery,
+          'value': 150.0,
+          'buffType': BuffType.BuffForMe,
+          'damageType': [
+            DamageType.All,
+          ],
+        },
+      ],
+      'hit': [],
+    },
+  },
 };
