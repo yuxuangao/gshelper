@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 
-import '../common/const.dart';
 import '../data/data.dart';
 
 class DatabaseCharacterListPage extends StatefulWidget {
@@ -21,7 +21,7 @@ class _DatabaseCharacterListPage extends State<DatabaseCharacterListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(Const.TITLE_DATABASE_CHARACTER),
+        title: Text('t_database_character').tr(),
         bottomOpacity: 0,
       ),
       body: SingleChildScrollView(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:loader_overlay/loader_overlay.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import '../common/const.dart';
 import '../common/localdata.dart';
@@ -43,7 +44,7 @@ class _TeamEditPage extends State<TeamEditPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(_editMode ? Const.TITLE_TEAM_EDIT : Const.TITLE_TEAM_ADD),
+        title: Text(_editMode ? 't_team_edit'.tr() : 't_team_add'.tr()),
         bottomOpacity: 0,
         leading: IconButton(
           onPressed: () async {

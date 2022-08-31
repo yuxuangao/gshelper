@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:loader_overlay/loader_overlay.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import 'page/home.dart';
 import 'page/artifact.dart';
@@ -22,9 +22,19 @@ import 'page/databaseartifactdetail.dart';
 import 'page/teamedit.dart';
 import 'common/const.dart';
 
-void main() {
+void main() async {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Colors.transparent));
-  runApp(MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
+
+  runApp(
+    EasyLocalization(
+      supportedLocales: [Locale('en'), Locale('zh')],
+      path: 'assets/translations',
+      fallbackLocale: Locale('zh'),
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -33,7 +43,7 @@ class MyApp extends StatelessWidget {
     return GlobalLoaderOverlay(
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: Const.TITLE,
+        onGenerateTitle: (context) => 't_title'.tr(),
         theme: ThemeData(
           colorScheme: ColorScheme.light(
             primary: Colors.white,
@@ -82,13 +92,9 @@ class MyApp extends StatelessWidget {
             elevation: Const.APP_BAR_ELEVATION,
           ),
         ),
-        localizationsDelegates: [
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-        ],
-        supportedLocales: [
-          const Locale.fromSubtags(languageCode: 'zh'),
-        ],
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
         initialRoute: "/",
         routes: <String, WidgetBuilder>{
           '/': (BuildContext context) => HomePage(),

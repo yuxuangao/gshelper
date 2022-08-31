@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:sprintf/sprintf.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import '../data/data.dart';
 import '../common/const.dart';
@@ -84,7 +85,7 @@ class _DatabaseCharacterDetailPage extends State<DatabaseCharacterDetailPage> {
             expandedHeight: 140.0,
             backgroundColor: Theme.of(context).colorScheme.secondary,
             foregroundColor: Theme.of(context).colorScheme.onSecondary,
-            title: Text(Const.TITLE_DATABASE_CHARACTER_DETAIL),
+            title: Text('t_database_character_detail').tr(),
             flexibleSpace: FlexibleSpaceBar(
               background: Container(
                 padding: EdgeInsets.fromLTRB(20, 110, 20, 5),
@@ -220,7 +221,7 @@ class _DatabaseCharacterDetailPage extends State<DatabaseCharacterDetailPage> {
                         ),
                         TextIconButton(
                           icon: Icons.calculate,
-                          label: Const.TITLE_DATABASE_CHARACTER_DAMAGE,
+                          label: 't_database_character_damage'.tr(),
                           onPressed: () {
                             Navigator.pushNamed(context, '/databasecharacterdamage', arguments: _character['character_id']);
                           },

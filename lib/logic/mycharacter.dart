@@ -277,7 +277,7 @@ class MyCharacterCalculator {
       result['stat'] = Stats.ExtraDamage;
       result['value'] = (result['value'] as double) * myCharacterResult.attack / 100;
     }
-    if (result['stat'] == Stats.ExtraDmageByDefendUsed) {
+    if (result['stat'] == Stats.ExtraDamageByDefendUsed) {
       result['stat'] = Stats.ExtraDamage;
       result['value'] = (result['value'] as double) * myCharacterResult.defend / 100;
     }
@@ -351,14 +351,15 @@ class MyCharacterCalculator {
           buff[Stats.AttackBonusByHp] * hp / 100 +
           myCharacterResult.baseAttack * buff[Stats.AttackBonusByRecharge] * (recharge + 100) / 10000 +
           myCharacterResult.baseAttack * buff[Stats.AttackBonusByRechargeOver100] * recharge / 10000;
+      double mastery = myCharacterResult.mastery + buff[Stats.Mastery] + input.mastery;
       double extraDamage = buff[Stats.ExtraDamage] +
           input.extraDmage +
           buff[Stats.ExtraDamageByAttack] * attack / 100 +
           buff[Stats.ExtraDamageByAttackUsed] * attack / 100 +
           (buff[Stats.ExtraDamageByHp]) * hp / 100 * (1 + (buff[Stats.DmgBonusByHealingForHpExtraDamage] * healingBonus / 10000)) +
-          buff[Stats.ExtraDmageByDefend] * defend / 100 +
-          buff[Stats.ExtraDmageByDefendUsed] * defend / 100;
-      double mastery = myCharacterResult.mastery + buff[Stats.Mastery] + input.mastery;
+          buff[Stats.ExtraDamageByDefend] * defend / 100 +
+          buff[Stats.ExtraDamageByDefendUsed] * defend / 100 +
+          buff[Stats.ExtraDamageByMastery] * mastery / 100;
       double elementDamageBonus = myCharacterResult.dmgBonus +
           buff[Stats.EleDmgBonus] +
           buff[Stats.DmgBonus] +
@@ -475,7 +476,7 @@ class MyCharacterCalculator {
                 case Stats.ExtraDamageByHp:
                   extraDamage += extraValue * elementDamageTypeInputMap[hitMap['damageType']].hp / 100;
                   break;
-                case Stats.ExtraDmageByDefend:
+                case Stats.ExtraDamageByDefend:
                   extraDamage += extraValue * elementDamageTypeInputMap[hitMap['damageType']].defend / 100;
                   break;
                 default:

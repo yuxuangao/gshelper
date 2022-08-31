@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sprintf/sprintf.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import '../common/localdata.dart';
 import '../object/mycharacter.dart';
@@ -170,9 +171,9 @@ class _CharacterCardState extends State<_CharacterCard> {
                       Row(
                         children: <Widget>[
                           Text(
-                            '天赋',
+                            'l_talents',
                             style: _getCharacterPropertyTextStyle(),
-                          ),
+                          ).tr(),
                           SizedBox(
                             width: 10,
                           ),
@@ -200,11 +201,11 @@ class _CharacterCardState extends State<_CharacterCard> {
                         height: 20,
                       ),
                       Text(
-                        '备注',
+                        'l_comments',
                         style: TextStyle(
                           fontWeight: FontWeight.w700,
                         ),
-                      ),
+                      ).tr(),
                       Padding(
                         padding: EdgeInsets.fromLTRB(6, 2, 0, 0),
                         child: Text(_myCharacter.nickName),
@@ -298,21 +299,21 @@ class _CharacterCardState extends State<_CharacterCard> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
               TextIconButton(
-                label: '词条数',
+                label: 'l_score'.tr(),
                 icon: Icons.menu_book,
                 onPressed: () {
                   _showArtifactDialog();
                 },
               ),
               TextIconButton(
-                label: '伤害模拟',
+                label: 'l_damage_simulator'.tr(),
                 icon: Icons.calculate,
                 onPressed: () {
                   Navigator.pushNamed(context, '/mycharacterdamage', arguments: {'myCharacter': _myCharacter});
                 },
               ),
               TextIconButton(
-                label: '角色数据',
+                label: 'l_character_data'.tr(),
                 icon: Icons.description,
                 onPressed: () {
                   List<Map<String, Object>> characterList = GsData.getCharacterListByRarityOrder();
@@ -321,7 +322,7 @@ class _CharacterCardState extends State<_CharacterCard> {
                 },
               ),
               TextIconButton(
-                label: '编辑',
+                label: 'l_edit'.tr(),
                 icon: Icons.drive_file_rename_outline,
                 onPressed: () {
                   Navigator.pushNamed(context, "/mycharacteredit", arguments: _myCharacter).then((value) async {
@@ -331,7 +332,7 @@ class _CharacterCardState extends State<_CharacterCard> {
                 },
               ),
               TextIconButton(
-                label: '删除',
+                label: 'l_delete'.tr(),
                 icon: Icons.delete,
                 onPressed: () async {
                   await _delete();
@@ -398,13 +399,13 @@ class _CharacterCardState extends State<_CharacterCard> {
     await showDialog(
       context: context,
       builder: (BuildContext context) => AlertDialog(
-        content: Text('是否删除'),
+        content: Text('m_confirm_delete').tr(),
         actions: <Widget>[
           TextButton(
             onPressed: () {
               Navigator.pop(context);
             },
-            child: Text('取消'),
+            child: Text('l_cancel').tr(),
           ),
           TextButton(
             onPressed: () async {
@@ -412,7 +413,7 @@ class _CharacterCardState extends State<_CharacterCard> {
               await _localData.deleteMyCharacter(_myCharacter.myCharacterId);
               widget.refresh();
             },
-            child: Text('确定'),
+            child: Text('l_ok').tr(),
           ),
         ],
       ),
@@ -423,7 +424,7 @@ class _CharacterCardState extends State<_CharacterCard> {
     await showDialog(
       context: context,
       builder: (BuildContext context) => AlertDialog(
-        title: Text('圣遗物词条数'),
+        title: Text('l_artifact_score').tr(),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: _generateResultArea(),
@@ -433,7 +434,7 @@ class _CharacterCardState extends State<_CharacterCard> {
             onPressed: () {
               Navigator.pop(context);
             },
-            child: Text('关闭'),
+            child: Text('l_close').tr(),
           ),
         ],
       ),
@@ -505,9 +506,9 @@ class _CharacterCardState extends State<_CharacterCard> {
       Padding(
         padding: _getArtifactResultTitleMargin(),
         child: Text(
-          '圣遗物词条数',
+          'l_artifact_score',
           style: _getArtifactTitleTextStyle(),
-        ),
+        ).tr(),
       ),
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -526,9 +527,9 @@ class _CharacterCardState extends State<_CharacterCard> {
       Padding(
         padding: _getArtifactResultTitleMargin(),
         child: Text(
-          '有效词条数',
+          'l_artifact_valid_score',
           style: _getArtifactTitleTextStyle(),
-        ),
+        ).tr(),
       ),
     ];
     result.addAll(validStatResultRows);

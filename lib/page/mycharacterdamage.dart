@@ -4,6 +4,7 @@ import 'package:flutter_picker/flutter_picker.dart';
 import 'package:sprintf/sprintf.dart';
 import 'package:material_segmented_control/material_segmented_control.dart';
 import 'package:mongol/mongol.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import '../common/const.dart';
 import '../common/utils.dart';
@@ -107,7 +108,7 @@ class _MyCharacterDamage extends State<MyCharacterDamage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(Const.TITLE_MY_CHARACTER_DAMAGE),
+        title: Text('t_my_character_damage').tr(),
         bottomOpacity: 0,
         leading: IconButton(
           onPressed: () {

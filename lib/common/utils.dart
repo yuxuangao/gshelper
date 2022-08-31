@@ -49,7 +49,7 @@ class Utils {
       case Stats.AttackBonusByDefend:
         return '%防御力';
       case Stats.AttackBonusByHp:
-        return '%生命值';
+        return '%最大生命值';
       case Stats.AttackBonusByRecharge:
         return '%充能效率';
       case Stats.AttackBonusByRechargeOver100:
@@ -70,9 +70,9 @@ class Utils {
         return '%攻击力';
       case Stats.ExtraDamageByHp:
         return '%生命值';
-      case Stats.ExtraDmageByDefend:
+      case Stats.ExtraDamageByDefend:
         return '%防御力';
-      case Stats.ExtraDmageByDefendUsed:
+      case Stats.ExtraDamageByDefendUsed:
         return '%防御力';
       case Stats.MasteryByMastery:
         return '%元素精通';

@@ -2,6 +2,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_picker/flutter_picker.dart';
 import 'package:loader_overlay/loader_overlay.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import '../common/const.dart';
 import '../common/utils.dart';
@@ -106,7 +107,7 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text(_editMode ? Const.TITLE_MY_CHARACTER_EDIT : Const.TITLE_MY_CHARACTER_ADD),
+          title: Text(_editMode ? 't_my_character_edit'.tr() : 't_my_character_add'.tr()),
           bottomOpacity: 0,
           leading: IconButton(
             onPressed: () async {
@@ -121,11 +122,11 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
             IconButton(
               onPressed: _save,
               icon: Text(
-                '保存',
+                'l_save',
                 style: TextStyle(
                   fontSize: 16,
                 ),
-              ),
+              ).tr(),
               iconSize: 52,
               padding: EdgeInsets.all(2),
             ),
@@ -155,9 +156,9 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                           child: Padding(
                             padding: _getCardTitleMargin(),
                             child: Text(
-                              '角色',
+                              'l_character',
                               style: _getCardTitleStyle(),
-                            ),
+                            ).tr(),
                           ),
                         ),
                         Divider(
@@ -177,7 +178,7 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                     enabledBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(color: _inputErrorFlags.contains(_InputFlags.character) ? Colors.red : Colors.black38)),
                                     labelStyle: TextStyle(color: _inputErrorFlags.contains(_InputFlags.character) ? Colors.red : Colors.black54),
-                                    label: Text("角色"),
+                                    label: Text("l_character").tr(),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
                                   onTap: () {
@@ -206,7 +207,7 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                         borderSide: BorderSide(color: _inputErrorFlags.contains(_InputFlags.level) ? Colors.red : Colors.black38)),
                                     focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Theme.of(context).colorScheme.secondary)),
                                     labelStyle: TextStyle(color: _inputErrorFlags.contains(_InputFlags.level) ? Colors.red : Colors.black54),
-                                    label: Text("等级"),
+                                    label: Text("l_level").tr(),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
                                   onTap: () {
@@ -229,7 +230,7 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                     enabledBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(color: _inputErrorFlags.contains(_InputFlags.constellation) ? Colors.red : Colors.black38)),
                                     labelStyle: TextStyle(color: _inputErrorFlags.contains(_InputFlags.constellation) ? Colors.red : Colors.black54),
-                                    label: Text("命座"),
+                                    label: Text("l_constellations").tr(),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
                                   onTap: () {
@@ -255,7 +256,7 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                     enabledBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(color: _inputErrorFlags.contains(_InputFlags.nickName) ? Colors.red : Colors.black38)),
                                     labelStyle: TextStyle(color: _inputErrorFlags.contains(_InputFlags.nickName) ? Colors.red : Colors.black54),
-                                    label: Text("备注"),
+                                    label: Text("l_comments").tr(),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
                                   onChanged: (text) {
@@ -284,9 +285,9 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                           child: Padding(
                             padding: _getCardTitleMargin(),
                             child: Text(
-                              '武器',
+                              'l_weapon',
                               style: _getCardTitleStyle(),
-                            ),
+                            ).tr(),
                           ),
                         ),
                         Divider(
@@ -305,7 +306,7 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                     enabledBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(color: _inputErrorFlags.contains(_InputFlags.weapon) ? Colors.red : Colors.black38)),
                                     labelStyle: TextStyle(color: _inputErrorFlags.contains(_InputFlags.weapon) ? Colors.red : Colors.black54),
-                                    label: Text("装备武器"),
+                                    label: Text("l_weapon_equipped").tr(),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
                                   onTap: () {
@@ -332,7 +333,7 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                     enabledBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(color: _inputErrorFlags.contains(_InputFlags.refine) ? Colors.red : Colors.black38)),
                                     labelStyle: TextStyle(color: _inputErrorFlags.contains(_InputFlags.refine) ? Colors.red : Colors.black54),
-                                    label: Text("精炼等级"),
+                                    label: Text("l_refine_level").tr(),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
                                   onTap: () {
@@ -354,11 +355,11 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                     ),
                   ),
                 ),
-                _generateArtifactInputCard('生之花', GsData.getArtifactFlowerMainStatNameList(), _InputFlags.artifactFlower, 0),
-                _generateArtifactInputCard('死之羽', GsData.getArtifactPlumeMainStatNameList(), _InputFlags.artifactPlume, 1),
-                _generateArtifactInputCard('时之沙', GsData.getArtifactSandsMainStatNameList(), _InputFlags.artifactSands, 2),
-                _generateArtifactInputCard('空之杯', GsData.getArtifactGobletMainStatNameList(), _InputFlags.artifactGoblet, 3),
-                _generateArtifactInputCard('理之冠', GsData.getArtifactCircletMainStatNameList(), _InputFlags.artifactCirclet, 4),
+                _generateArtifactInputCard('c_a_flower'.tr(), GsData.getArtifactFlowerMainStatNameList(), _InputFlags.artifactFlower, 0),
+                _generateArtifactInputCard('c_a_plume'.tr(), GsData.getArtifactPlumeMainStatNameList(), _InputFlags.artifactPlume, 1),
+                _generateArtifactInputCard('c_a_sands'.tr(), GsData.getArtifactSandsMainStatNameList(), _InputFlags.artifactSands, 2),
+                _generateArtifactInputCard('c_a_goblet'.tr(), GsData.getArtifactGobletMainStatNameList(), _InputFlags.artifactGoblet, 3),
+                _generateArtifactInputCard('c_a_circlet'.tr(), GsData.getArtifactCircletMainStatNameList(), _InputFlags.artifactCirclet, 4),
                 Padding(
                   padding: _getCardMargin(),
                   child: Card(
@@ -370,9 +371,9 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                           child: Padding(
                             padding: _getCardTitleMargin(),
                             child: Text(
-                              '技能等级',
+                              'l_skill_level',
                               style: _getCardTitleStyle(),
-                            ),
+                            ).tr(),
                           ),
                         ),
                         Divider(
@@ -394,7 +395,7 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                     enabledBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(color: _inputErrorFlags.contains(_InputFlags.skillA) ? Colors.red : Colors.black38)),
                                     labelStyle: TextStyle(color: _inputErrorFlags.contains(_InputFlags.skillA) ? Colors.red : Colors.black54),
-                                    label: Text("普通攻击"),
+                                    label: Text("c_st_skilla").tr(),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
                                   onChanged: (text) {
@@ -416,7 +417,7 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                     enabledBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(color: _inputErrorFlags.contains(_InputFlags.skillE) ? Colors.red : Colors.black38)),
                                     labelStyle: TextStyle(color: _inputErrorFlags.contains(_InputFlags.skillE) ? Colors.red : Colors.black54),
-                                    label: Text("元素战技"),
+                                    label: Text("c_st_skille").tr(),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
                                   onChanged: (text) {
@@ -438,7 +439,7 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                                     enabledBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(color: _inputErrorFlags.contains(_InputFlags.skillQ) ? Colors.red : Colors.black38)),
                                     labelStyle: TextStyle(color: _inputErrorFlags.contains(_InputFlags.skillQ) ? Colors.red : Colors.black54),
-                                    label: Text("元素爆发"),
+                                    label: Text("c_st_skillq").tr(),
                                     contentPadding: _getTextFieldPadding(),
                                   ),
                                   onChanged: (text) {
@@ -482,7 +483,7 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                     decoration: InputDecoration(
                       enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: _inputErrorFlags.contains(_inputFlag) ? Colors.red : Colors.black38)),
                       labelStyle: TextStyle(color: _inputErrorFlags.contains(_inputFlag) ? Colors.red : Colors.black54),
-                      label: Text("副词条" + ((index % 8 + 1) / 2).ceil().toString()),
+                      label: Text("l_substat".tr() + " " + ((index % 8 + 1) / 2).ceil().toString()),
                       contentPadding: _getTextFieldPadding(),
                     ),
                     onTap: () {
@@ -507,7 +508,7 @@ class _MyCharacterEditPage extends State<MyCharacterEditPage> {
                     decoration: InputDecoration(
                       enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: _inputErrorFlags.contains(_inputFlag) ? Colors.red : Colors.black38)),
                       labelStyle: TextStyle(color: _inputErrorFlags.contains(_inputFlag) ? Colors.red : Colors.black54),
-                      label: Text("副词条" + ((index % 8 + 1) / 2).ceil().toString()),
+                      label: Text("l_substat".tr() + " " + ((index % 8 + 1) / 2).ceil().toString()),
                       contentPadding: _getTextFieldPadding(),
                     ),
                     onChanged: (text) {

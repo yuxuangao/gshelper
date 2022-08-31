@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import '../common/localdata.dart';
 import '../data/data.dart';
@@ -147,12 +148,12 @@ class _TeamCardState extends State<_TeamCard> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
               TextIconButton(
-                label: '伤害模拟',
+                label: 'l_damage_simulator'.tr(),
                 icon: Icons.calculate,
                 onPressed: _showDamageChooseDialog,
               ),
               TextIconButton(
-                label: '编辑',
+                label: 'l_edit'.tr(),
                 icon: Icons.drive_file_rename_outline,
                 onPressed: () {
                   Navigator.pushNamed(context, '/teamedit', arguments: {
@@ -164,7 +165,7 @@ class _TeamCardState extends State<_TeamCard> {
                 },
               ),
               TextIconButton(
-                label: '删除',
+                label: 'l_delete'.tr(),
                 icon: Icons.delete,
                 onPressed: _delete,
               ),
@@ -179,7 +180,7 @@ class _TeamCardState extends State<_TeamCard> {
     await showDialog(
       context: context,
       builder: (BuildContext context) => AlertDialog(
-        title: Text('选择伤害模拟的角色'),
+        title: Text('l_choose_damage_character').tr(),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: List<Widget>.generate(_myCharacterList.length, (index) {
@@ -210,7 +211,7 @@ class _TeamCardState extends State<_TeamCard> {
             onPressed: () {
               Navigator.pop(context);
             },
-            child: Text('关闭'),
+            child: Text('l_close').tr(),
           ),
         ],
       ),
@@ -221,13 +222,13 @@ class _TeamCardState extends State<_TeamCard> {
     await showDialog(
       context: context,
       builder: (BuildContext context) => AlertDialog(
-        content: Text('是否删除'),
+        content: Text('m_confirm_delete').tr(),
         actions: <Widget>[
           TextButton(
             onPressed: () {
               Navigator.pop(context);
             },
-            child: Text('取消'),
+            child: Text('l_cancel').tr(),
           ),
           TextButton(
             onPressed: () async {
@@ -235,7 +236,7 @@ class _TeamCardState extends State<_TeamCard> {
               await _localData.deleteTeam(widget.team.teamId);
               widget.refresh();
             },
-            child: Text('确定'),
+            child: Text('l_ok').tr(),
           ),
         ],
       ),

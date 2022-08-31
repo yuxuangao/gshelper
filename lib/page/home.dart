@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import '../common/const.dart';
 import '../common/localdata.dart';
@@ -58,7 +59,7 @@ class _HomePage extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(Const.TITLE),
+        title: Text('t_title').tr(),
         bottomOpacity: 0,
       ),
       bottomNavigationBar: StyleProvider(
@@ -70,14 +71,14 @@ class _HomePage extends State<HomePage> {
                 'assets/images/icon_char.png',
                 color: _currentPage == _HomePageBody.MyCharacter ? Theme.of(context).colorScheme.secondary : Colors.black54,
               ),
-              title: Const.TITLE_MY_CHARACTER,
+              title: 't_my_character'.tr(),
             ),
             TabItem(
               icon: Image.asset(
                 'assets/images/icon_artifact.png',
                 color: _currentPage == _HomePageBody.Artifact ? Theme.of(context).colorScheme.secondary : Colors.black54,
               ),
-              title: Const.TITLE_MY_ARTIFACT,
+              title: 't_my_artifact'.tr(),
             ),
             TabItem(
               icon: Container(
@@ -97,14 +98,14 @@ class _HomePage extends State<HomePage> {
                 'assets/images/icon_rep.png',
                 color: _currentPage == _HomePageBody.Team ? Theme.of(context).colorScheme.secondary : Colors.black54,
               ),
-              title: Const.TITLE_MY_TEAM,
+              title: 't_my_team'.tr(),
             ),
             TabItem(
               icon: Image.asset(
                 'assets/images/icon_gadget.png',
                 color: _currentPage == _HomePageBody.Tools ? Theme.of(context).colorScheme.secondary : Colors.black54,
               ),
-              title: Const.TITLE_TOOLS,
+              title: 't_tools'.tr(),
             ),
           ],
           style: TabStyle.fixedCircle,
@@ -206,23 +207,26 @@ class _HomePage extends State<HomePage> {
                       SizedBox(
                         width: 15,
                       ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            Const.TITLE_MY_CHARACTER_ADD,
-                            style: TextStyle(
-                              fontSize: 21,
-                            ),
-                          ),
-                          Text(
-                            '添加一个新的角色',
-                            style: TextStyle(
-                              color: Colors.black54,
-                              fontSize: 13,
-                            ),
-                          ),
-                        ],
+                      Container(
+                        width: 150,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              't_my_character_add',
+                              style: TextStyle(
+                                fontSize: 21,
+                              ),
+                            ).tr(),
+                            Text(
+                              't_my_character_add_description',
+                              style: TextStyle(
+                                color: Colors.black54,
+                                fontSize: 13,
+                              ),
+                            ).tr(),
+                          ],
+                        ),
                       ),
                     ],
                   ),
@@ -264,23 +268,26 @@ class _HomePage extends State<HomePage> {
                       SizedBox(
                         width: 15,
                       ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            Const.TITLE_TEAM_ADD,
-                            style: TextStyle(
-                              fontSize: 21,
-                            ),
-                          ),
-                          Text(
-                            '添加一个新的组队',
-                            style: TextStyle(
-                              color: Colors.black54,
-                              fontSize: 13,
-                            ),
-                          ),
-                        ],
+                      Container(
+                        width: 150,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              't_team_add',
+                              style: TextStyle(
+                                fontSize: 21,
+                              ),
+                            ).tr(),
+                            Text(
+                              't_team_add_description',
+                              style: TextStyle(
+                                color: Colors.black54,
+                                fontSize: 13,
+                              ),
+                            ).tr(),
+                          ],
+                        ),
                       ),
                     ],
                   ),

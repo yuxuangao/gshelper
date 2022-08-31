@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_picker/flutter_picker.dart';
 import 'package:gshelper/data/constellation.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import 'character.dart';
 import 'weapon.dart';
@@ -464,104 +465,105 @@ class GsData {
     Elements.Geo: Color(0xff977d37),
     Elements.Dendro: Color(0xff71b211),
   };
-  static const _ELEMENT_NAME = {
-    Elements.Physical: '物',
-    Elements.Anemo: '风',
-    Elements.Hydro: '水',
-    Elements.Pyro: '火',
-    Elements.Cryo: '冰',
-    Elements.Electro: '雷',
-    Elements.Geo: '岩',
-    Elements.Dendro: '草',
+  static final _ELEMENT_NAME = {
+    Elements.Physical: 'c_e_physical'.tr(),
+    Elements.Anemo: 'c_e_anemo'.tr(),
+    Elements.Hydro: 'c_e_hydro'.tr(),
+    Elements.Pyro: 'c_e_pyro'.tr(),
+    Elements.Cryo: 'c_e_cryo'.tr(),
+    Elements.Electro: 'c_e_electro'.tr(),
+    Elements.Geo: 'c_e_geo'.tr(),
+    Elements.Dendro: 'c_e_dendro'.tr(),
   };
-  static const _ELEMENT_REACTIONS = {
+  static final _ELEMENT_REACTIONS = {
     Elements.Hydro: {
       Elements.Pyro: {
-        'name': '蒸发',
+        'name': 'c_r_vaporize'.tr(),
         'type': ElementReactionType.Vaporize,
         'ratio': 2.0,
       },
     },
     Elements.Pyro: {
       Elements.Hydro: {
-        'name': '蒸发',
+        'name': 'c_r_vaporize'.tr(),
         'type': ElementReactionType.Vaporize,
         'ratio': 1.5,
       },
       Elements.Cryo: {
-        'name': '融化',
+        'name': 'c_r_melt'.tr(),
         'type': ElementReactionType.Melt,
         'ratio': 2.0,
       },
     },
     Elements.Cryo: {
       Elements.Pyro: {
-        'name': '融化',
+        'name': 'c_r_melt'.tr(),
         'type': ElementReactionType.Melt,
         'ratio': 1.5,
       },
     },
   };
 
-  static const _STATS_NAME = {
-    Stats.Hp: "生命值",
-    Stats.Attack: "攻击力",
-    Stats.Defend: "防御力",
-    Stats.Mastery: "元素精通",
-    Stats.CritRate: "暴击率%",
-    Stats.CritDmg: "暴击伤害%",
-    Stats.Recharge: "元素充能%",
-    Stats.DmgBonus: '伤害加成%',
-    Stats.EleDmgBonus: "元素伤害%",
-    Stats.PhyDmgBonus: '物理伤害%',
-    Stats.HealingBonus: "治疗加成%",
-    Stats.AttackBonus: '攻击力%',
-    Stats.HpBonus: '生命值%',
-    Stats.DefendBonus: '防御力%',
-    Stats.ShieldStrength: '护盾强效%',
-    Stats.ExtraDamage: '额外伤害',
-    Stats.ExtraDamageByAttack: '额外伤害（由攻击力结算）',
-    Stats.ExtraDamageByAttackUsed: '额外伤害（由使用者的攻击力结算）',
-    Stats.ExtraDamageByHp: '额外伤害（由生命值结算）',
-    Stats.ExtraDmageByDefend: '额外伤害（由使用者的防御力结算）',
-    Stats.ExtraDmageByDefendUsed: '额外伤害（由防御力结算）',
-    Stats.AttackBonusByBaseAttack: '基于基础攻击提升攻击力',
-    Stats.AttackBonusByHp: '基于生命值上限提升攻击力',
-    Stats.AttackBonusByDefend: '基于防御力提升攻击力',
-    Stats.AttackBonusByRecharge: '基于充能效率提升攻击力',
-    Stats.AttackBonusByRechargeOver100: '基于充能效率超出100%的部分提升攻击力',
-    Stats.DmgBonusByRecharge: '基于充能效率提升元素伤害',
-    Stats.DmgBonusByRechargeOver100: '基于充能效率超出100%的部分提升元素伤害',
-    Stats.DmgBonusByHealingForHpExtraDamage: '基于治疗加成提高由生命值结算的额外伤害',
-    Stats.DmgBonusByEnergy: '基于元素能量提升元素伤害',
-    Stats.DmgBonusByMastery: '基于使用者的元素精通提升元素伤害',
-    Stats.DmgBonusExtra: '额外的伤害提升',
-    Stats.DefendDecrease: '减防%',
-    Stats.Resistance: '抗性%',
-    Stats.ResistanceDecreaseElement: '元素抗性减抗%',
-    Stats.ResistanceDecreasePhysical: '物理抗性减抗%',
-    Stats.VaporizeBonus: '蒸发系数加成%',
-    Stats.MeltBonus: '融化系数加成%',
-    Stats.RatioExtra: '额外倍率加成',
-    Stats.RatioExtraByAttack: '基于攻击力增加倍率',
-    Stats.RatioExtraByMastery: '基于元素精通增加倍率',
-    Stats.MasteryByMastery: '基于元素精通增加元素精通',
-    Stats.CritRateByCritRate: '基于暴击率提高暴击率',
+  static final _STATS_NAME = {
+    Stats.Hp: 'c_s_hp'.tr(),
+    Stats.Attack: 'c_s_attack'.tr(),
+    Stats.Defend: 'c_s_defend'.tr(),
+    Stats.Mastery: 'c_s_mastery'.tr(),
+    Stats.CritRate: 'c_s_crit_rate'.tr(),
+    Stats.CritDmg: 'c_s_crit_dmg'.tr(),
+    Stats.Recharge: 'c_s_recharge'.tr(),
+    Stats.DmgBonus: 'c_s_dmg_bonus%'.tr(),
+    Stats.EleDmgBonus: 'c_s_ele_dmg_bonus'.tr(),
+    Stats.PhyDmgBonus: 'c_s_phy_dmg_bonus'.tr(),
+    Stats.HealingBonus: 'c_s_healing_bonus'.tr(),
+    Stats.AttackBonus: 'c_s_attack_bonus'.tr(),
+    Stats.HpBonus: 'c_s_hp_bonus'.tr(),
+    Stats.DefendBonus: 'c_s_defend_bonus'.tr(),
+    Stats.ShieldStrength: 'c_s_shield_strength'.tr(),
+    Stats.ExtraDamage: 'c_s_extra_damage'.tr(),
+    Stats.ExtraDamageByAttack: 'c_s_extra_damage_by_attack'.tr(),
+    Stats.ExtraDamageByAttackUsed: 'c_s_extra_damage_by_attack_used'.tr(),
+    Stats.ExtraDamageByHp: 'c_s_extra_damage_by_hp'.tr(),
+    Stats.ExtraDamageByDefend: 'c_s_extra_damage_by_defend'.tr(),
+    Stats.ExtraDamageByDefendUsed: 'c_s_extra_damage_by_defend_used'.tr(),
+    Stats.ExtraDamageByMastery: 'c_s_extra_damage_by_mastery'.tr(),
+    Stats.AttackBonusByBaseAttack: 'c_s_attack_bonus_by_base_attack'.tr(),
+    Stats.AttackBonusByHp: 'c_s_attack_bonus_by_hp'.tr(),
+    Stats.AttackBonusByDefend: 'c_s_attack_bonus_by_defend'.tr(),
+    Stats.AttackBonusByRecharge: 'c_s_attack_bonus_by_recharge'.tr(),
+    Stats.AttackBonusByRechargeOver100: 'c_s_attack_bonus_by_recharge_over_100'.tr(),
+    Stats.DmgBonusByRecharge: 'c_s_dmg_bonus_by_recharge'.tr(),
+    Stats.DmgBonusByRechargeOver100: 'c_s_dmg_bonus_by_recharge_over_100'.tr(),
+    Stats.DmgBonusByHealingForHpExtraDamage: 'c_s_dmg_bonus_by_healing_for_hp_extra_damage'.tr(),
+    Stats.DmgBonusByEnergy: 'c_s_dmg_bonus_by_energy'.tr(),
+    Stats.DmgBonusByMastery: 'c_s_dmg_bonus_by_mastery'.tr(),
+    Stats.DmgBonusExtra: 'c_s_dmg_bonus_extra'.tr(),
+    Stats.DefendDecrease: 'c_s_defend_decrease'.tr(),
+    Stats.Resistance: 'c_s_resistance'.tr(),
+    Stats.ResistanceDecreaseElement: 'c_s_resistance_decrease_element'.tr(),
+    Stats.ResistanceDecreasePhysical: 'c_s_resistance_decrease_physical'.tr(),
+    Stats.VaporizeBonus: 'c_s_vaporize_bonus'.tr(),
+    Stats.MeltBonus: 'c_s_melt_bonus'.tr(),
+    Stats.RatioExtra: 'c_s_ratio_extra'.tr(),
+    Stats.RatioExtraByAttack: 'c_s_ratio_extra_by_attack'.tr(),
+    Stats.RatioExtraByMastery: 'c_s_ratio_extra_by_mastery'.tr(),
+    Stats.MasteryByMastery: 'c_s_mastery_by_mastery'.tr(),
+    Stats.CritRateByCritRate: 'c_s_crit_rate_by_crit_rate'.tr(),
   };
-  static const _STATS_NAME_ABBREVATION = {
-    Stats.Hp: "生",
-    Stats.Attack: "攻",
-    Stats.Defend: "防",
-    Stats.Mastery: "精通",
-    Stats.CritRate: "暴击",
-    Stats.CritDmg: "暴伤",
-    Stats.Recharge: "充能",
-    Stats.EleDmgBonus: "属伤",
-    Stats.PhyDmgBonus: '物伤',
-    Stats.HealingBonus: "治",
-    Stats.AttackBonus: '攻',
-    Stats.HpBonus: '生',
-    Stats.DefendBonus: '防',
+  static final _STATS_NAME_ABBREVATION = {
+    Stats.Hp: 'c_sa_hp'.tr(),
+    Stats.Attack: 'c_sa_attack'.tr(),
+    Stats.Defend: 'c_sa_defend'.tr(),
+    Stats.Mastery: 'c_sa_mastery'.tr(),
+    Stats.CritRate: 'c_sa_crit_rate'.tr(),
+    Stats.CritDmg: 'c_sa_crit_dmg'.tr(),
+    Stats.Recharge: 'c_sa_recharge'.tr(),
+    Stats.EleDmgBonus: 'c_sa_ele_dmg_bonus'.tr(),
+    Stats.PhyDmgBonus: 'c_sa_phy_dmg_bonus'.tr(),
+    Stats.HealingBonus: 'c_sa_healing_bonus'.tr(),
+    Stats.AttackBonus: 'c_sa_attack_bonus'.tr(),
+    Stats.HpBonus: 'c_sa_hp_bonus'.tr(),
+    Stats.DefendBonus: 'c_sa_defend_bonus'.tr(),
   };
   static const _ARTIFACT_EACH_MAIN_STAT = {
     ArtifactPosition.Flower: [Stats.Hp],
@@ -582,17 +584,17 @@ class GsData {
     Stats.CritRate,
     Stats.CritDmg
   ];
-  static const _LEVELS = [
+  static final _LEVELS = [
     {
-      'name': '80级',
+      'name': 'c_l_80'.tr(),
       'level': Levels.Lv80,
     },
     {
-      'name': '80级突破',
+      'name': 'c_l_80p'.tr(),
       'level': Levels.Lv80p,
     },
     {
-      'name': '90级',
+      'name': 'c_l_90'.tr(),
       'level': Levels.Lv90,
     },
   ];
@@ -623,44 +625,44 @@ class GsData {
     Stats.CritDmg: 6.6,
     Stats.Recharge: 5.5,
   };
-  static const _REFINE_NAME = {
-    Refine.Refine1: '精炼1阶',
-    Refine.Refine2: '精炼2阶',
-    Refine.Refine3: '精炼3阶',
-    Refine.Refine4: '精炼4阶',
-    Refine.Refine5: '精炼5阶',
+  static final _REFINE_NAME = {
+    Refine.Refine1: 'c_ref_1'.tr(),
+    Refine.Refine2: 'c_ref_2'.tr(),
+    Refine.Refine3: 'c_ref_3'.tr(),
+    Refine.Refine4: 'c_ref_4'.tr(),
+    Refine.Refine5: 'c_ref_5'.tr(),
   };
-  static const _CONSTELLATION_NAME = {
-    Constellation.Con0: '0命',
-    Constellation.Con1: '1命',
-    Constellation.Con2: '2命',
-    Constellation.Con3: '3命',
-    Constellation.Con4: '4命',
-    Constellation.Con5: '5命',
-    Constellation.Con6: '6命',
+  static final _CONSTELLATION_NAME = {
+    Constellation.Con0: 'c_con_0'.tr(),
+    Constellation.Con1: 'c_con_1'.tr(),
+    Constellation.Con2: 'c_con_2'.tr(),
+    Constellation.Con3: 'c_con_3'.tr(),
+    Constellation.Con4: 'c_con_4'.tr(),
+    Constellation.Con5: 'c_con_5'.tr(),
+    Constellation.Con6: 'c_con_6'.tr(),
   };
-  static const _BUFF_TYPE_NAME = {
-    BuffType.BuffForMe: '为自己施加buff',
-    BuffType.BuffForTeam: '为全队施加buff',
-    BuffType.BuffForTeamWithoutMe: '为队友施加buff（除了自己）',
-    BuffType.DebuffForMe: '为自己施加debuff',
-    BuffType.DebuffForEnemy: '为敌人施加debuff',
+  static final _BUFF_TYPE_NAME = {
+    BuffType.BuffForMe: 'c_buff_for_me'.tr(),
+    BuffType.BuffForTeam: 'c_buff_for_team'.tr(),
+    BuffType.BuffForTeamWithoutMe: 'c_buff_for_team_without_me'.tr(),
+    BuffType.DebuffForMe: 'c_debuff_for_me'.tr(),
+    BuffType.DebuffForEnemy: 'c_debuff_for_enemy'.tr(),
   };
-  static const _DAMAGE_TYPE_NAME = {
-    DamageType.All: '全部攻击',
-    DamageType.Normal: '普通攻击',
-    DamageType.Charged: '重击',
-    DamageType.Plunging: '下落攻击',
-    DamageType.SkillE: '元素战技',
-    DamageType.SkillESpecial: '元素战技（特殊）',
-    DamageType.SkillQ: '元素爆发',
-    DamageType.SkillQSpecial: '元素爆发（特殊）',
+  static final _DAMAGE_TYPE_NAME = {
+    DamageType.All: 'c_dt_all'.tr(),
+    DamageType.Normal: 'c_dt_normal'.tr(),
+    DamageType.Charged: 'c_dt_charged'.tr(),
+    DamageType.Plunging: 'c_dt_plunging'.tr(),
+    DamageType.SkillE: 'c_dt_skille'.tr(),
+    DamageType.SkillESpecial: 'c_dt_skille_special'.tr(),
+    DamageType.SkillQ: 'c_dt_skillq'.tr(),
+    DamageType.SkillQSpecial: 'c_dt_skillq_special'.tr(),
   };
-  static const _SKILL_TYPE_NAME = {
-    SkillType.Passive: '被动技能',
-    SkillType.SkillA: '普通攻击',
-    SkillType.SkillE: '元素战技',
-    SkillType.SkillQ: '元素爆发',
+  static final _SKILL_TYPE_NAME = {
+    SkillType.Passive: 'c_st_passive'.tr(),
+    SkillType.SkillA: 'c_st_skilla'.tr(),
+    SkillType.SkillE: 'c_st_skille'.tr(),
+    SkillType.SkillQ: 'c_st_skillq'.tr(),
   };
   static const _RARITY_BACKGROUND_FILE_PATH = {
     Rarity.Star3: 'assets/images/rarity_3.png',
@@ -674,12 +676,12 @@ class GsData {
     Rarity.Star5: 'assets/images/icon_5_stars.png',
     Rarity.Special: 'assets/images/icon_5_stars.png',
   };
-  static const _ARTIFACT_POSITION_NAME = {
-    ArtifactPosition.Flower: '生之花',
-    ArtifactPosition.Plume: '死之羽',
-    ArtifactPosition.Sands: '时之沙',
-    ArtifactPosition.Goblet: '空之杯',
-    ArtifactPosition.Circlet: '理之冠',
+  static final _ARTIFACT_POSITION_NAME = {
+    ArtifactPosition.Flower: 'c_a_flower'.tr(),
+    ArtifactPosition.Plume: 'c_a_plume'.tr(),
+    ArtifactPosition.Sands: 'c_a_sands'.tr(),
+    ArtifactPosition.Goblet: 'c_a_goblet'.tr(),
+    ArtifactPosition.Circlet: 'c_a_circlet'.tr(),
   };
   static const _ELEMENT_FILE_PATH = {
     Elements.Anemo: 'assets/images/e_anemo.png',
@@ -700,7 +702,9 @@ class GsData {
 }
 
 enum Levels { Lv80, Lv80p, Lv90 }
+
 enum Elements { Physical, Anemo, Hydro, Pyro, Cryo, Electro, Geo, Dendro }
+
 enum Stats {
   Hp,
   Attack,
@@ -721,8 +725,9 @@ enum Stats {
   ExtraDamageByAttack,
   ExtraDamageByAttackUsed,
   ExtraDamageByHp,
-  ExtraDmageByDefend,
-  ExtraDmageByDefendUsed,
+  ExtraDamageByDefend,
+  ExtraDamageByDefendUsed,
+  ExtraDamageByMastery,
   AttackBonusByBaseAttack,
   AttackBonusByHp,
   AttackBonusByDefend,
@@ -746,14 +751,25 @@ enum Stats {
   MasteryByMastery,
   CritRateByCritRate,
 }
+
 enum WeaponTypes { Sword, Claymore, Polearm, Bow, Catalyst }
+
 enum Rarity { Star3, Star4, Special, Star5 }
+
 enum Refine { Refine1, Refine2, Refine3, Refine4, Refine5 }
+
 enum Constellation { Con0, Con1, Con2, Con3, Con4, Con5, Con6 }
+
 enum DamageType { All, Normal, Charged, Plunging, SkillE, SkillESpecial, SkillQ, SkillQSpecial }
+
 enum SkillType { Passive, SkillA, SkillE, SkillQ }
+
 enum BuffType { BuffForMe, BuffForTeam, BuffForTeamWithoutMe, DebuffForMe, DebuffForEnemy }
+
 enum SkillElementType { Both, Element, Physical }
+
 enum ElementReactionType { Vaporize, Melt }
+
 enum ArtifactSetType { Set2, Set4 }
+
 enum ArtifactPosition { Flower, Plume, Sands, Goblet, Circlet }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sprintf/sprintf.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import '../object/artifact.dart';
 import '../common/const.dart';
@@ -13,7 +14,7 @@ class ArtifactDetailPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(Const.TITLE_ARTIFACT_DETAIL),
+        title: Text('t_artifact_detail').tr(),
         bottomOpacity: 0,
         leading: IconButton(
           onPressed: () {

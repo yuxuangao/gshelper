@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_picker/flutter_picker.dart';
 import 'package:sprintf/sprintf.dart';
 import 'package:loader_overlay/loader_overlay.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import '../common/const.dart';
 import '../common/utils.dart';
@@ -42,7 +43,7 @@ class _ArtifactPage extends State<ArtifactPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(Const.TITLE_ARTIFACT),
+        title: Text('t_artifact').tr(),
         bottomOpacity: 0,
         leading: IconButton(
           onPressed: () {

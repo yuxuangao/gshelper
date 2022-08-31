@@ -2,9 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:sprintf/sprintf.dart';
+import 'package:easy_localization/easy_localization.dart';
 
-import '../common/const.dart';
 import '../data/data.dart';
 
 class DatabaseArtifactDetailPage extends StatefulWidget {
@@ -54,7 +53,7 @@ class _DatabaseArtifactDetailPage extends State<DatabaseArtifactDetailPage> {
             expandedHeight: 140.0,
             backgroundColor: Theme.of(context).colorScheme.secondary,
             foregroundColor: Theme.of(context).colorScheme.onSecondary,
-            title: Text(Const.TITLE_DATABASE_ARTIFACT_DETAIL),
+            title: Text('t_database_artifact_detail').tr(),
             flexibleSpace: FlexibleSpaceBar(
               background: Container(
                 padding: EdgeInsets.fromLTRB(20, 110, 20, 5),

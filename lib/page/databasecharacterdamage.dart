@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_picker/flutter_picker.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import '../data/data.dart';
 import '../object/mycharacter.dart';
@@ -49,7 +50,7 @@ class _DatabaseCharacterDamagePage extends State<DatabaseCharacterDamagePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(Const.TITLE_DATABASE_CHARACTER_DAMAGE),
+        title: Text('t_database_character_damage').tr(),
         bottomOpacity: 0,
         leading: IconButton(
           onPressed: () async {

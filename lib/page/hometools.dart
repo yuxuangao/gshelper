@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import '../common/const.dart';
 
@@ -13,17 +14,17 @@ class HomeToolsPage extends StatelessWidget {
         children: <Widget>[
           ListTile(
             title: Text(
-              Const.TITLE_DATABASE,
+              't_database',
               style: TextStyle(
                 fontSize: 22,
               ),
-            ),
+            ).tr(),
           ),
           Divider(
             height: 0.5,
           ),
           ListTile(
-            title: Text(Const.TITLE_DATABASE_CHARACTER),
+            title: Text('t_database_character').tr(),
             trailing: Icon(Icons.navigate_next),
             onTap: () {
               Navigator.pushNamed(context, "/databasecharacterlist");
@@ -33,7 +34,7 @@ class HomeToolsPage extends StatelessWidget {
             height: 0.5,
           ),
           ListTile(
-            title: Text(Const.TITLE_DATABASE_WEAPON),
+            title: Text('t_database_weapon').tr(),
             trailing: Icon(Icons.navigate_next),
             onTap: () {
               Navigator.pushNamed(context, "/databaseweaponlist");
@@ -43,7 +44,7 @@ class HomeToolsPage extends StatelessWidget {
             height: 0.5,
           ),
           ListTile(
-            title: Text(Const.TITLE_DATABASE_ARTIFACT),
+            title: Text('t_database_artifact').tr(),
             trailing: Icon(Icons.navigate_next),
             onTap: () {
               Navigator.pushNamed(context, "/databaseartifactlist");
@@ -57,17 +58,17 @@ class HomeToolsPage extends StatelessWidget {
           ),
           ListTile(
             title: Text(
-              Const.TITLE_TOOLS,
+              't_tools',
               style: TextStyle(
                 fontSize: 22,
               ),
-            ),
+            ).tr(),
           ),
           Divider(
             height: 0.5,
           ),
           ListTile(
-            title: Text(Const.TITLE_ARTIFACT),
+            title: Text('t_artifact').tr(),
             trailing: Icon(Icons.navigate_next),
             onTap: () {
               Navigator.pushNamed(context, "/artifact");
@@ -77,7 +78,7 @@ class HomeToolsPage extends StatelessWidget {
             height: 0.5,
           ),
           ListTile(
-            title: Text(Const.TITLE_DAMAGE),
+            title: Text('t_damage').tr(),
             trailing: Icon(Icons.navigate_next),
             onTap: () {
               Navigator.pushNamed(context, "/damage");
@@ -87,7 +88,7 @@ class HomeToolsPage extends StatelessWidget {
             height: 0.5,
           ),
           ListTile(
-            title: Text(Const.TITLE_CODE),
+            title: Text('t_code').tr(),
             trailing: Icon(Icons.navigate_next),
             onTap: () {
               Navigator.pushNamed(context, "/code");
@@ -101,17 +102,17 @@ class HomeToolsPage extends StatelessWidget {
           ),
           ListTile(
             title: Text(
-              '常用网站',
+              't_website',
               style: TextStyle(
                 fontSize: 22,
               ),
-            ),
+            ).tr(),
           ),
           Divider(
             height: 0.5,
           ),
           ListTile(
-            title: Text('非小酋'),
+            title: Text('t_website_feixiaoqiu').tr(),
             trailing: Icon(Icons.navigate_next),
             onTap: () async {
               await _browser.open(url: Uri.parse('https://feixiaoqiu.com/'));
@@ -121,7 +122,7 @@ class HomeToolsPage extends StatelessWidget {
             height: 0.5,
           ),
           ListTile(
-            title: Text('角色数据'),
+            title: Text('t_website_character').tr(),
             trailing: Icon(Icons.navigate_next),
             onTap: () async {
               await _browser.open(url: Uri.parse('https://genshin.honeyhunterworld.com/db/char/characters/?lang=CHS'));
@@ -131,7 +132,7 @@ class HomeToolsPage extends StatelessWidget {
             height: 0.5,
           ),
           ListTile(
-            title: Text('提瓦特大地图'),
+            title: Text('t_website_map').tr(),
             trailing: Icon(Icons.navigate_next),
             onTap: () async {
               await _browser.open(url: Uri.parse('https://webstatic.mihoyo.com/app/ys-map-cn/index.html?bbs_presentation_style=no_header#/map/2'));

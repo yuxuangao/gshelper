@@ -2475,7 +2475,7 @@ const WEAPONS = [
     'subStatValue': 69.0,
     'specialEffect': [
       {
-        'stat': Stats.ExtraDmageByDefend,
+        'stat': Stats.ExtraDamageByDefend,
         'value': [40.0, 50.0, 60.0, 70.0, 80.0],
         'always': false,
         'buffType': BuffType.BuffForMe,
@@ -2509,7 +2509,7 @@ const WEAPONS = [
         ],
       },
       {
-        'stat': Stats.ExtraDmageByDefend,
+        'stat': Stats.ExtraDamageByDefend,
         'value': [40.0, 50.0, 60.0, 70.0, 80.0],
         'always': false,
         'buffType': BuffType.BuffForMe,
@@ -2745,6 +2745,76 @@ const WEAPONS = [
     'specialEffectComment': '具有夕暮、流霞、朝晖三种状态，分别能使造成的伤害提升%s。攻击命中敌人后，将转换为下一种状态，每7秒至多转换一次状态。装备该武器的角色处于队伍后台时该效果依旧能触发转换。',
     'specialEffectCommentArguments': [
       ['6%/10%/14%', '7.5%/12.5%/17.5%', '9%/15%/21%', '10.5%/17.5%/24.5%', '12%/20%/28%'],
+    ],
+  },
+  {
+    'name': '笼钓瓶一心',
+    'weapon_id': 100,
+    'type': WeaponTypes.Sword,
+    'rarity': Rarity.Star4,
+    'baseAttack': 510.0,
+    'subStat': Stats.AttackBonus,
+    'subStatValue': 41.3,
+    'specialEffect': [
+      {
+        'stat': Stats.AttackBonus,
+        'value': [15.0, 15.0, 15.0, 15.0, 15.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
+      },
+    ],
+    'specialEffectComment': '普通攻击、重击或下落攻击命中敌人时，将卷起切落风，造成180%攻击力的范围伤害，并且使攻击力提升15%，持续8秒。该效果每8秒至多触发一次。',
+    'specialEffectCommentArguments': [],
+  },
+  {
+    'name': '猎人之径',
+    'weapon_id': 101,
+    'type': WeaponTypes.Bow,
+    'rarity': Rarity.Star5,
+    'baseAttack': 542.0,
+    'subStat': Stats.CritRate,
+    'subStatValue': 44.1,
+    'specialEffect': [
+      {
+        'stat': Stats.EleDmgBonus,
+        'value': [12.0, 15.0, 18.0, 21.0, 24.0],
+        'always': true,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.All,
+        ],
+      },
+      {
+        'stat': Stats.ExtraDamageByMastery,
+        'value': [160.0, 200.0, 240.0, 280.0, 320.0],
+        'always': false,
+        'buffType': BuffType.BuffForMe,
+        'damageType': [
+          DamageType.Charged,
+        ],
+      },
+    ],
+    'specialEffectComment': '获得%s所有元素伤害加成。重击命中敌人后，将获得「无休止的狩猎」：重击造成的伤害值提高，提高值相当于元素精通数值的%s。该效果将在生效12次或10秒后消失，每12秒至多获得一次无休止的狩猎。',
+    'specialEffectCommentArguments': [
+      ['12%', '15%', '18%', '21%', '24%'],
+      ['160%', '200%', '240%', '280%', '320%'],
+    ],
+  },
+  {
+    'name': '竭泽',
+    'weapon_id': 102,
+    'type': WeaponTypes.Bow,
+    'rarity': Rarity.Star4,
+    'baseAttack': 510.0,
+    'subStat': Stats.Recharge,
+    'subStatValue': 45.9,
+    'specialEffect': [],
+    'specialEffectComment': '施放元素战技后，将触发「沿洄」效果，在攻击命中敌人时造成%s攻击力的范围伤害，该效果将在15秒或触发3次范围伤害后移除。每2秒至多通过这种方式造成一次范围伤害，每12秒至多触发一次沿洄。',
+    'specialEffectCommentArguments': [
+      ['80%', '100%', '120%', '140%', '160%'],
     ],
   },
 ];

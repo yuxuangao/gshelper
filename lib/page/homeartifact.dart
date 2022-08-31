@@ -117,22 +117,26 @@ class _HomeArtifactPage extends State<HomeArtifactPage> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: List.generate(
                               artifact.subStatList.length,
-                              (index) => Column(
-                                children: <Widget>[
-                                  Text(
-                                    GsData.getStatName(artifact.subStatList[index]),
-                                    style: TextStyle(
-                                      color: Colors.black87,
+                              (index) => Flexible(
+                                fit: FlexFit.tight,
+                                child: Column(
+                                  children: <Widget>[
+                                    Text(
+                                      GsData.getStatName(artifact.subStatList[index]),
+                                      style: TextStyle(
+                                        color: Colors.black87,
+                                      ),
                                     ),
-                                  ),
-                                  Text(
-                                    sprintf(Const.STATS_SHOW_INTEGER.contains(artifact.subStatList[index]) ? '%.0f' : '%.1f', [artifact.subValueList[index]]) +
-                                        (Const.STATS_SHOW_PERCENT.contains(artifact.subStatList[index]) ? '%' : ''),
-                                    style: TextStyle(
-                                      color: Colors.black87,
+                                    Text(
+                                      sprintf(Const.STATS_SHOW_INTEGER.contains(artifact.subStatList[index]) ? '%.0f' : '%.1f',
+                                              [artifact.subValueList[index]]) +
+                                          (Const.STATS_SHOW_PERCENT.contains(artifact.subStatList[index]) ? '%' : ''),
+                                      style: TextStyle(
+                                        color: Colors.black87,
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                           ),

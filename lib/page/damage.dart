@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sprintf/sprintf.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import '../common/const.dart';
 import '../common/utils.dart';
@@ -56,7 +57,7 @@ class _DamagePage extends State<DamagePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(Const.TITLE_DAMAGE),
+        title: Text('t_damage').tr(),
         bottomOpacity: 0,
         leading: IconButton(
           onPressed: () {

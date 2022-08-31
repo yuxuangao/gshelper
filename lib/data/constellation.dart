@@ -2319,7 +2319,7 @@ const CONSTELLATIONS = {
             {
               'value': 0.0,
               'extra': {
-                Stats.ExtraDmageByDefend: 30.0,
+                Stats.ExtraDamageByDefend: 30.0,
               },
             },
           ],
@@ -2997,6 +2997,274 @@ const CONSTELLATIONS = {
           ],
         },
       ],
+      'hit': [],
+    },
+  },
+  53: {
+    Constellation.Con1: {
+      'name': '称名少年事件簿',
+      'description': '鹿野院平藏登场后的5秒内，普通攻击的攻击速度提升15%，并获得1层勠心拳的「变格」效果，该效果每10秒最多触发一次。',
+      'buff': [],
+      'hit': [],
+    },
+    Constellation.Con2: {
+      'name': '殊解诸因探案集',
+      'description': '聚风蹴产生的缉拿风穴的牵引效果获得提升，并将持续时间延长至1秒。',
+      'buff': [],
+      'hit': [],
+    },
+    Constellation.Con3: {
+      'name': '暗文隐语谜题册',
+      'description': '勠心拳的技能等级提高3级。\n至多提升至15级。',
+      'buff': [],
+      'hit': [],
+    },
+    Constellation.Con4: {
+      'name': '虚言假说百物语',
+      'description': '在一次聚风蹴中，「聚风真眼」在第一次爆发后，将为鹿野院平藏恢复9点元素能量，此后每次爆发，都将分别为鹿野院平藏额外恢复1.5点元素能量，\n一次聚风蹴，至多通过这种方式为鹿野院平藏恢复13.5点元素能量。',
+      'buff': [],
+      'hit': [],
+    },
+    Constellation.Con5: {
+      'name': '禁室密所大图鉴',
+      'description': '聚风蹴的技能等级提高3级。\n至多提升至15级。',
+      'buff': [],
+      'hit': [],
+    },
+    Constellation.Con6: {
+      'name': '奇想天开捕物帐',
+      'description': '施放勠心拳时，每层「变格」都将为本次勠心拳提升4%暴击率。拥有「正论」时，本次勠心拳的暴击伤害将提升32%。',
+      'buff': [
+        {
+          'stat': Stats.CritRate,
+          'value': 16.0,
+          'buffType': BuffType.BuffForMe,
+          'damageType': [
+            DamageType.SkillE,
+          ],
+        },
+        {
+          'stat': Stats.CritDmg,
+          'value': 32.0,
+          'buffType': BuffType.BuffForMe,
+          'damageType': [
+            DamageType.SkillE,
+          ],
+        },
+      ],
+      'hit': [],
+    },
+  },
+  54: {
+    Constellation.Con1: {
+      'name': '由根须断定肇始',
+      'description': '提纳里重击的暴击率提高15%。',
+      'buff': [
+        {
+          'stat': Stats.CritRate,
+          'value': 15.0,
+          'buffType': BuffType.BuffForMe,
+          'damageType': [
+            DamageType.Charged,
+          ],
+        },
+      ],
+      'hit': [],
+    },
+    Constellation.Con2: {
+      'name': '由茎干剖析来缘',
+      'description': '当识果种雷的识蕴领域中存在敌人时，提纳里获得20%草元素伤害加成。\n识蕴领域持续时间结束或其中不存在敌人后，该效果至多持续6秒。',
+      'buff': [
+        {
+          'stat': Stats.DmgBonus,
+          'value': 20.0,
+          'buffType': BuffType.BuffForMe,
+          'damageType': [
+            DamageType.All,
+          ],
+        },
+      ],
+      'hit': [],
+    },
+    Constellation.Con3: {
+      'name': '由枝节知晓造化',
+      'description': '造生缠藤箭的技能等级提高3级。\n至多提升至15级。',
+      'buff': [],
+      'hit': [],
+    },
+    Constellation.Con4: {
+      'name': '由片叶管窥枯荣',
+      'description': '施放造生缠藤箭时，队伍中附近的所有角色的元素精通提升60点，持续8秒。若造生缠藤箭触发了燃烧、绽放、原激化或蔓激化反应，元素精通将进一步提升60点，并刷新该状态的持续时间。',
+      'buff': [
+        {
+          'stat': Stats.Mastery,
+          'value': 60.0,
+          'buffType': BuffType.BuffForTeam,
+          'damageType': [
+            DamageType.All,
+          ],
+        },
+        {
+          'stat': Stats.Mastery,
+          'value': 60.0,
+          'buffType': BuffType.BuffForTeam,
+          'damageType': [
+            DamageType.All,
+          ],
+        },
+      ],
+      'hit': [],
+    },
+    Constellation.Con5: {
+      'name': '由繁花明了悟觉',
+      'description': '识果种雷的技能等级提高3级。\n至多提升至15级。',
+      'buff': [],
+      'hit': [],
+    },
+    Constellation.Con6: {
+      'name': '由硕实品论应果',
+      'description': '花筥箭所需的蓄力时间减少0.9秒，并在命中后能产生1枚额外的藏蕴花矢，能造成提纳里攻击力150%的伤害。',
+      'buff': [],
+      'hit': [
+        {
+          'name': '藏蕴花矢',
+          'damageType': DamageType.Charged,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': 150.0,
+              'extra': {},
+            },
+          ],
+        },
+      ],
+    },
+  },
+  55: {
+    Constellation.Con1: {
+      'name': '巡护深林',
+      'description': '柯莱处于队伍后台时，元素充能效率提升20%。',
+      'buff': [
+        {
+          'stat': Stats.Recharge,
+          'value': 20.0,
+          'buffType': BuffType.BuffForMe,
+          'damageType': [
+            DamageType.All,
+          ],
+        },
+      ],
+      'hit': [],
+    },
+    Constellation.Con2: {
+      'name': '漫行山薮',
+      'description':
+          '固有天赋「飞叶迴斜」转变为：\n飞叶轮返回时，将为角色赋予固有天赋「飞叶迴斜」的「新叶」状态，持续对身边的敌人造成相当于柯莱攻击力40%的草元素伤害，持续3秒。\n从施放拂花偈叶开始，到此次新叶状态消失前，如果队伍中自己的角色触发了燃烧、原激化、超激化、蔓激化、绽放、超绽放或烈绽放反应，则使此次新叶效果的持续时间延长3秒。\n新叶效果至多通过这种方式延长一次持续时间；在持续期间再次产生新叶效果时，将移除原有的效果。新叶效果造成的伤害视为元素战技伤害。\n需要解锁固有天赋「飞叶迴斜」',
+      'buff': [],
+      'hit': [],
+    },
+    Constellation.Con3: {
+      'name': '夏堇芳菲',
+      'description': '拂花偈叶的技能等级提高3级。\n至多提升至15级。',
+      'buff': [],
+      'hit': [],
+    },
+    Constellation.Con4: {
+      'name': '骞林馈遗',
+      'description': '施放猫猫秘宝时，将使队伍中附近的所有角色（不包括柯莱自己）的元素精通提升60点，持续12秒。',
+      'buff': [
+        {
+          'stat': Stats.Mastery,
+          'value': 60.0,
+          'buffType': BuffType.BuffForTeamWithoutMe,
+          'damageType': [
+            DamageType.All,
+          ],
+        },
+      ],
+      'hit': [],
+    },
+    Constellation.Con5: {
+      'name': '俱象残火',
+      'description': '猫猫秘宝的技能等级提高3级。\n至多提升至15级。',
+      'buff': [],
+      'hit': [],
+    },
+    Constellation.Con6: {
+      'name': '坠镞为林',
+      'description': '飞叶轮命中时，会产生一个迷你柯里安巴，造成相当于柯莱攻击力200%的草元素伤害。\n每次施放拂花偈叶至多产生1次迷你柯里安巴。',
+      'buff': [],
+      'hit': [
+        {
+          'name': '迷你柯里安巴',
+          'damageType': DamageType.SkillE,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': 200.0,
+              'extra': {},
+            },
+          ],
+        },
+      ],
+    },
+  },
+  56: {
+    Constellation.Con1: {
+      'name': '追加投资',
+      'description': '断除烦恼炮命中后产生的售后服务弹增加1枚。',
+      'buff': [],
+      'hit': [],
+    },
+    Constellation.Con2: {
+      'name': '特许经营',
+      'description': '在战斗状态中，当灯中幽精为相连的角色进行治疗时，将从该角色处发射一枚镇灵炮，造成相当于多莉攻击力50%的伤害。',
+      'buff': [],
+      'hit': [
+        {
+          'name': '镇灵炮',
+          'damageType': DamageType.SkillQ,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': 50.0,
+              'extra': {},
+            },
+          ],
+        },
+      ],
+    },
+    Constellation.Con3: {
+      'name': '百巧千奇',
+      'description': '卡萨扎莱宫的无微不至的技能等级提高3级。\n至多提升至15级。',
+      'buff': [],
+      'hit': [],
+    },
+    Constellation.Con4: {
+      'name': '酌盈剂虚',
+      'description': '与灯中幽精相连的角色，依据当前的生命值与元素能量，获得以下提升：\n·生命值低于50%时，提升50%受治疗加成；\n·元素能量低于50%时，提升30%元素充能效率。',
+      'buff': [
+        {
+          'stat': Stats.Recharge,
+          'value': 30.0,
+          'buffType': BuffType.BuffForTeam,
+          'damageType': [
+            DamageType.All,
+          ],
+        },
+      ],
+      'hit': [],
+    },
+    Constellation.Con5: {
+      'name': '物超所值',
+      'description': '镇灵之灯·烦恼解决炮的技能等级提高3级。\n至多提升至15级。',
+      'buff': [],
+      'hit': [],
+    },
+    Constellation.Con6: {
+      'name': '漫掷万镒',
+      'description': '多莉施放镇灵之灯·烦恼解决炮后的3秒内，将获得以下效果：\n·雷元素附魔；\n·普通攻击命中敌人时，为队伍中附近的所有角色恢复相当于多莉生命值上限4%的生命值，每0.1秒至多通过这种方式恢复一次生命值。',
+      'buff': [],
       'hit': [],
     },
   },

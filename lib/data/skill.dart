@@ -10421,7 +10421,7 @@ const SKILLS = {
             {
               'value': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
               'extra': {
-                Stats.ExtraDmageByDefend: [133.6, 143.62, 153.64, 167.0, 177.02, 187.04, 200.4, 213.76, 227.12, 240.48, 253.84, 267.2, 283.9, 300.6, 317.3],
+                Stats.ExtraDamageByDefend: [133.6, 143.62, 153.64, 167.0, 177.02, 187.04, 200.4, 213.76, 227.12, 240.48, 253.84, 267.2, 283.9, 300.6, 317.3],
               },
             },
           ],
@@ -10991,7 +10991,7 @@ const SKILLS = {
             {
               'value': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
               'extra': {
-                Stats.ExtraDmageByDefend: [120.0, 129.0, 138.0, 150.0, 159.0, 168.0, 180.0, 192.0, 204.0, 216.0, 228.0, 240.0, 255.0, 270.0, 285.0],
+                Stats.ExtraDamageByDefend: [120.0, 129.0, 138.0, 150.0, 159.0, 168.0, 180.0, 192.0, 204.0, 216.0, 228.0, 240.0, 255.0, 270.0, 285.0],
               },
             },
           ],
@@ -11131,7 +11131,7 @@ const SKILLS = {
         'description': '基于防御力，五郎的以下攻击造成的伤害提高：\n• 犬坂吠吠方圆阵的技能伤害提高值：防御力的156%；\n• 兽牙逐突形胜战法的技能伤害与岩晶崩破伤害提高值：防御力的15.6%。',
         'buff': [
           {
-            'stat': Stats.ExtraDmageByDefend,
+            'stat': Stats.ExtraDamageByDefend,
             'value': 156.0,
             'buffType': BuffType.BuffForMe,
             'damageType': [
@@ -11139,7 +11139,7 @@ const SKILLS = {
             ],
           },
           {
-            'stat': Stats.ExtraDmageByDefend,
+            'stat': Stats.ExtraDamageByDefend,
             'value': 15.6,
             'buffType': BuffType.BuffForMe,
             'damageType': [
@@ -11320,7 +11320,7 @@ const SKILLS = {
             {
               'value': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
               'extra': {
-                Stats.ExtraDmageByDefend: [
+                Stats.ExtraDamageByDefend: [
                   98.22,
                   105.58,
                   112.95,
@@ -11349,7 +11349,7 @@ const SKILLS = {
             {
               'value': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
               'extra': {
-                Stats.ExtraDmageByDefend: [61.30, 65.90, 70.50, 76.63, 81.22, 85.82, 91.95, 98.08, 104.21, 110.34, 116.47, 122.60, 130.26, 137.93, 145.59],
+                Stats.ExtraDamageByDefend: [61.30, 65.90, 70.50, 76.63, 81.22, 85.82, 91.95, 98.08, 104.21, 110.34, 116.47, 122.60, 130.26, 137.93, 145.59],
               },
             },
           ],
@@ -11387,7 +11387,7 @@ const SKILLS = {
         'description': '「荒泷逆袈裟」造成的伤害提高，伤害提高值基于荒泷一斗防御力的35%。',
         'buff': [
           {
-            'stat': Stats.ExtraDmageByDefend,
+            'stat': Stats.ExtraDamageByDefend,
             'value': 35.0,
             'buffType': BuffType.BuffForMe,
             'damageType': [
@@ -11913,7 +11913,7 @@ const SKILLS = {
         'description': '「飞云旗阵」提供的普通攻击伤害提高，当队伍中存在1/2/3/4种元素类型的角色时，数值上进一步追加云堇防御力的2.5%/5%/7.5%/11.5%。',
         'buff': [
           {
-            'stat': Stats.ExtraDmageByDefend,
+            'stat': Stats.ExtraDamageByDefend,
             'value': 2.5,
             'buffType': BuffType.BuffForTeam,
             'damageType': [
@@ -11921,7 +11921,7 @@ const SKILLS = {
             ],
           },
           {
-            'stat': Stats.ExtraDmageByDefend,
+            'stat': Stats.ExtraDamageByDefend,
             'value': 5.0,
             'buffType': BuffType.BuffForTeam,
             'damageType': [
@@ -11929,7 +11929,7 @@ const SKILLS = {
             ],
           },
           {
-            'stat': Stats.ExtraDmageByDefend,
+            'stat': Stats.ExtraDamageByDefend,
             'value': 7.5,
             'buffType': BuffType.BuffForTeam,
             'damageType': [
@@ -11937,7 +11937,7 @@ const SKILLS = {
             ],
           },
           {
-            'stat': Stats.ExtraDmageByDefend,
+            'stat': Stats.ExtraDamageByDefend,
             'value': 11.5,
             'buffType': BuffType.BuffForTeam,
             'damageType': [
@@ -12082,7 +12082,23 @@ const SKILLS = {
             {
               'value': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
               'extra': {
-                Stats.ExtraDmageByDefend: [149.12, 160.3, 171.49, 186.4, 197.58, 208.77, 223.68, 238.59, 253.5, 268.42, 283.33, 298.24, 316.88, 335.52, 354.16],
+                Stats.ExtraDamageByDefend: [
+                  149.12,
+                  160.3,
+                  171.49,
+                  186.4,
+                  197.58,
+                  208.77,
+                  223.68,
+                  238.59,
+                  253.5,
+                  268.42,
+                  283.33,
+                  298.24,
+                  316.88,
+                  335.52,
+                  354.16
+                ],
               },
             },
           ],
@@ -12095,7 +12111,7 @@ const SKILLS = {
             {
               'value': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
               'extra': {
-                Stats.ExtraDmageByDefend: [
+                Stats.ExtraDamageByDefend: [
                   260.96,
                   280.53,
                   300.1,
@@ -12124,7 +12140,7 @@ const SKILLS = {
             {
               'value': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
               'extra': {
-                Stats.ExtraDmageByDefend: [372.8, 400.76, 428.72, 466.0, 493.96, 521.92, 559.2, 596.48, 633.76, 671.04, 708.32, 745.6, 792.2, 838.8, 885.4],
+                Stats.ExtraDamageByDefend: [372.8, 400.76, 428.72, 466.0, 493.96, 521.92, 559.2, 596.48, 633.76, 671.04, 708.32, 745.6, 792.2, 838.8, 885.4],
               },
             },
           ],
@@ -12164,7 +12180,7 @@ const SKILLS = {
       'buff': [
         {
           'name': '伤害值提升',
-          'stat': Stats.ExtraDmageByDefendUsed,
+          'stat': Stats.ExtraDamageByDefendUsed,
           'value': [32.16, 34.57, 36.98, 40.2, 42.61, 45.02, 48.24, 51.46, 54.67, 57.89, 61.1, 64.32, 68.34, 72.36, 76.38],
           'buffType': BuffType.BuffForTeam,
           'damageType': [
@@ -13003,7 +13019,7 @@ const SKILLS = {
             'value': 0.25,
             'buffType': BuffType.BuffForMe,
             'damageType': [
-              DamageType.SkillE,
+              DamageType.SkillESpecial,
             ],
           },
         ],
@@ -13133,7 +13149,7 @@ const SKILLS = {
         },
         {
           'name': '越祓草轮伤害',
-          'damageType': DamageType.SkillE,
+          'damageType': DamageType.SkillESpecial,
           'elementType': SkillElementType.Element,
           'value': [
             {
@@ -13259,6 +13275,938 @@ const SKILLS = {
         },
       ],
       'energy': 60,
+    },
+  },
+  53: {
+    SkillType.Passive: [
+      {
+        'name': '在罪之先',
+        'description': '队伍中自己的角色冲刺消耗的体力降低20%。\n无法与效果完全相同的固有天赋叠加。',
+        'buff': [],
+        'hit': [],
+      },
+      {
+        'name': '反论稽古',
+        'description': '鹿野院平藏在场上触发扩散反应时，将获得1层勠心拳的「变格」效果，该效果每0.1秒至多触发一次。',
+        'buff': [],
+        'hit': [],
+      },
+      {
+        'name': '因由勘破',
+        'description': '勠心拳命中敌人后，队伍中所有角色（不包括鹿野院平藏自己）的元素精通提升80点，持续10秒。',
+        'buff': [
+          {
+            'stat': Stats.Mastery,
+            'value': 80.0,
+            'buffType': BuffType.BuffForTeamWithoutMe,
+            'damageType': [
+              DamageType.All,
+            ],
+          },
+        ],
+        'hit': [],
+      },
+    ],
+    SkillType.SkillA: {
+      'name': '普通攻击·不动流格斗术',
+      'description': '普通攻击\n以强风加持的招式与敌人格斗，进行至多五段的攻击，造成风元素伤害。\n重击\n消耗一定体力，使出扬尘踢，造成风元素伤害。\n下落攻击\n凝聚强风的力量，从空中下坠冲击地面，攻击下落路径上的敌人，并在落地时造成风元素范围伤害。',
+      'buff': [],
+      'hit': [
+        {
+          'name': '一段伤害',
+          'damageType': DamageType.Normal,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': [37.47, 40.28, 43.09, 46.84, 49.65, 52.46, 56.21, 59.96, 63.71, 67.45, 71.2, 74.95, 79.63, 84.32, 89.0],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '二段伤害',
+          'damageType': DamageType.Normal,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': [36.85, 39.62, 42.38, 46.06, 48.83, 51.59, 55.28, 58.96, 62.65, 66.33, 70.02, 73.7, 78.31, 82.92, 87.52],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '三段伤害',
+          'damageType': DamageType.Normal,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': [51.06, 54.89, 58.72, 63.82, 67.65, 71.48, 76.59, 81.7, 86.8, 91.91, 97.01, 102.12, 108.5, 114.88, 121.27],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '四段伤害',
+          'damageType': DamageType.Normal,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': [14.78, 15.89, 17.0, 18.48, 19.59, 20.7, 22.17, 23.65, 25.13, 26.61, 28.09, 29.56, 31.41, 33.26, 35.11],
+              'extra': {},
+            },
+            {
+              'value': [16.26, 17.48, 18.7, 20.33, 21.55, 22.77, 24.39, 26.02, 27.64, 29.27, 30.9, 32.52, 34.55, 36.59, 38.62],
+              'extra': {},
+            },
+            {
+              'value': [19.22, 20.66, 22.1, 24.02, 25.46, 26.9, 28.83, 30.75, 32.67, 34.59, 36.51, 38.44, 40.84, 43.24, 45.64],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '五段伤害',
+          'damageType': DamageType.Normal,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': [61.45, 66.06, 70.67, 76.81, 81.42, 86.03, 92.17, 98.32, 104.46, 110.61, 116.75, 122.9, 130.58, 138.26, 145.94],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '重击伤害',
+          'damageType': DamageType.Charged,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': [73.0, 78.47, 83.95, 91.25, 96.72, 102.2, 109.5, 116.8, 124.1, 131.4, 138.7, 146.0, 155.12, 164.25, 173.37],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '下坠期间伤害',
+          'damageType': DamageType.Plunging,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': [56.83, 61.45, 66.08, 72.69, 77.31, 82.6, 89.87, 97.14, 104.41, 112.34, 120.27, 128.2, 136.12, 144.05, 151.98],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '低空坠地冲击伤害',
+          'damageType': DamageType.Plunging,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': [113.63, 122.88, 132.13, 145.35, 154.59, 165.17, 179.7, 194.23, 208.77, 224.62, 240.48, 256.34, 272.19, 288.05, 303.9],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '高空坠地冲击伤害',
+          'damageType': DamageType.Plunging,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': [141.93, 153.49, 165.04, 181.54, 193.1, 206.3, 224.45, 242.61, 260.76, 280.57, 300.37, 320.18, 339.98, 359.79, 379.59],
+              'extra': {},
+            },
+          ],
+        },
+      ],
+      'other': [
+        {
+          'name': '重击体力消耗',
+          'value': ['25', '25', '25', '25', '25', '25', '25', '25', '25', '25', '25', '25', '25', '25', '25'],
+        },
+      ],
+    },
+    SkillType.SkillE: {
+      'name': '勠心拳',
+      'description':
+          '点按\n驱使疾风，向前打出勠心拳，造成风元素伤害。\n长按\n积蓄力量，以施展更为强大的拳势。蓄力期间，将持续获得能提升勠心拳威力的「变格」效果；松开技能或蓄力结束时，会向前打出勠心拳，造成风元素伤害。\n变格\n提升下一次勠心拳造成的伤害，至多叠加4层。\n拥有4层「变格」时，将产生「正论」效果，使下一次勠心拳造成的伤害将进一步提高，并拥有更大的影响范围',
+      'buff': [
+        {
+          'name': '变格伤害提升',
+          'stat': Stats.DmgBonus,
+          'value': [56.88, 61.15, 65.41, 71.1, 75.37, 79.63, 85.32, 91.01, 96.7, 102.38, 108.07, 113.76, 120.87, 127.98, 135.09],
+          'buffType': BuffType.BuffForMe,
+          'damageType': [
+            DamageType.SkillE,
+          ],
+        },
+        {
+          'name': '变格伤害提升',
+          'stat': Stats.DmgBonus,
+          'value': [56.88, 61.15, 65.41, 71.1, 75.37, 79.63, 85.32, 91.01, 96.7, 102.38, 108.07, 113.76, 120.87, 127.98, 135.09],
+          'buffType': BuffType.BuffForMe,
+          'damageType': [
+            DamageType.SkillE,
+          ],
+        },
+        {
+          'name': '变格伤害提升',
+          'stat': Stats.DmgBonus,
+          'value': [56.88, 61.15, 65.41, 71.1, 75.37, 79.63, 85.32, 91.01, 96.7, 102.38, 108.07, 113.76, 120.87, 127.98, 135.09],
+          'buffType': BuffType.BuffForMe,
+          'damageType': [
+            DamageType.SkillE,
+          ],
+        },
+        {
+          'name': '变格伤害提升',
+          'stat': Stats.DmgBonus,
+          'value': [56.88, 61.15, 65.41, 71.1, 75.37, 79.63, 85.32, 91.01, 96.7, 102.38, 108.07, 113.76, 120.87, 127.98, 135.09],
+          'buffType': BuffType.BuffForMe,
+          'damageType': [
+            DamageType.SkillE,
+          ],
+        },
+        {
+          'name': '正论伤害提升',
+          'stat': Stats.DmgBonus,
+          'value': [113.76, 122.29, 130.82, 142.2, 150.73, 159.26, 170.64, 182.02, 193.39, 204.77, 216.14, 227.52, 241.74, 255.96, 270.18],
+          'buffType': BuffType.BuffForMe,
+          'damageType': [
+            DamageType.SkillE,
+          ],
+        },
+      ],
+      'hit': [
+        {
+          'name': '技能伤害',
+          'damageType': DamageType.SkillE,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': [227.52, 244.58, 261.65, 284.4, 301.46, 318.53, 341.28, 364.03, 386.78, 409.54, 432.29, 455.04, 483.48, 511.92, 540.36],
+              'extra': {},
+            },
+          ],
+        },
+      ],
+      'other': [
+        {
+          'name': '变格持续时间',
+          'value': ['60秒', '60秒', '60秒', '60秒', '60秒', '60秒', '60秒', '60秒', '60秒', '60秒', '60秒', '60秒', '60秒', '60秒', '60秒'],
+        },
+        {
+          'name': '冷却时间',
+          'value': ['10秒', '10秒', '10秒', '10秒', '10秒', '10秒', '10秒', '10秒', '10秒', '10秒', '10秒', '10秒', '10秒', '10秒', '10秒'],
+        },
+      ],
+    },
+    SkillType.SkillQ: {
+      'name': '聚风蹴',
+      'description':
+          '腾跃至空中，向敌人踢出不动流·真空弹。不动流·真空弹将在命中时炸裂，产生缉拿风穴，牵引附近的物体与敌人，造成风元素范围伤害。\n不动流·真空弹命中处于水元素/火元素/冰元素/雷元素附着下的敌人时，会为这些敌人施加「聚风真眼」效果，该效果会在片刻后爆发消失，并造成对应元素属性的范围伤害。\n不动流·真空弹至多对4名命中的敌人施加「聚风真眼」；敌人无法同时处于多种元素属性的「聚风真眼」状态下。',
+      'buff': [],
+      'hit': [
+        {
+          'name': '不动流·真空弹伤害',
+          'damageType': DamageType.SkillQ,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': [314.69, 338.29, 361.89, 393.36, 416.96, 440.56, 472.03, 503.5, 534.97, 566.44, 597.91, 629.38, 668.71, 708.05, 747.38],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '聚风真眼伤害',
+          'damageType': DamageType.SkillQ,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': [21.46, 23.07, 24.67, 26.82, 28.43, 30.04, 32.18, 34.33, 36.48, 38.62, 40.77, 42.91, 45.59, 48.28, 50.96],
+              'extra': {},
+            },
+          ],
+        },
+      ],
+      'other': [
+        {
+          'name': '冷却时间',
+          'value': ['12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒'],
+        },
+      ],
+      'energy': 40,
+    },
+  },
+  54: {
+    SkillType.Passive: [
+      {
+        'name': '闳览博物',
+        'description': '在小地图上显示周围的须弥区域特产的位置。',
+        'buff': [],
+        'hit': [],
+      },
+      {
+        'name': '眼识殊明',
+        'description': '提纳里发射花筥箭后，元素精通提升50点，持续4秒。',
+        'buff': [
+          {
+            'stat': Stats.Mastery,
+            'value': 50.0,
+            'buffType': BuffType.BuffForMe,
+            'damageType': [
+              DamageType.All,
+            ],
+          },
+        ],
+        'hit': [],
+      },
+      {
+        'name': '诸叶辨通',
+        'description': '提纳里的每点元素精通，都会使其重击与造生缠藤箭造成的伤害提升0.06%。\n通过这种方式，至多使上述攻击造成的伤害提升60%。',
+        'buff': [
+          {
+            'stat': Stats.DmgBonusByMastery,
+            'value': 0.06,
+            'buffType': BuffType.BuffForMe,
+            'damageType': [
+              DamageType.Charged,
+              DamageType.SkillQ,
+            ],
+          },
+        ],
+        'hit': [],
+      },
+    ],
+    SkillType.SkillA: {
+      'name': '普通攻击·藏蕴破障',
+      'description':
+          '普通攻击\n进行至多四段的连续弓箭射击。\n重击\n进行伤害更高、更为精准的瞄准射击。\n瞄准时，草木的力量会在箭矢上持续积聚，并随攻击发射出去。根据蓄力时间长短，能造成不同的效果：\n·一段蓄力：射出附有草元素的箭矢，造成草元素伤害；\n·二段蓄力：发射花筥箭，造成草元素伤害。命中后，将产生4枚会自行追踪附近敌人的藏蕴花矢，能够造成草元素伤害。\n下落攻击\n从空中射出箭雨，并迅速下坠冲击地面，在落地时造成范围伤害。',
+      'buff': [],
+      'hit': [
+        {
+          'name': '一段伤害',
+          'damageType': DamageType.Normal,
+          'elementType': SkillElementType.Physical,
+          'value': [
+            {
+              'value': [44.63, 48.27, 51.9, 57.09, 60.72, 64.88, 70.58, 76.29, 82.0, 88.23, 94.46, 100.69, 106.91, 113.14, 119.37],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '二段伤害',
+          'damageType': DamageType.Normal,
+          'elementType': SkillElementType.Physical,
+          'value': [
+            {
+              'value': [41.97, 45.38, 48.8, 53.68, 57.1, 61.0, 66.37, 71.74, 77.1, 82.96, 88.82, 94.67, 100.53, 106.38, 112.24],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '三段伤害',
+          'damageType': DamageType.Normal,
+          'elementType': SkillElementType.Physical,
+          'value': [
+            {
+              'value': [26.45, 28.6, 30.75, 33.83, 35.98, 38.44, 41.82, 45.2, 48.59, 52.28, 55.97, 59.65, 63.34, 67.04, 70.72],
+              'extra': {},
+            },
+            {
+              'value': [26.45, 28.6, 30.75, 33.83, 35.98, 38.44, 41.82, 45.2, 48.59, 52.28, 55.97, 59.65, 63.34, 67.04, 70.72],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '四段伤害',
+          'damageType': DamageType.Normal,
+          'elementType': SkillElementType.Physical,
+          'value': [
+            {
+              'value': [68.63, 74.21, 79.8, 87.78, 93.37, 99.75, 108.53, 117.31, 126.08, 135.66, 145.24, 154.81, 164.39, 173.96, 183.54],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '瞄准射击',
+          'damageType': DamageType.Charged,
+          'elementType': SkillElementType.Physical,
+          'value': [
+            {
+              'value': [43.86, 47.43, 51.0, 56.1, 59.67, 63.75, 69.36, 74.97, 80.58, 86.7, 92.82, 98.94, 105.06, 111.18, 117.3],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '一段蓄力瞄准射击',
+          'damageType': DamageType.Charged,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': [124.0, 133.3, 142.6, 155.0, 164.3, 173.6, 186.0, 198.4, 210.8, 223.2, 235.6, 248.0, 263.5, 279.0, 294.5],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '花筥箭伤害',
+          'damageType': DamageType.Charged,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': [87.2, 93.74, 100.28, 109.0, 115.54, 122.08, 130.8, 139.52, 148.24, 156.96, 165.68, 174.4, 185.3, 196.2, 207.1],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '藏蕴花矢伤害',
+          'damageType': DamageType.Charged,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': [38.6, 41.5, 44.39, 48.25, 51.14, 54.04, 57.9, 61.76, 65.62, 69.48, 73.34, 77.2, 82.02, 86.85, 91.68],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '下坠期间伤害',
+          'damageType': DamageType.Plunging,
+          'elementType': SkillElementType.Physical,
+          'value': [
+            {
+              'value': [56.83, 61.45, 66.08, 72.69, 77.31, 82.6, 89.87, 97.14, 104.41, 112.34, 120.27, 128.2, 136.12, 144.05, 151.98],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '低空坠地冲击伤害',
+          'damageType': DamageType.Plunging,
+          'elementType': SkillElementType.Physical,
+          'value': [
+            {
+              'value': [113.63, 122.88, 132.13, 145.35, 154.59, 165.17, 179.7, 194.23, 208.77, 224.62, 240.48, 256.34, 272.19, 288.05, 303.9],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '高空坠地冲击伤害',
+          'damageType': DamageType.Plunging,
+          'elementType': SkillElementType.Physical,
+          'value': [
+            {
+              'value': [141.93, 153.49, 165.04, 181.54, 193.1, 206.3, 224.45, 242.61, 260.76, 280.57, 300.37, 320.18, 339.98, 359.79, 379.59],
+              'extra': {},
+            },
+          ],
+        },
+      ],
+      'other': [],
+    },
+    SkillType.SkillE: {
+      'name': '识果种雷',
+      'description': '提纳里向前投掷识种心雷，造成草元素范围伤害，并产生识蕴领域，神秘的幻象会持续嘲讽其中的敌人，吸引火力。\n此外，提纳里将获得「通塞识」效果，使其花筥箭所需的蓄力时间减少2.4秒，该效果将在持续时间结束或提纳里发射3次花筥箭后消失。',
+      'buff': [],
+      'hit': [
+        {
+          'name': '技能伤害',
+          'damageType': DamageType.SkillE,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': [149.6, 160.82, 172.04, 187.0, 198.22, 209.44, 224.4, 239.36, 254.32, 269.28, 284.24, 299.2, 317.9, 336.6, 355.3],
+              'extra': {},
+            },
+          ],
+        },
+      ],
+      'other': [
+        {
+          'name': '识蕴领域持续时间',
+          'value': ['8秒', '8秒', '8秒', '8秒', '8秒', '8秒', '8秒', '8秒', '8秒', '8秒', '8秒', '8秒', '8秒', '8秒', '8秒'],
+        },
+        {
+          'name': '通塞识持续时间',
+          'value': ['12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒'],
+        },
+        {
+          'name': '冷却时间',
+          'value': ['12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒'],
+        },
+      ],
+    },
+    SkillType.SkillQ: {
+      'name': '造生缠藤箭',
+      'description': '汇聚一切种子的力量，发射6枚能追踪敌人的缠藤箭，造成草元素伤害。\n缠藤箭在命中后，将会产生次级缠藤箭，追踪附近的敌人，并在命中时造成草元素伤害。',
+      'buff': [],
+      'hit': [
+        {
+          'name': '缠藤箭伤害',
+          'damageType': DamageType.SkillQ,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': [55.62, 59.79, 63.96, 69.52, 73.7, 77.87, 83.43, 88.99, 94.55, 100.12, 105.68, 111.24, 118.19, 125.14, 132.1],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '次级缠藤箭伤害',
+          'damageType': DamageType.SkillQ,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': [67.98, 73.08, 78.18, 84.97, 90.07, 95.17, 101.97, 108.77, 115.57, 122.36, 129.16, 135.96, 144.46, 152.95, 161.45],
+              'extra': {},
+            },
+          ],
+        },
+      ],
+      'other': [
+        {
+          'name': '冷却时间',
+          'value': ['12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒'],
+        },
+      ],
+      'energy': 40,
+    },
+  },
+  55: {
+    SkillType.Passive: [
+      {
+        'name': '「须弥飞行冠军」',
+        'description': '队伍中自己的角色滑翔消耗的体力降低20%。\n无法与效果完全相同的固有天赋叠加。',
+        'buff': [],
+        'hit': [],
+      },
+      {
+        'name': '飞叶迴斜',
+        'description':
+            '在飞叶轮返回前，如果队伍中自己的角色触发了燃烧、原激化、超激化、蔓激化、绽放、超绽放或烈绽放反应，则会在返回时为角色赋予「新叶」状态，持续对身边的敌人造成相当于柯莱攻击力40%的草元素伤害，持续3秒。\n新叶效果持续期间再次产生新叶效果时，将移除原有的效果。新叶效果造成的伤害视为元素战技伤害。',
+        'buff': [],
+        'hit': [
+          {
+            'name': '新叶伤害',
+            'damageType': DamageType.SkillE,
+            'elementType': SkillElementType.Element,
+            'value': [
+              {
+                'value': 40.0,
+                'extra': {},
+              },
+            ],
+          },
+        ],
+      },
+      {
+        'name': '徐如旷林',
+        'description': '柯里安巴领域中的角色触发燃烧、原激化、超激化、蔓激化、绽放、超绽放或烈绽放反应时，将使领域的持续时间延长1秒。\n一次猫猫秘宝中，至多通过这种方式延长3次持续时间。',
+        'buff': [],
+        'hit': [],
+      },
+    ],
+    SkillType.SkillA: {
+      'name': '普通攻击·祈颂射艺',
+      'description': '普通攻击\n进行至多四段的连续弓箭射击。\n重击\n进行伤害更高、更为精准的瞄准射击。\n瞄准时，草元素会凭附在箭矢上。聚满了草元素的箭矢会造成草元素伤害。\n下落攻击\n从空中射出箭雨，并迅速下坠冲击地面，在落地时造成范围伤害。',
+      'buff': [],
+      'hit': [
+        {
+          'name': '一段伤害',
+          'damageType': DamageType.Normal,
+          'elementType': SkillElementType.Physical,
+          'value': [
+            {
+              'value': [43.6, 47.15, 50.7, 55.77, 59.32, 63.38, 68.95, 74.53, 80.11, 86.19, 92.27, 98.36, 104.44, 110.53, 116.61],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '二段伤害',
+          'damageType': DamageType.Normal,
+          'elementType': SkillElementType.Physical,
+          'value': [
+            {
+              'value': [42.66, 46.13, 49.6, 54.56, 58.03, 62.0, 67.46, 72.91, 78.37, 84.32, 90.27, 96.22, 102.18, 108.13, 114.08],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '三段伤害',
+          'damageType': DamageType.Normal,
+          'elementType': SkillElementType.Physical,
+          'value': [
+            {
+              'value': [54.09, 58.5, 62.9, 69.19, 73.59, 78.62, 85.54, 92.46, 99.38, 106.93, 114.48, 122.03, 129.57, 137.12, 144.67],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '四段伤害',
+          'damageType': DamageType.Normal,
+          'elementType': SkillElementType.Physical,
+          'value': [
+            {
+              'value': [68.03, 73.56, 79.1, 87.01, 92.55, 98.87, 107.58, 116.28, 124.98, 134.47, 143.96, 153.45, 162.95, 172.44, 181.93],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '瞄准射击',
+          'damageType': DamageType.Charged,
+          'elementType': SkillElementType.Physical,
+          'value': [
+            {
+              'value': [43.86, 47.43, 51.0, 56.1, 59.67, 63.75, 69.36, 74.97, 80.58, 86.7, 92.82, 98.94, 105.06, 111.18, 117.3],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '满蓄力瞄准射击',
+          'damageType': DamageType.Charged,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': [124.0, 133.3, 142.6, 155.0, 164.3, 173.6, 186.0, 198.4, 210.8, 223.2, 235.6, 248.0, 263.5, 279.0, 294.5],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '下坠期间伤害',
+          'damageType': DamageType.Plunging,
+          'elementType': SkillElementType.Physical,
+          'value': [
+            {
+              'value': [56.83, 61.45, 66.08, 72.69, 77.31, 82.6, 89.87, 97.14, 104.41, 112.34, 120.27, 128.2, 136.12, 144.05, 151.98],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '低空坠地冲击伤害',
+          'damageType': DamageType.Plunging,
+          'elementType': SkillElementType.Physical,
+          'value': [
+            {
+              'value': [113.63, 122.88, 132.13, 145.35, 154.59, 165.17, 179.7, 194.23, 208.77, 224.62, 240.48, 256.34, 272.19, 288.05, 303.9],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '高空坠地冲击伤害',
+          'damageType': DamageType.Plunging,
+          'elementType': SkillElementType.Physical,
+          'value': [
+            {
+              'value': [141.93, 153.49, 165.04, 181.54, 193.1, 206.3, 224.45, 242.61, 260.76, 280.57, 300.37, 320.18, 339.98, 359.79, 379.59],
+              'extra': {},
+            },
+          ],
+        },
+      ],
+      'other': [],
+    },
+    SkillType.SkillE: {
+      'name': '拂花偈叶',
+      'description': '投掷飞叶轮，对触及的目标各造成一次草元素伤害。\n飞叶轮将在投掷一定时间后返回，再次造成草元素伤害。',
+      'buff': [],
+      'hit': [
+        {
+          'name': '技能伤害',
+          'damageType': DamageType.SkillE,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': [151.2, 162.54, 173.88, 189.0, 200.34, 211.68, 226.8, 241.92, 257.04, 272.16, 287.28, 302.4, 321.3, 340.2, 359.1],
+              'extra': {},
+            },
+          ],
+        },
+      ],
+      'other': [
+        {
+          'name': '冷却时间',
+          'value': ['12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒'],
+        },
+      ],
+    },
+    SkillType.SkillQ: {
+      'name': '猫猫秘宝',
+      'description': '请可靠的柯里安巴上阵帮忙。\n投掷柯里安巴玩偶，爆发时造成草元素范围伤害，并产生柯里安巴领域。柯里安巴会在领域中不断跃动，造成草元素范围伤害。',
+      'buff': [],
+      'hit': [
+        {
+          'name': '爆发伤害',
+          'damageType': DamageType.SkillQ,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': [201.82, 216.96, 232.1, 252.28, 267.42, 282.55, 302.74, 322.92, 343.1, 363.28, 383.47, 403.65, 428.88, 454.1, 479.33],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '跃动伤害',
+          'damageType': DamageType.SkillQ,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': [43.25, 46.49, 49.74, 54.06, 57.3, 60.55, 64.87, 69.2, 73.52, 77.85, 82.17, 86.5, 91.9, 97.31, 102.71],
+              'extra': {},
+            },
+          ],
+        },
+      ],
+      'other': [
+        {
+          'name': '持续时间',
+          'value': ['6秒', '6秒', '6秒', '6秒', '6秒', '6秒', '6秒', '6秒', '6秒', '6秒', '6秒', '6秒', '6秒', '6秒', '6秒'],
+        },
+        {
+          'name': '冷却时间',
+          'value': ['15秒', '15秒', '15秒', '15秒', '15秒', '15秒', '15秒', '15秒', '15秒', '15秒', '15秒', '15秒', '15秒', '15秒', '15秒'],
+        },
+      ],
+      'energy': 60,
+    },
+  },
+  56: {
+    SkillType.Passive: [
+      {
+        'name': '意外订单',
+        'description': '合成角色与武器培养素材时，有25%的概率返还部分合成材料。',
+        'buff': [],
+        'hit': [],
+      },
+      {
+        'name': '披沙沥金',
+        'description': '与灯中幽精相连的角色在触发感电、超导、超载、原激化、超激化、超绽放、雷元素扩散或雷元素结晶反应后，镇灵之灯·烦恼解决炮的冷却时间缩短1秒。\n该效果每3秒至多触发一次。',
+        'buff': [],
+        'hit': [],
+      },
+      {
+        'name': '利上加利',
+        'description': '镇灵之灯·烦恼解决炮的断除烦恼炮或售后服务弹命中敌人时，基于多莉的元素充能效率，每100%为多莉恢复5点元素能量。\n每次施放镇灵之灯·烦恼解决炮只能通过这种方式恢复一次元素能量，并至多恢复15点元素能量。',
+        'buff': [],
+        'hit': [],
+      },
+    ],
+    SkillType.SkillA: {
+      'name': '普通攻击·妙显剑舞·改',
+      'description': '普通攻击\n进行至多三段的连续挥砍。\n重击\n持续消耗体力，旋转大剑攻击周围的敌人。\n停止旋转时，会进行一次格外有力的挥砍。\n下落攻击\n从空中下坠冲击地面，攻击下落路径上的敌人，并在落地时造成范围伤害。',
+      'buff': [],
+      'hit': [
+        {
+          'name': '一段伤害',
+          'damageType': DamageType.Normal,
+          'elementType': SkillElementType.Both,
+          'value': [
+            {
+              'value': [90.21, 97.56, 104.9, 115.39, 122.73, 131.12, 142.66, 154.2, 165.74, 178.33, 190.92, 203.51, 216.09, 228.68, 241.27],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '二段伤害',
+          'damageType': DamageType.Normal,
+          'elementType': SkillElementType.Both,
+          'value': [
+            {
+              'value': [41.07, 44.42, 47.76, 52.54, 55.88, 59.7, 64.95, 70.21, 75.46, 81.19, 86.92, 92.65, 98.39, 104.12, 109.85],
+              'extra': {},
+            },
+            {
+              'value': [43.12, 46.63, 50.14, 55.15, 58.66, 62.67, 68.19, 73.71, 79.22, 85.24, 91.25, 97.27, 103.29, 109.31, 115.32],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '三段伤害',
+          'damageType': DamageType.Normal,
+          'elementType': SkillElementType.Both,
+          'value': [
+            {
+              'value': [128.4, 138.85, 149.3, 164.23, 174.68, 186.63, 203.05, 219.47, 235.89, 253.81, 271.73, 289.64, 307.56, 325.47, 343.39],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '重击循环伤害',
+          'damageType': DamageType.Charged,
+          'elementType': SkillElementType.Both,
+          'value': [
+            {
+              'value': [62.55, 67.64, 72.73, 80.0, 85.09, 90.91, 98.91, 106.91, 114.91, 123.64, 133.64, 145.4, 157.16, 168.92, 181.75],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '重击终结伤害',
+          'damageType': DamageType.Charged,
+          'elementType': SkillElementType.Both,
+          'value': [
+            {
+              'value': [113.09, 122.29, 131.5, 144.65, 153.86, 164.37, 178.84, 193.31, 207.77, 223.55, 241.63, 262.89, 284.16, 305.42, 328.62],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '下坠期间伤害',
+          'damageType': DamageType.Plunging,
+          'elementType': SkillElementType.Both,
+          'value': [
+            {
+              'value': [74.59, 80.66, 86.73, 95.4, 101.47, 108.41, 117.95, 127.49, 137.03, 147.44, 157.85, 168.26, 178.66, 189.07, 199.48],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '低空坠地冲击伤害',
+          'damageType': DamageType.Plunging,
+          'elementType': SkillElementType.Both,
+          'value': [
+            {
+              'value': [149.14, 161.28, 173.42, 190.77, 202.91, 216.78, 235.86, 254.93, 274.01, 294.82, 315.63, 336.44, 357.25, 378.06, 398.87],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '高空坠地冲击伤害',
+          'damageType': DamageType.Plunging,
+          'elementType': SkillElementType.Both,
+          'value': [
+            {
+              'value': [186.29, 201.45, 216.62, 238.28, 253.44, 270.77, 294.6, 318.42, 342.25, 368.25, 394.24, 420.23, 446.23, 472.22, 498.21],
+              'extra': {},
+            },
+          ],
+        },
+      ],
+      'other': [
+        {
+          'name': '重击体力消耗',
+          'value': ['40/秒', '40/秒', '40/秒', '40/秒', '40/秒', '40/秒', '40/秒', '40/秒', '40/秒', '40/秒', '40/秒', '40/秒', '40/秒', '40/秒', '40/秒'],
+        },
+        {
+          'name': '最大持续时间',
+          'value': ['5秒', '5秒', '5秒', '5秒', '5秒', '5秒', '5秒', '5秒', '5秒', '5秒', '5秒', '5秒', '5秒', '5秒', '5秒'],
+        },
+      ],
+    },
+    SkillType.SkillE: {
+      'name': '镇灵之灯·烦恼解决炮',
+      'description': '示意镇灵之灯向敌人发射断除烦恼炮，造成雷元素伤害。\n断除烦恼炮命中后，将会产生2枚能自行追踪附近敌人的售后服务弹，造成雷元素伤害。',
+      'buff': [],
+      'hit': [
+        {
+          'name': '断除烦恼炮伤害',
+          'damageType': DamageType.SkillE,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': [147.28, 158.33, 169.37, 184.1, 195.15, 206.19, 220.92, 235.65, 250.38, 265.1, 279.83, 294.56, 312.97, 331.38, 349.79],
+              'extra': {},
+            },
+          ],
+        },
+        {
+          'name': '售后服务弹伤害',
+          'damageType': DamageType.SkillE,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': [31.56, 33.93, 36.29, 39.45, 41.82, 44.18, 47.34, 50.5, 53.65, 56.81, 59.96, 63.12, 67.07, 71.01, 74.95],
+              'extra': {},
+            },
+          ],
+        },
+      ],
+      'other': [
+        {
+          'name': '冷却时间',
+          'value': ['9秒', '9秒', '9秒', '9秒', '9秒', '9秒', '9秒', '9秒', '9秒', '9秒', '9秒', '9秒', '9秒', '9秒', '9秒'],
+        },
+      ],
+    },
+    SkillType.SkillQ: {
+      'name': '卡萨扎莱宫的无微不至',
+      'description':
+          '召唤灯中幽精，为顾客提供形形色色的帮助。\n灯中幽精\n会与附近的角色相连。与灯中幽精相连的角色将会：\n·持续恢复生命值，回复量受益于多莉的生命值上限；\n·持续获得元素能量；\n·处于雷元素附着状态下。\n此外，角色与灯中幽精之间的连接触碰敌人时，将每0.4秒对敌人造成一次雷元素伤害。\n同时只能存在一个灯中幽精。',
+      'buff': [],
+      'hit': [
+        {
+          'name': '连接伤害',
+          'damageType': DamageType.SkillQ,
+          'elementType': SkillElementType.Element,
+          'value': [
+            {
+              'value': [15.88, 17.07, 18.26, 19.85, 21.04, 22.24, 23.82, 25.41, 27.0, 28.59, 30.18, 31.76, 33.75, 35.74, 37.72],
+              'extra': {},
+            },
+          ],
+        },
+      ],
+      'other': [
+        {
+          'name': '持续治疗量',
+          'value': [
+            '6.67%最大生命值+641.98',
+            '7.17%最大生命值+706.19',
+            '7.67%最大生命值+775.74',
+            '8.34%最大生命值+850.65',
+            '8.84%最大生命值+930.91',
+            '9.34%最大生命值+1016.52',
+            '10.01%最大生命值+1107.48',
+            '10.67%最大生命值+1203.79',
+            '11.34%最大生命值+1305.45',
+            '12.01%最大生命值+1412.46',
+            '12.67%最大生命值+1524.82',
+            '13.34%最大生命值+1642.54',
+            '14.17%最大生命值+1765.6',
+            '15.01%最大生命值+1894.01',
+            '15.84%最大生命值+2027.78'
+          ],
+        },
+        {
+          'name': '元素能量恢复	',
+          'value': ['1.6', '1.7', '1.8', '1.9', '2', '2.1', '2.2', '2.3', '2.4', '2.5', '2.5', '2.5', '2.5', '2.5', '2.5'],
+        },
+        {
+          'name': '持续时间',
+          'value': ['12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒', '12秒'],
+        },
+        {
+          'name': '冷却时间',
+          'value': ['20秒', '20秒', '20秒', '20秒', '20秒', '20秒', '20秒', '20秒', '20秒', '20秒', '20秒', '20秒', '20秒', '20秒', '20秒'],
+        },
+      ],
+      'energy': 80,
     },
   },
 };

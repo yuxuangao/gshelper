@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sprintf/sprintf.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import '../object/mycharacter.dart';
 import '../common/const.dart';
@@ -14,7 +15,7 @@ class WeaponDetailPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(Const.TITLE_WEAPON_DETAIL),
+        title: Text('t_weapon_detail').tr(),
         bottomOpacity: 0,
         leading: IconButton(
           onPressed: () {

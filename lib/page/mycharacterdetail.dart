@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sprintf/sprintf.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import '../common/const.dart';
 import '../common/utils.dart';
@@ -92,11 +93,11 @@ class _MyCharacterDetailPage extends State<MyCharacterDetailPage> {
               children: <Widget>[
                 ListTile(
                   title: Text(
-                    '基础属性',
+                    'l_stat',
                     style: TextStyle(
                       fontSize: 22,
                     ),
-                  ),
+                  ).tr(),
                 ),
                 _generateStatRow(Stats.Hp, _myCharacterResult.hp),
                 _generateStatRow(Stats.Attack, _myCharacterResult.attack),
@@ -123,11 +124,11 @@ class _MyCharacterDetailPage extends State<MyCharacterDetailPage> {
                 ),
                 ListTile(
                   title: Text(
-                    '技能',
+                    'l_skill',
                     style: TextStyle(
                       fontSize: 22,
                     ),
-                  ),
+                  ).tr(),
                 ),
                 _generateActiveSkillRow(SkillType.SkillA, _myCharacter.skillALevel),
                 _generateActiveSkillRow(SkillType.SkillE, _myCharacter.skillELevel),
@@ -172,11 +173,11 @@ class _MyCharacterDetailPage extends State<MyCharacterDetailPage> {
                 ),
                 ListTile(
                   title: Text(
-                    '命之座',
+                    'l_constellations',
                     style: TextStyle(
                       fontSize: 22,
                     ),
-                  ),
+                  ).tr(),
                 ),
                 Column(
                   children: List.generate(
@@ -354,8 +355,8 @@ class _MyCharacterDetailPage extends State<MyCharacterDetailPage> {
                   height: 10,
                 ),
                 Text(
-                  '技能等级：' + skillLevel.toString() + '级',
-                ),
+                  'l_show_skill_level',
+                ).tr(args: [skillLevel.toString()]),
                 SizedBox(
                   height: 3,
                 ),
@@ -447,7 +448,7 @@ class _MyCharacterDetailPage extends State<MyCharacterDetailPage> {
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-                              Text('元素能量'),
+                              Text('l_energy').tr(),
                               Flexible(
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.stretch,

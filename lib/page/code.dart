@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import '../common/const.dart';
 import '../common/localdata.dart';
@@ -34,7 +35,7 @@ class _CodePage extends State<CodePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(Const.TITLE_CODE),
+        title: Text('t_code').tr(),
         bottomOpacity: 0,
         leading: IconButton(
           onPressed: () {
